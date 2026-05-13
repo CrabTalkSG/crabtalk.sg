@@ -47,16 +47,16 @@ export default function App() {
         body {
           margin: 0;
           font-family: Inter, Arial, Helvetica, sans-serif;
-          background: #05090b;
+          background: #031a1f;
         }
 
         .site {
           min-height: 100vh;
           color: #ffffff;
           background:
-            radial-gradient(circle at 15% 5%, rgba(0, 194, 255, 0.22), transparent 30%),
-            radial-gradient(circle at 90% 15%, rgba(255, 179, 71, 0.12), transparent 28%),
-            linear-gradient(180deg, #05090b 0%, #071a1f 40%, #031114 100%);
+            radial-gradient(circle at 15% 5%, rgba(0, 183, 200, 0.24), transparent 30%),
+            radial-gradient(circle at 90% 15%, rgba(242, 184, 75, 0.14), transparent 28%),
+            linear-gradient(180deg, #031a1f 0%, #06353d 42%, #021013 100%);
           overflow-x: hidden;
         }
 
@@ -68,7 +68,7 @@ export default function App() {
           align-items: center;
           justify-content: space-between;
           padding: 18px 7%;
-          background: rgba(5, 9, 11, 0.78);
+          background: rgba(3, 26, 31, 0.82);
           backdrop-filter: blur(18px);
           border-bottom: 1px solid rgba(255,255,255,0.09);
         }
@@ -86,9 +86,8 @@ export default function App() {
           display: grid;
           place-items: center;
           font-size: 25px;
-          background:
-            linear-gradient(135deg, rgba(0,212,255,1), rgba(0,91,112,1));
-          box-shadow: 0 14px 45px rgba(0, 183, 255, 0.28);
+          background: linear-gradient(135deg, #00b7c8, #007c89);
+          box-shadow: 0 14px 45px rgba(0, 183, 200, 0.28);
         }
 
         .brandName {
@@ -102,7 +101,7 @@ export default function App() {
           font-size: 12px;
           text-transform: uppercase;
           letter-spacing: 1.8px;
-          color: #9fe8ff;
+          color: #00b7c8;
         }
 
         .navLinks {
@@ -122,9 +121,9 @@ export default function App() {
         .navCta {
           padding: 12px 20px;
           border-radius: 999px;
-          color: #031114 !important;
-          background: linear-gradient(135deg, #ffffff, #9fe8ff);
-          box-shadow: 0 14px 42px rgba(0, 183, 255, 0.22);
+          color: #031a1f !important;
+          background: linear-gradient(135deg, #f7fcfd, #00b7c8);
+          box-shadow: 0 14px 42px rgba(0, 183, 200, 0.24);
         }
 
         .hero {
@@ -145,7 +144,7 @@ export default function App() {
           border-radius: 999px;
           background: rgba(255,255,255,0.075);
           border: 1px solid rgba(255,255,255,0.14);
-          color: #9fe8ff;
+          color: #f2b84b;
           font-size: 12px;
           font-weight: 900;
           text-transform: uppercase;
@@ -160,7 +159,7 @@ export default function App() {
         }
 
         .hero h1 span {
-          background: linear-gradient(135deg, #ffffff 0%, #9fe8ff 48%, #ffd28a 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #00b7c8 48%, #f2b84b 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
@@ -197,9 +196,9 @@ export default function App() {
         }
 
         .btnPrimary {
-          color: #031114;
-          background: linear-gradient(135deg, #ffffff, #9fe8ff);
-          box-shadow: 0 18px 46px rgba(0, 183, 255, 0.26);
+          color: #031a1f;
+          background: linear-gradient(135deg, #f7fcfd, #00b7c8);
+          box-shadow: 0 18px 46px rgba(0, 183, 200, 0.28);
         }
 
         .btnDark {
@@ -216,8 +215,8 @@ export default function App() {
           border: 1px solid rgba(255,255,255,0.15);
           background:
             linear-gradient(180deg, rgba(2,8,10,0.05), rgba(2,8,10,0.78)),
-            radial-gradient(circle at 30% 20%, rgba(0,212,255,0.32), transparent 28%),
-            linear-gradient(135deg, #0b3c46, #02090b);
+            radial-gradient(circle at 30% 20%, rgba(0,183,200,0.32), transparent 28%),
+            linear-gradient(135deg, #06353d, #021013);
           box-shadow: 0 38px 110px rgba(0,0,0,0.55);
         }
 
@@ -238,7 +237,7 @@ export default function App() {
           inset: 0;
           background:
             linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.8)),
-            radial-gradient(circle at 75% 10%, rgba(255,255,255,0.18), transparent 22%);
+            radial-gradient(circle at 75% 10%, rgba(242,184,75,0.2), transparent 22%);
         }
 
         .visualBadge {
@@ -248,9 +247,9 @@ export default function App() {
           z-index: 2;
           padding: 12px 16px;
           border-radius: 999px;
-          background: rgba(2,8,10,0.72);
+          background: rgba(3,26,31,0.78);
           border: 1px solid rgba(255,255,255,0.16);
-          color: #dff9ff;
+          color: #f7fcfd;
           font-size: 13px;
           font-weight: 900;
           backdrop-filter: blur(14px);
@@ -264,7 +263,7 @@ export default function App() {
           z-index: 2;
           padding: 28px;
           border-radius: 28px;
-          background: rgba(2,8,10,0.72);
+          background: rgba(3,26,31,0.76);
           border: 1px solid rgba(255,255,255,0.16);
           backdrop-filter: blur(16px);
         }
@@ -300,7 +299,7 @@ export default function App() {
 
         .label {
           margin-bottom: 12px;
-          color: #9fe8ff;
+          color: #f2b84b;
           text-transform: uppercase;
           letter-spacing: 2px;
           font-size: 13px;
@@ -339,8 +338,8 @@ export default function App() {
           overflow: hidden;
           background:
             linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.82)),
-            radial-gradient(circle at 30% 15%, rgba(0,212,255,0.20), transparent 32%),
-            #092932;
+            radial-gradient(circle at 30% 15%, rgba(0,183,200,0.2), transparent 32%),
+            #06353d;
           border: 1px solid rgba(255,255,255,0.13);
           box-shadow: 0 28px 80px rgba(0,0,0,0.33);
           display: flex;
@@ -391,8 +390,8 @@ export default function App() {
         .pill {
           padding: 10px 14px;
           border-radius: 999px;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.16);
+          background: rgba(0,183,200,0.14);
+          border: 1px solid rgba(0,183,200,0.22);
           color: #ffffff;
           font-size: 13px;
           font-weight: 900;
@@ -418,8 +417,8 @@ export default function App() {
           height: 260px;
           background:
             linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.55)),
-            radial-gradient(circle at 30% 15%, rgba(0,212,255,0.25), transparent 32%),
-            #0b3c46;
+            radial-gradient(circle at 30% 15%, rgba(0,183,200,0.25), transparent 32%),
+            #06353d;
           background-image: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.55)), var(--image);
           background-size: cover;
           background-position: center;
@@ -454,7 +453,7 @@ export default function App() {
           padding: 38px;
           border-radius: 34px;
           background:
-            linear-gradient(145deg, rgba(0,212,255,0.14), rgba(255,255,255,0.065));
+            linear-gradient(145deg, rgba(0,183,200,0.16), rgba(255,255,255,0.065));
           border: 1px solid rgba(255,255,255,0.14);
           box-shadow: 0 28px 80px rgba(0,0,0,0.3);
         }
@@ -481,8 +480,8 @@ export default function App() {
           padding: 16px 18px;
           border-radius: 18px;
           color: #ffe2b0;
-          background: rgba(255, 188, 92, 0.11);
-          border: 1px solid rgba(255, 188, 92, 0.24);
+          background: rgba(242, 184, 75, 0.11);
+          border: 1px solid rgba(242, 184, 75, 0.24);
           line-height: 1.65;
           font-size: 14px;
           font-weight: 800;
@@ -520,14 +519,14 @@ export default function App() {
           padding: 92px 7%;
           text-align: center;
           background:
-            linear-gradient(135deg, rgba(0, 183, 255, 0.92), rgba(80, 227, 194, 0.78)),
-            radial-gradient(circle at center, rgba(255,255,255,0.22), transparent 34%);
+            linear-gradient(135deg, rgba(0, 183, 200, 0.95), rgba(0, 124, 137, 0.9)),
+            radial-gradient(circle at center, rgba(242, 184, 75, 0.22), transparent 34%);
         }
 
         .cta h2 {
           max-width: 980px;
           margin: 0 auto 18px;
-          color: #031114;
+          color: #031a1f;
           font-size: clamp(38px, 5vw, 64px);
           line-height: 1.05;
           letter-spacing: -2px;
@@ -536,21 +535,21 @@ export default function App() {
         .cta p {
           max-width: 760px;
           margin: 0 auto 34px;
-          color: #06323a;
+          color: #031a1f;
           font-size: 20px;
           line-height: 1.6;
           font-weight: 700;
         }
 
         .cta .btnPrimary {
-          background: #031114;
+          background: #031a1f;
           color: #ffffff;
           box-shadow: 0 20px 50px rgba(0,0,0,0.22);
         }
 
         .footer {
           padding: 42px 7%;
-          background: #05090b;
+          background: #031a1f;
           color: #a9dce6;
           border-top: 1px solid rgba(255,255,255,0.1);
           display: grid;
@@ -661,7 +660,12 @@ export default function App() {
           <a href="#home">Home Cooking</a>
           <a href="#faikee">Fai Kee</a>
           <a href="#visit">Visit</a>
-          <a className="navCta" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+          <a
+            className="navCta"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             WhatsApp
           </a>
         </div>
@@ -669,20 +673,31 @@ export default function App() {
 
       <section className="hero">
         <div>
-          <div className="eyebrow">Commonwealth Crescent Market · Singapore</div>
+          <div className="eyebrow">31 Commonwealth Crescent · #01-41/42/43</div>
           <h1>
             Premium <span>live seafood</span>, served your way.
           </h1>
           <p className="heroLead">
-            Choose live crabs, lobsters, clams, oysters and fish directly from Crab Talk.
-            Bring them home for cooking, or ask about Fai Kee cooking options nearby.
+            Choose live crabs, lobsters, clams, oysters and fish directly from
+            Crab Talk. Bring them home for cooking, or ask about Fai Kee cooking
+            options nearby.
           </p>
 
           <div className="buttonRow">
-            <a className="btn btnPrimary" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn btnPrimary"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Reserve Today’s Seafood
             </a>
-            <a className="btn btnDark" href={telegramLink} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn btnDark"
+              href={telegramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Join Telegram Drops
             </a>
           </div>
@@ -693,8 +708,8 @@ export default function App() {
           <div className="visualPanel">
             <h2>From tank to table</h2>
             <p>
-              Daily stock changes fast. Message us before coming down for today’s sizes,
-              prices and reservation availability.
+              Daily stock changes fast. Message us before coming down for
+              today’s sizes, prices and reservation availability.
             </p>
           </div>
         </div>
@@ -705,8 +720,9 @@ export default function App() {
           <div className="label">Two Ways to Enjoy</div>
           <h2>Home cooking or cooked by Fai Kee</h2>
           <p>
-            Crab Talk is not just a seafood stall. It is a flexible live seafood experience:
-            buy fresh seafood for your own kitchen, or have selected items cooked nearby.
+            Crab Talk is not just a seafood stall. It is a flexible live seafood
+            experience: buy fresh seafood for your own kitchen, or have selected
+            items cooked nearby.
           </p>
         </div>
 
@@ -720,8 +736,9 @@ export default function App() {
               <div className="label">Option 1</div>
               <h3>Buy for Home Cooking</h3>
               <p>
-                Best for family dinners, weekend seafood feasts and customers who want
-                to cook their own chilli crab, steamed fish or garlic butter lobster.
+                Best for family dinners, weekend seafood feasts and customers
+                who want to cook their own chilli crab, steamed fish or garlic
+                butter lobster.
               </p>
               <div className="pillRow">
                 <span className="pill">Live Crabs</span>
@@ -741,8 +758,9 @@ export default function App() {
               <div className="label">Option 2</div>
               <h3>Cooked by Fai Kee</h3>
               <p>
-                Choose your seafood from Crab Talk and ask about cooking options with
-                Fai Kee Fish Head Bee Hoon. Popular for lobster yee mee and crab dishes.
+                Choose your seafood from Crab Talk and ask about cooking options
+                with Fai Kee Fish Head Bee Hoon. Popular for lobster yee mee and
+                crab dishes.
               </p>
               <div className="pillRow">
                 <span className="pill">Lobster Yee Mee</span>
@@ -760,15 +778,19 @@ export default function App() {
           <div className="label">Fresh Selection</div>
           <h2>Premium seafood categories</h2>
           <p>
-            These are the core seafood categories customers usually ask for. Once your real
-            photos are uploaded, this section will look like a professional seafood brand site.
+            These are the core seafood categories customers usually ask for.
+            Once your real photos are uploaded, this section will look like a
+            professional seafood brand site.
           </p>
         </div>
 
         <div className="seafoodGrid">
           {seafoodItems.map((item) => (
             <div className="seafoodCard" key={item.title}>
-              <div className="seafoodImage" style={{ "--image": `url('${item.image}')` }} />
+              <div
+                className="seafoodImage"
+                style={{ "--image": `url('${item.image}')` }}
+              />
               <div className="seafoodBody">
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
@@ -784,13 +806,13 @@ export default function App() {
             <div className="label">Fai Kee Collaboration</div>
             <h2>Popular cooked dishes customers ask for</h2>
             <p>
-              Customers can choose seafood from Crab Talk and ask about Fai Kee cooking options.
-              This is especially attractive for customers who want live seafood quality without
-              needing to cook at home.
+              Customers can choose seafood from Crab Talk and ask about Fai Kee
+              cooking options. This is especially attractive for customers who
+              want live seafood quality without needing to cook at home.
             </p>
             <div className="notice">
-              Fai Kee is closed on Sundays and Mondays. Cooking fees apply and availability
-              depends on queue, timing and kitchen capacity.
+              Fai Kee is closed on Sundays and Mondays. Cooking fees apply and
+              availability depends on queue, timing and kitchen capacity.
             </div>
           </div>
 
@@ -804,7 +826,12 @@ export default function App() {
             </div>
 
             <div style={{ marginTop: 26 }}>
-              <a className="btn btnDark" href={eightDaysLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btnDark"
+                href={eightDaysLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Read 8 Days Feature
               </a>
             </div>
@@ -825,15 +852,22 @@ export default function App() {
           </div>
           <div className="trustCard">
             <strong>Budget Friendly</strong>
-            <span>Tell us your pax and budget. We recommend suitable combinations.</span>
+            <span>
+              Tell us your pax and budget. We recommend suitable combinations.
+            </span>
           </div>
           <div className="trustCard">
             <strong>Daily Drops</strong>
-            <span>Join Telegram for fresh arrivals, promos and limited seafood updates.</span>
+            <span>
+              Join Telegram for fresh arrivals, promos and limited seafood
+              updates.
+            </span>
           </div>
           <div className="trustCard">
             <strong>Two Options</strong>
-            <span>Home cooking or nearby Fai Kee cooking depending on availability.</span>
+            <span>
+              Home cooking or nearby Fai Kee cooking depending on availability.
+            </span>
           </div>
         </div>
       </section>
@@ -841,14 +875,24 @@ export default function App() {
       <section className="cta">
         <h2>Check today’s live seafood arrivals</h2>
         <p>
-          Stock changes daily and the best pieces move fast. Message us before coming down
-          to check size, price and availability.
+          Stock changes daily and the best pieces move fast. Message us before
+          coming down to check size, price and availability.
         </p>
         <div className="buttonRow" style={{ justifyContent: "center" }}>
-          <a className="btn btnPrimary" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+          <a
+            className="btn btnPrimary"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             WhatsApp Crab Talk
           </a>
-          <a className="btn btnDark" href={telegramLink} target="_blank" rel="noopener noreferrer">
+          <a
+            className="btn btnDark"
+            href={telegramLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Join Telegram
           </a>
         </div>
@@ -861,9 +905,11 @@ export default function App() {
           Live Seafood Supply @ Crab Talk
         </div>
         <div>
-          Commonwealth Crescent Market
+          31 Commonwealth Crescent
           <br />
           #01-41 / #01-42 / #01-43
+          <br />
+          Singapore 149644
         </div>
         <div>
           WhatsApp: 9839 8671
