@@ -1,473 +1,437 @@
 export default function App() {
-  const whatsappLink =
-    "https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20order%20live%20seafood.";
+  const whatsappLink = "https://wa.me/6598398671";
+
+  const products = [
+    "Live Mud Crabs",
+    "Boston Lobster",
+    "Green Lobster",
+    "Fresh Oysters",
+    "Manila Clams",
+    "Soon Hock",
+    "Tiger Grouper",
+    "Abalone",
+  ];
+
+  const cookingStyles = [
+    "Chilli Crab",
+    "Black Bean Crab",
+    "Ginger Onion Crab",
+    "Steamed Live Seafood",
+    "Lobster Yee Mee",
+    "Lobster Bee Hoon",
+  ];
 
   return (
-    <div className="site">
-      <style>{`
-        * {
-          box-sizing: border-box;
-        }
+    <div
+      style={{
+        minHeight: "100vh",
+        background:
+          "radial-gradient(circle at top left, #0f6b78 0%, #04191d 38%, #010b0d 100%)",
+        color: "#ffffff",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      {/* Header */}
+      <header
+        style={{
+          padding: "24px 8%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderBottom: "1px solid rgba(255,255,255,0.12)",
+          position: "sticky",
+          top: 0,
+          background: "rgba(1, 11, 13, 0.85)",
+          backdropFilter: "blur(12px)",
+          zIndex: 10,
+        }}
+      >
+        <div style={{ fontSize: "26px", fontWeight: "bold" }}>
+          🦀 Crab Talk SG
+        </div>
 
-        body {
-          margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
-          background: #031b20;
-        }
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: "linear-gradient(135deg, #00c6ff, #0072ff)",
+            color: "white",
+            padding: "12px 22px",
+            borderRadius: "999px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            boxShadow: "0 10px 30px rgba(0, 183, 255, 0.35)",
+          }}
+        >
+          WhatsApp Order
+        </a>
+      </header>
 
-        .site {
-          min-height: 100vh;
-          background: linear-gradient(180deg, #021b1f 0%, #06404a 55%, #021b1f 100%);
-          color: white;
-        }
-
-        .nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 22px 8%;
-          background: rgba(0, 0, 0, 0.35);
-          position: sticky;
-          top: 0;
-          z-index: 10;
-          backdrop-filter: blur(8px);
-        }
-
-        .logo {
-          font-size: 26px;
-          font-weight: 800;
-        }
-
-        .nav a {
-          color: white;
-          text-decoration: none;
-          margin-left: 24px;
-          font-weight: 600;
-        }
-
-        .hero {
-          padding: 90px 8% 70px;
-          text-align: center;
-        }
-
-        .badge {
-          display: inline-block;
-          background: rgba(0, 183, 255, 0.15);
-          color: #9fe8ff;
-          padding: 10px 18px;
-          border: 1px solid rgba(159, 232, 255, 0.35);
-          border-radius: 999px;
-          font-weight: 700;
-          margin-bottom: 24px;
-        }
-
-        h1 {
-          font-size: 64px;
-          margin: 0 0 18px;
-          line-height: 1.05;
-        }
-
-        .hero p {
-          font-size: 24px;
-          color: #c8f3ff;
-          max-width: 850px;
-          margin: 0 auto 34px;
-          line-height: 1.5;
-        }
-
-        .buttons {
-          display: flex;
-          justify-content: center;
-          gap: 16px;
-          flex-wrap: wrap;
-        }
-
-        .btn {
-          display: inline-block;
-          padding: 18px 34px;
-          border-radius: 14px;
-          text-decoration: none;
-          font-size: 18px;
-          font-weight: 800;
-        }
-
-        .btn-primary {
-          background: #00b7ff;
-          color: white;
-        }
-
-        .btn-secondary {
-          border: 1px solid rgba(255, 255, 255, 0.35);
-          color: white;
-          background: rgba(255, 255, 255, 0.08);
-        }
-
-        .section {
-          padding: 70px 8%;
-        }
-
-        .section-title {
-          text-align: center;
-          font-size: 40px;
-          margin: 0 0 16px;
-        }
-
-        .section-subtitle {
-          text-align: center;
-          color: #bdefff;
-          max-width: 760px;
-          margin: 0 auto 42px;
-          font-size: 18px;
-          line-height: 1.6;
-        }
-
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          gap: 22px;
-        }
-
-        .card {
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          border-radius: 22px;
-          padding: 28px;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-        }
-
-        .card h3 {
-          margin: 0 0 12px;
-          font-size: 24px;
-        }
-
-        .card p {
-          margin: 0;
-          color: #d8f6ff;
-          line-height: 1.6;
-          font-size: 16px;
-        }
-
-        .feature {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 34px;
-          align-items: center;
-        }
-
-        .feature-box {
-          background: rgba(0, 0, 0, 0.28);
-          border-radius: 26px;
-          padding: 36px;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .feature-box h2 {
-          font-size: 38px;
-          margin: 0 0 18px;
-        }
-
-        .feature-box p {
-          color: #d8f6ff;
-          line-height: 1.7;
-          font-size: 18px;
-        }
-
-        .steps {
-          counter-reset: step;
-        }
-
-        .step {
-          position: relative;
-          padding-left: 58px;
-        }
-
-        .step::before {
-          counter-increment: step;
-          content: counter(step);
-          position: absolute;
-          left: 0;
-          top: 24px;
-          width: 38px;
-          height: 38px;
-          background: #00b7ff;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 900;
-        }
-
-        .menu-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 16px;
-          margin-top: 24px;
-        }
-
-        .menu-item {
-          padding: 18px 20px;
-          border-radius: 16px;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          font-weight: 700;
-        }
-
-        .contact {
-          text-align: center;
-          background: rgba(0, 0, 0, 0.3);
-          border-top: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .contact h2 {
-          font-size: 42px;
-          margin-bottom: 16px;
-        }
-
-        .contact p {
-          color: #d8f6ff;
-          font-size: 18px;
-          line-height: 1.7;
-        }
-
-        .footer {
-          text-align: center;
-          padding: 28px;
-          color: #aeefff;
-          background: rgba(0, 0, 0, 0.38);
-        }
-
-        @media (max-width: 700px) {
-          .nav {
-            flex-direction: column;
-            gap: 14px;
-          }
-
-          .nav a {
-            margin: 0 8px;
-            font-size: 14px;
-          }
-
-          h1 {
-            font-size: 42px;
-          }
-
-          .hero p {
-            font-size: 19px;
-          }
-
-          .section-title {
-            font-size: 32px;
-          }
-        }
-      `}</style>
-
-      <nav className="nav">
-        <div className="logo">🦀 Crab Talk SG</div>
+      {/* Hero */}
+      <section
+        style={{
+          padding: "90px 8% 70px",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "50px",
+          alignItems: "center",
+        }}
+      >
         <div>
-          <a href="#seafood">Seafood</a>
-          <a href="#cook">Cooking</a>
-          <a href="#order">Order</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+          <div
+            style={{
+              display: "inline-block",
+              padding: "8px 16px",
+              borderRadius: "999px",
+              background: "rgba(159, 232, 255, 0.12)",
+              color: "#9fe8ff",
+              marginBottom: "24px",
+              fontWeight: "bold",
+              letterSpacing: "0.5px",
+            }}
+          >
+            Live Seafood Supply @ Crab Talk
+          </div>
 
-      <section className="hero">
-        <div className="badge">Live Seafood Supply @ Crab Talk</div>
-        <h1>Fresh Live Seafood, Picked for Home Cooking</h1>
-        <p>
-          Premium live crabs, lobsters, oysters, clams and seasonal seafood
-          prepared for customers who want freshness, value and trusted service
-          from a local seafood stall.
+          <h1
+            style={{
+              fontSize: "clamp(44px, 7vw, 82px)",
+              lineHeight: "1.05",
+              margin: "0 0 24px",
+              letterSpacing: "-2px",
+            }}
+          >
+            Premium Live Seafood, Fresh From Tank To Table.
+          </h1>
+
+          <p
+            style={{
+              fontSize: "22px",
+              lineHeight: "1.6",
+              color: "#c9eef5",
+              maxWidth: "620px",
+              marginBottom: "36px",
+            }}
+          >
+            Choose your live crabs, lobsters, oysters, clams and fresh fish at
+            Crab Talk. Buy for home cooking or have your seafood cooked nearby
+            with our market cooking partner.
+          </p>
+
+          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: "linear-gradient(135deg, #00d4ff, #0072ff)",
+                color: "white",
+                padding: "18px 30px",
+                borderRadius: "14px",
+                textDecoration: "none",
+                fontSize: "18px",
+                fontWeight: "bold",
+                boxShadow: "0 15px 40px rgba(0, 183, 255, 0.35)",
+              }}
+            >
+              Order Now on WhatsApp
+            </a>
+
+            <a
+              href="https://t.me/CrabTalkSG"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: "rgba(255,255,255,0.08)",
+                color: "white",
+                padding: "18px 30px",
+                borderRadius: "14px",
+                textDecoration: "none",
+                fontSize: "18px",
+                fontWeight: "bold",
+                border: "1px solid rgba(255,255,255,0.18)",
+              }}
+            >
+              Join Telegram
+            </a>
+          </div>
+        </div>
+
+        <div
+          style={{
+            background:
+              "linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",
+            border: "1px solid rgba(255,255,255,0.18)",
+            borderRadius: "30px",
+            padding: "34px",
+            boxShadow: "0 30px 80px rgba(0,0,0,0.45)",
+          }}
+        >
+          <div
+            style={{
+              height: "420px",
+              borderRadius: "24px",
+              background:
+                "linear-gradient(145deg, #083a42, #031619), radial-gradient(circle, #00c6ff 0%, transparent 55%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              padding: "30px",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "90px", marginBottom: "20px" }}>
+                🦀 🦞 🦪
+              </div>
+              <h2 style={{ fontSize: "38px", margin: "0 0 14px" }}>
+                Live. Fresh. Premium.
+              </h2>
+              <p style={{ fontSize: "19px", color: "#bfeef7" }}>
+                Hand-picked seafood for families, gatherings and premium home
+                dining.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section
+        style={{
+          padding: "40px 8%",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: "22px",
+        }}
+      >
+        {[
+          ["🦀", "Live Selection", "Choose directly from our live seafood tanks."],
+          ["🔥", "Cook Nearby", "Selected items can be cooked through nearby market partners."],
+          ["📲", "Easy Reservation", "WhatsApp us to check today’s arrivals and reserve."],
+          ["⭐", "Premium Quality", "Suitable for home cooking, family meals and celebrations."],
+        ].map((item, index) => (
+          <div
+            key={index}
+            style={{
+              padding: "28px",
+              borderRadius: "22px",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.12)",
+            }}
+          >
+            <div style={{ fontSize: "36px", marginBottom: "12px" }}>
+              {item[0]}
+            </div>
+            <h3 style={{ fontSize: "22px", margin: "0 0 10px" }}>
+              {item[1]}
+            </h3>
+            <p style={{ color: "#c7dfe4", lineHeight: "1.6", margin: 0 }}>
+              {item[2]}
+            </p>
+          </div>
+        ))}
+      </section>
+
+      {/* Products */}
+      <section style={{ padding: "70px 8%" }}>
+        <h2 style={{ fontSize: "42px", marginBottom: "16px" }}>
+          Today’s Live Seafood Selection
+        </h2>
+        <p
+          style={{
+            fontSize: "19px",
+            color: "#bfeef7",
+            maxWidth: "760px",
+            marginBottom: "34px",
+            lineHeight: "1.6",
+          }}
+        >
+          Availability changes daily. Message us to check live stock, size,
+          weight and today’s market price.
         </p>
 
-        <div className="buttons">
-          <a className="btn btn-primary" href={whatsappLink} target="_blank">
-            Order Now on WhatsApp
-          </a>
-          <a className="btn btn-secondary" href="https://t.me/CrabTalkSG" target="_blank">
-            Join Telegram Updates
-          </a>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: "18px",
+          }}
+        >
+          {products.map((product, index) => (
+            <div
+              key={index}
+              style={{
+                padding: "22px",
+                borderRadius: "18px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.14)",
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              {product}
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="section" id="seafood">
-        <h2 className="section-title">What We Sell</h2>
-        <p className="section-subtitle">
-          Our selection changes based on live arrival and seasonal supply. Walk-in
-          and pre-order are recommended as quantities are limited.
+      {/* Cooking Partner */}
+      <section
+        style={{
+          margin: "20px 8% 70px",
+          padding: "50px",
+          borderRadius: "30px",
+          background:
+            "linear-gradient(135deg, rgba(0,183,255,0.18), rgba(255,255,255,0.06))",
+          border: "1px solid rgba(255,255,255,0.16)",
+        }}
+      >
+        <h2 style={{ fontSize: "40px", marginTop: 0 }}>
+          Buy Live Seafood, Have It Cooked Nearby
+        </h2>
+
+        <p
+          style={{
+            fontSize: "20px",
+            color: "#d7f6fb",
+            lineHeight: "1.7",
+            maxWidth: "900px",
+          }}
+        >
+          Pick your seafood at Crab Talk and enjoy popular cooking styles such
+          as chilli crab, ginger onion crab, black bean seafood, steamed fish,
+          lobster yee mee and lobster bee hoon through our nearby market cooking
+          collaboration.
         </p>
 
-        <div className="grid">
-          <div className="card">
-            <h3>🦀 Live Mud Crabs</h3>
-            <p>
-              Sri Lanka roe crabs, meaty Indonesian mud crabs and seasonal live
-              crab selections suitable for steaming, chilli crab or black bean style.
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gap: "16px",
+            marginTop: "28px",
+          }}
+        >
+          {cookingStyles.map((style, index) => (
+            <div
+              key={index}
+              style={{
+                padding: "18px",
+                borderRadius: "14px",
+                background: "rgba(0,0,0,0.25)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                fontWeight: "bold",
+              }}
+            >
+              {style}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Location */}
+      <section
+        style={{
+          padding: "60px 8%",
+          background: "rgba(0,0,0,0.25)",
+          borderTop: "1px solid rgba(255,255,255,0.12)",
+          borderBottom: "1px solid rgba(255,255,255,0.12)",
+        }}
+      >
+        <h2 style={{ fontSize: "38px", marginTop: 0 }}>Visit Crab Talk</h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "28px",
+          }}
+        >
+          <div>
+            <h3 style={{ color: "#9fe8ff" }}>Location</h3>
+            <p style={{ fontSize: "19px", lineHeight: "1.6" }}>
+              Commonwealth Crescent Market
+              <br />
+              Stall #01-41 / #01-42 / #01-43
+              <br />
+              Singapore
             </p>
           </div>
 
-          <div className="card">
-            <h3>🦞 Live Lobsters</h3>
-            <p>
-              Boston lobster, green lobster and premium seasonal lobster options
-              for home cooking or cooked dishes nearby.
+          <div>
+            <h3 style={{ color: "#9fe8ff" }}>Contact</h3>
+            <p style={{ fontSize: "19px", lineHeight: "1.6" }}>
+              WhatsApp: 9839 8671
+              <br />
+              Telegram: @CrabTalkSG
             </p>
           </div>
 
-          <div className="card">
-            <h3>🦪 Fresh Oysters</h3>
-            <p>
-              Selected oysters such as Canadian and Australian varieties when
-              available. Best enjoyed fresh and chilled.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>🐚 Clams & Shellfish</h3>
-            <p>
-              Manila clams, lala and shellfish options suitable for steaming,
-              chilli sauce, black bean or ginger onion cooking.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>🐟 Live Fish</h3>
-            <p>
-              Soon Hock, grouper, turbot and other live fish options depending
-              on supply. Great for Hong Kong-style steaming.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>⭐ Premium Seafood</h3>
-            <p>
-              Seasonal premium items such as Alaskan king crab, Australian rock
-              lobster and abalone may be available by pre-order.
+          <div>
+            <h3 style={{ color: "#9fe8ff" }}>Best For</h3>
+            <p style={{ fontSize: "19px", lineHeight: "1.6" }}>
+              Home cooking
+              <br />
+              Family dinner
+              <br />
+              Seafood gatherings
+              <br />
+              Premium live seafood orders
             </p>
           </div>
         </div>
       </section>
 
-      <section className="section" id="cook">
-        <div className="feature">
-          <div className="feature-box">
-            <h2>Buy Live Seafood, Cook Nearby</h2>
-            <p>
-              Customers can choose live seafood directly from Crab Talk and have
-              selected items cooked nearby through our market cooking arrangement.
-              This is ideal for customers who want restaurant-style dishes without
-              paying restaurant seafood prices.
-            </p>
-            <p>
-              Popular choices include chilli crab, black bean crab, ginger onion
-              crab, steamed fish, lobster yee mee and lobster bee hoon.
-            </p>
-          </div>
+      {/* Final CTA */}
+      <section style={{ padding: "80px 8%", textAlign: "center" }}>
+        <h2 style={{ fontSize: "44px", marginBottom: "18px" }}>
+          Reserve Your Live Seafood Today
+        </h2>
 
-          <div className="feature-box">
-            <h2>Why Customers Choose Us</h2>
-            <p>
-              We focus on live seafood freshness, clear recommendations and
-              practical advice on how to cook each item. Our team helps customers
-              choose seafood based on budget, size, meatiness and preferred cooking
-              style.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section steps" id="order">
-        <h2 className="section-title">How to Order</h2>
-        <p className="section-subtitle">
-          Simple ordering process for walk-in customers and pre-orders.
+        <p
+          style={{
+            fontSize: "20px",
+            color: "#c9eef5",
+            maxWidth: "700px",
+            margin: "0 auto 34px",
+            lineHeight: "1.6",
+          }}
+        >
+          Stock is limited and changes daily. WhatsApp us for today’s arrivals,
+          sizes, prices and reservation.
         </p>
 
-        <div className="grid">
-          <div className="card step">
-            <h3>Choose Your Seafood</h3>
-            <p>
-              Message us or visit the stall to check today’s live arrivals,
-              sizes and availability.
-            </p>
-          </div>
-
-          <div className="card step">
-            <h3>Reserve Early</h3>
-            <p>
-              Live seafood moves fast. Pre-order is recommended especially for
-              crabs, lobsters and premium seafood.
-            </p>
-          </div>
-
-          <div className="card step">
-            <h3>Collect or Cook</h3>
-            <p>
-              Self-collect for home cooking, or ask about cooking options nearby
-              depending on timing and availability.
-            </p>
-          </div>
-        </div>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            background: "linear-gradient(135deg, #00d4ff, #0072ff)",
+            color: "white",
+            padding: "20px 42px",
+            borderRadius: "16px",
+            textDecoration: "none",
+            fontSize: "22px",
+            fontWeight: "bold",
+            boxShadow: "0 18px 45px rgba(0,183,255,0.35)",
+          }}
+        >
+          WhatsApp Crab Talk Now
+        </a>
       </section>
 
-      <section className="section">
-        <h2 className="section-title">Popular Cooking Styles</h2>
-        <p className="section-subtitle">
-          Cooking options depend on seafood type and kitchen availability.
-        </p>
-
-        <div className="menu-list">
-          <div className="menu-item">Chilli Crab</div>
-          <div className="menu-item">Black Bean Crab</div>
-          <div className="menu-item">Ginger Onion Crab</div>
-          <div className="menu-item">Steamed Crab</div>
-          <div className="menu-item">Lobster Yee Mee</div>
-          <div className="menu-item">Lobster Bee Hoon</div>
-          <div className="menu-item">Hong Kong Style Steamed Fish</div>
-          <div className="menu-item">Steamed Manila Clams</div>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2 className="section-title">Fresh Arrival Updates</h2>
-        <p className="section-subtitle">
-          Join our Telegram or WhatsApp updates for daily arrivals, limited
-          seafood drops, bundle promotions and seasonal premium items.
-        </p>
-
-        <div className="buttons">
-          <a className="btn btn-primary" href="https://t.me/CrabTalkSG" target="_blank">
-            Join Telegram
-          </a>
-          <a className="btn btn-secondary" href={whatsappLink} target="_blank">
-            WhatsApp Us
-          </a>
-        </div>
-      </section>
-
-      <section className="section contact" id="contact">
-        <h2>Visit Crab Talk</h2>
-        <p>
-          <strong>Live Seafood Supply @ Crab Talk</strong>
-          <br />
-          Commonwealth Crescent Market
-          <br />
-          Stall #01-41 / #01-42 / #01-43
-          <br />
-          WhatsApp: <strong>9839 8671</strong>
-        </p>
-
-        <div className="buttons">
-          <a className="btn btn-primary" href={whatsappLink} target="_blank">
-            Order on WhatsApp
-          </a>
-          <a className="btn btn-secondary" href="https://www.google.com/maps/search/Commonwealth+Crescent+Market" target="_blank">
-            Open Map
-          </a>
-        </div>
-      </section>
-
-      <footer className="footer">
-        © 2026 Crab Talk SG. Live seafood availability changes daily. While stocks last.
+      <footer
+        style={{
+          padding: "26px 8%",
+          textAlign: "center",
+          color: "#8fbfc7",
+          borderTop: "1px solid rgba(255,255,255,0.12)",
+        }}
+      >
+        © 2026 Crab Talk SG · Live Seafood Supply @ Crab Talk
       </footer>
     </div>
   );
