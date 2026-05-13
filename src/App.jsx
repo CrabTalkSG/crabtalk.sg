@@ -1,687 +1,876 @@
-const fallbackSvg = `data:image/svg+xml;utf8,${encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#021b1f"/>
-      <stop offset="100%" stop-color="#0b5964"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g)"/>
-  <text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" font-size="72" fill="#ffffff" font-family="Arial">Crab Talk SG</text>
-  <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-size="34" fill="#9fe8ff" font-family="Arial">Live Seafood Supply</text>
-</svg>
-`)}`;
+export default function App() {
+  const whatsappLink =
+    "https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20arrivals.";
+  const telegramLink = "https://t.me/CrabTalkSG";
+  const eightDaysLink =
+    "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541";
 
-const img = {
-  liveCrab:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20live%20mud%20crab%20in%20Borneo.jpg",
-  lobster:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boston%20lobsters.jpg",
-  oysters:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Oysters%20on%20ice.jpg",
-  chilliCrab:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chilli_crab.jpg",
-  clams:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Venerupis%20philippinarum.jpg",
-  lobsterNoodles:
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/HK%20KTD%20%E4%B9%9D%E9%BE%8D%E7%81%A3%20%E5%BE%B7%E7%A6%8F%E5%BB%A3%E5%A0%B4%20Telford%20Plaza%20II%20shop%20102%20Delicious%20Seafood%20Restaurant%20%E9%BE%8D%E8%9D%A6%E4%BC%8A%E9%BA%B5%20Lobster%20Yee%20Mein%20Noodles%20October%202022%20Px3%2002.jpg",
-};
+  const seafoodItems = [
+    {
+      title: "Live Mud Crabs",
+      text: "Sri Lanka roe crabs and meaty mud crabs selected for home cooking, steaming, chilli crab and family seafood meals.",
+      image: "/images/live-crabs.jpg",
+    },
+    {
+      title: "Live Lobsters",
+      text: "Boston lobster and green lobster for lobster yee mee, lobster bee hoon, garlic butter, steaming or grilling.",
+      image: "/images/live-lobster.jpg",
+    },
+    {
+      title: "Fresh Shellfish",
+      text: "Manila clams, oysters and selected shellfish arrivals for steaming, black bean, chilli or simple sharing dishes.",
+      image: "/images/shellfish.jpg",
+    },
+  ];
 
-function ImageCard({ src, title, text }) {
+  const faiKeeDishes = [
+    "Lobster Yee Mee",
+    "Lobster Bee Hoon",
+    "Chilli Crab",
+    "Ginger & Onion Crab",
+    "Black Bean Crab / Lala / Fish",
+    "Steamed Crab / Lala / Fish",
+    "Hong Kong Style Steamed Soon Hock",
+  ];
+
   return (
-    <div className="imageCard">
-      <img
-        src={src}
-        alt={title}
-        onError={(e) => {
-          e.currentTarget.onerror = null;
-          e.currentTarget.src = fallbackSvg;
-        }}
-      />
-      <div className="imageOverlay">
-        <h3>{title}</h3>
-        <p>{text}</p>
-      </div>
-    </div>
-  );
-}
-
-function ProductCard({ title, desc }) {
-  return (
-    <div className="productCard">
-      <h3>{title}</h3>
-      <p>{desc}</p>
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <div className="site">
+    <main className="site">
       <style>{`
         * {
           box-sizing: border-box;
         }
 
+        html {
+          scroll-behavior: smooth;
+        }
+
         body {
           margin: 0;
-          background: #021b1f;
+          font-family: Inter, Arial, Helvetica, sans-serif;
+          background: #05090b;
         }
 
         .site {
           min-height: 100vh;
-          color: white;
-          font-family: Arial, sans-serif;
+          color: #ffffff;
           background:
-            radial-gradient(circle at top left, rgba(0, 183, 255, 0.22), transparent 34%),
-            linear-gradient(180deg, #021b1f 0%, #043039 45%, #010f12 100%);
+            radial-gradient(circle at 15% 5%, rgba(0, 194, 255, 0.22), transparent 30%),
+            radial-gradient(circle at 90% 15%, rgba(255, 179, 71, 0.12), transparent 28%),
+            linear-gradient(180deg, #05090b 0%, #071a1f 40%, #031114 100%);
+          overflow-x: hidden;
         }
 
         .nav {
           position: sticky;
           top: 0;
-          z-index: 10;
+          z-index: 100;
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
           padding: 18px 7%;
-          background: rgba(2, 27, 31, 0.88);
-          backdrop-filter: blur(14px);
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+          background: rgba(5, 9, 11, 0.78);
+          backdrop-filter: blur(18px);
+          border-bottom: 1px solid rgba(255,255,255,0.09);
         }
 
         .brand {
-          font-size: 24px;
-          font-weight: 800;
-          letter-spacing: 0.5px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .brandMark {
+          width: 48px;
+          height: 48px;
+          border-radius: 18px;
+          display: grid;
+          place-items: center;
+          font-size: 25px;
+          background:
+            linear-gradient(135deg, rgba(0,212,255,1), rgba(0,91,112,1));
+          box-shadow: 0 14px 45px rgba(0, 183, 255, 0.28);
+        }
+
+        .brandName {
+          font-size: 22px;
+          font-weight: 900;
+          letter-spacing: -0.4px;
+        }
+
+        .brandSub {
+          margin-top: 3px;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1.8px;
+          color: #9fe8ff;
         }
 
         .navLinks {
           display: flex;
-          gap: 24px;
-          font-size: 15px;
-          color: #c9eef7;
+          align-items: center;
+          gap: 26px;
+        }
+
+        .navLinks a {
+          color: #d7f7ff;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 800;
+          opacity: 0.9;
+        }
+
+        .navCta {
+          padding: 12px 20px;
+          border-radius: 999px;
+          color: #031114 !important;
+          background: linear-gradient(135deg, #ffffff, #9fe8ff);
+          box-shadow: 0 14px 42px rgba(0, 183, 255, 0.22);
         }
 
         .hero {
+          min-height: 90vh;
           display: grid;
-          grid-template-columns: 1.05fr 0.95fr;
-          gap: 42px;
+          grid-template-columns: 1.03fr 0.97fr;
+          gap: 52px;
           align-items: center;
-          padding: 80px 7% 60px;
+          padding: 88px 7% 76px;
         }
 
-        .badge {
-          display: inline-block;
-          padding: 9px 14px;
-          border: 1px solid rgba(159, 232, 255, 0.35);
+        .eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 16px;
+          margin-bottom: 24px;
           border-radius: 999px;
+          background: rgba(255,255,255,0.075);
+          border: 1px solid rgba(255,255,255,0.14);
           color: #9fe8ff;
-          background: rgba(255,255,255,0.06);
-          font-weight: 700;
-          font-size: 14px;
-          margin-bottom: 20px;
+          font-size: 12px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 1.9px;
         }
 
         .hero h1 {
-          font-size: clamp(44px, 7vw, 86px);
-          line-height: 0.95;
-          margin: 0 0 20px;
-          letter-spacing: -2px;
+          margin: 0 0 24px;
+          font-size: clamp(48px, 7vw, 88px);
+          line-height: 0.96;
+          letter-spacing: -3.2px;
         }
 
         .hero h1 span {
-          color: #9fe8ff;
+          background: linear-gradient(135deg, #ffffff 0%, #9fe8ff 48%, #ffd28a 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
-        .heroText {
-          font-size: 20px;
-          line-height: 1.7;
-          color: #d7f6ff;
+        .heroLead {
           max-width: 660px;
-          margin-bottom: 32px;
+          margin: 0 0 34px;
+          color: #c9eef7;
+          font-size: 20px;
+          line-height: 1.75;
         }
 
-        .heroActions {
+        .buttonRow {
           display: flex;
           flex-wrap: wrap;
-          gap: 16px;
+          gap: 14px;
         }
 
-        .primaryBtn,
-        .secondaryBtn {
-          display: inline-block;
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 54px;
           padding: 17px 28px;
-          border-radius: 14px;
+          border-radius: 16px;
           text-decoration: none;
-          font-weight: 800;
-          font-size: 17px;
+          font-weight: 900;
+          font-size: 16px;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .primaryBtn {
-          background: linear-gradient(135deg, #00b7ff, #50e3c2);
-          color: #001014;
-          box-shadow: 0 16px 40px rgba(0, 183, 255, 0.28);
+        .btn:hover {
+          transform: translateY(-2px);
         }
 
-        .secondaryBtn {
-          color: white;
-          border: 1px solid rgba(255,255,255,0.22);
-          background: rgba(255,255,255,0.06);
+        .btnPrimary {
+          color: #031114;
+          background: linear-gradient(135deg, #ffffff, #9fe8ff);
+          box-shadow: 0 18px 46px rgba(0, 183, 255, 0.26);
         }
 
-        .heroImage {
+        .btnDark {
+          color: #ffffff;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.16);
+        }
+
+        .heroVisual {
           position: relative;
-          min-height: 520px;
-          border-radius: 32px;
+          min-height: 560px;
+          border-radius: 38px;
           overflow: hidden;
-          box-shadow: 0 30px 90px rgba(0,0,0,0.45);
-          border: 1px solid rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.15);
+          background:
+            linear-gradient(180deg, rgba(2,8,10,0.05), rgba(2,8,10,0.78)),
+            radial-gradient(circle at 30% 20%, rgba(0,212,255,0.32), transparent 28%),
+            linear-gradient(135deg, #0b3c46, #02090b);
+          box-shadow: 0 38px 110px rgba(0,0,0,0.55);
         }
 
-        .heroImage img {
-          width: 100%;
-          height: 100%;
-          min-height: 520px;
-          object-fit: cover;
-          display: block;
-          filter: saturate(1.08) contrast(1.05);
-        }
-
-        .heroImage::after {
+        .heroVisual::before {
           content: "";
           position: absolute;
           inset: 0;
-          background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.7));
+          background-image: var(--hero-image, url('/images/hero-seafood.jpg'));
+          background-size: cover;
+          background-position: center;
+          opacity: 0.72;
+          mix-blend-mode: screen;
         }
 
-        .heroImageText {
+        .heroVisual::after {
+          content: "";
           position: absolute;
-          left: 28px;
-          right: 28px;
-          bottom: 28px;
+          inset: 0;
+          background:
+            linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.8)),
+            radial-gradient(circle at 75% 10%, rgba(255,255,255,0.18), transparent 22%);
+        }
+
+        .visualBadge {
+          position: absolute;
+          top: 24px;
+          left: 24px;
           z-index: 2;
+          padding: 12px 16px;
+          border-radius: 999px;
+          background: rgba(2,8,10,0.72);
+          border: 1px solid rgba(255,255,255,0.16);
+          color: #dff9ff;
+          font-size: 13px;
+          font-weight: 900;
+          backdrop-filter: blur(14px);
         }
 
-        .heroImageText h2 {
+        .visualPanel {
+          position: absolute;
+          left: 26px;
+          right: 26px;
+          bottom: 26px;
+          z-index: 2;
+          padding: 28px;
+          border-radius: 28px;
+          background: rgba(2,8,10,0.72);
+          border: 1px solid rgba(255,255,255,0.16);
+          backdrop-filter: blur(16px);
+        }
+
+        .visualPanel h2 {
+          margin: 0 0 9px;
           font-size: 32px;
-          margin: 0 0 8px;
+          letter-spacing: -0.8px;
         }
 
-        .heroImageText p {
-          color: #d8f8ff;
-          line-height: 1.5;
+        .visualPanel p {
           margin: 0;
-        }
-
-        .stats {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
-          padding: 0 7% 70px;
-        }
-
-        .stat {
-          padding: 24px;
-          border-radius: 22px;
-          background: rgba(255,255,255,0.07);
-          border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .stat strong {
-          display: block;
-          font-size: 30px;
-          color: #9fe8ff;
-          margin-bottom: 6px;
+          color: #c9eef7;
+          line-height: 1.6;
+          font-size: 16px;
         }
 
         .section {
-          padding: 76px 7%;
+          padding: 88px 7%;
+        }
+
+        .sectionAlt {
+          background: rgba(255,255,255,0.045);
+          border-top: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .sectionHeader {
-          max-width: 820px;
-          margin-bottom: 34px;
+          max-width: 880px;
+          margin: 0 auto 48px;
+          text-align: center;
         }
 
-        .sectionHeader h2 {
+        .label {
+          margin-bottom: 12px;
+          color: #9fe8ff;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-size: 13px;
+          font-weight: 900;
+        }
+
+        .sectionHeader h2,
+        .featureText h2 {
+          margin: 0 0 18px;
           font-size: clamp(34px, 5vw, 56px);
-          margin: 0 0 14px;
-          letter-spacing: -1px;
+          line-height: 1.05;
+          letter-spacing: -1.8px;
         }
 
-        .sectionHeader p {
-          color: #c8edf5;
+        .sectionHeader p,
+        .featureText p {
+          margin: 0;
+          color: #c9eef7;
           font-size: 18px;
-          line-height: 1.65;
+          line-height: 1.78;
         }
 
-        .twoColumns {
+        .choiceGrid {
+          max-width: 1200px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 26px;
         }
 
-        .premiumBox {
-          padding: 36px;
-          border-radius: 28px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
-          border: 1px solid rgba(255,255,255,0.12);
-          box-shadow: 0 24px 70px rgba(0,0,0,0.25);
+        .choiceCard {
+          position: relative;
+          min-height: 520px;
+          padding: 34px;
+          border-radius: 34px;
+          overflow: hidden;
+          background:
+            linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.82)),
+            radial-gradient(circle at 30% 15%, rgba(0,212,255,0.20), transparent 32%),
+            #092932;
+          border: 1px solid rgba(255,255,255,0.13);
+          box-shadow: 0 28px 80px rgba(0,0,0,0.33);
+          display: flex;
+          align-items: flex-end;
         }
 
-        .premiumBox h3 {
-          font-size: 32px;
-          margin: 0 0 12px;
+        .choiceCard::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: var(--image);
+          background-size: cover;
+          background-position: center;
+          opacity: 0.52;
         }
 
-        .premiumBox p {
-          color: #d5f4fb;
-          line-height: 1.65;
+        .choiceCard::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,0.86));
+        }
+
+        .choiceContent {
+          position: relative;
+          z-index: 2;
+        }
+
+        .choiceContent h3 {
+          margin: 0 0 14px;
+          font-size: 38px;
+          letter-spacing: -1.2px;
+        }
+
+        .choiceContent p {
+          margin: 0 0 24px;
+          color: #e2fbff;
           font-size: 17px;
+          line-height: 1.68;
         }
 
-        .premiumBox ul {
-          padding-left: 20px;
-          color: #f2fdff;
-          line-height: 2;
-          font-size: 17px;
+        .pillRow {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
         }
 
-        .imageGrid {
+        .pill {
+          padding: 10px 14px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.16);
+          color: #ffffff;
+          font-size: 13px;
+          font-weight: 900;
+        }
+
+        .seafoodGrid {
+          max-width: 1200px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 22px;
         }
 
-        .imageCard {
-          position: relative;
-          height: 360px;
-          border-radius: 26px;
+        .seafoodCard {
           overflow: hidden;
+          border-radius: 30px;
+          background: rgba(255,255,255,0.07);
           border: 1px solid rgba(255,255,255,0.12);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.28);
-          background: #062c34;
+          box-shadow: 0 24px 70px rgba(0,0,0,0.28);
         }
 
-        .imageCard img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          filter: saturate(1.08) contrast(1.04);
+        .seafoodImage {
+          height: 260px;
+          background:
+            linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.55)),
+            radial-gradient(circle at 30% 15%, rgba(0,212,255,0.25), transparent 32%),
+            #0b3c46;
+          background-image: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.55)), var(--image);
+          background-size: cover;
+          background-position: center;
         }
 
-        .imageCard::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,0.82));
+        .seafoodBody {
+          padding: 28px;
         }
 
-        .imageOverlay {
-          position: absolute;
-          left: 22px;
-          right: 22px;
-          bottom: 22px;
-          z-index: 2;
+        .seafoodBody h3 {
+          margin: 0 0 10px;
+          font-size: 25px;
+          letter-spacing: -0.6px;
         }
 
-        .imageOverlay h3 {
-          font-size: 24px;
-          margin: 0 0 8px;
-        }
-
-        .imageOverlay p {
+        .seafoodBody p {
           margin: 0;
-          color: #d8f7ff;
-          line-height: 1.45;
+          color: #c9eef7;
+          line-height: 1.7;
         }
 
-        .productGrid {
+        .feature {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 0.92fr 1.08fr;
+          gap: 34px;
+          align-items: center;
+        }
+
+        .featurePanel {
+          padding: 38px;
+          border-radius: 34px;
+          background:
+            linear-gradient(145deg, rgba(0,212,255,0.14), rgba(255,255,255,0.065));
+          border: 1px solid rgba(255,255,255,0.14);
+          box-shadow: 0 28px 80px rgba(0,0,0,0.3);
+        }
+
+        .dishGrid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+          margin-top: 26px;
+        }
+
+        .dish {
+          padding: 17px;
+          border-radius: 17px;
+          background: rgba(0,0,0,0.28);
+          border: 1px solid rgba(255,255,255,0.11);
+          font-size: 15px;
+          font-weight: 900;
+          color: #f1fcff;
+        }
+
+        .notice {
+          margin-top: 24px;
+          padding: 16px 18px;
+          border-radius: 18px;
+          color: #ffe2b0;
+          background: rgba(255, 188, 92, 0.11);
+          border: 1px solid rgba(255, 188, 92, 0.24);
+          line-height: 1.65;
+          font-size: 14px;
+          font-weight: 800;
+        }
+
+        .trustGrid {
+          max-width: 1200px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
+          gap: 18px;
         }
 
-        .productCard {
-          padding: 24px;
-          min-height: 160px;
-          border-radius: 22px;
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.12);
+        .trustCard {
+          padding: 28px;
+          border-radius: 26px;
+          background: rgba(255,255,255,0.065);
+          border: 1px solid rgba(255,255,255,0.11);
         }
 
-        .productCard h3 {
-          margin: 0 0 10px;
+        .trustCard strong {
+          display: block;
+          margin-bottom: 10px;
           font-size: 22px;
+          letter-spacing: -0.5px;
         }
 
-        .productCard p {
-          color: #cceff7;
-          line-height: 1.5;
-          margin: 0;
+        .trustCard span {
+          color: #c9eef7;
+          line-height: 1.65;
+          font-size: 15px;
         }
 
         .cta {
-          margin: 70px 7% 0;
-          padding: 54px;
-          border-radius: 34px;
-          background:
-            linear-gradient(135deg, rgba(0,183,255,0.22), rgba(80,227,194,0.12)),
-            rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.14);
+          padding: 92px 7%;
           text-align: center;
+          background:
+            linear-gradient(135deg, rgba(0, 183, 255, 0.92), rgba(80, 227, 194, 0.78)),
+            radial-gradient(circle at center, rgba(255,255,255,0.22), transparent 34%);
         }
 
         .cta h2 {
-          font-size: clamp(34px, 5vw, 58px);
-          margin: 0 0 14px;
+          max-width: 980px;
+          margin: 0 auto 18px;
+          color: #031114;
+          font-size: clamp(38px, 5vw, 64px);
+          line-height: 1.05;
+          letter-spacing: -2px;
         }
 
         .cta p {
-          color: #d7f6ff;
-          font-size: 18px;
+          max-width: 760px;
+          margin: 0 auto 34px;
+          color: #06323a;
+          font-size: 20px;
           line-height: 1.6;
-          margin-bottom: 28px;
+          font-weight: 700;
+        }
+
+        .cta .btnPrimary {
+          background: #031114;
+          color: #ffffff;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.22);
         }
 
         .footer {
           padding: 42px 7%;
-          color: #a7dbe6;
+          background: #05090b;
+          color: #a9dce6;
           border-top: 1px solid rgba(255,255,255,0.1);
-          margin-top: 70px;
-          display: flex;
-          justify-content: space-between;
-          gap: 20px;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: 1.2fr 1fr 1fr;
+          gap: 24px;
+          line-height: 1.8;
         }
 
-        @media (max-width: 900px) {
+        .footer strong {
+          color: #ffffff;
+          font-size: 18px;
+        }
+
+        @media (max-width: 980px) {
           .hero,
-          .twoColumns,
-          .imageGrid {
+          .choiceGrid,
+          .feature,
+          .footer {
             grid-template-columns: 1fr;
           }
 
-          .stats,
-          .productGrid {
+          .heroVisual {
+            min-height: 420px;
+          }
+
+          .seafoodGrid,
+          .trustGrid {
             grid-template-columns: repeat(2, 1fr);
           }
 
-          .navLinks {
+          .navLinks a:not(.navCta) {
             display: none;
-          }
-
-          .hero {
-            padding-top: 50px;
           }
         }
 
-        @media (max-width: 560px) {
-          .stats,
-          .productGrid {
-            grid-template-columns: 1fr;
+        @media (max-width: 620px) {
+          .nav {
+            padding: 14px 20px;
           }
 
-          .section,
+          .brandMark {
+            width: 42px;
+            height: 42px;
+            border-radius: 15px;
+          }
+
+          .brandName {
+            font-size: 18px;
+          }
+
+          .brandSub {
+            display: none;
+          }
+
           .hero,
-          .nav {
+          .section {
             padding-left: 22px;
             padding-right: 22px;
           }
 
-          .cta {
-            margin-left: 22px;
-            margin-right: 22px;
-            padding: 34px 22px;
+          .hero {
+            padding-top: 52px;
+          }
+
+          .buttonRow,
+          .btn {
+            width: 100%;
+          }
+
+          .seafoodGrid,
+          .trustGrid,
+          .dishGrid {
+            grid-template-columns: 1fr;
+          }
+
+          .choiceCard {
+            min-height: 440px;
+            padding: 26px;
+          }
+
+          .choiceContent h3 {
+            font-size: 31px;
+          }
+
+          .visualPanel {
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            padding: 22px;
+          }
+
+          .visualPanel h2 {
+            font-size: 26px;
           }
         }
       `}</style>
 
       <nav className="nav">
-        <div className="brand">🦀 Crab Talk SG</div>
+        <div className="brand">
+          <div className="brandMark">🦀</div>
+          <div>
+            <div className="brandName">Crab Talk SG</div>
+            <div className="brandSub">Live Seafood Supply</div>
+          </div>
+        </div>
+
         <div className="navLinks">
-          <span>Live Seafood</span>
-          <span>Home Cooking</span>
-          <span>Fai Kee Cooking</span>
-          <span>Order</span>
+          <a href="#home">Home Cooking</a>
+          <a href="#faikee">Fai Kee</a>
+          <a href="#visit">Visit</a>
+          <a className="navCta" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
         </div>
       </nav>
 
       <section className="hero">
         <div>
-          <div className="badge">Premium Live Seafood • Commonwealth Crescent</div>
+          <div className="eyebrow">Commonwealth Crescent Market · Singapore</div>
           <h1>
-            Live seafood, <span>restaurant-style experience.</span>
+            Premium <span>live seafood</span>, served your way.
           </h1>
-          <p className="heroText">
-            Choose your live seafood from Crab Talk SG and enjoy it your way:
-            bring it home for cooking, or have selected items cooked nearby by
-            Fai Kee for a convenient seafood meal.
+          <p className="heroLead">
+            Choose live crabs, lobsters, clams, oysters and fish directly from Crab Talk.
+            Bring them home for cooking, or ask about Fai Kee cooking options nearby.
           </p>
 
-          <div className="heroActions">
-            <a className="primaryBtn" href="https://wa.me/6598398671" target="_blank">
-              Order on WhatsApp
+          <div className="buttonRow">
+            <a className="btn btnPrimary" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              Reserve Today’s Seafood
             </a>
-            <a className="secondaryBtn" href="https://t.me/CrabTalkSG" target="_blank">
-              Join Telegram
+            <a className="btn btnDark" href={telegramLink} target="_blank" rel="noopener noreferrer">
+              Join Telegram Drops
             </a>
           </div>
         </div>
 
-        <div className="heroImage">
-          <img
-            src={img.liveCrab}
-            alt="Live seafood crab"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = fallbackSvg;
-            }}
-          />
-          <div className="heroImageText">
-            <h2>Live Crabs • Lobsters • Oysters • Clams</h2>
+        <div className="heroVisual">
+          <div className="visualBadge">Fresh arrivals · Limited quantity</div>
+          <div className="visualPanel">
+            <h2>From tank to table</h2>
             <p>
-              Fresh arrivals, limited quantities, and reservation recommended.
+              Daily stock changes fast. Message us before coming down for today’s sizes,
+              prices and reservation availability.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="stats">
-        <div className="stat">
-          <strong>Live</strong>
-          seafood selection
-        </div>
-        <div className="stat">
-          <strong>2 Ways</strong>
-          home cook or Fai Kee
-        </div>
-        <div className="stat">
-          <strong>Fresh</strong>
-          arrivals available
-        </div>
-        <div className="stat">
-          <strong>SG</strong>
-          Commonwealth market
-        </div>
-      </section>
-
       <section className="section">
         <div className="sectionHeader">
-          <h2>Choose how you want to enjoy your seafood</h2>
+          <div className="label">Two Ways to Enjoy</div>
+          <h2>Home cooking or cooked by Fai Kee</h2>
           <p>
-            Crab Talk SG is built for customers who want flexibility. You can
-            buy premium live seafood for home cooking, or enjoy selected dishes
-            cooked by Fai Kee nearby.
+            Crab Talk is not just a seafood stall. It is a flexible live seafood experience:
+            buy fresh seafood for your own kitchen, or have selected items cooked nearby.
           </p>
         </div>
 
-        <div className="twoColumns">
-          <div className="premiumBox">
-            <h3>🏠 Home Cooking</h3>
-            <p>
-              Best for customers who enjoy cooking fresh seafood at home.
-              Choose your live seafood, reserve in advance, and prepare it your
-              preferred way.
-            </p>
-            <ul>
-              <li>Live crabs for steaming, chilli crab, black pepper or soup</li>
-              <li>Lobsters for grilling, steaming or noodles</li>
-              <li>Oysters, clams and shellfish for sharing meals</li>
-              <li>Suitable for family dinners, parties and festive meals</li>
-            </ul>
+        <div className="choiceGrid">
+          <div
+            className="choiceCard"
+            id="home"
+            style={{ "--image": "url('/images/home-cooking.jpg')" }}
+          >
+            <div className="choiceContent">
+              <div className="label">Option 1</div>
+              <h3>Buy for Home Cooking</h3>
+              <p>
+                Best for family dinners, weekend seafood feasts and customers who want
+                to cook their own chilli crab, steamed fish or garlic butter lobster.
+              </p>
+              <div className="pillRow">
+                <span className="pill">Live Crabs</span>
+                <span className="pill">Lobsters</span>
+                <span className="pill">Clams</span>
+                <span className="pill">Fresh Fish</span>
+              </div>
+            </div>
           </div>
 
-          <div className="premiumBox">
-            <h3>🍽️ Cooked by Fai Kee</h3>
-            <p>
-              For customers who want convenience, selected seafood can be cooked
-              nearby by Fai Kee. This gives you a market-style live seafood
-              experience without needing to cook at home.
-            </p>
-            <ul>
-              <li>Popular dishes include lobster yee mee and lobster bee hoon</li>
-              <li>Chilli crab, ginger onion crab and black bean styles</li>
-              <li>Hong Kong-style steamed fish options</li>
-              <li>Cooking fee applies depending on dish and preparation</li>
-            </ul>
+          <div
+            className="choiceCard"
+            id="faikee"
+            style={{ "--image": "url('/images/fai-kee-lobster-yee-mee.jpg')" }}
+          >
+            <div className="choiceContent">
+              <div className="label">Option 2</div>
+              <h3>Cooked by Fai Kee</h3>
+              <p>
+                Choose your seafood from Crab Talk and ask about cooking options with
+                Fai Kee Fish Head Bee Hoon. Popular for lobster yee mee and crab dishes.
+              </p>
+              <div className="pillRow">
+                <span className="pill">Lobster Yee Mee</span>
+                <span className="pill">Lobster Bee Hoon</span>
+                <span className="pill">Chilli Crab</span>
+                <span className="pill">Cooking Fees Apply</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section sectionAlt">
         <div className="sectionHeader">
-          <h2>Premium seafood selection</h2>
+          <div className="label">Fresh Selection</div>
+          <h2>Premium seafood categories</h2>
           <p>
-            A clean showcase of the core products customers usually look for
-            when buying live seafood from Crab Talk SG.
+            These are the core seafood categories customers usually ask for. Once your real
+            photos are uploaded, this section will look like a professional seafood brand site.
           </p>
         </div>
 
-        <div className="imageGrid">
-          <ImageCard
-            src={img.liveCrab}
-            title="Premium Live Crabs"
-            text="Live crab selection for steaming, chilli crab or home cooking."
-          />
-          <ImageCard
-            src={img.lobster}
-            title="Live Lobsters"
-            text="Ideal for lobster yee mee, bee hoon, steaming or grilling."
-          />
-          <ImageCard
-            src={img.oysters}
-            title="Fresh Oysters"
-            text="Premium oysters for seafood lovers and sharing occasions."
-          />
+        <div className="seafoodGrid">
+          {seafoodItems.map((item) => (
+            <div className="seafoodCard" key={item.title}>
+              <div className="seafoodImage" style={{ "--image": `url('${item.image}')` }} />
+              <div className="seafoodBody">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="sectionHeader">
-          <h2>Popular with Fai Kee cooking</h2>
-          <p>
-            These are the types of dishes that make the Crab Talk SG × Fai Kee
-            concept attractive: choose live seafood, then enjoy it cooked fresh.
-          </p>
-        </div>
+        <div className="feature">
+          <div className="featureText">
+            <div className="label">Fai Kee Collaboration</div>
+            <h2>Popular cooked dishes customers ask for</h2>
+            <p>
+              Customers can choose seafood from Crab Talk and ask about Fai Kee cooking options.
+              This is especially attractive for customers who want live seafood quality without
+              needing to cook at home.
+            </p>
+            <div className="notice">
+              Fai Kee is closed on Sundays and Mondays. Cooking fees apply and availability
+              depends on queue, timing and kitchen capacity.
+            </div>
+          </div>
 
-        <div className="imageGrid">
-          <ImageCard
-            src={img.lobsterNoodles}
-            title="Lobster Yee Mee"
-            text="A strong signature-style dish for sharing."
-          />
-          <ImageCard
-            src={img.chilliCrab}
-            title="Chilli Crab"
-            text="A classic seafood favourite with rich sauce."
-          />
-          <ImageCard
-            src={img.clams}
-            title="Clams & Shellfish"
-            text="Great for steaming, chilli or black bean style."
-          />
+          <div className="featurePanel">
+            <div className="dishGrid">
+              {faiKeeDishes.map((dish) => (
+                <div className="dish" key={dish}>
+                  {dish}
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 26 }}>
+              <a className="btn btnDark" href={eightDaysLink} target="_blank" rel="noopener noreferrer">
+                Read 8 Days Feature
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section sectionAlt">
         <div className="sectionHeader">
-          <h2>What we usually carry</h2>
-          <p>
-            Availability changes depending on daily arrivals. Message us before
-            coming down if you want to reserve specific items.
-          </p>
+          <div className="label">Why Crab Talk</div>
+          <h2>Freshness, flexibility and honest recommendations</h2>
         </div>
 
-        <div className="productGrid">
-          <ProductCard
-            title="Sri Lanka Roe Crabs"
-            desc="Premium roe crab selection, suitable for steaming and special meals."
-          />
-          <ProductCard
-            title="Indonesian Mud Crabs"
-            desc="Meaty live crabs for home cooking or cooked dishes."
-          />
-          <ProductCard
-            title="Boston Lobster"
-            desc="Popular for lobster yee mee, bee hoon, steaming or grilling."
-          />
-          <ProductCard
-            title="Green Lobster"
-            desc="Premium lobster option for seafood lovers."
-          />
-          <ProductCard
-            title="Manila Clams"
-            desc="Good for steaming, chilli, black bean or sharing dishes."
-          />
-          <ProductCard
-            title="Fresh Oysters"
-            desc="Selected oysters depending on availability."
-          />
-          <ProductCard
-            title="Soon Hock"
-            desc="Suitable for Hong Kong-style steaming."
-          />
-          <ProductCard
-            title="Tiger Grouper"
-            desc="Premium live fish option for family meals."
-          />
+        <div className="trustGrid">
+          <div className="trustCard">
+            <strong>Live Selection</strong>
+            <span>Choose directly from live seafood supply where possible.</span>
+          </div>
+          <div className="trustCard">
+            <strong>Budget Friendly</strong>
+            <span>Tell us your pax and budget. We recommend suitable combinations.</span>
+          </div>
+          <div className="trustCard">
+            <strong>Daily Drops</strong>
+            <span>Join Telegram for fresh arrivals, promos and limited seafood updates.</span>
+          </div>
+          <div className="trustCard">
+            <strong>Two Options</strong>
+            <span>Home cooking or nearby Fai Kee cooking depending on availability.</span>
+          </div>
         </div>
       </section>
 
       <section className="cta">
-        <h2>Reserve before stocks run out</h2>
+        <h2>Check today’s live seafood arrivals</h2>
         <p>
-          Fresh seafood is limited and changes daily. Message us to check today’s
-          arrivals, prices and availability.
+          Stock changes daily and the best pieces move fast. Message us before coming down
+          to check size, price and availability.
         </p>
-        <a className="primaryBtn" href="https://wa.me/6598398671" target="_blank">
-          WhatsApp Crab Talk SG
-        </a>
+        <div className="buttonRow" style={{ justifyContent: "center" }}>
+          <a className="btn btnPrimary" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            WhatsApp Crab Talk
+          </a>
+          <a className="btn btnDark" href={telegramLink} target="_blank" rel="noopener noreferrer">
+            Join Telegram
+          </a>
+        </div>
       </section>
 
-      <footer className="footer">
+      <footer className="footer" id="visit">
         <div>
           <strong>Crab Talk SG</strong>
           <br />
           Live Seafood Supply @ Crab Talk
         </div>
         <div>
-          WhatsApp: 9839 8671
-          <br />
-          Telegram: @CrabTalkSG
-        </div>
-        <div>
           Commonwealth Crescent Market
           <br />
-          Unit 01-41 / 42 / 43
+          #01-41 / #01-42 / #01-43
+        </div>
+        <div>
+          WhatsApp: 9839 8671
+          <br />
+          Telegram: t.me/CrabTalkSG
         </div>
       </footer>
-    </div>
+    </main>
   );
 }
-
-export default App;
