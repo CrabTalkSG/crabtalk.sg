@@ -64,16 +64,36 @@ const featureCards = [
   },
 ];
 
-const cookingOptions = [
+const whyChoose = [
   {
-    title: "Home Cooking",
-    highlight: "Best for freshness, flexibility, and value",
-    text: "Choose live seafood directly from our tanks and bring it home for steaming, hotpot, chilli crab, black pepper crab, or your own family recipe.",
+    title: "Freshness You Can See",
+    text: "Choose live seafood directly from our tanks before bringing it home.",
   },
   {
-    title: "Nearby Cooking Option",
-    highlight: "Limited availability, advance planning recommended",
-    text: "Selected seafood can be cooked nearby depending on kitchen capacity and timing. Please check with us early, especially during peak periods.",
+    title: "Reserve Before Coming",
+    text: "Popular items move fast. Message us to check today’s availability first.",
+  },
+  {
+    title: "Made for Home Cooking",
+    text: "Perfect for steaming, chilli crab, hotpot, family dinners and weekend feasts.",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Check Today’s Stock",
+    text: "Message us on WhatsApp to check available seafood, sizes and recommendations.",
+  },
+  {
+    number: "02",
+    title: "Reserve Your Pick",
+    text: "Reserve your preferred crab, lobster, oysters, clams or premium fish before coming down.",
+  },
+  {
+    number: "03",
+    title: "Collect & Cook Fresh",
+    text: "Bring home and cook your way, or ask us about nearby cooking options when available.",
   },
 ];
 
@@ -102,16 +122,22 @@ export default function App() {
         body {
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
-          background: #03171b;
-          color: #ffffff;
+          background: #021216;
+          color: white;
         }
 
         .site {
           min-height: 100vh;
           background:
-            radial-gradient(circle at top left, rgba(17, 158, 177, 0.28), transparent 34%),
-            radial-gradient(circle at top right, rgba(255, 201, 94, 0.13), transparent 28%),
-            linear-gradient(180deg, #021216 0%, #06252c 48%, #03171b 100%);
+            radial-gradient(circle at 8% 8%, rgba(25, 190, 210, 0.30), transparent 30%),
+            radial-gradient(circle at 92% 10%, rgba(255, 205, 96, 0.16), transparent 30%),
+            radial-gradient(circle at 50% 55%, rgba(9, 88, 101, 0.20), transparent 36%),
+            linear-gradient(180deg, #021216 0%, #062830 48%, #021216 100%);
+          overflow-x: hidden;
+        }
+
+        a {
+          color: inherit;
         }
 
         .topbar {
@@ -119,7 +145,7 @@ export default function App() {
           top: 0;
           z-index: 50;
           backdrop-filter: blur(18px);
-          background: rgba(2, 18, 22, 0.86);
+          background: rgba(2, 18, 22, 0.88);
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -135,17 +161,30 @@ export default function App() {
 
         .brand {
           display: flex;
-          flex-direction: column;
-          gap: 3px;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #ffd166, #18c7df);
+          color: #021216;
+          font-size: 22px;
+          box-shadow: 0 0 28px rgba(24, 199, 223, 0.35);
         }
 
         .brand-title {
           font-size: 20px;
           font-weight: 900;
-          letter-spacing: 0.4px;
+          letter-spacing: 0.2px;
         }
 
         .brand-sub {
+          margin-top: 3px;
           font-size: 12px;
           color: #9fd9e4;
         }
@@ -169,18 +208,18 @@ export default function App() {
         }
 
         .nav-cta {
-          padding: 10px 15px;
+          padding: 10px 16px;
           border-radius: 999px;
-          background: linear-gradient(135deg, #16c7df, #0a7d92);
-          color: white !important;
-          font-weight: 800;
-          box-shadow: 0 10px 28px rgba(22, 199, 223, 0.25);
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          color: #021216 !important;
+          font-weight: 900;
+          box-shadow: 0 12px 30px rgba(255, 183, 3, 0.22);
         }
 
         .hero {
           max-width: 1180px;
           margin: 0 auto;
-          padding: 54px 22px 34px;
+          padding: 56px 22px 38px;
           display: grid;
           grid-template-columns: 1.02fr 0.98fr;
           gap: 34px;
@@ -195,23 +234,23 @@ export default function App() {
           padding: 8px 13px;
           border-radius: 999px;
           background: rgba(255, 209, 102, 0.12);
-          border: 1px solid rgba(255, 209, 102, 0.28);
+          border: 1px solid rgba(255, 209, 102, 0.30);
           color: #ffd166;
           font-size: 13px;
-          font-weight: 800;
+          font-weight: 900;
           margin-bottom: 18px;
         }
 
         h1 {
           margin: 0;
-          font-size: clamp(38px, 5.2vw, 72px);
-          line-height: 0.98;
-          letter-spacing: -2px;
+          font-size: clamp(38px, 5.2vw, 74px);
+          line-height: 0.95;
+          letter-spacing: -2.2px;
         }
 
         .hero-copy {
           margin: 22px 0 0;
-          max-width: 610px;
+          max-width: 620px;
           font-size: clamp(16px, 2vw, 20px);
           line-height: 1.65;
           color: #c7e8ef;
@@ -221,7 +260,7 @@ export default function App() {
           margin-top: 20px;
           padding: 15px 17px;
           border-radius: 18px;
-          background: rgba(255, 255, 255, 0.055);
+          background: rgba(255, 255, 255, 0.06);
           border: 1px solid rgba(255, 255, 255, 0.11);
           color: #ffffff;
           font-size: 15px;
@@ -239,7 +278,7 @@ export default function App() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 14px 18px;
+          padding: 14px 19px;
           border-radius: 999px;
           text-decoration: none;
           font-weight: 900;
@@ -254,7 +293,7 @@ export default function App() {
         .btn-primary {
           color: #021216;
           background: linear-gradient(135deg, #ffd166, #ffb703);
-          box-shadow: 0 14px 32px rgba(255, 183, 3, 0.22);
+          box-shadow: 0 14px 34px rgba(255, 183, 3, 0.24);
         }
 
         .btn-secondary {
@@ -266,16 +305,16 @@ export default function App() {
         .hero-frame {
           position: relative;
           border-radius: 30px;
-          padding: 12px;
+          padding: 10px;
           background:
-            linear-gradient(135deg, rgba(255, 209, 102, 0.48), rgba(30, 198, 220, 0.22)),
+            linear-gradient(135deg, rgba(255, 209, 102, 0.45), rgba(30, 198, 220, 0.22)),
             rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.12);
-          box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+          box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
         }
 
         .hero-image-box {
-          height: 390px;
+          height: 380px;
           border-radius: 23px;
           overflow: hidden;
           background: #061e23;
@@ -294,21 +333,49 @@ export default function App() {
 
         .hero-badge {
           position: absolute;
-          left: 26px;
-          bottom: 26px;
+          left: 24px;
+          bottom: 24px;
           padding: 11px 14px;
           border-radius: 16px;
-          background: rgba(2, 18, 22, 0.82);
+          background: rgba(2, 18, 22, 0.84);
           border: 1px solid rgba(255, 255, 255, 0.14);
           backdrop-filter: blur(10px);
           font-size: 13px;
           color: #d7f6ff;
         }
 
+        .trust-row {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 22px 34px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+
+        .trust-card {
+          padding: 18px 18px;
+          border-radius: 22px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .trust-card h3 {
+          margin: 0 0 7px;
+          font-size: 18px;
+        }
+
+        .trust-card p {
+          margin: 0;
+          color: #b7d8df;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
         .section {
           max-width: 1180px;
           margin: 0 auto;
-          padding: 46px 22px;
+          padding: 48px 22px;
         }
 
         .section-head {
@@ -330,8 +397,8 @@ export default function App() {
 
         h2 {
           margin: 0;
-          font-size: clamp(28px, 3.4vw, 44px);
-          letter-spacing: -1px;
+          font-size: clamp(28px, 3.4vw, 46px);
+          letter-spacing: -1.2px;
         }
 
         .section-desc {
@@ -354,10 +421,16 @@ export default function App() {
           background: rgba(255, 255, 255, 0.055);
           border: 1px solid rgba(255, 255, 255, 0.11);
           box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+          transition: transform 0.22s ease, border-color 0.22s ease;
+        }
+
+        .product-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 209, 102, 0.38);
         }
 
         .product-image-wrap {
-          height: 220px;
+          height: 215px;
           background: #061e23;
           display: flex;
           align-items: center;
@@ -370,11 +443,11 @@ export default function App() {
           height: 100%;
           object-fit: contain;
           background: #061e23;
-          padding: 6px;
+          padding: 5px;
         }
 
         .product-body {
-          padding: 20px 20px 22px;
+          padding: 19px 20px 21px;
         }
 
         .product-body h3 {
@@ -390,35 +463,40 @@ export default function App() {
           line-height: 1.6;
         }
 
-        .options-grid {
+        .steps-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 18px;
         }
 
-        .option-card {
-          padding: 28px;
+        .step-card {
+          position: relative;
+          padding: 26px;
           border-radius: 26px;
           background:
-            linear-gradient(135deg, rgba(255, 209, 102, 0.08), transparent),
+            linear-gradient(135deg, rgba(255, 209, 102, 0.09), transparent),
             rgba(255, 255, 255, 0.055);
           border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        .option-card h3 {
-          margin: 0 0 9px;
-          font-size: 25px;
+        .step-number {
+          color: rgba(255, 209, 102, 0.34);
+          font-size: 44px;
+          font-weight: 900;
+          line-height: 1;
+          margin-bottom: 10px;
         }
 
-        .option-card strong {
-          color: #ffd166;
-          font-size: 14px;
+        .step-card h3 {
+          margin: 0 0 10px;
+          font-size: 22px;
         }
 
-        .option-card p {
-          margin: 12px 0 0;
+        .step-card p {
+          margin: 0;
           color: #c5e4ea;
           line-height: 1.65;
+          font-size: 15px;
         }
 
         .feature-grid {
@@ -443,7 +521,7 @@ export default function App() {
         }
 
         .feature-image-wrap {
-          height: 190px;
+          height: 185px;
           background: #061e23;
           display: flex;
           align-items: center;
@@ -482,15 +560,17 @@ export default function App() {
 
         .visit-box {
           border-radius: 30px;
-          padding: 34px;
+          padding: 36px;
           background:
+            radial-gradient(circle at top right, rgba(255, 209, 102, 0.18), transparent 34%),
             linear-gradient(135deg, rgba(22, 199, 223, 0.14), rgba(255, 209, 102, 0.08)),
             rgba(255, 255, 255, 0.055);
           border: 1px solid rgba(255, 255, 255, 0.13);
           display: grid;
-          grid-template-columns: 1.25fr 0.75fr;
-          gap: 24px;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 26px;
           align-items: center;
+          box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
         }
 
         .visit-box h2 {
@@ -516,6 +596,10 @@ export default function App() {
           font-size: 13px;
         }
 
+        .mobile-sticky {
+          display: none;
+        }
+
         @media (max-width: 960px) {
           .hero {
             grid-template-columns: 1fr;
@@ -526,8 +610,10 @@ export default function App() {
             height: 330px;
           }
 
+          .trust-row,
           .selection-grid,
-          .feature-grid {
+          .feature-grid,
+          .steps-grid {
             grid-template-columns: repeat(2, 1fr);
           }
 
@@ -539,7 +625,20 @@ export default function App() {
         @media (max-width: 680px) {
           .topbar-inner {
             padding: 12px 16px;
-            align-items: flex-start;
+          }
+
+          .brand-mark {
+            width: 38px;
+            height: 38px;
+            font-size: 20px;
+          }
+
+          .brand-title {
+            font-size: 18px;
+          }
+
+          .brand-sub {
+            font-size: 11px;
           }
 
           .nav {
@@ -547,7 +646,8 @@ export default function App() {
           }
 
           .hero,
-          .section {
+          .section,
+          .trust-row {
             padding-left: 16px;
             padding-right: 16px;
           }
@@ -580,9 +680,17 @@ export default function App() {
             max-width: calc(100% - 36px);
           }
 
+          .trust-row,
+          .selection-grid,
+          .feature-grid,
+          .steps-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+          }
+
           .section {
-            padding-top: 34px;
-            padding-bottom: 34px;
+            padding-top: 36px;
+            padding-bottom: 36px;
           }
 
           .section-head {
@@ -593,19 +701,12 @@ export default function App() {
             margin-top: 12px;
           }
 
-          .selection-grid,
-          .feature-grid,
-          .options-grid {
-            grid-template-columns: 1fr;
-            gap: 15px;
-          }
-
           .product-image-wrap {
-            height: 190px;
+            height: 188px;
           }
 
           .feature-image-wrap {
-            height: 180px;
+            height: 178px;
           }
 
           .product-body {
@@ -616,7 +717,7 @@ export default function App() {
             font-size: 20px;
           }
 
-          .option-card,
+          .step-card,
           .visit-box {
             padding: 22px;
             border-radius: 22px;
@@ -629,6 +730,46 @@ export default function App() {
           .btn {
             width: 100%;
           }
+
+          .mobile-sticky {
+            position: fixed;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            z-index: 70;
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 999px;
+            background: rgba(2, 18, 22, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+          }
+
+          .mobile-sticky a {
+            flex: 1;
+            padding: 12px 10px;
+            border-radius: 999px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 900;
+          }
+
+          .mobile-whatsapp {
+            background: linear-gradient(135deg, #ffd166, #ffb703);
+            color: #021216;
+          }
+
+          .mobile-map {
+            background: rgba(255, 255, 255, 0.10);
+            color: white;
+          }
+
+          .footer {
+            padding-bottom: 92px;
+          }
         }
 
         @media (max-width: 420px) {
@@ -637,11 +778,11 @@ export default function App() {
           }
 
           .product-image-wrap {
-            height: 175px;
+            height: 174px;
           }
 
           .feature-image-wrap {
-            height: 170px;
+            height: 168px;
           }
 
           .address {
@@ -653,15 +794,18 @@ export default function App() {
       <header className="topbar">
         <div className="topbar-inner">
           <div className="brand">
-            <div className="brand-title">🦀 Crab Talk SG</div>
-            <div className="brand-sub">
-              31 Commonwealth Crescent #01-41/42/43 S(149644)
+            <div className="brand-mark">🦀</div>
+            <div>
+              <div className="brand-title">Crab Talk SG</div>
+              <div className="brand-sub">
+                31 Commonwealth Crescent #01-41/42/43 S(149644)
+              </div>
             </div>
           </div>
 
           <nav className="nav">
             <a href="#selection">Seafood</a>
-            <a href="#options">How It Works</a>
+            <a href="#how">How It Works</a>
             <a href="#features">Features</a>
             <a href="#visit">Visit</a>
             <a className="nav-cta" href="https://wa.me/6598398671">
@@ -693,7 +837,7 @@ export default function App() {
 
             <div className="hero-actions">
               <a className="btn btn-primary" href="https://wa.me/6598398671">
-                Order on WhatsApp
+                WhatsApp to Reserve
               </a>
               <a
                 className="btn btn-secondary"
@@ -719,6 +863,15 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <div className="trust-row">
+          {whyChoose.map((item) => (
+            <div className="trust-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
 
         <section className="section" id="selection">
           <div className="section-head">
@@ -751,7 +904,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="options">
+        <section className="section" id="how">
           <div className="section-head">
             <div>
               <div className="section-kicker">How It Works</div>
@@ -763,11 +916,11 @@ export default function App() {
             </p>
           </div>
 
-          <div className="options-grid">
-            {cookingOptions.map((item) => (
-              <article className="option-card" key={item.title}>
+          <div className="steps-grid">
+            {steps.map((item) => (
+              <article className="step-card" key={item.title}>
+                <div className="step-number">{item.number}</div>
                 <h3>{item.title}</h3>
-                <strong>{item.highlight}</strong>
                 <p>{item.text}</p>
               </article>
             ))}
@@ -841,6 +994,20 @@ export default function App() {
           </div>
         </section>
       </main>
+
+      <div className="mobile-sticky">
+        <a className="mobile-whatsapp" href="https://wa.me/6598398671">
+          WhatsApp
+        </a>
+        <a
+          className="mobile-map"
+          href="https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Directions
+        </a>
+      </div>
 
       <footer className="footer">
         © Crab Talk SG — Live Seafood Supply @ Crab Talk
