@@ -29,7 +29,7 @@ const freshSelection = [
   {
     title: "Fresh Oysters",
     text: "Cold, clean, and suitable for seafood platters, gatherings, or premium home dining.",
-    image: img("product-oysters-premium-01.jpg"),
+    image: img("product-oysters-premium-02.jpg"),
   },
   {
     title: "Manila Clams",
@@ -681,8 +681,8 @@ export default function App() {
             <p className="hero-copy">
               Pick your live crabs, lobsters, oysters, clams, and premium fish
               directly from Crab Talk. Fresh daily selections for families,
-              gatherings, and seafood lovers who want restaurant-quality
-              seafood at home.
+              gatherings, and seafood lovers who want restaurant-quality seafood
+              at home.
             </p>
 
             <div className="address">
