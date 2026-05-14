@@ -12,7 +12,8 @@ const AI_FEATURE_LINK = "https://www.facebook.com/share/v/1Djwg4h7UP/";
 const heroSlides = [
   {
     title: "Premium Live Seafood, Selected Fresh Daily",
-    subtitle: "Live crabs, lobsters, oysters, clams and seasonal premium seafood.",
+    subtitle:
+      "Live crabs, lobsters, oysters, clams and seasonal premium seafood.",
     src: image("hero-live-mud-crab-closeup.jpg"),
   },
   {
@@ -22,7 +23,8 @@ const heroSlides = [
   },
   {
     title: "Live Lobsters",
-    subtitle: "Boston lobster and green lobster options, depending on daily arrival.",
+    subtitle:
+      "Boston lobster and green lobster options, depending on daily arrival.",
     src: image("product-boston-lobster-display.jpg"),
   },
   {
@@ -56,12 +58,12 @@ const products = [
   {
     name: "Manila Clams",
     desc: "Great for steaming, chilli lala, white wine style or soup.",
-    src: image("product-manila-clams-closeup.jpg"),
+    src: image("product-manila-clams-01.jpg"),
   },
   {
-    name: "Soon Hock & Premium Fish",
-    desc: "Live fish options for steaming, Hong Kong style or home cooking.",
-    src: image("product-live-soon-hock-01.jpg"),
+    name: "Live Soon Hock & Premium Fish",
+    desc: "Live fish options suitable for steaming, Hong Kong style cooking or home preparation.",
+    src: image("product-live-soon-hock-tank.jpg"),
   },
 ];
 
@@ -83,20 +85,20 @@ const homeCooking = [
   },
 ];
 
-const faiKeeDishes = [
+const optionalCookedIdeas = [
   {
     title: "Lobster Yee Mee",
-    text: "One of the most requested cooked dishes when slots are available.",
+    text: "One of the most requested cooked dishes when kitchen slots are available.",
     src: image("dish-lobster-yee-mee-fai-kee-hero.jpg"),
   },
   {
     title: "Steamed Soon Hock",
-    text: "Hong Kong style steaming for clean, fresh seafood flavour.",
+    text: "Hong Kong style steaming for those who prefer a cooked seafood option.",
     src: image("dish-steamed-soon-hock-fai-kee.jpg"),
   },
   {
     title: "Seafood Hor Fun",
-    text: "Classic hawker-style seafood cooking beside the live seafood counter.",
+    text: "A familiar cooked option for customers who want hawker-style seafood dishes.",
     src: image("dish-seafood-hor-fun-fai-kee.jpg"),
   },
 ];
@@ -104,19 +106,19 @@ const faiKeeDishes = [
 const features = [
   {
     title: "Featured on 8 Days",
-    desc: "Crab Talk and Fai Kee live seafood hawker collaboration feature.",
-    src: image("feature-8days-original-thumbnail.jpg"),
+    desc: "Crab Talk and its live seafood concept featured by 8 Days.",
+    src: image("8days-feature.jpg"),
     link: EIGHT_DAYS_LINK,
   },
   {
     title: "Botak Jazz TikTok Feature",
-    desc: "Lobster yee mee and live seafood experience featured on TikTok.",
-    src: image("feature-botak-jazz-tiktok.jpg"),
+    desc: "Live seafood and lobster dishes featured by Botak Jazz.",
+    src: image("botak-jazz-feature.jpg"),
     link: TIKTOK_LINK,
   },
   {
     title: "Crab Seller Using AI",
-    desc: "A feature story on using AI in daily live seafood operations.",
+    desc: "A feature story about using AI for daily live seafood work.",
     src: image("AI-feature.jpeg"),
     link: AI_FEATURE_LINK,
   },
@@ -175,17 +177,17 @@ export default function App() {
       <style>{`
         :root {
           --deep: #021b1f;
-          --deep2: #062b33;
-          --panel: rgba(255,255,255,0.075);
-          --panel2: rgba(255,255,255,0.11);
-          --line: rgba(255,255,255,0.16);
+          --deep2: #062a33;
+          --panel: rgba(255,255,255,0.07);
+          --panel2: rgba(255,255,255,0.10);
+          --line: rgba(255,255,255,0.12);
           --text: #f7fbff;
           --muted: rgba(247,251,255,0.72);
           --aqua: #91eeff;
           --gold: #d6a84f;
-          --gold2: #f4d487;
-          --shadow: 0 24px 70px rgba(0,0,0,0.32);
-          --radius: 30px;
+          --gold2: #f2d284;
+          --shadow: 0 18px 45px rgba(0,0,0,0.22);
+          --radius: 24px;
         }
 
         * {
@@ -206,14 +208,14 @@ export default function App() {
           color: var(--text);
           font-family: Arial, Helvetica, sans-serif;
           background:
-            radial-gradient(circle at top left, rgba(145,238,255,0.16), transparent 34%),
-            radial-gradient(circle at top right, rgba(214,168,79,0.13), transparent 30%),
+            radial-gradient(circle at top left, rgba(145,238,255,0.14), transparent 30%),
+            radial-gradient(circle at top right, rgba(214,168,79,0.10), transparent 28%),
             linear-gradient(180deg, #021b1f 0%, #062b33 48%, #021b1f 100%);
           overflow-x: hidden;
         }
 
         .container {
-          width: min(1180px, calc(100% - 36px));
+          width: min(1120px, calc(100% - 32px));
           margin: 0 auto;
         }
 
@@ -221,52 +223,52 @@ export default function App() {
           position: sticky;
           top: 0;
           z-index: 50;
-          backdrop-filter: blur(18px);
-          background: rgba(2, 27, 31, 0.78);
+          backdrop-filter: blur(16px);
+          background: rgba(2, 27, 31, 0.82);
           border-bottom: 1px solid var(--line);
         }
 
         .nav {
-          min-height: 78px;
+          min-height: 70px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 22px;
+          gap: 20px;
         }
 
         .brand {
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 12px;
           text-decoration: none;
           color: var(--text);
         }
 
         .brandMark {
-          width: 44px;
-          height: 44px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           background: linear-gradient(135deg, var(--aqua), var(--gold));
-          box-shadow: 0 0 32px rgba(145,238,255,0.26);
+          box-shadow: 0 0 24px rgba(145,238,255,0.20);
         }
 
         .brandName {
-          font-size: 22px;
+          font-size: 20px;
           font-weight: 900;
           letter-spacing: -0.03em;
         }
 
         .brandSub {
-          margin-top: 3px;
+          margin-top: 2px;
           color: var(--muted);
-          font-size: 12px;
+          font-size: 11px;
         }
 
         .navLinks {
           display: flex;
           align-items: center;
-          gap: 18px;
-          font-size: 14px;
+          gap: 16px;
+          font-size: 13px;
           white-space: nowrap;
         }
 
@@ -280,136 +282,139 @@ export default function App() {
         }
 
         .navCta {
-          padding: 12px 18px;
+          padding: 10px 16px;
           border-radius: 999px;
           background: linear-gradient(135deg, #23d8ff, #178ab7);
           color: white !important;
           font-weight: 800;
-          box-shadow: 0 12px 26px rgba(35,216,255,0.18);
+          box-shadow: 0 10px 22px rgba(35,216,255,0.14);
         }
 
         .hero {
-          padding: 44px 0 32px;
+          padding: 32px 0 22px;
         }
 
         .heroGrid {
           display: grid;
-          grid-template-columns: 0.92fr 1.08fr;
-          gap: 34px;
+          grid-template-columns: 0.95fr 1.05fr;
+          gap: 24px;
           align-items: center;
         }
 
         .eyebrow {
           display: inline-flex;
           align-items: center;
-          gap: 9px;
-          padding: 9px 13px;
-          border: 1px solid rgba(214,168,79,0.42);
+          gap: 8px;
+          padding: 8px 12px;
+          border: 1px solid rgba(214,168,79,0.38);
           color: var(--gold2);
           border-radius: 999px;
           background: rgba(214,168,79,0.08);
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 800;
           letter-spacing: 0.08em;
           text-transform: uppercase;
         }
 
         h1 {
-          margin: 20px 0 18px;
-          font-size: clamp(40px, 6.2vw, 82px);
-          line-height: 0.94;
-          letter-spacing: -0.07em;
+          margin: 16px 0 14px;
+          font-size: clamp(34px, 5vw, 62px);
+          line-height: 0.98;
+          letter-spacing: -0.06em;
         }
 
         .heroLead {
           color: rgba(255,255,255,0.78);
-          font-size: clamp(17px, 2vw, 21px);
+          font-size: clamp(15px, 1.8vw, 18px);
           line-height: 1.65;
-          max-width: 610px;
+          max-width: 560px;
         }
 
         .addressLine {
-          margin-top: 18px;
-          color: rgba(255,255,255,0.88);
-          font-size: 15px;
-          line-height: 1.5;
+          margin-top: 16px;
+          color: rgba(255,255,255,0.86);
+          font-size: 14px;
+          line-height: 1.55;
         }
 
         .buttonRow {
           display: flex;
           flex-wrap: wrap;
-          gap: 13px;
-          margin-top: 28px;
+          gap: 12px;
+          margin-top: 22px;
         }
 
         .btn {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          min-height: 50px;
-          padding: 14px 21px;
+          min-height: 46px;
+          padding: 12px 18px;
           border-radius: 999px;
           text-decoration: none;
-          font-weight: 900;
+          font-weight: 800;
           border: 1px solid var(--line);
+          font-size: 14px;
         }
 
         .btnPrimary {
           background: linear-gradient(135deg, #25d9ff, #087eac);
           color: white;
-          box-shadow: 0 18px 36px rgba(37,217,255,0.18);
+          box-shadow: 0 14px 28px rgba(37,217,255,0.15);
         }
 
         .btnSecondary {
-          background: rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.07);
           color: white;
         }
 
         .heroCard {
-          border: 1px solid rgba(255,255,255,0.18);
-          border-radius: 34px;
-          background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+          border: 1px solid rgba(255,255,255,0.14);
+          border-radius: 28px;
+          background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
           box-shadow: var(--shadow);
-          padding: 18px;
+          padding: 14px;
         }
 
         .heroPhoto {
-          height: clamp(255px, 32vw, 425px);
-          border-radius: 26px;
+          height: clamp(220px, 26vw, 340px);
+          border-radius: 20px;
         }
 
         .heroCaption {
           display: flex;
           justify-content: space-between;
-          gap: 18px;
+          gap: 14px;
           align-items: flex-end;
-          padding: 18px 4px 2px;
+          padding: 14px 4px 2px;
         }
 
         .heroCaption h2 {
-          margin: 0 0 8px;
-          font-size: clamp(22px, 3vw, 36px);
+          margin: 0 0 6px;
+          font-size: clamp(20px, 2.8vw, 30px);
           letter-spacing: -0.045em;
         }
 
         .heroCaption p {
           margin: 0;
           color: var(--muted);
-          line-height: 1.55;
+          line-height: 1.5;
+          font-size: 14px;
         }
 
         .slideDots {
           display: flex;
-          gap: 8px;
+          gap: 7px;
           flex-shrink: 0;
         }
 
         .dot {
-          width: 9px;
-          height: 9px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
           background: rgba(255,255,255,0.25);
           border: none;
+          cursor: pointer;
         }
 
         .dot.active {
@@ -417,96 +422,92 @@ export default function App() {
         }
 
         .quickStrip {
-          margin-top: 34px;
+          margin-top: 22px;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 14px;
+          gap: 12px;
         }
 
         .quickItem {
           border: 1px solid var(--line);
-          border-radius: 22px;
-          padding: 18px;
-          background: rgba(255,255,255,0.07);
+          border-radius: 18px;
+          padding: 14px 16px;
+          background: rgba(255,255,255,0.06);
         }
 
         .quickItem strong {
           display: block;
-          font-size: 24px;
-          margin-bottom: 5px;
+          font-size: 18px;
+          margin-bottom: 4px;
         }
 
         .quickItem span {
           color: var(--muted);
-          font-size: 13px;
+          font-size: 12px;
+          line-height: 1.4;
         }
 
         section {
-          padding: 58px 0;
+          padding: 42px 0;
         }
 
         .sectionHead {
           display: flex;
           justify-content: space-between;
           align-items: end;
-          gap: 22px;
-          margin-bottom: 24px;
+          gap: 18px;
+          margin-bottom: 18px;
         }
 
         .sectionHead h2 {
           margin: 0;
-          font-size: clamp(30px, 4vw, 52px);
-          letter-spacing: -0.06em;
+          font-size: clamp(26px, 3.4vw, 40px);
+          letter-spacing: -0.05em;
         }
 
         .sectionHead p {
           margin: 0;
           color: var(--muted);
           line-height: 1.55;
-          max-width: 520px;
+          max-width: 500px;
+          font-size: 14px;
         }
 
         .grid3 {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-        }
-
-        .grid2 {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 18px;
+          gap: 16px;
         }
 
         .card {
           overflow: hidden;
           border-radius: var(--radius);
           border: 1px solid var(--line);
-          background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.055));
-          box-shadow: 0 16px 42px rgba(0,0,0,0.22);
+          background: linear-gradient(180deg, rgba(255,255,255,0.095), rgba(255,255,255,0.05));
+          box-shadow: 0 12px 30px rgba(0,0,0,0.18);
         }
 
         .cardBody {
-          padding: 22px;
+          padding: 18px;
         }
 
         .card h3 {
-          margin: 0 0 10px;
-          font-size: clamp(22px, 2.2vw, 30px);
-          letter-spacing: -0.04em;
+          margin: 0 0 8px;
+          font-size: clamp(18px, 2vw, 24px);
+          letter-spacing: -0.035em;
         }
 
         .card p {
           margin: 0;
           color: var(--muted);
-          line-height: 1.58;
-          font-size: 16px;
+          line-height: 1.55;
+          font-size: 14px;
         }
 
         .photoBox {
           width: 100%;
           background:
-            radial-gradient(circle at center, rgba(145,238,255,0.13), transparent 48%),
+            radial-gradient(circle at center, rgba(145,238,255,0.10), transparent 48%),
             linear-gradient(135deg, #071f25, #0d333c);
           display: flex;
           align-items: center;
@@ -523,127 +524,125 @@ export default function App() {
         }
 
         .productPhoto {
-          height: 265px;
+          height: 200px;
         }
 
         .featurePhoto {
-          height: 250px;
+          height: 190px;
         }
 
         .galleryPhoto {
-          height: 300px;
+          height: 220px;
         }
 
         .processPhoto {
-          height: 255px;
+          height: 200px;
         }
 
         .premiumPanel {
-          border: 1px solid rgba(214,168,79,0.28);
-          border-radius: 36px;
-          padding: clamp(24px, 4vw, 44px);
+          border: 1px solid rgba(214,168,79,0.24);
+          border-radius: 28px;
+          padding: clamp(20px, 3vw, 34px);
           background:
-            linear-gradient(135deg, rgba(214,168,79,0.12), rgba(145,238,255,0.07)),
-            rgba(255,255,255,0.05);
+            linear-gradient(135deg, rgba(214,168,79,0.10), rgba(145,238,255,0.06)),
+            rgba(255,255,255,0.04);
           box-shadow: var(--shadow);
         }
 
         .splitPanel {
           display: grid;
-          grid-template-columns: 0.9fr 1.1fr;
-          gap: 24px;
+          grid-template-columns: 0.95fr 1.05fr;
+          gap: 20px;
           align-items: center;
         }
 
         .splitPanel h2 {
-          margin: 0 0 14px;
-          font-size: clamp(30px, 4vw, 52px);
-          letter-spacing: -0.06em;
+          margin: 0 0 12px;
+          font-size: clamp(26px, 3.6vw, 42px);
+          letter-spacing: -0.05em;
         }
 
         .splitPanel p {
           color: var(--muted);
-          line-height: 1.65;
-          margin: 0 0 16px;
+          line-height: 1.62;
+          margin: 0 0 14px;
+          font-size: 14px;
         }
 
         .smallNote {
-          color: rgba(255,255,255,0.62);
-          font-size: 13px;
-          line-height: 1.55;
-          margin-top: 14px;
+          color: rgba(255,255,255,0.60);
+          font-size: 12px;
+          line-height: 1.5;
+          margin-top: 12px;
         }
 
         .featureCard {
           text-decoration: none;
           color: white;
-          transition: transform 0.22s ease, border-color 0.22s ease;
+          transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .featureCard:hover {
-          transform: translateY(-4px);
-          border-color: rgba(214,168,79,0.55);
+          transform: translateY(-3px);
+          border-color: rgba(214,168,79,0.48);
         }
 
         .tag {
           display: inline-flex;
-          margin-bottom: 12px;
-          padding: 7px 10px;
+          margin-bottom: 10px;
+          padding: 6px 9px;
           border-radius: 999px;
           background: rgba(214,168,79,0.14);
           color: var(--gold2);
-          font-size: 12px;
+          font-size: 11px;
           font-weight: 900;
           letter-spacing: 0.05em;
           text-transform: uppercase;
         }
 
-        .galleryCard {
-          position: relative;
-        }
-
         .galleryCard .cardBody {
-          padding: 16px 18px 18px;
+          padding: 14px 16px 16px;
         }
 
         .footer {
-          padding: 46px 0;
+          padding: 34px 0;
           border-top: 1px solid var(--line);
-          background: rgba(0,0,0,0.18);
+          background: rgba(0,0,0,0.16);
         }
 
         .footerGrid {
           display: grid;
           grid-template-columns: 1.15fr 0.85fr;
-          gap: 28px;
+          gap: 24px;
           align-items: center;
         }
 
         .footer h2 {
-          margin: 0 0 10px;
-          font-size: clamp(28px, 4vw, 46px);
-          letter-spacing: -0.06em;
+          margin: 0 0 8px;
+          font-size: clamp(24px, 3vw, 34px);
+          letter-spacing: -0.05em;
         }
 
         .footer p {
           margin: 0;
           color: var(--muted);
-          line-height: 1.6;
+          line-height: 1.55;
+          font-size: 14px;
         }
 
         .footerActions {
           display: flex;
           justify-content: flex-end;
           flex-wrap: wrap;
-          gap: 12px;
+          gap: 10px;
         }
 
         @media (max-width: 920px) {
           .nav {
             flex-direction: column;
             align-items: flex-start;
-            padding: 16px 0;
-            gap: 14px;
+            padding: 14px 0;
+            gap: 12px;
           }
 
           .navLinks {
@@ -656,10 +655,6 @@ export default function App() {
           .splitPanel,
           .footerGrid {
             grid-template-columns: 1fr;
-          }
-
-          .hero {
-            padding-top: 28px;
           }
 
           .quickStrip {
@@ -675,7 +670,7 @@ export default function App() {
           }
 
           .sectionHead p {
-            margin-top: 12px;
+            margin-top: 10px;
           }
 
           .footerActions {
@@ -685,60 +680,58 @@ export default function App() {
 
         @media (max-width: 620px) {
           .container {
-            width: min(100% - 24px, 1180px);
+            width: min(100% - 22px, 1120px);
           }
 
           .brandName {
-            font-size: 19px;
+            font-size: 18px;
+          }
+
+          .hero {
+            padding: 24px 0 14px;
+          }
+
+          h1 {
+            font-size: 34px;
           }
 
           .heroPhoto {
-            height: 245px;
-            border-radius: 22px;
+            height: 210px;
+            border-radius: 18px;
           }
 
           .heroCard {
-            padding: 12px;
-            border-radius: 26px;
+            padding: 10px;
+            border-radius: 22px;
           }
 
           .heroCaption {
             display: block;
-            padding: 16px 4px 4px;
+            padding: 12px 2px 2px;
           }
 
           .slideDots {
-            margin-top: 14px;
+            margin-top: 10px;
           }
 
           .quickStrip,
-          .grid3,
-          .grid2 {
+          .grid3 {
             grid-template-columns: 1fr;
           }
 
-          .productPhoto {
-            height: 230px;
-          }
-
-          .featurePhoto {
-            height: 220px;
-          }
-
-          .galleryPhoto {
-            height: 235px;
-          }
-
+          .productPhoto,
+          .featurePhoto,
+          .galleryPhoto,
           .processPhoto {
-            height: 225px;
+            height: 190px;
           }
 
           .cardBody {
-            padding: 18px;
+            padding: 16px;
           }
 
           section {
-            padding: 42px 0;
+            padding: 34px 0;
           }
 
           .buttonRow {
@@ -766,7 +759,12 @@ export default function App() {
             <a href="#home-cooking">Home Cooking</a>
             <a href="#features">Features</a>
             <a href="#location">Location</a>
-            <a className="navCta" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            <a
+              className="navCta"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
               WhatsApp Order
             </a>
           </nav>
@@ -779,12 +777,12 @@ export default function App() {
             <div>
               <span className="eyebrow">Premium Live Seafood Counter</span>
 
-              <h1>Live seafood, selected fresh for serious seafood lovers.</h1>
+              <h1>Fresh live seafood for home dining and serious seafood lovers.</h1>
 
               <p className="heroLead">
                 Crab Talk SG supplies live crabs, roe crabs, lobsters, oysters,
-                clams and premium seafood for home cooking, family gatherings
-                and weekend seafood feasts.
+                clams and premium seafood for home cooking, family gatherings and
+                weekend seafood feasts.
               </p>
 
               <p className="addressLine">
@@ -794,17 +792,31 @@ export default function App() {
               </p>
 
               <div className="buttonRow">
-                <a className="btn btnPrimary" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+                <a
+                  className="btn btnPrimary"
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Reserve on WhatsApp
                 </a>
-                <a className="btn btnSecondary" href={MAP_LINK} target="_blank" rel="noreferrer">
+                <a
+                  className="btn btnSecondary"
+                  href={MAP_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Open Google Maps
                 </a>
               </div>
             </div>
 
             <div className="heroCard">
-              <PhotoBox src={currentHero.src} alt={currentHero.title} className="heroPhoto" />
+              <PhotoBox
+                src={currentHero.src}
+                alt={currentHero.title}
+                className="heroPhoto"
+              />
 
               <div className="heroCaption">
                 <div>
@@ -828,16 +840,16 @@ export default function App() {
 
           <div className="container quickStrip">
             <div className="quickItem">
-              <strong>Live</strong>
-              <span>Seafood selected from tanks</span>
+              <strong>Fresh</strong>
+              <span>Daily live seafood arrivals</span>
             </div>
             <div className="quickItem">
-              <strong>Fresh</strong>
-              <span>Daily arrivals, limited quantities</span>
+              <strong>Premium</strong>
+              <span>Selected quality seafood</span>
             </div>
             <div className="quickItem">
               <strong>Home</strong>
-              <span>Perfect for home cooking</span>
+              <span>Ideal for home cooking</span>
             </div>
             <div className="quickItem">
               <strong>Reserve</strong>
@@ -879,8 +891,7 @@ export default function App() {
               </div>
               <p>
                 Choose your seafood, reserve your preferred size and cook it your
-                way at home. Best for families who want fresher seafood without
-                restaurant pricing.
+                way at home. Best for families who want fresher seafood with more control.
               </p>
             </div>
 
@@ -898,34 +909,26 @@ export default function App() {
           </div>
         </section>
 
-        <section id="fai-kee">
+        <section id="cooked-ideas">
           <div className="container">
-            <div className="splitPanel">
-              <div>
-                <span className="tag">Optional Cooking Nearby</span>
-                <h2>Prefer cooked seafood?</h2>
-                <p>
-                  Selected seafood purchased from Crab Talk may be cooked nearby
-                  by Fai Kee when slots are available. This is an optional add-on
-                  and subject to kitchen capacity.
-                </p>
-                <p className="smallNote">
-                  Please check availability before ordering cooked dishes, especially
-                  during peak hours or weekends.
-                </p>
-              </div>
+            <div className="sectionHead">
+              <h2>Optional cooked ideas</h2>
+              <p>
+                For customers who prefer cooked seafood, selected dishes may be available nearby,
+                subject to kitchen capacity and timing.
+              </p>
+            </div>
 
-              <div className="grid3">
-                {faiKeeDishes.map((item) => (
-                  <article className="card" key={item.title}>
-                    <PhotoBox src={item.src} alt={item.title} className="processPhoto" />
-                    <div className="cardBody">
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+            <div className="grid3">
+              {optionalCookedIdeas.map((item) => (
+                <article className="card" key={item.title}>
+                  <PhotoBox src={item.src} alt={item.title} className="processPhoto" />
+                  <div className="cardBody">
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -935,8 +938,8 @@ export default function App() {
             <div className="sectionHead">
               <h2>Featured stories</h2>
               <p>
-                Crab Talk has been featured for its live seafood concept,
-                collaboration dishes and modern use of AI in daily seafood work.
+                Crab Talk has been featured for its live seafood concept, seafood dishes
+                and the use of AI in daily work.
               </p>
             </div>
 
@@ -966,8 +969,7 @@ export default function App() {
             <div className="sectionHead">
               <h2>Popular seafood ideas</h2>
               <p>
-                Inspiration for your next seafood meal. Actual items and sizes
-                depend on daily stock.
+                Inspiration for your next seafood meal. Actual items and sizes depend on daily stock.
               </p>
             </div>
 
@@ -1001,10 +1003,20 @@ export default function App() {
                 </p>
 
                 <div className="buttonRow">
-                  <a className="btn btnPrimary" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+                  <a
+                    className="btn btnPrimary"
+                    href={WHATSAPP_LINK}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     WhatsApp 9839 8671
                   </a>
-                  <a className="btn btnSecondary" href={MAP_LINK} target="_blank" rel="noreferrer">
+                  <a
+                    className="btn btnSecondary"
+                    href={MAP_LINK}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Get Directions
                   </a>
                 </div>
@@ -1031,10 +1043,20 @@ export default function App() {
           </div>
 
           <div className="footerActions">
-            <a className="btn btnPrimary" href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            <a
+              className="btn btnPrimary"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
               Order on WhatsApp
             </a>
-            <a className="btn btnSecondary" href={MAP_LINK} target="_blank" rel="noreferrer">
+            <a
+              className="btn btnSecondary"
+              href={MAP_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >
               Google Maps
             </a>
           </div>
