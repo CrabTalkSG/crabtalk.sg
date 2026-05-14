@@ -4,7 +4,7 @@ const img = (name) => `/images/${name}`;
 
 const heroImages = [
   img("product-yellow-roe-crab-06.jpg"),
-  img("product-live-crab-tank-01.jpg"),
+  img("product-live-crab-premium.jpg"),
   img("product-boston-lobster-display.jpg"),
   img("feature-8days-crab-talk-fai-kee.jpg"),
   img("feature-botak-jazz-tiktok.jpg"),
@@ -14,7 +14,7 @@ const freshSelection = [
   {
     title: "Live Mud Crabs",
     text: "Meaty, active mud crabs selected for steaming, chilli crab, black pepper crab, or ginger scallion crab.",
-    image: img("product-live-crab-tank-01.jpg"),
+    image: img("product-live-crab-premium.jpg"),
   },
   {
     title: "Sri Lanka Roe Crabs",
@@ -827,7 +827,7 @@ export default function App() {
 
             <div className="visit-actions">
               <a className="btn btn-primary" href="https://wa.me/6598398671">
-                WhatsApp 9839 8671
+                WhatsApp to Reserve
               </a>
               <a
                 className="btn btn-secondary"
