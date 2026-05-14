@@ -6,7 +6,7 @@ const heroImages = [
   img("product-yellow-roe-crab-06.jpg"),
   img("product-live-crab-premium.jpg"),
   img("product-boston-lobster-display.jpg"),
-  img("feature-8days-crab-talk-fai-kee.jpg"),
+  img("feature-8days-original-thumbnail.jpg"),
   img("feature-botak-jazz-tiktok.jpg"),
 ];
 
@@ -47,7 +47,7 @@ const featureCards = [
   {
     title: "Featured on 8 Days",
     text: "Crab Talk’s live seafood and hawker-style cooked seafood collaboration was featured by 8 Days.",
-    image: img("8days-feature.jpg"),
+    image: img("feature-8days-original-thumbnail.jpg"),
     link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
   },
   {
