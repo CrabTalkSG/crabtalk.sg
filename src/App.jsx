@@ -4,6 +4,8 @@ export default function App() {
   const telegramLink = "https://t.me/CrabTalkSG";
   const eightDaysLink =
     "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541";
+  const botakJazzTikTokLink =
+    "https://www.tiktok.com/@botakjazz/video/7602204733155364116";
 
   const seafoodItems = [
     {
@@ -199,6 +201,12 @@ export default function App() {
           color: #031a1f;
           background: linear-gradient(135deg, #f7fcfd, #00b7c8);
           box-shadow: 0 18px 46px rgba(0, 183, 200, 0.28);
+        }
+
+        .btnGold {
+          color: #031a1f;
+          background: linear-gradient(135deg, #ffe6ad, #f2b84b);
+          box-shadow: 0 18px 46px rgba(242, 184, 75, 0.22);
         }
 
         .btnDark {
@@ -487,6 +495,37 @@ export default function App() {
           font-weight: 800;
         }
 
+        .featuredGrid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .featuredCard {
+          padding: 36px;
+          border-radius: 32px;
+          background:
+            linear-gradient(145deg, rgba(242,184,75,0.15), rgba(0,183,200,0.1)),
+            rgba(255,255,255,0.055);
+          border: 1px solid rgba(255,255,255,0.13);
+          box-shadow: 0 24px 70px rgba(0,0,0,0.26);
+        }
+
+        .featuredCard h3 {
+          margin: 0 0 12px;
+          font-size: 30px;
+          letter-spacing: -0.9px;
+        }
+
+        .featuredCard p {
+          margin: 0 0 24px;
+          color: #c9eef7;
+          font-size: 17px;
+          line-height: 1.7;
+        }
+
         .trustGrid {
           max-width: 1200px;
           margin: 0 auto;
@@ -567,6 +606,7 @@ export default function App() {
           .hero,
           .choiceGrid,
           .feature,
+          .featuredGrid,
           .footer {
             grid-template-columns: 1fr;
           }
@@ -659,6 +699,7 @@ export default function App() {
         <div className="navLinks">
           <a href="#home">Home Cooking</a>
           <a href="#faikee">Fai Kee</a>
+          <a href="#featured">Featured</a>
           <a href="#visit">Visit</a>
           <a
             className="navCta"
@@ -835,6 +876,53 @@ export default function App() {
                 Read 8 Days Feature
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section sectionAlt" id="featured">
+        <div className="sectionHeader">
+          <div className="label">As Seen Online</div>
+          <h2>Featured by food creators and media</h2>
+          <p>
+            Crab Talk has been featured online for our live seafood concept and
+            the Crab Talk × Fai Kee market cooking experience.
+          </p>
+        </div>
+
+        <div className="featuredGrid">
+          <div className="featuredCard">
+            <div className="label">TikTok Feature</div>
+            <h3>Featured by Botak Jazz</h3>
+            <p>
+              Watch Botak Jazz’s TikTok feature on Crab Talk and see why the
+              live seafood concept is getting attention.
+            </p>
+            <a
+              className="btn btnGold"
+              href={botakJazzTikTokLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch Botak Jazz TikTok
+            </a>
+          </div>
+
+          <div className="featuredCard">
+            <div className="label">Media Feature</div>
+            <h3>Featured on 8 Days</h3>
+            <p>
+              Read the 8 Days feature about the Crab Talk × Fai Kee live seafood
+              collaboration at Commonwealth Crescent.
+            </p>
+            <a
+              className="btn btnPrimary"
+              href={eightDaysLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read 8 Days Feature
+            </a>
           </div>
         </div>
       </section>
