@@ -14,7 +14,7 @@ const heroImages = [
   img("product-live-crab-premium.jpg"),
   img("product-boston-lobster-display.jpg"),
   img("feature-8days-original-thumbnail.jpg"),
-  img("feature-botak-jazz-tiktok.jpg"),
+  img("botak-jazz-feature.jpg"),
 ];
 
 const productImages = {
@@ -40,6 +40,7 @@ const content = {
       hours: "Hours",
       telegram: "Telegram",
       features: "Features",
+      reviews: "Reviews",
       faq: "FAQ",
       visit: "Visit",
       whatsapp: "WhatsApp",
@@ -208,13 +209,25 @@ const content = {
       },
     ],
 
-    reviewsKicker: "Customer Confidence",
-    reviewsTitle: "Why customers come back",
-    reviews: [
-      "Fresh live seafood selected on the spot.",
-      "Helpful recommendations for family meals and home cooking.",
-      "Telegram updates make it easier to reserve before heading down.",
+    reviewsKicker: "Google Reviews",
+    reviewsTitle: "See what customers say on Google",
+    reviewsDesc:
+      "Read the latest real customer reviews, ratings and customer photos directly on our Google Maps listing.",
+    reviewCards: [
+      {
+        title: "Real Customer Feedback",
+        text: "View updated customer comments directly from Google Maps.",
+      },
+      {
+        title: "Photos From Visitors",
+        text: "See customer-uploaded photos of seafood, the stall and dining experiences.",
+      },
+      {
+        title: "Leave Us a Review",
+        text: "Visited Crab Talk? Your review helps more seafood lovers find us.",
+      },
     ],
+    viewGoogleReviews: "View Google Reviews",
 
     faqKicker: "FAQ",
     faqTitle: "Common questions",
@@ -256,6 +269,7 @@ const content = {
       hours: "营业时间",
       telegram: "Telegram",
       features: "媒体报道",
+      reviews: "Google评价",
       faq: "常见问题",
       visit: "到店",
       whatsapp: "WhatsApp",
@@ -423,13 +437,25 @@ const content = {
       },
     ],
 
-    reviewsKicker: "顾客信心",
-    reviewsTitle: "为什么顾客会回来",
-    reviews: [
-      "可现场挑选新鲜活海鲜。",
-      "适合家庭聚餐和家里烹煮的实用推荐。",
-      "Telegram 更新让顾客更容易来店前预订。",
+    reviewsKicker: "Google 评价",
+    reviewsTitle: "查看顾客在 Google 上的真实评价",
+    reviewsDesc:
+      "点击 Google Maps 查看最新真实顾客评价、评分和顾客上传照片。",
+    reviewCards: [
+      {
+        title: "真实顾客反馈",
+        text: "直接在 Google Maps 查看最新顾客留言。",
+      },
+      {
+        title: "顾客上传照片",
+        text: "查看顾客拍摄的海鲜、摊位和用餐照片。",
+      },
+      {
+        title: "欢迎留下评价",
+        text: "如果您到访过 Crab Talk，您的评价能帮助更多海鲜爱好者找到我们。",
+      },
     ],
+    viewGoogleReviews: "查看 Google 评价",
 
     faqKicker: "常见问题",
     faqTitle: "顾客常问",
@@ -471,6 +497,7 @@ const content = {
       hours: "営業時間",
       telegram: "Telegram",
       features: "掲載情報",
+      reviews: "Google口コミ",
       faq: "FAQ",
       visit: "アクセス",
       whatsapp: "WhatsApp",
@@ -639,13 +666,25 @@ const content = {
       },
     ],
 
-    reviewsKicker: "お客様の安心感",
-    reviewsTitle: "リピートされる理由",
-    reviews: [
-      "その場で新鮮な活き海鮮を選べます。",
-      "家庭料理や人数に合わせたおすすめができます。",
-      "Telegram更新で来店前に予約しやすくなります。",
+    reviewsKicker: "Google口コミ",
+    reviewsTitle: "Googleでお客様の口コミを見る",
+    reviewsDesc:
+      "最新のリアルな口コミ、評価、お客様の写真はGoogle Mapsで確認できます。",
+    reviewCards: [
+      {
+        title: "リアルなお客様の声",
+        text: "最新のコメントはGoogle Mapsで直接確認できます。",
+      },
+      {
+        title: "お客様の写真",
+        text: "海鮮、店舗、食事体験の写真をご覧いただけます。",
+      },
+      {
+        title: "口コミ投稿も歓迎",
+        text: "Crab Talkにご来店いただいた方の口コミは、他のお客様の参考になります。",
+      },
     ],
+    viewGoogleReviews: "Google口コミを見る",
 
     faqKicker: "FAQ",
     faqTitle: "よくある質問",
@@ -741,7 +780,7 @@ export default function App() {
           top: 0;
           z-index: 50;
           backdrop-filter: blur(18px);
-          background: rgba(2, 18, 22, 0.90);
+          background: rgba(2, 18, 22, 0.92);
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -1034,7 +1073,7 @@ export default function App() {
         }
 
         .section-desc {
-          max-width: 520px;
+          max-width: 560px;
           margin: 0;
           color: #b7d8df;
           line-height: 1.65;
@@ -1216,7 +1255,8 @@ export default function App() {
         }
 
         .telegram-box,
-        .visit-box {
+        .visit-box,
+        .google-review-box {
           border-radius: 30px;
           padding: 36px;
           display: grid;
@@ -1231,8 +1271,13 @@ export default function App() {
           box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
         }
 
+        .google-review-box {
+          grid-template-columns: 1fr;
+        }
+
         .telegram-box p,
-        .visit-box p {
+        .visit-box p,
+        .google-review-box p {
           margin: 12px 0 0;
           color: #c5e4ea;
           line-height: 1.7;
@@ -1242,6 +1287,22 @@ export default function App() {
         .visit-actions {
           display: grid;
           gap: 12px;
+        }
+
+        .review-card h3 {
+          color: #ffd166;
+        }
+
+        .review-icon {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          color: #021216;
+          font-weight: 900;
+          margin-bottom: 14px;
         }
 
         .footer {
@@ -1406,7 +1467,8 @@ export default function App() {
           .step-card,
           .telegram-box,
           .visit-box,
-          .info-panel {
+          .info-panel,
+          .google-review-box {
             padding: 22px;
             border-radius: 22px;
           }
@@ -1499,6 +1561,7 @@ export default function App() {
             <a href="#hours">{t.nav.hours}</a>
             <a href="#telegram">{t.nav.telegram}</a>
             <a href="#features">{t.nav.features}</a>
+            <a href="#reviews">{t.nav.reviews}</a>
             <a href="#faq">{t.nav.faq}</a>
             <a href="#visit">{t.nav.visit}</a>
             <a className="nav-cta" href={whatsappLink}>
@@ -1507,13 +1570,22 @@ export default function App() {
           </nav>
 
           <div className="language-switcher">
-            <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>
+            <button
+              className={lang === "en" ? "active" : ""}
+              onClick={() => setLang("en")}
+            >
               EN
             </button>
-            <button className={lang === "zh" ? "active" : ""} onClick={() => setLang("zh")}>
+            <button
+              className={lang === "zh" ? "active" : ""}
+              onClick={() => setLang("zh")}
+            >
               中文
             </button>
-            <button className={lang === "ja" ? "active" : ""} onClick={() => setLang("ja")}>
+            <button
+              className={lang === "ja" ? "active" : ""}
+              onClick={() => setLang("ja")}
+            >
               日本語
             </button>
           </div>
@@ -1537,10 +1609,20 @@ export default function App() {
               <a className="btn btn-primary" href={whatsappLink}>
                 {t.whatsappReserve}
               </a>
-              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.telegramJoin}
               </a>
-              <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-secondary"
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.maps}
               </a>
             </div>
@@ -1548,7 +1630,11 @@ export default function App() {
 
           <div className="hero-frame">
             <div className="hero-image-box">
-              <img className="hero-image" src={heroImages[heroIndex]} alt="Crab Talk premium live seafood" />
+              <img
+                className="hero-image"
+                src={heroImages[heroIndex]}
+                alt="Crab Talk premium live seafood"
+              />
             </div>
             <div className="hero-badge">{t.heroBadge}</div>
           </div>
@@ -1577,11 +1663,17 @@ export default function App() {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+
                 <div className="hero-actions">
                   <a className="btn btn-primary" href={whatsappLink}>
                     {t.whatsappReserve}
                   </a>
-                  <a className="btn btn-secondary" href={takeAppLink} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="btn btn-secondary"
+                    href={takeAppLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {t.orderOnline}
                   </a>
                 </div>
@@ -1609,7 +1701,11 @@ export default function App() {
             {t.freshSelection.map((item) => (
               <article className="product-card" key={item.title}>
                 <div className="product-image-wrap">
-                  <img className="product-image" src={item.image} alt={item.title} />
+                  <img
+                    className="product-image"
+                    src={item.image}
+                    alt={item.title}
+                  />
                 </div>
                 <div className="product-body">
                   <h3>{item.title}</h3>
@@ -1635,7 +1731,12 @@ export default function App() {
             </div>
 
             <div className="hero-actions">
-              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.telegramJoin}
               </a>
               <a className="btn btn-primary" href={whatsappLink}>
@@ -1688,7 +1789,12 @@ export default function App() {
               <p>{t.telegramText}</p>
 
               <div className="hero-actions">
-                <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  className="btn btn-telegram"
+                  href={telegramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t.telegramButton}
                 </a>
                 <a className="btn btn-primary" href={whatsappLink}>
@@ -1718,9 +1824,19 @@ export default function App() {
 
           <div className="feature-grid">
             {t.featureCards.map((item) => (
-              <a className="feature-card" key={item.title} href={item.link} target="_blank" rel="noopener noreferrer">
+              <a
+                className="feature-card"
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div className="feature-image-wrap">
-                  <img className="feature-image" src={item.image} alt={item.title} />
+                  <img
+                    className="feature-image"
+                    src={item.image}
+                    alt={item.title}
+                  />
                 </div>
                 <div className="feature-body">
                   <h3>{item.title}</h3>
@@ -1732,21 +1848,42 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section">
-          <div className="section-head">
+        <section className="section" id="reviews">
+          <div className="google-review-box">
             <div>
               <div className="section-kicker">{t.reviewsKicker}</div>
               <h2>{t.reviewsTitle}</h2>
-            </div>
-          </div>
+              <p className="section-desc">{t.reviewsDesc}</p>
 
-          <div className="reviews-grid">
-            {t.reviews.map((item) => (
-              <div className="review-card" key={item}>
-                <h3>★★★★★</h3>
-                <p>{item}</p>
+              <div className="hero-actions">
+                <a
+                  className="btn btn-primary"
+                  href={mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.viewGoogleReviews}
+                </a>
+                <a
+                  className="btn btn-secondary"
+                  href={mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.maps}
+                </a>
               </div>
-            ))}
+            </div>
+
+            <div className="reviews-grid">
+              {t.reviewCards.map((item, index) => (
+                <div className="review-card" key={item.title}>
+                  <div className="review-icon">{index + 1}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -1780,13 +1917,28 @@ export default function App() {
               <a className="btn btn-primary" href={whatsappLink}>
                 {t.whatsappReserve}
               </a>
-              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.telegramJoin}
               </a>
-              <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-secondary"
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.getDirections}
               </a>
-              <a className="btn btn-secondary" href={instagramLink} target="_blank" rel="noopener noreferrer">
+              <a
+                className="btn btn-secondary"
+                href={instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t.instagram}
               </a>
             </div>
@@ -1798,10 +1950,20 @@ export default function App() {
         <a className="mobile-whatsapp" href={whatsappLink}>
           WhatsApp
         </a>
-        <a className="mobile-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+        <a
+          className="mobile-telegram"
+          href={telegramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Telegram
         </a>
-        <a className="mobile-map" href={mapsLink} target="_blank" rel="noopener noreferrer">
+        <a
+          className="mobile-map"
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Map
         </a>
       </div>
