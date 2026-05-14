@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 
 const img = (name) => `/images/${name}`;
 
+const whatsappLink = "https://wa.me/6598398671";
+const telegramLink = "https://t.me/CrabTalkSG";
+const mapsLink = "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac";
+
 const heroImages = [
   img("product-yellow-roe-crab-06.jpg"),
   img("product-live-crab-premium.jpg"),
@@ -74,8 +78,8 @@ const whyChoose = [
     text: "Popular items move fast. Message us to check today’s availability first.",
   },
   {
-    title: "Made for Home Cooking",
-    text: "Perfect for steaming, chilli crab, hotpot, family dinners and weekend feasts.",
+    title: "Daily Telegram Updates",
+    text: "Join our Telegram group to see fresh arrivals, limited drops and sold-out updates.",
   },
 ];
 
@@ -83,7 +87,7 @@ const steps = [
   {
     number: "01",
     title: "Check Today’s Stock",
-    text: "Message us on WhatsApp to check available seafood, sizes and recommendations.",
+    text: "Join Telegram or message us on WhatsApp to check available seafood, sizes and recommendations.",
   },
   {
     number: "02",
@@ -302,6 +306,12 @@ export default function App() {
           border: 1px solid rgba(255, 255, 255, 0.16);
         }
 
+        .btn-telegram {
+          color: white;
+          background: linear-gradient(135deg, #20a8e0, #0b7ea2);
+          box-shadow: 0 14px 34px rgba(32, 168, 224, 0.22);
+        }
+
         .hero-frame {
           position: relative;
           border-radius: 30px;
@@ -499,6 +509,42 @@ export default function App() {
           font-size: 15px;
         }
 
+        .telegram-box {
+          border-radius: 30px;
+          padding: 34px;
+          display: grid;
+          grid-template-columns: 1.1fr 0.9fr;
+          gap: 24px;
+          align-items: center;
+          background:
+            radial-gradient(circle at top right, rgba(32, 168, 224, 0.26), transparent 34%),
+            linear-gradient(135deg, rgba(32, 168, 224, 0.16), rgba(255, 209, 102, 0.08)),
+            rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(255, 255, 255, 0.13);
+          box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
+        }
+
+        .telegram-box p {
+          margin: 12px 0 0;
+          color: #c5e4ea;
+          line-height: 1.7;
+        }
+
+        .telegram-points {
+          display: grid;
+          gap: 11px;
+        }
+
+        .telegram-point {
+          padding: 13px 15px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.10);
+          color: #d7f6ff;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+
         .feature-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -617,6 +663,7 @@ export default function App() {
             grid-template-columns: repeat(2, 1fr);
           }
 
+          .telegram-box,
           .visit-box {
             grid-template-columns: 1fr;
           }
@@ -718,6 +765,7 @@ export default function App() {
           }
 
           .step-card,
+          .telegram-box,
           .visit-box {
             padding: 22px;
             border-radius: 22px;
@@ -733,33 +781,38 @@ export default function App() {
 
           .mobile-sticky {
             position: fixed;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
             z-index: 70;
-            display: flex;
-            gap: 10px;
-            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 9px;
             border-radius: 999px;
-            background: rgba(2, 18, 22, 0.88);
+            background: rgba(2, 18, 22, 0.90);
             border: 1px solid rgba(255, 255, 255, 0.14);
             backdrop-filter: blur(16px);
             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
           }
 
           .mobile-sticky a {
-            flex: 1;
-            padding: 12px 10px;
+            padding: 11px 7px;
             border-radius: 999px;
             text-align: center;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 900;
           }
 
           .mobile-whatsapp {
             background: linear-gradient(135deg, #ffd166, #ffb703);
             color: #021216;
+          }
+
+          .mobile-telegram {
+            background: linear-gradient(135deg, #20a8e0, #0b7ea2);
+            color: white;
           }
 
           .mobile-map {
@@ -806,9 +859,10 @@ export default function App() {
           <nav className="nav">
             <a href="#selection">Seafood</a>
             <a href="#how">How It Works</a>
+            <a href="#telegram">Telegram</a>
             <a href="#features">Features</a>
             <a href="#visit">Visit</a>
-            <a className="nav-cta" href="https://wa.me/6598398671">
+            <a className="nav-cta" href={whatsappLink}>
               WhatsApp
             </a>
           </nav>
@@ -836,12 +890,20 @@ export default function App() {
             </div>
 
             <div className="hero-actions">
-              <a className="btn btn-primary" href="https://wa.me/6598398671">
+              <a className="btn btn-primary" href={whatsappLink}>
                 WhatsApp to Reserve
               </a>
               <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Telegram Updates
+              </a>
+              <a
                 className="btn btn-secondary"
-                href="https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac"
+                href={mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -859,7 +921,7 @@ export default function App() {
               />
             </div>
             <div className="hero-badge">
-              Daily arrivals vary. Walk-in or pre-order recommended.
+              Daily arrivals vary. Telegram updates first.
             </div>
           </div>
         </section>
@@ -927,6 +989,45 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section" id="telegram">
+          <div className="telegram-box">
+            <div>
+              <div className="section-kicker">Daily Seafood Updates</div>
+              <h2>Join Crab Talk on Telegram</h2>
+              <p>
+                Get faster updates on today’s arrivals, limited seafood drops,
+                popular sizes, reservation reminders and sold-out notices.
+              </p>
+
+              <div className="hero-actions">
+                <a
+                  className="btn btn-telegram"
+                  href={telegramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join t.me/CrabTalkSG
+                </a>
+                <a className="btn btn-primary" href={whatsappLink}>
+                  Reserve on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <div className="telegram-points">
+              <div className="telegram-point">
+                🦀 See fresh arrivals before heading down
+              </div>
+              <div className="telegram-point">
+                🦞 Limited items and promo updates
+              </div>
+              <div className="telegram-point">
+                ⚠️ Sold-out notices and reservation reminders
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="features">
           <div className="section-head">
             <div>
@@ -972,19 +1073,28 @@ export default function App() {
               <div className="section-kicker">Visit Crab Talk</div>
               <h2>Walk in or reserve before coming</h2>
               <p>
-                For the best selection, message us before visiting. Live seafood
-                availability changes daily, especially for roe crabs, lobsters,
-                oysters, Soon Hock, and premium items.
+                For the best selection, join Telegram for updates or message us
+                before visiting. Live seafood availability changes daily,
+                especially for roe crabs, lobsters, oysters, Soon Hock, and
+                premium items.
               </p>
             </div>
 
             <div className="visit-actions">
-              <a className="btn btn-primary" href="https://wa.me/6598398671">
+              <a className="btn btn-primary" href={whatsappLink}>
                 WhatsApp to Reserve
               </a>
               <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join Telegram
+              </a>
+              <a
                 className="btn btn-secondary"
-                href="https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac"
+                href={mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -996,16 +1106,24 @@ export default function App() {
       </main>
 
       <div className="mobile-sticky">
-        <a className="mobile-whatsapp" href="https://wa.me/6598398671">
+        <a className="mobile-whatsapp" href={whatsappLink}>
           WhatsApp
         </a>
         <a
-          className="mobile-map"
-          href="https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac"
+          className="mobile-telegram"
+          href={telegramLink}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Directions
+          Telegram
+        </a>
+        <a
+          className="mobile-map"
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Map
         </a>
       </div>
 
