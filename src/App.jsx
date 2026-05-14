@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 
 const img = (name) => `/images/${name}`;
 
-const whatsappLink = "https://wa.me/6598398671";
+const whatsappLink =
+  "https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.";
 const telegramLink = "https://t.me/CrabTalkSG";
 const mapsLink = "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac";
+const takeAppLink = "https://take.app/crabtalk";
+const instagramLink = "https://www.instagram.com/liveseafoodsupply_crabtalksg/";
 
 const heroImages = [
   img("product-yellow-roe-crab-06.jpg"),
@@ -14,79 +17,126 @@ const heroImages = [
   img("feature-botak-jazz-tiktok.jpg"),
 ];
 
+const productImages = {
+  crab: img("product-live-crab-premium.jpg"),
+  roe: img("product-yellow-roe-crab-06.jpg"),
+  lobster: img("product-boston-lobster-display.jpg"),
+  oysters: img("product-oysters-premium-02.jpg"),
+  clams: img("product-manila-clams-01.jpg"),
+  fish: img("product-live-soon-hock-premium-fish.jpg"),
+};
+
+const featureImages = {
+  days: img("feature-8days-original-thumbnail.jpg"),
+  botak: img("botak-jazz-feature.jpg"),
+  ai: img("AI-feature.jpeg"),
+};
+
 const content = {
   en: {
     brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
     nav: {
       seafood: "Seafood",
-      how: "How It Works",
+      hours: "Hours",
       telegram: "Telegram",
       features: "Features",
+      faq: "FAQ",
       visit: "Visit",
       whatsapp: "WhatsApp",
     },
     eyebrow: "Live Seafood • Fresh Daily • Singapore",
     heroTitle: "Premium live seafood for home cooking.",
     heroCopy:
-      "Pick your live crabs, lobsters, oysters, clams, and premium fish directly from Crab Talk. Fresh daily selections for families, gatherings, and seafood lovers who want restaurant-quality seafood at home.",
+      "Choose live crabs, lobsters, oysters, clams and premium fish directly from Crab Talk. Fresh daily selections for families, gatherings and seafood lovers who want restaurant-quality seafood at home.",
     visitUs: "Visit us:",
     address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
     whatsappReserve: "WhatsApp to Reserve",
     telegramJoin: "Join Telegram Updates",
     maps: "Open Google Maps",
+    orderOnline: "Order Online",
+    instagram: "Instagram",
     heroBadge: "Daily arrivals vary. Telegram updates first.",
 
-    whyChoose: [
+    trust: [
       {
         title: "Freshness You Can See",
-        text: "Choose live seafood directly from our tanks before bringing it home.",
+        text: "Pick live seafood directly from our tanks before bringing it home.",
       },
       {
         title: "Reserve Before Coming",
         text: "Popular items move fast. Message us to check today’s availability first.",
       },
       {
-        title: "Daily Telegram Updates",
-        text: "Join our Telegram group to see fresh arrivals, limited drops and sold-out updates.",
+        title: "Quality Over Weight",
+        text: "For crabs, weight alone does not tell everything. We look at size, condition, vitality and meatiness.",
       },
     ],
+
+    hoursKicker: "Opening Hours",
+    hoursTitle: "Plan your visit before coming down",
+    hoursDesc:
+      "Live seafood availability changes daily. For the best selection, join Telegram or WhatsApp us before visiting.",
+    crabTalkHours: [
+      "Monday: 10am – 4pm",
+      "Sunday, Tuesday & Wednesday: 8am – 6pm",
+      "Thursday to Saturday: 8am – 7pm",
+    ],
+    cookingTitle: "Nearby cooking option",
+    cookingText:
+      "Fai Kee Fishhead Bee Hoon is located upstairs at #02-74. Publicly listed hours are Tuesday to Saturday, 3pm–9pm. Closed on Sunday and Monday. Cooking capacity is limited, so advance planning is recommended.",
+    onlineOrderText:
+      "Online ordering is available through Crab Talk’s Take App page. Daily prices and availability may change depending on stock.",
 
     freshKicker: "Fresh Daily Selection",
     freshTitle: "Choose your seafood",
     freshDesc:
-      "Our focus is live seafood supply: selected, packed, and ready for home cooking. Availability depends on daily stock.",
-
+      "Our focus is live seafood supply: selected, packed and ready for home cooking. Availability depends on daily stock.",
     freshSelection: [
       {
         title: "Live Mud Crabs",
-        text: "Meaty, active mud crabs selected for steaming, chilli crab, black pepper crab, or ginger scallion crab.",
-        image: img("product-live-crab-premium.jpg"),
+        text: "Meaty, active mud crabs selected for steaming, chilli crab, black pepper crab or ginger scallion crab.",
+        image: productImages.crab,
       },
       {
         title: "Sri Lanka Roe Crabs",
-        text: "Premium roe crabs with rich flavour, firm meat, and beautiful roe. Popular for home steaming and family occasions.",
-        image: img("product-yellow-roe-crab-06.jpg"),
+        text: "Premium roe crabs with rich flavour, firm meat and beautiful roe. Popular for home steaming and family occasions.",
+        image: productImages.roe,
       },
       {
         title: "Live Lobsters",
-        text: "Boston lobster and green lobster selections depending on daily arrival. Suitable for steaming, yee mee, or bee hoon.",
-        image: img("product-boston-lobster-display.jpg"),
+        text: "Boston lobster and green lobster selections depending on daily arrival. Suitable for steaming, yee mee or bee hoon.",
+        image: productImages.lobster,
       },
       {
         title: "Fresh Oysters",
-        text: "Cold, clean, and suitable for seafood platters, gatherings, or premium home dining.",
-        image: img("product-oysters-premium-02.jpg"),
+        text: "Cold, clean and suitable for seafood platters, gatherings or premium home dining.",
+        image: productImages.oysters,
       },
       {
         title: "Manila Clams",
-        text: "Great for steaming, chilli lala, white wine style, or seafood soup.",
-        image: img("product-manila-clams-01.jpg"),
+        text: "Great for steaming, chilli lala, white wine garlic style or seafood soup.",
+        image: productImages.clams,
       },
       {
         title: "Soon Hock & Premium Fish",
-        text: "Live fish options for steaming, Hong Kong style, or home cooking.",
-        image: img("product-live-soon-hock-premium-fish.jpg"),
+        text: "Live fish options for steaming, Hong Kong style, Teochew style or home cooking.",
+        image: productImages.fish,
       },
+    ],
+
+    arrivalsKicker: "Popular Daily Arrivals",
+    arrivalsTitle: "Check today’s stock before heading down",
+    arrivalsDesc:
+      "Stock changes quickly, especially on weekends. Telegram is the best place to see fresh arrivals, limited drops and sold-out updates.",
+    arrivals: [
+      "Live Mud Crabs",
+      "Sri Lanka Yellow Roe / Red Roe Crabs",
+      "Boston Lobster",
+      "Green Lobster",
+      "Fresh Oysters",
+      "Manila Clams",
+      "Soon Hock & Premium Fish",
+      "Seasonal Live Seafood",
     ],
 
     howKicker: "How It Works",
@@ -107,8 +157,18 @@ const content = {
       {
         number: "03",
         title: "Collect & Cook Fresh",
-        text: "Bring home and cook your way, or ask us about nearby cooking options when available.",
+        text: "Bring home and cook your way. Ask us about nearby cooking options only when needed and subject to availability.",
       },
+    ],
+
+    cookingIdeasKicker: "Home Cooking Ideas",
+    cookingIdeasTitle: "Easy ways to enjoy your seafood",
+    cookingIdeas: [
+      "Mud Crab: chilli crab, black pepper crab, steamed crab, ginger scallion crab",
+      "Lobster: garlic butter, steamed lobster, lobster yee mee, lobster bee hoon",
+      "Manila Clams: white wine garlic, chilli lala, steamed clams, seafood soup",
+      "Soon Hock: Hong Kong steam, Teochew steam, light soy sauce steam",
+      "Oysters: chilled platter, grilled cheese, garlic butter oysters",
     ],
 
     telegramKicker: "Daily Seafood Updates",
@@ -125,34 +185,66 @@ const content = {
     featuresKicker: "Media & Social Features",
     featuresTitle: "As seen online",
     featuresDesc:
-      "Crab Talk has been featured by local food media and content creators for live seafood, lobster yee mee, and our market-style seafood experience.",
+      "Crab Talk has been featured by local food media and content creators for live seafood, lobster yee mee and our market-style seafood experience.",
     viewFeature: "View feature →",
-
     featureCards: [
       {
         title: "Featured on 8 Days",
         text: "Crab Talk’s live seafood and hawker-style cooked seafood collaboration was featured by 8 Days.",
-        image: img("feature-8days-original-thumbnail.jpg"),
+        image: featureImages.days,
         link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
       },
       {
         title: "Featured by Botak Jazz",
         text: "Botak Jazz tried the lobster yee mee and shared the experience on TikTok.",
-        image: img("botak-jazz-feature.jpg"),
+        image: featureImages.botak,
         link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
       },
       {
         title: "AI in Daily Seafood Work",
         text: "Story feature on how Crab Talk uses AI in daily operations and customer communication.",
-        image: img("AI-feature.jpeg"),
+        image: featureImages.ai,
         link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "Customer Confidence",
+    reviewsTitle: "Why customers come back",
+    reviews: [
+      "Fresh live seafood selected on the spot.",
+      "Helpful recommendations for family meals and home cooking.",
+      "Telegram updates make it easier to reserve before heading down.",
+    ],
+
+    faqKicker: "FAQ",
+    faqTitle: "Common questions",
+    faq: [
+      {
+        q: "Do I need to pre-order?",
+        a: "Walk-in is welcome, but reservation is recommended for popular items such as roe crabs, lobsters and premium fish.",
+      },
+      {
+        q: "Can I buy seafood for home cooking?",
+        a: "Yes. Crab Talk mainly focuses on live seafood for customers to bring home and cook fresh.",
+      },
+      {
+        q: "Do you sell by weight or by piece?",
+        a: "It depends on the item. For crabs, piece pricing may be used because weight alone does not tell the full quality, meatiness or condition.",
+      },
+      {
+        q: "Can the seafood be cooked nearby?",
+        a: "Nearby cooking may be available depending on timing and kitchen capacity. Fai Kee is closed on Sunday and Monday.",
+      },
+      {
+        q: "Where are you located?",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644).",
       },
     ],
 
     visitKicker: "Visit Crab Talk",
     visitTitle: "Walk in or reserve before coming",
     visitText:
-      "For the best selection, join Telegram for updates or message us before visiting. Live seafood availability changes daily, especially for roe crabs, lobsters, oysters, Soon Hock, and premium items.",
+      "For the best selection, join Telegram for updates or message us before visiting. Live seafood availability changes daily, especially for roe crabs, lobsters, oysters, Soon Hock and premium items.",
     getDirections: "Get Directions",
     footer: "© Crab Talk SG — Live Seafood Supply @ Crab Talk",
   },
@@ -161,9 +253,10 @@ const content = {
     brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
     nav: {
       seafood: "海鲜",
-      how: "购买方式",
+      hours: "营业时间",
       telegram: "Telegram",
       features: "媒体报道",
+      faq: "常见问题",
       visit: "到店",
       whatsapp: "WhatsApp",
     },
@@ -176,9 +269,11 @@ const content = {
     whatsappReserve: "WhatsApp 预订",
     telegramJoin: "加入 Telegram 看每日更新",
     maps: "打开 Google Maps",
+    orderOnline: "线上下单",
+    instagram: "Instagram",
     heroBadge: "每日到货不同，Telegram 优先更新。",
 
-    whyChoose: [
+    trust: [
       {
         title: "新鲜看得见",
         text: "顾客可直接从水缸挑选活海鲜，再带回家烹煮。",
@@ -188,47 +283,76 @@ const content = {
         text: "热门海鲜很快售完。来之前可先联系我们确认当天货源。",
       },
       {
-        title: "Telegram 每日更新",
-        text: "加入我们的 Telegram，查看新货、限量海鲜和售完通知。",
+        title: "品质不只看重量",
+        text: "螃蟹的重量不能代表全部品质。我们会看大小、状态、活力和肉质。",
       },
     ],
+
+    hoursKicker: "营业时间",
+    hoursTitle: "来店前建议先确认",
+    hoursDesc:
+      "活海鲜每日货源不同。想要更多选择，建议先加入 Telegram 或 WhatsApp 咨询。",
+    crabTalkHours: [
+      "星期一：10am – 4pm",
+      "星期日、星期二、星期三：8am – 6pm",
+      "星期四至星期六：8am – 7pm",
+    ],
+    cookingTitle: "附近烹煮选择",
+    cookingText:
+      "Fai Kee Fishhead Bee Hoon 位于二楼 #02-74。公开资料显示营业时间为星期二至星期六 3pm–9pm，星期日和星期一休息。烹煮能力有限，建议提前安排。",
+    onlineOrderText:
+      "Crab Talk 的 Take App 页面可线上下单。每日价格和货源会根据当天库存调整。",
 
     freshKicker: "每日新鲜选择",
     freshTitle: "选择你的海鲜",
     freshDesc:
       "我们主要供应活海鲜：现选、打包，适合带回家新鲜烹煮。货源以每日到货为准。",
-
     freshSelection: [
       {
         title: "活肉蟹",
         text: "肉质饱满、活力好的泥蟹，适合清蒸、辣椒蟹、黑胡椒蟹或姜葱炒蟹。",
-        image: img("product-live-crab-premium.jpg"),
+        image: productImages.crab,
       },
       {
         title: "斯里兰卡膏蟹",
         text: "高级膏蟹，蟹膏香浓、肉质结实，非常适合清蒸或家庭聚餐。",
-        image: img("product-yellow-roe-crab-06.jpg"),
+        image: productImages.roe,
       },
       {
         title: "活龙虾",
         text: "每日视货源供应波士顿龙虾或青龙虾，适合清蒸、伊面或米粉。",
-        image: img("product-boston-lobster-display.jpg"),
+        image: productImages.lobster,
       },
       {
         title: "新鲜生蚝",
         text: "冰鲜干净，适合海鲜拼盘、聚会或高级家庭餐。",
-        image: img("product-oysters-premium-02.jpg"),
+        image: productImages.oysters,
       },
       {
         title: "马尼拉蛤蜊",
-        text: "适合清蒸、辣椒啦啦、白酒煮法或海鲜汤。",
-        image: img("product-manila-clams-01.jpg"),
+        text: "适合清蒸、辣椒啦啦、白酒蒜香或海鲜汤。",
+        image: productImages.clams,
       },
       {
         title: "笋壳鱼与高级活鱼",
-        text: "适合清蒸、港式蒸鱼或家庭烹煮的活鱼选择。",
-        image: img("product-live-soon-hock-premium-fish.jpg"),
+        text: "适合清蒸、港式蒸鱼、潮州蒸或家庭烹煮。",
+        image: productImages.fish,
       },
+    ],
+
+    arrivalsKicker: "常见每日到货",
+    arrivalsTitle: "来店前先查看当天货源",
+    arrivalsDesc:
+      "库存变化很快，特别是周末。Telegram 是查看新货、限量海鲜和售完通知的最佳方式。",
+    arrivals: [
+      "活肉蟹",
+      "斯里兰卡黄膏蟹 / 红膏蟹",
+      "波士顿龙虾",
+      "青龙虾",
+      "新鲜生蚝",
+      "马尼拉蛤蜊",
+      "笋壳鱼与高级活鱼",
+      "季节性活海鲜",
     ],
 
     howKicker: "购买方式",
@@ -248,8 +372,18 @@ const content = {
       {
         number: "03",
         title: "取货回家烹煮",
-        text: "带回家用自己喜欢的方式烹煮；如有需要，也可询问当天附近是否有烹煮选择。",
+        text: "带回家用自己喜欢的方式烹煮；如需要附近烹煮选择，请先确认当天是否可安排。",
       },
+    ],
+
+    cookingIdeasKicker: "家庭烹煮建议",
+    cookingIdeasTitle: "简单又受欢迎的煮法",
+    cookingIdeas: [
+      "肉蟹：辣椒蟹、黑胡椒蟹、清蒸蟹、姜葱炒蟹",
+      "龙虾：蒜香牛油、清蒸、龙虾伊面、龙虾米粉",
+      "马尼拉蛤蜊：白酒蒜香、辣椒啦啦、清蒸、海鲜汤",
+      "笋壳鱼：港式蒸、潮州蒸、清蒸酱油",
+      "生蚝：冰镇拼盘、芝士烤、蒜香牛油烤",
     ],
 
     telegramKicker: "每日海鲜更新",
@@ -268,25 +402,57 @@ const content = {
     featuresDesc:
       "Crab Talk 曾被本地美食媒体和内容创作者介绍，内容包括活海鲜、龙虾伊面和市场式海鲜体验。",
     viewFeature: "查看报道 →",
-
     featureCards: [
       {
         title: "8 Days 报道",
         text: "Crab Talk 的活海鲜和熟食合作模式曾被 8 Days 介绍。",
-        image: img("feature-8days-original-thumbnail.jpg"),
+        image: featureImages.days,
         link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
       },
       {
         title: "Botak Jazz 推荐",
         text: "Botak Jazz 在 TikTok 分享了龙虾伊面的体验。",
-        image: img("botak-jazz-feature.jpg"),
+        image: featureImages.botak,
         link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
       },
       {
         title: "AI 日常经营故事",
         text: "关于 Crab Talk 如何在日常经营和客户沟通中使用 AI 的故事。",
-        image: img("AI-feature.jpeg"),
+        image: featureImages.ai,
         link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "顾客信心",
+    reviewsTitle: "为什么顾客会回来",
+    reviews: [
+      "可现场挑选新鲜活海鲜。",
+      "适合家庭聚餐和家里烹煮的实用推荐。",
+      "Telegram 更新让顾客更容易来店前预订。",
+    ],
+
+    faqKicker: "常见问题",
+    faqTitle: "顾客常问",
+    faq: [
+      {
+        q: "需要预订吗？",
+        a: "可以直接到店，但膏蟹、龙虾和高级鱼类等热门商品建议先预订。",
+      },
+      {
+        q: "可以买回家自己煮吗？",
+        a: "可以。Crab Talk 主要就是供应适合带回家烹煮的活海鲜。",
+      },
+      {
+        q: "海鲜是按重量还是按只卖？",
+        a: "视商品而定。螃蟹有时会按只售卖，因为重量不能完全代表品质、肉质和状态。",
+      },
+      {
+        q: "附近可以帮忙烹煮吗？",
+        a: "视时间和厨房能力而定。Fai Kee 星期日和星期一休息。",
+      },
+      {
+        q: "地址在哪里？",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644)。",
       },
     ],
 
@@ -302,9 +468,10 @@ const content = {
     brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
     nav: {
       seafood: "海鮮",
-      how: "購入方法",
+      hours: "営業時間",
       telegram: "Telegram",
       features: "掲載情報",
+      faq: "FAQ",
       visit: "アクセス",
       whatsapp: "WhatsApp",
     },
@@ -317,9 +484,11 @@ const content = {
     whatsappReserve: "WhatsAppで予約",
     telegramJoin: "Telegramで入荷情報を見る",
     maps: "Google Mapsを開く",
+    orderOnline: "オンライン注文",
+    instagram: "Instagram",
     heroBadge: "入荷状況は毎日変わります。Telegramで優先更新。",
 
-    whyChoose: [
+    trust: [
       {
         title: "見て分かる新鮮さ",
         text: "水槽から活きた海鮮を直接選び、ご自宅へお持ち帰りいただけます。",
@@ -329,47 +498,76 @@ const content = {
         text: "人気商品は早く売り切れるため、事前に在庫確認がおすすめです。",
       },
       {
-        title: "Telegramで毎日更新",
-        text: "新入荷、限定商品、売り切れ情報をTelegramでお知らせします。",
+        title: "重量だけでは分からない品質",
+        text: "蟹は重さだけでなく、サイズ、状態、活力、身入りを見て選ぶことが大切です。",
       },
     ],
+
+    hoursKicker: "営業時間",
+    hoursTitle: "ご来店前にご確認ください",
+    hoursDesc:
+      "活き海鮮の在庫は毎日変わります。良い商品を選ぶために、TelegramまたはWhatsAppで事前確認をおすすめします。",
+    crabTalkHours: [
+      "月曜日：10am – 4pm",
+      "日曜日・火曜日・水曜日：8am – 6pm",
+      "木曜日〜土曜日：8am – 7pm",
+    ],
+    cookingTitle: "近隣の調理オプション",
+    cookingText:
+      "Fai Kee Fishhead Bee Hoon は2階 #02-74 にあります。公開情報では営業時間は火曜日〜土曜日 3pm–9pm、日曜日と月曜日は休みです。調理対応には限りがあるため、事前確認がおすすめです。",
+    onlineOrderText:
+      "Crab Talk の Take App ページからオンライン注文も可能です。価格と在庫は日によって変わります。",
 
     freshKicker: "毎日の新鮮セレクション",
     freshTitle: "海鮮を選ぶ",
     freshDesc:
       "Crab Talk は活き海鮮の販売が中心です。お選びいただいた海鮮を包装し、ご自宅で新鮮に調理できます。",
-
     freshSelection: [
       {
         title: "活きマッドクラブ",
         text: "身入りの良い活き蟹。蒸し蟹、チリクラブ、ブラックペッパークラブ、ジンジャースキャリオンにおすすめです。",
-        image: img("product-live-crab-premium.jpg"),
+        image: productImages.crab,
       },
       {
         title: "スリランカ産 蟹味噌・卵入り蟹",
         text: "濃厚な蟹味噌としっかりした身が特徴。蒸し料理や家族の食事に人気です。",
-        image: img("product-yellow-roe-crab-06.jpg"),
+        image: productImages.roe,
       },
       {
         title: "活きロブスター",
         text: "入荷状況によりボストンロブスターやグリーンロブスターをご用意。蒸し料理、伊麺、ビーフンにおすすめです。",
-        image: img("product-boston-lobster-display.jpg"),
+        image: productImages.lobster,
       },
       {
         title: "新鮮な牡蠣",
         text: "冷たく清潔で、海鮮プレートや週末のごちそうにぴったりです。",
-        image: img("product-oysters-premium-02.jpg"),
+        image: productImages.oysters,
       },
       {
         title: "マニラアサリ",
-        text: "蒸し料理、チリ風、白ワイン風、海鮮スープにおすすめです。",
-        image: img("product-manila-clams-01.jpg"),
+        text: "蒸し料理、チリ風、白ワインガーリック、海鮮スープにおすすめです。",
+        image: productImages.clams,
       },
       {
         title: "スーンホック＆高級活魚",
-        text: "蒸し魚、香港風調理、ご家庭での海鮮料理に適した活魚をご用意しています。",
-        image: img("product-live-soon-hock-premium-fish.jpg"),
+        text: "蒸し魚、香港風、潮州風、ご家庭での海鮮料理に適した活魚をご用意しています。",
+        image: productImages.fish,
       },
+    ],
+
+    arrivalsKicker: "人気の入荷商品",
+    arrivalsTitle: "来店前に本日の在庫を確認",
+    arrivalsDesc:
+      "特に週末は在庫の動きが早いです。Telegramで新入荷、限定商品、売り切れ情報を確認できます。",
+    arrivals: [
+      "活きマッドクラブ",
+      "スリランカ産 黄膏蟹 / 赤膏蟹",
+      "ボストンロブスター",
+      "グリーンロブスター",
+      "新鮮な牡蠣",
+      "マニラアサリ",
+      "スーンホック＆高級活魚",
+      "季節限定の活き海鮮",
     ],
 
     howKicker: "購入方法",
@@ -390,8 +588,18 @@ const content = {
       {
         number: "03",
         title: "受け取り・自宅で調理",
-        text: "お持ち帰り後、お好みの方法で調理できます。状況により近隣の調理オプションも確認可能です。",
+        text: "お持ち帰り後、お好みの方法で調理できます。近隣の調理オプションは状況により確認可能です。",
       },
+    ],
+
+    cookingIdeasKicker: "家庭調理のアイデア",
+    cookingIdeasTitle: "おすすめの食べ方",
+    cookingIdeas: [
+      "マッドクラブ：チリクラブ、ブラックペッパー、蒸し蟹、ジンジャースキャリオン",
+      "ロブスター：ガーリックバター、蒸し、ロブスター伊麺、ロブスタービーフン",
+      "マニラアサリ：白ワインガーリック、チリ風、蒸し、海鮮スープ",
+      "スーンホック：香港風蒸し、潮州蒸し、ライトソイソース蒸し",
+      "牡蠣：冷製プレート、チーズ焼き、ガーリックバター焼き",
     ],
 
     telegramKicker: "毎日の海鮮入荷情報",
@@ -410,25 +618,57 @@ const content = {
     featuresDesc:
       "Crab Talk は、活き海鮮、ロブスター伊麺、市場スタイルの海鮮体験で、地元メディアやクリエイターに紹介されています。",
     viewFeature: "掲載を見る →",
-
     featureCards: [
       {
         title: "8 Days 掲載",
         text: "Crab Talk の活き海鮮とホーカー調理コラボが 8 Days に掲載されました。",
-        image: img("feature-8days-original-thumbnail.jpg"),
+        image: featureImages.days,
         link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
       },
       {
         title: "Botak Jazz に紹介",
         text: "Botak Jazz が TikTok でロブスター伊麺の体験を紹介しました。",
-        image: img("botak-jazz-feature.jpg"),
+        image: featureImages.botak,
         link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
       },
       {
         title: "AI活用ストーリー",
         text: "Crab Talk が日々の業務や顧客対応でAIを活用しているストーリーです。",
-        image: img("AI-feature.jpeg"),
+        image: featureImages.ai,
         link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "お客様の安心感",
+    reviewsTitle: "リピートされる理由",
+    reviews: [
+      "その場で新鮮な活き海鮮を選べます。",
+      "家庭料理や人数に合わせたおすすめができます。",
+      "Telegram更新で来店前に予約しやすくなります。",
+    ],
+
+    faqKicker: "FAQ",
+    faqTitle: "よくある質問",
+    faq: [
+      {
+        q: "予約は必要ですか？",
+        a: "直接来店も可能ですが、蟹、ロブスター、高級魚など人気商品は事前予約がおすすめです。",
+      },
+      {
+        q: "自宅で調理するために買えますか？",
+        a: "はい。Crab Talk はご自宅で調理できる活き海鮮の販売が中心です。",
+      },
+      {
+        q: "量り売りですか？一匹売りですか？",
+        a: "商品によります。蟹は重量だけでは品質、身入り、状態が分からないため、一匹単位の場合もあります。",
+      },
+      {
+        q: "近くで調理してもらえますか？",
+        a: "時間と厨房の状況によります。Fai Kee は日曜日と月曜日が休みです。",
+      },
+      {
+        q: "場所はどこですか？",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644)。",
       },
     ],
 
@@ -443,9 +683,18 @@ const content = {
 
 export default function App() {
   const [heroIndex, setHeroIndex] = useState(0);
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("crabtalk_lang") || "en";
+    }
+    return "en";
+  });
 
   const t = content[lang];
+
+  useEffect(() => {
+    localStorage.setItem("crabtalk_lang", lang);
+  }, [lang]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -492,7 +741,7 @@ export default function App() {
           top: 0;
           z-index: 50;
           backdrop-filter: blur(18px);
-          background: rgba(2, 18, 22, 0.88);
+          background: rgba(2, 18, 22, 0.90);
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -510,6 +759,7 @@ export default function App() {
           display: flex;
           align-items: center;
           gap: 12px;
+          min-width: 250px;
         }
 
         .brand-mark {
@@ -522,6 +772,7 @@ export default function App() {
           color: #021216;
           font-size: 22px;
           box-shadow: 0 0 28px rgba(24, 199, 223, 0.35);
+          flex: 0 0 auto;
         }
 
         .brand-title {
@@ -534,12 +785,13 @@ export default function App() {
           margin-top: 3px;
           font-size: 12px;
           color: #9fd9e4;
+          line-height: 1.35;
         }
 
         .nav {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 13px;
           font-size: 14px;
         }
 
@@ -547,6 +799,7 @@ export default function App() {
           color: #d7f6ff;
           text-decoration: none;
           opacity: 0.88;
+          white-space: nowrap;
         }
 
         .nav a:hover {
@@ -555,7 +808,7 @@ export default function App() {
         }
 
         .nav-cta {
-          padding: 10px 16px;
+          padding: 10px 15px;
           border-radius: 999px;
           background: linear-gradient(135deg, #ffd166, #ffb703);
           color: #021216 !important;
@@ -570,6 +823,7 @@ export default function App() {
           border-radius: 999px;
           background: rgba(255,255,255,0.07);
           border: 1px solid rgba(255,255,255,0.12);
+          flex: 0 0 auto;
         }
 
         .language-switcher button {
@@ -591,7 +845,7 @@ export default function App() {
         .hero {
           max-width: 1180px;
           margin: 0 auto;
-          padding: 56px 22px 38px;
+          padding: 56px 22px 34px;
           display: grid;
           grid-template-columns: 1.02fr 0.98fr;
           gap: 34px;
@@ -656,6 +910,7 @@ export default function App() {
           font-weight: 900;
           font-size: 15px;
           transition: transform 0.2s ease, opacity 0.2s ease;
+          text-align: center;
         }
 
         .btn:hover {
@@ -786,9 +1041,53 @@ export default function App() {
           font-size: 15px;
         }
 
+        .info-panel {
+          border-radius: 30px;
+          padding: 34px;
+          background:
+            radial-gradient(circle at top right, rgba(255, 209, 102, 0.16), transparent 34%),
+            linear-gradient(135deg, rgba(22, 199, 223, 0.14), rgba(255, 209, 102, 0.08)),
+            rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(255, 255, 255, 0.13);
+          box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
+        }
+
+        .info-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+          margin-top: 22px;
+        }
+
+        .mini-card {
+          padding: 20px;
+          border-radius: 22px;
+          background: rgba(255,255,255,0.065);
+          border: 1px solid rgba(255,255,255,0.11);
+        }
+
+        .mini-card h3 {
+          margin: 0 0 12px;
+          font-size: 21px;
+        }
+
+        .mini-card p,
+        .mini-card li {
+          color: #c5e4ea;
+          line-height: 1.65;
+          font-size: 15px;
+        }
+
+        .mini-card ul {
+          margin: 0;
+          padding-left: 18px;
+        }
+
         .selection-grid,
         .steps-grid,
-        .feature-grid {
+        .feature-grid,
+        .reviews-grid,
+        .faq-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 18px;
@@ -796,12 +1095,19 @@ export default function App() {
 
         .product-card,
         .step-card,
-        .feature-card {
+        .feature-card,
+        .review-card,
+        .faq-card {
           overflow: hidden;
           border-radius: 24px;
           background: rgba(255, 255, 255, 0.055);
           border: 1px solid rgba(255, 255, 255, 0.11);
           box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+        }
+
+        .product-card,
+        .feature-card {
+          transition: transform 0.22s ease, border-color 0.22s ease;
         }
 
         .product-card:hover,
@@ -833,13 +1139,17 @@ export default function App() {
         }
 
         .product-body,
-        .feature-body {
+        .feature-body,
+        .review-card,
+        .faq-card {
           padding: 19px 20px 21px;
         }
 
         .product-body h3,
         .feature-body h3,
-        .step-card h3 {
+        .step-card h3,
+        .review-card h3,
+        .faq-card h3 {
           margin: 0 0 9px;
           font-size: 22px;
           letter-spacing: -0.4px;
@@ -847,7 +1157,9 @@ export default function App() {
 
         .product-body p,
         .feature-body p,
-        .step-card p {
+        .step-card p,
+        .review-card p,
+        .faq-card p {
           margin: 0;
           color: #c0dce2;
           font-size: 15px;
@@ -879,6 +1191,30 @@ export default function App() {
           margin-bottom: 10px;
         }
 
+        .arrivals-list,
+        .ideas-list {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+          margin-top: 22px;
+        }
+
+        .arrival-pill,
+        .idea-item,
+        .telegram-point {
+          padding: 14px 15px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.10);
+          color: #d7f6ff;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+
+        .ideas-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
         .telegram-box,
         .visit-box {
           border-radius: 30px;
@@ -888,7 +1224,7 @@ export default function App() {
           gap: 26px;
           align-items: center;
           background:
-            radial-gradient(circle at top right, rgba(255, 209, 102, 0.18), transparent 34%),
+            radial-gradient(circle at top right, rgba(32, 168, 224, 0.24), transparent 34%),
             linear-gradient(135deg, rgba(22, 199, 223, 0.14), rgba(255, 209, 102, 0.08)),
             rgba(255, 255, 255, 0.055);
           border: 1px solid rgba(255, 255, 255, 0.13);
@@ -908,16 +1244,6 @@ export default function App() {
           gap: 12px;
         }
 
-        .telegram-point {
-          padding: 13px 15px;
-          border-radius: 16px;
-          background: rgba(255, 255, 255, 0.07);
-          border: 1px solid rgba(255, 255, 255, 0.10);
-          color: #d7f6ff;
-          font-size: 15px;
-          line-height: 1.45;
-        }
-
         .footer {
           padding: 32px 22px 46px;
           text-align: center;
@@ -927,6 +1253,19 @@ export default function App() {
 
         .mobile-sticky {
           display: none;
+        }
+
+        @media (max-width: 1100px) {
+          .topbar-inner {
+            flex-wrap: wrap;
+          }
+
+          .nav {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
         }
 
         @media (max-width: 960px) {
@@ -941,24 +1280,32 @@ export default function App() {
           .trust-row,
           .selection-grid,
           .feature-grid,
-          .steps-grid {
+          .steps-grid,
+          .reviews-grid,
+          .faq-grid {
             grid-template-columns: repeat(2, 1fr);
           }
 
           .telegram-box,
-          .visit-box {
+          .visit-box,
+          .info-grid {
             grid-template-columns: 1fr;
           }
 
-          .topbar-inner {
-            align-items: flex-start;
-            flex-direction: column;
+          .arrivals-list {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
         @media (max-width: 680px) {
           .topbar-inner {
             padding: 12px 16px;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .brand {
+            min-width: unset;
           }
 
           .brand-mark {
@@ -1008,12 +1355,36 @@ export default function App() {
             height: 245px;
           }
 
+          .hero-frame {
+            border-radius: 24px;
+            padding: 8px;
+          }
+
+          .hero-image-box {
+            border-radius: 18px;
+          }
+
+          .hero-badge {
+            left: 18px;
+            bottom: 18px;
+            max-width: calc(100% - 36px);
+          }
+
           .trust-row,
           .selection-grid,
           .feature-grid,
-          .steps-grid {
+          .steps-grid,
+          .reviews-grid,
+          .faq-grid,
+          .arrivals-list,
+          .ideas-list {
             grid-template-columns: 1fr;
             gap: 15px;
+          }
+
+          .section {
+            padding-top: 36px;
+            padding-bottom: 36px;
           }
 
           .section-head {
@@ -1034,7 +1405,8 @@ export default function App() {
 
           .step-card,
           .telegram-box,
-          .visit-box {
+          .visit-box,
+          .info-panel {
             padding: 22px;
             border-radius: 22px;
           }
@@ -1124,9 +1496,10 @@ export default function App() {
 
           <nav className="nav">
             <a href="#selection">{t.nav.seafood}</a>
-            <a href="#how">{t.nav.how}</a>
+            <a href="#hours">{t.nav.hours}</a>
             <a href="#telegram">{t.nav.telegram}</a>
             <a href="#features">{t.nav.features}</a>
+            <a href="#faq">{t.nav.faq}</a>
             <a href="#visit">{t.nav.visit}</a>
             <a className="nav-cta" href={whatsappLink}>
               {t.nav.whatsapp}
@@ -1134,22 +1507,13 @@ export default function App() {
           </nav>
 
           <div className="language-switcher">
-            <button
-              className={lang === "en" ? "active" : ""}
-              onClick={() => setLang("en")}
-            >
+            <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>
               EN
             </button>
-            <button
-              className={lang === "zh" ? "active" : ""}
-              onClick={() => setLang("zh")}
-            >
+            <button className={lang === "zh" ? "active" : ""} onClick={() => setLang("zh")}>
               中文
             </button>
-            <button
-              className={lang === "ja" ? "active" : ""}
-              onClick={() => setLang("ja")}
-            >
+            <button className={lang === "ja" ? "active" : ""} onClick={() => setLang("ja")}>
               日本語
             </button>
           </div>
@@ -1160,9 +1524,7 @@ export default function App() {
         <section className="hero">
           <div>
             <div className="eyebrow">{t.eyebrow}</div>
-
             <h1>{t.heroTitle}</h1>
-
             <p className="hero-copy">{t.heroCopy}</p>
 
             <div className="address">
@@ -1175,20 +1537,10 @@ export default function App() {
               <a className="btn btn-primary" href={whatsappLink}>
                 {t.whatsappReserve}
               </a>
-              <a
-                className="btn btn-telegram"
-                href={telegramLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
                 {t.telegramJoin}
               </a>
-              <a
-                className="btn btn-secondary"
-                href={mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noopener noreferrer">
                 {t.maps}
               </a>
             </div>
@@ -1196,24 +1548,53 @@ export default function App() {
 
           <div className="hero-frame">
             <div className="hero-image-box">
-              <img
-                className="hero-image"
-                src={heroImages[heroIndex]}
-                alt="Crab Talk premium live seafood"
-              />
+              <img className="hero-image" src={heroImages[heroIndex]} alt="Crab Talk premium live seafood" />
             </div>
             <div className="hero-badge">{t.heroBadge}</div>
           </div>
         </section>
 
         <div className="trust-row">
-          {t.whyChoose.map((item) => (
+          {t.trust.map((item) => (
             <div className="trust-card" key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </div>
           ))}
         </div>
+
+        <section className="section" id="hours">
+          <div className="info-panel">
+            <div className="section-kicker">{t.hoursKicker}</div>
+            <h2>{t.hoursTitle}</h2>
+            <p className="section-desc">{t.hoursDesc}</p>
+
+            <div className="info-grid">
+              <div className="mini-card">
+                <h3>Crab Talk</h3>
+                <ul>
+                  {t.crabTalkHours.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className="hero-actions">
+                  <a className="btn btn-primary" href={whatsappLink}>
+                    {t.whatsappReserve}
+                  </a>
+                  <a className="btn btn-secondary" href={takeAppLink} target="_blank" rel="noopener noreferrer">
+                    {t.orderOnline}
+                  </a>
+                </div>
+              </div>
+
+              <div className="mini-card">
+                <h3>{t.cookingTitle}</h3>
+                <p>{t.cookingText}</p>
+                <p>{t.onlineOrderText}</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="section" id="selection">
           <div className="section-head">
@@ -1239,7 +1620,32 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="how">
+        <section className="section">
+          <div className="info-panel">
+            <div className="section-kicker">{t.arrivalsKicker}</div>
+            <h2>{t.arrivalsTitle}</h2>
+            <p className="section-desc">{t.arrivalsDesc}</p>
+
+            <div className="arrivals-list">
+              {t.arrivals.map((item) => (
+                <div className="arrival-pill" key={item}>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="hero-actions">
+              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
+                {t.telegramJoin}
+              </a>
+              <a className="btn btn-primary" href={whatsappLink}>
+                {t.whatsappReserve}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
           <div className="section-head">
             <div>
               <div className="section-kicker">{t.howKicker}</div>
@@ -1259,6 +1665,21 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section">
+          <div className="info-panel">
+            <div className="section-kicker">{t.cookingIdeasKicker}</div>
+            <h2>{t.cookingIdeasTitle}</h2>
+
+            <div className="ideas-list">
+              {t.cookingIdeas.map((item) => (
+                <div className="idea-item" key={item}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="telegram">
           <div className="telegram-box">
             <div>
@@ -1267,12 +1688,7 @@ export default function App() {
               <p>{t.telegramText}</p>
 
               <div className="hero-actions">
-                <a
-                  className="btn btn-telegram"
-                  href={telegramLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
                   {t.telegramButton}
                 </a>
                 <a className="btn btn-primary" href={whatsappLink}>
@@ -1302,13 +1718,7 @@ export default function App() {
 
           <div className="feature-grid">
             {t.featureCards.map((item) => (
-              <a
-                className="feature-card"
-                key={item.title}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="feature-card" key={item.title} href={item.link} target="_blank" rel="noopener noreferrer">
                 <div className="feature-image-wrap">
                   <img className="feature-image" src={item.image} alt={item.title} />
                 </div>
@@ -1318,6 +1728,42 @@ export default function App() {
                   <span className="feature-link">{t.viewFeature}</span>
                 </div>
               </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.reviewsKicker}</div>
+              <h2>{t.reviewsTitle}</h2>
+            </div>
+          </div>
+
+          <div className="reviews-grid">
+            {t.reviews.map((item) => (
+              <div className="review-card" key={item}>
+                <h3>★★★★★</h3>
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="faq">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.faqKicker}</div>
+              <h2>{t.faqTitle}</h2>
+            </div>
+          </div>
+
+          <div className="faq-grid">
+            {t.faq.map((item) => (
+              <div className="faq-card" key={item.q}>
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </div>
             ))}
           </div>
         </section>
@@ -1334,21 +1780,14 @@ export default function App() {
               <a className="btn btn-primary" href={whatsappLink}>
                 {t.whatsappReserve}
               </a>
-              <a
-                className="btn btn-telegram"
-                href={telegramLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="btn btn-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
                 {t.telegramJoin}
               </a>
-              <a
-                className="btn btn-secondary"
-                href={mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="btn btn-secondary" href={mapsLink} target="_blank" rel="noopener noreferrer">
                 {t.getDirections}
+              </a>
+              <a className="btn btn-secondary" href={instagramLink} target="_blank" rel="noopener noreferrer">
+                {t.instagram}
               </a>
             </div>
           </div>
@@ -1359,20 +1798,10 @@ export default function App() {
         <a className="mobile-whatsapp" href={whatsappLink}>
           WhatsApp
         </a>
-        <a
-          className="mobile-telegram"
-          href={telegramLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className="mobile-telegram" href={telegramLink} target="_blank" rel="noopener noreferrer">
           Telegram
         </a>
-        <a
-          className="mobile-map"
-          href={mapsLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className="mobile-map" href={mapsLink} target="_blank" rel="noopener noreferrer">
           Map
         </a>
       </div>
