@@ -28,260 +28,38 @@ const HOURS = [
 
 const img = (name) => `/images/${name}`;
 
-const copy = {
-  en: {
-    navBrand: "Crab Talk",
-    navSelection: "Fresh Selection",
-    navHow: "How It Works",
-    navReviews: "Reviews",
-    navFind: "Find Us",
-    navWhatsapp: "WhatsApp",
-
-    language: "Language",
-    brandLine: "Live Seafood Supply",
-
-    heroBadge: "Live Seafood Supply @ Crab Talk",
-    heroTitle: "Pick Your Live Seafood From Our Tanks",
-    heroText:
-      "Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.",
-    heroNote:
-      "Crab Talk is a live seafood stall, not an online shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.",
-    ctaVisit: "Visit Our Stall Today",
-    ctaWhatsapp: "WhatsApp to Check Today’s Arrival",
-    ctaTelegram: "Join Telegram Updates",
-    today: "Today",
-
-    freshTitle: "Fresh Daily Selection",
-    freshSub:
-      "Pick your own fresh seafood from our live tanks. Daily selection depends on arrival, size and season.",
-
-    howTitle: "How It Works",
-    howSub:
-      "Come down, choose from the live tanks, and let us prepare your seafood for home cooking.",
-
-    step1Title: "Visit our stall",
-    step1Text: "Come to 31 Commonwealth Crescent #01-41/42/43 S(149644).",
-    step2Title: "Pick from the live tanks",
-    step2Text: "Choose your own live seafood directly from our tanks.",
-    step3Title: "We clean, cut and pack",
-    step3Text:
-      "Need help preparing your seafood for home cooking? Let us know at the stall.",
-    step4Title: "Cook at home",
-    step4Text:
-      "Bring home fresh seafood for steaming, chilli crab, black pepper crab, bee hoon, hotpot or family meals.",
-
-    whyTitle: "Why Customers Visit Crab Talk",
-    whySub:
-      "A simple market-style experience for customers who want to see their seafood before buying.",
-    why1Title: "Live seafood tanks",
-    why1Text:
-      "See the seafood before you buy. Choose live crabs, lobsters, clams, fish and more directly from our tanks.",
-    why2Title: "Selected daily",
-    why2Text:
-      "Our seafood range changes with the daily arrival, so customers can check what is fresh before deciding.",
-    why3Title: "Cleaning and cutting available",
-    why3Text:
-      "Where suitable, we can help clean, cut and pack your seafood for easier home cooking.",
-    why4Title: "Friendly home-cooking advice",
-    why4Text:
-      "Tell us your pax, budget and cooking style. We can suggest suitable seafood and portion sizes.",
-
-    homeTitle: "Made for Home Cooking",
-    homeText:
-      "Perfect for customers who want restaurant-quality ingredients without restaurant pricing. Steam it, make chilli crab, black pepper crab, ginger scallion crab, bee hoon, soup, hotpot or simple family meals.",
-
-    cookingTitle: "Optional Nearby Cooking",
-    cookingText:
-      "Selected seafood may sometimes be cooked nearby by Fai Kee, subject to their capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
-
-    featuresTitle: "Featured & Shared",
-    featuresSub:
-      "Crab Talk has been featured by food media and creators, helping more customers discover live seafood at Commonwealth Crescent.",
-
-    reviewsTitle: "What Customers Usually Mention",
-    reviewsSub:
-      "Customers often highlight freshness, friendly advice, transparent selection from the tanks and convenience for home cooking.",
-
-    faqTitle: "FAQ",
-    visitTitle: "Find Us",
-    visitSub:
-      "For the best selection, visit earlier or WhatsApp us before coming down.",
-    openingHours: "Opening Hours",
-    disclaimer:
-      "Seafood availability, sizes and prices change daily. Photos are for reference. Please WhatsApp or visit the stall for latest arrivals.",
-  },
-
-  zh: {
-    navBrand: "Crab Talk",
-    navSelection: "每日海鲜",
-    navHow: "购买方式",
-    navReviews: "评价",
-    navFind: "地址",
-    navWhatsapp: "WhatsApp",
-
-    language: "语言",
-    brandLine: "活海鲜供应",
-
-    heroBadge: "Crab Talk 活海鲜供应",
-    heroTitle: "到店从水缸亲自挑选活海鲜",
-    heroText:
-      "欢迎到 Commonwealth Crescent 的 Crab Talk 选购活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等海鲜。顾客可现场从水缸挑选，我们也可视情况协助清理、切配和包装，方便带回家料理。",
-    heroNote:
-      "Crab Talk 是活海鲜档口，不是线上商店。WhatsApp 主要用于查询今日到货、货量和预留。",
-    ctaVisit: "今天到店挑选",
-    ctaWhatsapp: "WhatsApp 查询今日到货",
-    ctaTelegram: "加入 Telegram 更新",
-    today: "今日",
-
-    freshTitle: "每日新鲜海鲜",
-    freshSub:
-      "亲自从活海鲜水缸中挑选。每日货源会根据到货、大小和季节有所不同。",
-
-    howTitle: "购买方式",
-    howSub: "到店、看水缸、选海鲜，我们帮您准备好带回家料理。",
-
-    step1Title: "到店",
-    step1Text: "前往 31 Commonwealth Crescent #01-41/42/43 S(149644)。",
-    step2Title: "从水缸挑选",
-    step2Text: "亲自从我们的活海鲜水缸中选择您要的海鲜。",
-    step3Title: "清理、切配、包装",
-    step3Text: "如需要带回家料理，可在档口询问清理和切配协助。",
-    step4Title: "带回家料理",
-    step4Text: "适合清蒸、辣椒蟹、黑胡椒蟹、米粉、火锅或家庭聚餐。",
-
-    whyTitle: "为什么顾客选择 Crab Talk",
-    whySub: "适合想亲眼看到海鲜后再购买的顾客。",
-    why1Title: "活海鲜水缸",
-    why1Text: "顾客可现场看到和挑选活蟹、龙虾、蛤、鱼等海鲜。",
-    why2Title: "每日精选",
-    why2Text: "货源每日不同，可根据当天到货选择新鲜海鲜。",
-    why3Title: "可协助清理切配",
-    why3Text: "视海鲜种类和现场情况，我们可协助处理，方便回家料理。",
-    why4Title: "家庭料理建议",
-    why4Text: "告诉我们人数、预算和想煮的菜式，我们可给出合适建议。",
-
-    homeTitle: "适合家庭料理",
-    homeText:
-      "适合想在家享用优质海鲜的顾客。可清蒸、辣椒蟹、黑胡椒蟹、姜葱蟹、米粉、汤品、火锅或家常料理。",
-
-    cookingTitle: "附近代煮选项",
-    cookingText:
-      "部分海鲜有时可由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定。Crab Talk 的主要重点仍是活海鲜供应和家庭料理。",
-
-    featuresTitle: "媒体与达人分享",
-    featuresSub:
-      "Crab Talk 曾被媒体和美食达人介绍，让更多顾客认识 Commonwealth Crescent 的活海鲜。",
-
-    reviewsTitle: "顾客常提到",
-    reviewsSub:
-      "顾客常提到海鲜新鲜、推荐实在、现场挑选透明，以及适合带回家料理。",
-
-    faqTitle: "常见问题",
-    visitTitle: "地址与营业时间",
-    visitSub: "想要更多选择，建议早点到店或先 WhatsApp 查询。",
-    openingHours: "营业时间",
-    disclaimer:
-      "海鲜货量、大小和价格每日不同。图片仅供参考，请 WhatsApp 或到店查询最新货源。",
-  },
-
-  ja: {
-    navBrand: "Crab Talk",
-    navSelection: "海鮮ラインナップ",
-    navHow: "購入方法",
-    navReviews: "レビュー",
-    navFind: "アクセス",
-    navWhatsapp: "WhatsApp",
-
-    language: "言語",
-    brandLine: "ライブシーフード",
-
-    heroBadge: "Crab Talk ライブシーフード",
-    heroTitle: "水槽から自分で選ぶライブシーフード",
-    heroText:
-      "Commonwealth Crescent の Crab Talk では、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを店頭で選べます。水槽から選んだ海鮮を、必要に応じて清掃・カット・包装して、ご家庭で調理しやすくします。",
-    heroNote:
-      "Crab Talk はオンラインショップではなく、ライブシーフードの店舗です。WhatsApp は主に本日の入荷、在庫、取り置き確認用です。",
-    ctaVisit: "店舗へ行く",
-    ctaWhatsapp: "WhatsAppで本日の入荷確認",
-    ctaTelegram: "Telegram更新に参加",
-    today: "本日",
-
-    freshTitle: "毎日の新鮮ラインナップ",
-    freshSub:
-      "水槽から自分で選べるライブシーフード。入荷、サイズ、季節により内容は変わります。",
-
-    howTitle: "購入方法",
-    howSub:
-      "来店して、水槽から選び、家庭料理用に準備して持ち帰るシンプルな流れです。",
-
-    step1Title: "店舗へ来店",
-    step1Text: "31 Commonwealth Crescent #01-41/42/43 S(149644) へお越しください。",
-    step2Title: "水槽から選ぶ",
-    step2Text: "ライブシーフードを水槽から直接選べます。",
-    step3Title: "清掃・カット・包装",
-    step3Text:
-      "家庭料理用の準備が必要な場合は、店頭でご相談ください。",
-    step4Title: "自宅で調理",
-    step4Text:
-      "蒸し料理、チリクラブ、ブラックペッパークラブ、ビーフン、鍋料理、家族の食事におすすめです。",
-
-    whyTitle: "Crab Talk が選ばれる理由",
-    whySub: "購入前に海鮮を自分の目で確認したいお客様に向いています。",
-    why1Title: "ライブ水槽",
-    why1Text:
-      "活ガニ、ロブスター、貝、魚などを水槽から見て選べます。",
-    why2Title: "毎日入荷",
-    why2Text:
-      "入荷内容は日によって変わるため、その日の新鮮な海鮮を選べます。",
-    why3Title: "清掃・カット対応",
-    why3Text:
-      "海鮮の種類や状況により、ご家庭で調理しやすいように準備可能です。",
-    why4Title: "家庭料理の相談",
-    why4Text:
-      "人数、予算、調理方法に合わせて、サイズや組み合わせを提案できます。",
-
-    homeTitle: "家庭料理に最適",
-    homeText:
-      "レストラン品質の食材を家で楽しみたい方に。蒸し料理、チリクラブ、ブラックペッパークラブ、ジンジャースキャリオン、ビーフン、スープ、鍋料理におすすめです。",
-
-    cookingTitle: "近くでの調理オプション",
-    cookingText:
-      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。Crab Talk の主なサービスはライブシーフード販売です。",
-
-    featuresTitle: "メディア・SNS紹介",
-    featuresSub:
-      "Crab Talk はメディアやフードクリエイターにも紹介され、Commonwealth Crescent のライブシーフードとして注目されています。",
-
-    reviewsTitle: "お客様がよく評価する点",
-    reviewsSub:
-      "新鮮さ、親切な提案、水槽から選べる安心感、家庭料理への便利さがよく評価されています。",
-
-    faqTitle: "よくある質問",
-    visitTitle: "アクセス・営業時間",
-    visitSub:
-      "品揃えを重視する場合は、早めの来店または WhatsApp での確認がおすすめです。",
-    openingHours: "営業時間",
-    disclaimer:
-      "入荷状況、サイズ、価格は日によって変わります。写真は参考用です。最新情報は WhatsApp または店頭でご確認ください。",
-  },
-};
-
 const heroSlides = [
   {
     image: img("product-live-crab-premium.jpg"),
-    label: "Pick live crabs from our tanks",
+    label: {
+      en: "Pick live crabs directly from our tanks",
+      zh: "从水缸亲自挑选活蟹",
+      ja: "水槽から活ガニを直接選べます",
+    },
   },
   {
     image: img("product-yellow-roe-crab-06.jpg"),
-    label: "Sri Lanka roe crabs, selected fresh",
+    label: {
+      en: "Sri Lanka roe crabs for premium home dining",
+      zh: "斯里兰卡膏蟹，适合家庭聚餐",
+      ja: "家庭料理に人気のスリランカ蟹味噌入り蟹",
+    },
   },
   {
     image: img("stall-crab-talk-front-02.jpg"),
-    label: "Visit Crab Talk at Commonwealth Crescent",
+    label: {
+      en: "Visit our physical stall at Commonwealth Crescent",
+      zh: "欢迎到 Commonwealth Crescent 实体档口",
+      ja: "Commonwealth Crescent の実店舗へお越しください",
+    },
   },
   {
     image: img("feature-8days-original-thumbnail.jpg"),
-    label: "As featured by 8 Days",
+    label: {
+      en: "Featured by 8 Days",
+      zh: "8 Days 媒体报道",
+      ja: "8 Days に掲載されました",
+    },
   },
 ];
 
@@ -362,7 +140,7 @@ const freshSelection = [
       zh: "适合清蒸、港式蒸鱼或家庭料理。",
       ja: "蒸し料理、香港風、家庭料理に向いた活魚です。",
     },
-    image: img("product-live-soon-hock-01.jpg"),
+    image: img("product-live-soon-hock-premium-fish.jpg"),
   },
 ];
 
@@ -390,33 +168,383 @@ const featureCards = [
   },
 ];
 
-const faqItems = [
-  {
-    q: "Can I buy directly online?",
-    a: "Crab Talk is mainly a walk-in live seafood stall. You can WhatsApp us to check availability or reserve, but the best experience is to visit and choose your seafood directly from the tanks.",
+const copy = {
+  en: {
+    language: "Language",
+    brandName: "CRAB TALK",
+    brandLine: "Live Seafood Supply",
+
+    navBrand: "Crab Talk",
+    navSelection: "Fresh Selection",
+    navHow: "How It Works",
+    navReviews: "Reviews",
+    navFind: "Find Us",
+    navWhatsapp: "WhatsApp",
+
+    today: "Today",
+    heroBadge: "Physical Live Seafood Stall",
+    heroTitle: "Pick Your Own Live Seafood From Our Tanks",
+    heroText:
+      "Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack selected items for easy home cooking.",
+    heroNote:
+      "Crab Talk is not an online seafood shop. Come down, see the seafood, pick what you like, and WhatsApp us mainly to check today’s arrival, availability or reservation enquiries.",
+
+    ctaVisit: "Get Directions to Commonwealth Stall",
+    ctaWhatsapp: "WhatsApp to Check Today’s Arrival",
+    ctaTelegram: "Join Telegram for Daily Updates",
+
+    usp1: "Pick from live tanks",
+    usp2: "Physical seafood stall",
+    usp3: "Cleaning & cutting available",
+    usp4: "Prepared for home cooking",
+
+    howKicker: "Clear Buying Process",
+    howTitle: "How It Works",
+    howSub:
+      "No guessing. Visit the stall, choose from the tanks, and bring home seafood prepared for your own cooking.",
+    step1Title: "Come to our stall",
+    step1Text: "Find us at 31 Commonwealth Crescent #01-41/42/43 S(149644).",
+    step2Title: "Pick from the live tanks",
+    step2Text: "Choose your own live seafood directly from our tanks.",
+    step3Title: "We prepare it for you",
+    step3Text:
+      "Selected seafood can be cleaned, cut and packed for easier home cooking. Ask our team when choosing.",
+    step4Title: "Bring home and cook fresh",
+    step4Text:
+      "Perfect for steaming, chilli crab, black pepper crab, bee hoon, soup, hotpot and family meals.",
+
+    freshKicker: "Live Seafood Tanks",
+    freshTitle: "Fresh Daily Selection",
+    freshSub:
+      "Pick your own fresh seafood from our live tanks. Daily selection depends on arrival, size and season.",
+
+    whyKicker: "Why Visit Us",
+    whyTitle: "Why Customers Visit Crab Talk",
+    whySub:
+      "A simple market-style experience for customers who want to see their seafood before buying.",
+    why1Title: "Live seafood you can see",
+    why1Text:
+      "Choose live crabs, lobsters, clams, fish and more directly from our tanks.",
+    why2Title: "Selected daily",
+    why2Text:
+      "Our seafood range changes with the daily arrival, giving customers different options to check and choose.",
+    why3Title: "Cleaning and cutting available",
+    why3Text:
+      "Where suitable, we can help clean, cut and pack your seafood for easier home cooking.",
+    why4Title: "Friendly home-cooking advice",
+    why4Text:
+      "Tell us your pax, budget and cooking style. We can suggest suitable seafood and portion sizes.",
+
+    homeTitle: "Made for Home Cooking",
+    homeText:
+      "Ideal for customers who want quality live seafood for family meals. Steam it, make chilli crab, black pepper crab, ginger scallion crab, bee hoon, soup, hotpot or simple home recipes.",
+
+    cookingTitle: "Optional Nearby Cooking",
+    cookingText:
+      "Selected seafood may sometimes be cooked nearby by Fai Kee, subject to their capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
+
+    featuresKicker: "Social Proof",
+    featuresTitle: "Featured & Shared",
+    featuresSub:
+      "Crab Talk has been featured by food media and creators, helping more customers discover live seafood at Commonwealth Crescent.",
+
+    reviewsKicker: "Customer Confidence",
+    reviewsTitle: "What Customers Usually Mention",
+    reviewsSub:
+      "Customers often highlight freshness, friendly advice, transparent selection from the tanks and convenience for home cooking.",
+
+    review1Title: "Freshness",
+    review1Text:
+      "Fresh live seafood, clear recommendations and helpful service for customers planning meals at home.",
+    review2Title: "Live selection",
+    review2Text:
+      "Customers can see and choose from the tanks, making the buying process more transparent.",
+    review3Title: "Helpful recommendations",
+    review3Text:
+      "Friendly advice on sizes, cooking style and seafood pairing for family meals or gatherings.",
+
+    faqKicker: "Questions",
+    faqTitle: "FAQ",
+    faq: [
+      {
+        q: "Can I buy directly online?",
+        a: "Crab Talk is mainly a walk-in live seafood stall. You can WhatsApp us to check availability or reserve, but the best experience is to visit and choose your seafood directly from the tanks.",
+      },
+      {
+        q: "Do you help with cleaning or cutting?",
+        a: "Cleaning and cutting assistance may be available depending on seafood type, timing and stall workload. Please check with us when ordering.",
+      },
+      {
+        q: "Are prices fixed every day?",
+        a: "Live seafood prices change with size, season and daily arrival. Please check the latest availability and pricing before coming down.",
+      },
+      {
+        q: "Can the seafood be cooked nearby?",
+        a: "Some seafood may be suitable for nearby cooking by Fai Kee, but it depends on their capacity, timing and dish type. Please confirm before ordering.",
+      },
+      {
+        q: "What should I order for family dinner?",
+        a: "Tell us your pax and budget. We can recommend a balanced mix such as crabs, lobster, clams, oysters or fish depending on what is fresh that day.",
+      },
+    ],
+
+    visitKicker: "Commonwealth Crescent",
+    visitTitle: "Find Us",
+    visitSub:
+      "For the best selection, visit earlier or WhatsApp us before coming down.",
+    openingHours: "Opening Hours",
+    disclaimer:
+      "Seafood availability, sizes and prices change daily. Photos are for reference. Please WhatsApp or visit the stall for latest arrivals.",
   },
-  {
-    q: "Do you help with cleaning or cutting?",
-    a: "Cleaning and cutting assistance may be available depending on seafood type, timing and stall workload. Please check with us when ordering.",
+
+  zh: {
+    language: "语言",
+    brandName: "CRAB TALK",
+    brandLine: "活海鲜供应",
+
+    navBrand: "Crab Talk",
+    navSelection: "每日海鲜",
+    navHow: "购买方式",
+    navReviews: "评价",
+    navFind: "地址",
+    navWhatsapp: "WhatsApp",
+
+    today: "今日",
+    heroBadge: "实体活海鲜档口",
+    heroTitle: "到店从水缸亲自挑选活海鲜",
+    heroText:
+      "欢迎到 Commonwealth Crescent 的 Crab Talk 选购活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等海鲜。顾客可现场从水缸挑选，我们也可视情况协助清理、切配和包装，方便带回家料理。",
+    heroNote:
+      "Crab Talk 不是线上海鲜店。建议顾客亲自到店，看水缸、挑海鲜。WhatsApp 主要用于查询今日到货、货量或预留。",
+
+    ctaVisit: "Google 导航到 Commonwealth 档口",
+    ctaWhatsapp: "WhatsApp 查询今日到货",
+    ctaTelegram: "加入 Telegram 每日更新",
+
+    usp1: "从水缸挑选",
+    usp2: "实体活海鲜档口",
+    usp3: "可协助清理切配",
+    usp4: "方便带回家料理",
+
+    howKicker: "清楚购买流程",
+    howTitle: "购买方式",
+    howSub: "到店、看水缸、选海鲜，我们帮您准备好带回家料理。",
+    step1Title: "到我们的档口",
+    step1Text: "地址：31 Commonwealth Crescent #01-41/42/43 S(149644)。",
+    step2Title: "从水缸挑选",
+    step2Text: "亲自从我们的活海鲜水缸中选择您要的海鲜。",
+    step3Title: "我们协助准备",
+    step3Text: "部分海鲜可视情况提供清理、切配和包装，方便回家料理。",
+    step4Title: "带回家新鲜料理",
+    step4Text: "适合清蒸、辣椒蟹、黑胡椒蟹、米粉、汤品、火锅或家庭聚餐。",
+
+    freshKicker: "活海鲜水缸",
+    freshTitle: "每日新鲜海鲜",
+    freshSub:
+      "亲自从活海鲜水缸中挑选。每日货源会根据到货、大小和季节有所不同。",
+
+    whyKicker: "为什么到店",
+    whyTitle: "为什么顾客选择 Crab Talk",
+    whySub: "适合想亲眼看到海鲜后再购买的顾客。",
+    why1Title: "看得到的活海鲜",
+    why1Text: "顾客可现场看到和挑选活蟹、龙虾、蛤、鱼等海鲜。",
+    why2Title: "每日精选",
+    why2Text: "货源每日不同，可根据当天到货选择新鲜海鲜。",
+    why3Title: "可协助清理切配",
+    why3Text: "视海鲜种类和现场情况，我们可协助处理，方便回家料理。",
+    why4Title: "家庭料理建议",
+    why4Text: "告诉我们人数、预算和想煮的菜式，我们可给出合适建议。",
+
+    homeTitle: "适合家庭料理",
+    homeText:
+      "适合想在家享用优质海鲜的顾客。可清蒸、辣椒蟹、黑胡椒蟹、姜葱蟹、米粉、汤品、火锅或家常料理。",
+
+    cookingTitle: "附近代煮选项",
+    cookingText:
+      "部分海鲜有时可由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定。Crab Talk 的主要重点仍是活海鲜供应和家庭料理。",
+
+    featuresKicker: "媒体与分享",
+    featuresTitle: "媒体与达人分享",
+    featuresSub:
+      "Crab Talk 曾被媒体和美食达人介绍，让更多顾客认识 Commonwealth Crescent 的活海鲜。",
+
+    reviewsKicker: "顾客信任",
+    reviewsTitle: "顾客常提到",
+    reviewsSub:
+      "顾客常提到海鲜新鲜、推荐实在、现场挑选透明，以及适合带回家料理。",
+
+    review1Title: "新鲜度",
+    review1Text: "活海鲜新鲜，推荐清楚，适合想在家料理的顾客。",
+    review2Title: "现场挑选",
+    review2Text: "顾客可从水缸中亲自挑选，让购买过程更透明。",
+    review3Title: "实在建议",
+    review3Text: "可根据人数、预算和煮法，推荐合适的海鲜和份量。",
+
+    faqKicker: "常见问题",
+    faqTitle: "FAQ",
+    faq: [
+      {
+        q: "可以直接在线购买吗？",
+        a: "Crab Talk 主要是实体活海鲜档口。您可以 WhatsApp 查询货量或预留，但最佳体验是到店从水缸亲自挑选。",
+      },
+      {
+        q: "可以帮忙清理或切配吗？",
+        a: "部分海鲜可视种类、时间和现场情况提供清理或切配协助，请购买时向我们确认。",
+      },
+      {
+        q: "价格每天一样吗？",
+        a: "活海鲜价格会因大小、季节和每日到货而不同。建议到店前先查询。",
+      },
+      {
+        q: "附近可以代煮吗？",
+        a: "部分海鲜可视情况由附近 Fai Kee 烹煮，但需看他们的人手、时段和菜式安排，请先确认。",
+      },
+      {
+        q: "家庭聚餐应该买什么？",
+        a: "告诉我们人数和预算，我们可根据当天新鲜货源推荐蟹、龙虾、蛤、生蚝或鱼的组合。",
+      },
+    ],
+
+    visitKicker: "Commonwealth Crescent",
+    visitTitle: "地址与营业时间",
+    visitSub: "想要更多选择，建议早点到店或先 WhatsApp 查询。",
+    openingHours: "营业时间",
+    disclaimer:
+      "海鲜货量、大小和价格每日不同。图片仅供参考，请 WhatsApp 或到店查询最新货源。",
   },
-  {
-    q: "Are prices fixed every day?",
-    a: "Live seafood prices change with size, season and daily arrival. Please check the latest availability and pricing before coming down.",
+
+  ja: {
+    language: "言語",
+    brandName: "CRAB TALK",
+    brandLine: "ライブシーフード",
+
+    navBrand: "Crab Talk",
+    navSelection: "海鮮ラインナップ",
+    navHow: "購入方法",
+    navReviews: "レビュー",
+    navFind: "アクセス",
+    navWhatsapp: "WhatsApp",
+
+    today: "本日",
+    heroBadge: "実店舗のライブシーフード",
+    heroTitle: "水槽から自分で選ぶライブシーフード",
+    heroText:
+      "Commonwealth Crescent の Crab Talk では、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを店頭で選べます。水槽から選んだ海鮮を、必要に応じて清掃・カット・包装して、ご家庭で調理しやすくします。",
+    heroNote:
+      "Crab Talk はオンラインショップではなく、実店舗のライブシーフード店です。WhatsApp は主に本日の入荷、在庫、取り置き確認用です。",
+
+    ctaVisit: "Commonwealth の店舗へ行く",
+    ctaWhatsapp: "WhatsAppで本日の入荷確認",
+    ctaTelegram: "Telegram更新に参加",
+
+    usp1: "水槽から直接選べる",
+    usp2: "実店舗の海鮮ストール",
+    usp3: "清掃・カット対応あり",
+    usp4: "家庭料理向けに準備",
+
+    howKicker: "購入方法",
+    howTitle: "購入の流れ",
+    howSub:
+      "来店して、水槽から選び、家庭料理用に準備して持ち帰るシンプルな流れです。",
+    step1Title: "店舗へ来店",
+    step1Text: "31 Commonwealth Crescent #01-41/42/43 S(149644) へお越しください。",
+    step2Title: "水槽から選ぶ",
+    step2Text: "ライブシーフードを水槽から直接選べます。",
+    step3Title: "調理しやすく準備",
+    step3Text:
+      "一部の海鮮は、状況により清掃・カット・包装が可能です。店頭でご相談ください。",
+    step4Title: "自宅で新鮮に調理",
+    step4Text:
+      "蒸し料理、チリクラブ、ブラックペッパークラブ、ビーフン、スープ、鍋料理におすすめです。",
+
+    freshKicker: "ライブ水槽",
+    freshTitle: "毎日の新鮮ラインナップ",
+    freshSub:
+      "水槽から自分で選べるライブシーフード。入荷、サイズ、季節により内容は変わります。",
+
+    whyKicker: "選ばれる理由",
+    whyTitle: "Crab Talk が選ばれる理由",
+    whySub: "購入前に海鮮を自分の目で確認したいお客様に向いています。",
+    why1Title: "見て選べる海鮮",
+    why1Text:
+      "活ガニ、ロブスター、貝、魚などを水槽から見て選べます。",
+    why2Title: "毎日入荷",
+    why2Text:
+      "入荷内容は日によって変わるため、その日の新鮮な海鮮を選べます。",
+    why3Title: "清掃・カット対応",
+    why3Text:
+      "海鮮の種類や状況により、ご家庭で調理しやすいように準備可能です。",
+    why4Title: "家庭料理の相談",
+    why4Text:
+      "人数、予算、調理方法に合わせて、サイズや組み合わせを提案できます。",
+
+    homeTitle: "家庭料理に最適",
+    homeText:
+      "レストラン品質の食材を家で楽しみたい方に。蒸し料理、チリクラブ、ブラックペッパークラブ、ジンジャースキャリオン、ビーフン、スープ、鍋料理におすすめです。",
+
+    cookingTitle: "近くでの調理オプション",
+    cookingText:
+      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。Crab Talk の主なサービスはライブシーフード販売です。",
+
+    featuresKicker: "メディア紹介",
+    featuresTitle: "メディア・SNS紹介",
+    featuresSub:
+      "Crab Talk はメディアやフードクリエイターにも紹介され、Commonwealth Crescent のライブシーフードとして注目されています。",
+
+    reviewsKicker: "お客様の安心",
+    reviewsTitle: "お客様がよく評価する点",
+    reviewsSub:
+      "新鮮さ、親切な提案、水槽から選べる安心感、家庭料理への便利さがよく評価されています。",
+
+    review1Title: "新鮮さ",
+    review1Text:
+      "家庭料理を計画するお客様に向けた、新鮮なライブシーフードと分かりやすい提案。",
+    review2Title: "水槽から選べる",
+    review2Text:
+      "実際に見て選べるため、購入プロセスが分かりやすく安心です。",
+    review3Title: "親切な提案",
+    review3Text:
+      "人数、調理方法、予算に合わせて、サイズや組み合わせを相談できます。",
+
+    faqKicker: "質問",
+    faqTitle: "FAQ",
+    faq: [
+      {
+        q: "オンラインで直接購入できますか？",
+        a: "Crab Talk は主に実店舗のライブシーフードストールです。WhatsAppで在庫確認や取り置き相談はできますが、店頭で水槽から選ぶのがおすすめです。",
+      },
+      {
+        q: "清掃やカットはできますか？",
+        a: "海鮮の種類、時間帯、店頭の状況により、一部清掃やカットが可能です。購入時にご確認ください。",
+      },
+      {
+        q: "価格は毎日同じですか？",
+        a: "ライブシーフードの価格はサイズ、季節、入荷状況により変わります。来店前に確認することをおすすめします。",
+      },
+      {
+        q: "近くで調理できますか？",
+        a: "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、時間帯、混雑状況、料理内容により異なります。",
+      },
+      {
+        q: "家族の食事には何を買えばいいですか？",
+        a: "人数と予算を教えてください。その日の新鮮な蟹、ロブスター、貝、牡蠣、魚などから提案できます。",
+      },
+    ],
+
+    visitKicker: "Commonwealth Crescent",
+    visitTitle: "アクセス・営業時間",
+    visitSub:
+      "品揃えを重視する場合は、早めの来店または WhatsApp での確認がおすすめです。",
+    openingHours: "営業時間",
+    disclaimer:
+      "入荷状況、サイズ、価格は日によって変わります。写真は参考用です。最新情報は WhatsApp または店頭でご確認ください。",
   },
-  {
-    q: "Can the seafood be cooked nearby?",
-    a: "Some seafood may be suitable for nearby cooking by Fai Kee, but it depends on their capacity, timing and dish type. Please confirm before ordering.",
-  },
-  {
-    q: "What should I order for family dinner?",
-    a: "Tell us your pax and budget. We can recommend a balanced mix such as crabs, lobster, clams, oysters or fish depending on what is fresh that day.",
-  },
-];
+};
 
 function getTodayHours() {
   const jsDay = new Date().getDay();
 
-  const map = {
+  const dayMap = {
     0: "Sunday",
     1: "Monday",
     2: "Tuesday",
@@ -426,8 +554,30 @@ function getTodayHours() {
     6: "Saturday",
   };
 
-  const today = map[jsDay];
-  return HOURS.find((item) => item.day === today);
+  return HOURS.find((item) => item.day === dayMap[jsDay]) || HOURS[0];
+}
+
+function SmartImage({ src, alt, className }) {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return (
+      <div className={`imageFallback ${className || ""}`}>
+        <div>🦀</div>
+        <strong>Crab Talk</strong>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      className={className}
+      src={src}
+      alt={alt}
+      loading="lazy"
+      onError={() => setHasError(true)}
+    />
+  );
 }
 
 function App() {
@@ -436,13 +586,13 @@ function App() {
 
   const t = copy[language];
   const todayHours = useMemo(() => getTodayHours(), []);
+  const selectedHero = heroSlides[heroIndex];
 
   const translated = (field) => field[language] || field.en;
-  const selectedHero = heroSlides[heroIndex];
 
   useEffect(() => {
     const title =
-      "Crab Talk SG | Live Seafood Supply at Commonwealth Crescent";
+      "Crab Talk SG | Live Seafood Stall at Commonwealth Crescent";
     const description =
       "Visit Crab Talk at 31 Commonwealth Crescent #01-41/42/43 S(149644) to pick live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and premium seafood from the tanks.";
 
@@ -464,11 +614,7 @@ function App() {
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
-    setMeta(
-      "og:image",
-      "/images/feature-8days-original-thumbnail.jpg",
-      "property"
-    );
+    setMeta("og:image", "/images/feature-8days-original-thumbnail.jpg", "property");
 
     let favicon = document.querySelector('link[rel="icon"]');
 
@@ -528,10 +674,10 @@ function App() {
         :root {
           --ink: #06343b;
           --ink2: #0b4750;
-          --muted: #607477;
-          --softText: #7a8c8f;
+          --muted: #61777b;
+          --muted2: #829196;
           --teal: #003f4a;
-          --teal2: #006f7f;
+          --teal2: #007f91;
           --aqua: #00a6b8;
           --gold: #d8b45f;
           --gold2: #fff3c5;
@@ -556,8 +702,8 @@ function App() {
 
         body {
           margin: 0;
-          background: var(--bg);
-          color: var(--ink);
+          background: #f7fbfa;
+          color: #06343b;
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
         }
 
@@ -572,9 +718,9 @@ function App() {
         .page {
           min-height: 100vh;
           background:
-            radial-gradient(circle at top left, rgba(0, 166, 184, 0.14), transparent 34rem),
-            radial-gradient(circle at 85% 6%, rgba(216, 180, 95, 0.18), transparent 24rem),
-            linear-gradient(180deg, #ffffff 0%, #f7fbfa 48%, #f4faf9 100%);
+            radial-gradient(circle at top left, rgba(0, 166, 184, 0.1), transparent 30rem),
+            radial-gradient(circle at 86% 8%, rgba(216, 180, 95, 0.16), transparent 24rem),
+            linear-gradient(180deg, #ffffff 0%, #f7fbfa 55%, #f4faf9 100%);
         }
 
         .container {
@@ -586,13 +732,13 @@ function App() {
           position: sticky;
           top: 0;
           z-index: 50;
-          background: rgba(255, 255, 255, 0.94);
+          background: rgba(255, 255, 255, 0.96);
           border-bottom: 1px solid var(--line);
           backdrop-filter: blur(18px);
         }
 
         .nav {
-          min-height: 74px;
+          min-height: 76px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -608,23 +754,23 @@ function App() {
         }
 
         .logoMark {
-          width: 42px;
-          height: 42px;
-          border-radius: 14px;
+          width: 48px;
+          height: 48px;
+          border-radius: 16px;
           background: linear-gradient(135deg, #003f4a, #00a6b8);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 24px;
-          box-shadow: 0 10px 24px rgba(0, 63, 74, 0.2);
+          font-size: 26px;
+          box-shadow: 0 10px 24px rgba(0, 63, 74, 0.25);
         }
 
         .logoText strong {
           display: block;
-          font-size: 22px;
+          font-size: 24px;
           font-weight: 950;
-          color: #06343b;
-          letter-spacing: -0.03em;
+          color: #003f4a;
+          letter-spacing: 0.02em;
           line-height: 1;
         }
 
@@ -632,9 +778,9 @@ function App() {
           display: block;
           margin-top: 4px;
           font-size: 12px;
-          color: #6b7c7f;
-          font-weight: 800;
-          letter-spacing: 0.12em;
+          color: #b08a2e;
+          font-weight: 850;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
         }
 
@@ -687,7 +833,11 @@ function App() {
           line-height: 1;
           white-space: nowrap;
           cursor: pointer;
-          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+          transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease,
+            border-color 0.2s ease;
         }
 
         .button:hover {
@@ -714,12 +864,12 @@ function App() {
         }
 
         .hero {
-          padding: 52px 0 34px;
+          padding: 50px 0 32px;
         }
 
         .heroGrid {
           display: grid;
-          grid-template-columns: 1.02fr 0.98fr;
+          grid-template-columns: 1.05fr 0.95fr;
           gap: 44px;
           align-items: center;
         }
@@ -754,7 +904,7 @@ function App() {
 
         .hero h1 {
           margin: 0;
-          max-width: 760px;
+          max-width: 780px;
           font-size: clamp(40px, 5vw, 64px);
           line-height: 0.98;
           letter-spacing: -0.06em;
@@ -763,7 +913,7 @@ function App() {
 
         .heroText {
           margin: 22px 0 0;
-          max-width: 760px;
+          max-width: 770px;
           color: #38565b;
           font-size: clamp(17px, 1.75vw, 21px);
           line-height: 1.62;
@@ -771,7 +921,7 @@ function App() {
 
         .heroNote {
           margin: 16px 0 0;
-          max-width: 720px;
+          max-width: 730px;
           color: var(--teal2);
           font-size: 15px;
           line-height: 1.55;
@@ -787,16 +937,50 @@ function App() {
           margin-top: 26px;
         }
 
+        .uspGrid {
+          margin-top: 24px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          max-width: 720px;
+        }
+
+        .uspItem {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 14px;
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.86);
+          border: 1px solid var(--line);
+          box-shadow: 0 8px 20px rgba(6, 52, 59, 0.05);
+          color: var(--ink);
+          font-size: 14px;
+          font-weight: 850;
+        }
+
+        .uspItem span {
+          width: 22px;
+          height: 22px;
+          border-radius: 999px;
+          display: grid;
+          place-items: center;
+          background: var(--teal);
+          color: #ffffff;
+          font-size: 12px;
+          flex: 0 0 auto;
+        }
+
         .addressCard {
           margin-top: 24px;
           display: flex;
           align-items: center;
           gap: 14px;
-          max-width: 660px;
+          max-width: 680px;
           padding: 16px;
           border-radius: 20px;
           border: 1px solid rgba(216, 180, 95, 0.42);
-          background: rgba(255, 255, 255, 0.86);
+          background: rgba(255, 255, 255, 0.88);
           box-shadow: var(--shadowSoft);
         }
 
@@ -916,7 +1100,7 @@ function App() {
 
         .sectionHeader p {
           margin: 0;
-          max-width: 580px;
+          max-width: 590px;
           color: var(--muted);
           font-size: 17px;
           line-height: 1.62;
@@ -1309,6 +1493,30 @@ function App() {
           display: none;
         }
 
+        .imageFallback {
+          width: 100%;
+          height: 100%;
+          min-height: 160px;
+          display: grid;
+          place-items: center;
+          text-align: center;
+          background: linear-gradient(135deg, #eef8f7, #ffffff);
+          color: var(--teal);
+          border-radius: 16px;
+        }
+
+        .imageFallback div {
+          font-size: 38px;
+        }
+
+        .imageFallback strong {
+          display: block;
+          margin-top: 8px;
+          font-size: 14px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
         @media (max-width: 1080px) {
           .navLinks {
             gap: 12px;
@@ -1371,13 +1579,13 @@ function App() {
           }
 
           .logoMark {
-            width: 40px;
-            height: 40px;
-            border-radius: 13px;
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
           }
 
           .logoText strong {
-            font-size: 19px;
+            font-size: 20px;
           }
 
           .logoText span {
@@ -1417,6 +1625,10 @@ function App() {
 
           .button {
             width: 100%;
+          }
+
+          .uspGrid {
+            grid-template-columns: 1fr;
           }
 
           .addressCard {
@@ -1502,7 +1714,7 @@ function App() {
             <a className="logo" href="#home" aria-label="Crab Talk home">
               <div className="logoMark">🦀</div>
               <div className="logoText">
-                <strong>Crab Talk</strong>
+                <strong>{t.brandName}</strong>
                 <span>{t.brandLine}</span>
               </div>
             </a>
@@ -1574,6 +1786,25 @@ function App() {
                   </a>
                 </div>
 
+                <div className="uspGrid">
+                  <div className="uspItem">
+                    <span>1</span>
+                    {t.usp1}
+                  </div>
+                  <div className="uspItem">
+                    <span>2</span>
+                    {t.usp2}
+                  </div>
+                  <div className="uspItem">
+                    <span>3</span>
+                    {t.usp3}
+                  </div>
+                  <div className="uspItem">
+                    <span>4</span>
+                    {t.usp4}
+                  </div>
+                </div>
+
                 <div className="addressCard">
                   <div className="addressPin">📍</div>
                   <div>
@@ -1592,8 +1823,13 @@ function App() {
               <div className="heroMedia">
                 <div className="heroFrame">
                   <div className="heroImageWrap">
-                    <img src={selectedHero.image} alt={selectedHero.label} />
-                    <div className="heroCaption">{selectedHero.label}</div>
+                    <SmartImage
+                      src={selectedHero.image}
+                      alt={translated(selectedHero.label)}
+                    />
+                    <div className="heroCaption">
+                      {translated(selectedHero.label)}
+                    </div>
                   </div>
                 </div>
 
@@ -1603,7 +1839,7 @@ function App() {
                       key={slide.image}
                       className={`dot ${index === heroIndex ? "dotActive" : ""}`}
                       onClick={() => setHeroIndex(index)}
-                      aria-label={`Show ${slide.label}`}
+                      aria-label={`Show ${translated(slide.label)}`}
                     />
                   ))}
                 </div>
@@ -1615,7 +1851,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Clear buying process</p>
+                  <p className="sectionKicker">{t.howKicker}</p>
                   <h2>{t.howTitle}</h2>
                 </div>
                 <p>{t.howSub}</p>
@@ -1653,7 +1889,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Live seafood tanks</p>
+                  <p className="sectionKicker">{t.freshKicker}</p>
                   <h2>{t.freshTitle}</h2>
                 </div>
                 <p>{t.freshSub}</p>
@@ -1663,7 +1899,10 @@ function App() {
                 {freshSelection.map((item) => (
                   <article className="productCard" key={item.title.en}>
                     <div className="productImage">
-                      <img src={item.image} alt={translated(item.title)} />
+                      <SmartImage
+                        src={item.image}
+                        alt={translated(item.title)}
+                      />
                     </div>
                     <div className="productBody">
                       <h3>{translated(item.title)}</h3>
@@ -1679,7 +1918,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Why visit us</p>
+                  <p className="sectionKicker">{t.whyKicker}</p>
                   <h2>{t.whyTitle}</h2>
                 </div>
                 <p>{t.whySub}</p>
@@ -1716,7 +1955,7 @@ function App() {
           <section>
             <div className="container twoCol">
               <article className="infoPanel">
-                <img
+                <SmartImage
                   src={img("dish-chilli-crab-table-shot.jpg")}
                   alt="Home cooked seafood dishes"
                 />
@@ -1727,7 +1966,7 @@ function App() {
               </article>
 
               <article className="infoPanel">
-                <img
+                <SmartImage
                   src={img("dish-lobster-yee-mee-fai-kee-hero.jpg")}
                   alt="Optional nearby cooking"
                 />
@@ -1743,7 +1982,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Social proof</p>
+                  <p className="sectionKicker">{t.featuresKicker}</p>
                   <h2>{t.featuresTitle}</h2>
                 </div>
                 <p>{t.featuresSub}</p>
@@ -1758,7 +1997,7 @@ function App() {
                     rel="noopener noreferrer"
                     key={feature.title}
                   >
-                    <img src={feature.image} alt={feature.title} />
+                    <SmartImage src={feature.image} alt={feature.title} />
                     <div className="featureBody">
                       <h3>{feature.title}</h3>
                       <p>{feature.text}</p>
@@ -1774,7 +2013,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Customer confidence</p>
+                  <p className="sectionKicker">{t.reviewsKicker}</p>
                   <h2>{t.reviewsTitle}</h2>
                 </div>
                 <p>{t.reviewsSub}</p>
@@ -1783,29 +2022,20 @@ function App() {
               <div className="reviewsGrid">
                 <article className="reviewCard">
                   <div className="stars">★★★★★</div>
-                  <p>
-                    Fresh live seafood, clear recommendations and helpful service
-                    for customers planning meals at home.
-                  </p>
-                  <strong>Freshness</strong>
+                  <p>{t.review1Text}</p>
+                  <strong>{t.review1Title}</strong>
                 </article>
 
                 <article className="reviewCard">
                   <div className="stars">★★★★★</div>
-                  <p>
-                    Customers can see and choose from the tanks, making the buying
-                    process more transparent.
-                  </p>
-                  <strong>Live selection</strong>
+                  <p>{t.review2Text}</p>
+                  <strong>{t.review2Title}</strong>
                 </article>
 
                 <article className="reviewCard">
                   <div className="stars">★★★★★</div>
-                  <p>
-                    Friendly advice on sizes, cooking style and seafood pairing for
-                    family meals or gatherings.
-                  </p>
-                  <strong>Helpful recommendations</strong>
+                  <p>{t.review3Text}</p>
+                  <strong>{t.review3Title}</strong>
                 </article>
               </div>
             </div>
@@ -1815,13 +2045,13 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Questions</p>
+                  <p className="sectionKicker">{t.faqKicker}</p>
                   <h2>{t.faqTitle}</h2>
                 </div>
               </div>
 
               <div className="faqGrid">
-                {faqItems.map((item) => (
+                {t.faq.map((item) => (
                   <article className="faqItem" key={item.q}>
                     <h3>{item.q}</h3>
                     <p>{item.a}</p>
@@ -1836,7 +2066,7 @@ function App() {
               <div className="visitBox">
                 <div>
                   <p className="sectionKicker" style={{ color: "#fff0b7" }}>
-                    Commonwealth Crescent
+                    {t.visitKicker}
                   </p>
                   <h2>{t.visitTitle}</h2>
                   <p>{t.visitSub}</p>
