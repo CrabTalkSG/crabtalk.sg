@@ -557,6 +557,22 @@ function getTodayHours() {
   return HOURS.find((item) => item.day === dayMap[jsDay]) || HOURS[0];
 }
 
+function LogoImage() {
+  const [hasError, setHasError] = useState(false);
+
+  if (hasError) {
+    return <span className="logoFallback">🦀</span>;
+  }
+
+  return (
+    <img
+      src="/images/crabtalk-logo.png"
+      alt="Crab Talk logo"
+      onError={() => setHasError(true)}
+    />
+  );
+}
+
 function SmartImage({ src, alt, className }) {
   const [hasError, setHasError] = useState(false);
 
@@ -614,7 +630,11 @@ function App() {
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
-    setMeta("og:image", "/images/feature-8days-original-thumbnail.jpg", "property");
+    setMeta(
+      "og:image",
+      "/images/feature-8days-original-thumbnail.jpg",
+      "property"
+    );
 
     let favicon = document.querySelector('link[rel="icon"]');
 
@@ -624,14 +644,7 @@ function App() {
       document.head.appendChild(favicon);
     }
 
-    favicon.href =
-      "data:image/svg+xml," +
-      encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-          <rect width="64" height="64" rx="14" fill="#ffffff"/>
-          <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="38">🦀</text>
-        </svg>
-      `);
+    favicon.href = "/images/crabtalk-logo.png";
   }, []);
 
   useEffect(() => {
@@ -754,15 +767,35 @@ function App() {
         }
 
         .logoMark {
-          width: 48px;
-          height: 48px;
+          width: 54px;
+          height: 54px;
           border-radius: 16px;
-          background: linear-gradient(135deg, #003f4a, #00a6b8);
+          background: #ffffff;
+          border: 1px solid rgba(6, 52, 59, 0.14);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 26px;
-          box-shadow: 0 10px 24px rgba(0, 63, 74, 0.25);
+          overflow: hidden;
+          box-shadow: 0 10px 24px rgba(0, 63, 74, 0.16);
+          flex: 0 0 auto;
+        }
+
+        .logoMark img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 5px;
+          display: block;
+        }
+
+        .logoFallback {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: linear-gradient(135deg, #003f4a, #00a6b8);
+          font-size: 28px;
         }
 
         .logoText strong {
@@ -1579,8 +1612,8 @@ function App() {
           }
 
           .logoMark {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 14px;
           }
 
@@ -1712,7 +1745,10 @@ function App() {
         <header className="topbar">
           <div className="container nav">
             <a className="logo" href="#home" aria-label="Crab Talk home">
-              <div className="logoMark">🦀</div>
+              <div className="logoMark">
+                <LogoImage />
+              </div>
+
               <div className="logoText">
                 <strong>{t.brandName}</strong>
                 <span>{t.brandLine}</span>
@@ -1837,7 +1873,9 @@ function App() {
                   {heroSlides.map((slide, index) => (
                     <button
                       key={slide.image}
-                      className={`dot ${index === heroIndex ? "dotActive" : ""}`}
+                      className={`dot ${
+                        index === heroIndex ? "dotActive" : ""
+                      }`}
                       onClick={() => setHeroIndex(index)}
                       aria-label={`Show ${translated(slide.label)}`}
                     />
