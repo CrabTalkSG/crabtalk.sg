@@ -1,358 +1,288 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-const img = (file) => `/images/${file}`;
+/*
+  Crab Talk SG Website
+  Replace this whole file at: src/App.jsx
 
-const LINKS = {
-  whatsapp: "https://wa.me/6598398671",
-  telegram: "https://t.me/CrabTalkSG",
-  maps: "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac",
-  tiktok: "https://www.tiktok.com/@liveseafood_crabtalksg",
-  eightDays:
-    "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
-  botakJazz: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
-  aiFeature: "https://www.facebook.com/share/v/1Djwg4h7UP/",
-};
+  Important:
+  1) Upload all images into: public/images/
+  2) Image paths below must match your GitHub filenames exactly.
+  3) For Google Analytics, replace G-XXXXXXXXXX with your real GA4 Measurement ID.
+*/
 
-const track = (eventName, params = {}) => {
-  if (typeof window !== "undefined" && typeof window.gtag === "function") {
-    window.gtag("event", eventName, {
-      business_name: "Crab Talk SG",
-      ...params,
-    });
-  }
-};
+const GA_MEASUREMENT_ID = "G-V94NDT5ZCR";
 
-const HOURS = [
-  ["Monday", "12 pm – 5 pm"],
-  ["Tuesday", "8 am – 7 pm"],
-  ["Wednesday", "8 am – 7 pm"],
-  ["Thursday", "8 am – 7 pm"],
-  ["Friday", "8 am – 8 pm"],
-  ["Saturday", "8 am – 8 pm"],
-  ["Sunday", "8 am – 5 pm"],
+const WHATSAPP_LINK = "https://wa.me/6598398671";
+const TELEGRAM_LINK = "https://t.me/CrabTalkSG";
+const TIKTOK_LINK = "https://www.tiktok.com/@liveseafood_crabtalksg";
+const MAPS_LINK = "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac";
+const EIGHT_DAYS_LINK =
+  "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541";
+const BOTAK_JAZZ_LINK =
+  "https://www.tiktok.com/@botakjazz/video/7602204733155364116";
+const AI_FEATURE_LINK = "https://www.facebook.com/share/v/1Djwg4h7UP/";
+
+const address = "31 Commonwealth Crescent #01-41/42/43 Singapore 149644";
+
+const hours = [
+  ["Monday", "12–5 pm"],
+  ["Tuesday", "8 am–7 pm"],
+  ["Wednesday", "8 am–7 pm"],
+  ["Thursday", "8 am–7 pm"],
+  ["Friday", "8 am–8 pm"],
+  ["Saturday", "8 am–8 pm"],
+  ["Sunday", "8 am–5 pm"],
 ];
 
-const COPY = {
+const copy = {
   en: {
-    lang: "English",
-    nav: {
-      selection: "Fresh Selection",
-      home: "Home Cooking",
-      features: "Features",
-      visit: "Visit Us",
-      faq: "FAQ",
-    },
-    heroBadge: "Live Seafood Supply @ Crab Talk",
-    heroTitle: "Premium live seafood, selected fresh for your table.",
+    navProducts: "Selection",
+    navHow: "How to Buy",
+    navReviews: "Reviews",
+    navFaq: "FAQ",
+    heroTag: "Live Seafood Supply @ Crab Talk",
+    heroTitle: "Pick live seafood with confidence.",
     heroText:
-      "Choose live crabs, lobsters, oysters, clams and premium fish for home cooking, family meals, gifting, or special gatherings.",
+      "Fresh live crabs, lobsters, oysters, clams and premium fish selected daily at Commonwealth Crescent Market.",
     whatsapp: "WhatsApp to Reserve",
-    telegram: "Join Telegram Updates",
-    maps: "Open Google Maps",
-    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
-    openToday: "Fresh arrivals daily",
-    sectionSelection: "Fresh Daily Selection",
-    sectionSelectionText:
-      "Our display changes with daily arrivals. WhatsApp before visiting if you are looking for a specific size, weight, or item.",
-    homeTitle: "Best for Home Cooking",
-    homeText:
-      "Select live seafood at the stall and prepare it your way at home. Simple steaming, chilli crab, ginger scallion, black pepper, soup or hotpot — the choice is yours.",
-    cookingTitle: "Nearby Cooking Option",
-    cookingText:
-      "Selected seafood can be arranged for nearby cooking subject to stall availability and waiting time. Please confirm before ordering during peak periods.",
-    featureTitle: "Featured & Seen Online",
-    featureText:
-      "Crab Talk has been featured by food media and creators, including our live seafood and cooked seafood collaboration stories.",
-    reviewTitle: "Customer Feedback Highlights",
-    reviewText:
-      "Common feedback from customers focuses on live seafood freshness, clear recommendations, and helpful service.",
-    hoursTitle: "Operating Hours",
-    faqTitle: "FAQ",
+    telegram: "Join Telegram",
+    map: "Get Directions",
+    liveToday: "Fresh daily arrivals",
+    homeCook: "Ideal for home cooking",
+    featured: "As Featured & Seen On",
+    selection: "Fresh Daily Selection",
+    selectionText:
+      "Availability changes daily. Walk-in or pre-order is recommended for premium seafood and larger quantities.",
+    why: "Why Customers Visit Crab Talk",
+    how: "How to Buy",
+    reviews: "Customer Confidence",
+    reviewsText:
+      "Customers come back for live seafood, practical advice, and friendly service from the stall team.",
+    faq: "Frequently Asked Questions",
+    cooking: "Home Cooking First. Cooking Options Available.",
+    footerCta: "Planning seafood for dinner today?",
   },
   zh: {
-    lang: "中文",
-    nav: {
-      selection: "海鲜选择",
-      home: "回家烹煮",
-      features: "媒体介绍",
-      visit: "到店",
-      faq: "常见问题",
-    },
-    heroBadge: "Crab Talk 活海鲜供应",
-    heroTitle: "新鲜活海鲜，适合家庭聚餐与节日享用。",
+    navProducts: "海鲜选择",
+    navHow: "购买方式",
+    navReviews: "评价",
+    navFaq: "常见问题",
+    heroTag: "Crab Talk 活海鲜供应",
+    heroTitle: "放心挑选新鲜活海鲜。",
     heroText:
-      "可选择活螃蟹、龙虾、生蚝、蛤蜊和高级活鱼，适合清蒸、辣椒蟹、姜葱、黑胡椒或火锅。",
+      "每日供应活螃蟹、龙虾、生蚝、蛤蜊及高级活鱼，地点位于 Commonwealth Crescent Market。",
     whatsapp: "WhatsApp 预订",
     telegram: "加入 Telegram",
-    maps: "打开 Google Maps",
-    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
-    openToday: "每日新鲜到货",
-    sectionSelection: "每日新鲜海鲜",
-    sectionSelectionText:
-      "海鲜供应会根据每日到货而变化。如需指定重量或品种，建议先 WhatsApp 询问。",
-    homeTitle: "适合回家烹煮",
-    homeText:
-      "在摊位挑选活海鲜，带回家按自己喜欢的方式烹煮。清蒸、辣椒、姜葱、黑胡椒、汤或火锅都适合。",
-    cookingTitle: "附近烹煮选择",
-    cookingText:
-      "部分海鲜可安排附近烹煮，需视档口当日人手和等候时间而定。繁忙时段请先确认。",
-    featureTitle: "媒体与创作者介绍",
-    featureText: "Crab Talk 曾获得美食媒体与创作者介绍，包括活海鲜与熟食合作内容。",
-    reviewTitle: "顾客反馈重点",
-    reviewText: "顾客常提到海鲜新鲜、推荐清楚、服务亲切。",
-    hoursTitle: "营业时间",
-    faqTitle: "常见问题",
+    map: "查看地图",
+    liveToday: "每日新鲜到货",
+    homeCook: "适合家庭烹煮",
+    featured: "媒体与达人推荐",
+    selection: "每日鲜活选择",
+    selectionText: "货量每日不同。建议提前 WhatsApp 预订，尤其是高级海鲜或大量订单。",
+    why: "为什么选择 Crab Talk",
+    how: "购买流程",
+    reviews: "顾客信任",
+    reviewsText: "顾客喜欢我们的活海鲜、实用烹饪建议和亲切服务。",
+    faq: "常见问题",
+    cooking: "主打家庭烹煮，也可询问附近烹煮选择。",
+    footerCta: "今晚想吃海鲜？",
   },
   ja: {
-    lang: "日本語",
-    nav: {
-      selection: "本日の海鮮",
-      home: "自宅調理",
-      features: "掲載情報",
-      visit: "アクセス",
-      faq: "FAQ",
-    },
-    heroBadge: "Crab Talk 活シーフード",
-    heroTitle: "新鮮な活シーフードを、ご家庭の食卓へ。",
+    navProducts: "商品",
+    navHow: "購入方法",
+    navReviews: "レビュー",
+    navFaq: "FAQ",
+    heroTag: "Crab Talk ライブシーフード",
+    heroTitle: "新鮮な活海鮮を安心して選べます。",
     heroText:
-      "活ガニ、ロブスター、牡蠣、マニラクラム、高級魚などを選べます。自宅調理、家族の食事、贈り物にもおすすめです。",
+      "Commonwealth Crescent Market にて、活ガニ、ロブスター、牡蠣、アサリ、高級魚を毎日入荷。",
     whatsapp: "WhatsAppで予約",
-    telegram: "Telegramを見る",
-    maps: "Google Mapsを開く",
-    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
-    openToday: "毎日新鮮入荷",
-    sectionSelection: "新鮮な活海鮮",
-    sectionSelectionText:
-      "入荷状況は日によって変わります。サイズや商品指定がある場合は、来店前にWhatsAppで確認してください。",
-    homeTitle: "自宅調理におすすめ",
-    homeText:
-      "店頭で活シーフードを選び、自宅でお好みの調理ができます。蒸し、チリクラブ、ジンジャースカリオン、ブラックペッパー、鍋などに最適です。",
-    cookingTitle: "近隣調理オプション",
-    cookingText:
-      "一部の商品は近隣で調理手配が可能です。当日の混雑状況や待ち時間により異なるため、事前確認をおすすめします。",
-    featureTitle: "メディア・SNS掲載",
-    featureText:
-      "Crab Talkは、活シーフードや調理コラボレーションでメディアやクリエイターに紹介されています。",
-    reviewTitle: "お客様の声",
-    reviewText: "鮮度、分かりやすい説明、親切なサービスについて好評をいただいています。",
-    hoursTitle: "営業時間",
-    faqTitle: "FAQ",
+    telegram: "Telegramに参加",
+    map: "地図を見る",
+    liveToday: "毎日新鮮入荷",
+    homeCook: "自宅調理に最適",
+    featured: "メディア掲載・紹介",
+    selection: "本日のライブシーフード",
+    selectionText:
+      "入荷状況は日によって変わります。高級海鮮や数量が多い場合は事前予約がおすすめです。",
+    why: "Crab Talk が選ばれる理由",
+    how: "購入の流れ",
+    reviews: "お客様の信頼",
+    reviewsText:
+      "新鮮な活海鮮、調理アドバイス、親切なサービスでリピーターのお客様に支持されています。",
+    faq: "よくある質問",
+    cooking: "基本はご家庭での調理。近隣での調理相談も可能です。",
+    footerCta: "今夜の海鮮ディナーにどうぞ。",
   },
 };
 
 const heroSlides = [
   {
-    image: img("feature-8days-original-thumbnail.jpg"),
-    title: "Crab Talk x Live Seafood",
+    src: "/images/feature-8days-original-thumbnail.jpg",
+    label: "8 Days feature",
   },
   {
-    image: img("product-live-crab-premium.jpg"),
-    title: "Premium live crabs",
+    src: "/images/product-live-crab-premium.jpg",
+    label: "Live mud crabs",
   },
   {
-    image: img("product-yellow-roe-crab-06.jpg"),
-    title: "Sri Lanka roe crabs",
+    src: "/images/product-yellow-roe-crab-06.jpg",
+    label: "Sri Lanka yellow roe crabs",
   },
   {
-    image: img("stall-crab-talk-front-01.jpg"),
-    title: "Visit Crab Talk",
+    src: "/images/dish-lobster-yee-mee-fai-kee-hero.jpg",
+    label: "Lobster yee mee",
+  },
+  {
+    src: "/images/stall-crab-talk-front-01.jpg",
+    label: "Crab Talk stall",
   },
 ];
 
 const products = [
   {
-    title: {
-      en: "Live Mud Crabs",
-      zh: "活泥蟹",
-      ja: "活マッドクラブ",
-    },
-    text: {
-      en: "Meaty, active crabs selected for steaming, chilli crab, black pepper crab, or ginger scallion crab.",
-      zh: "肉质饱满，适合清蒸、辣椒蟹、黑胡椒蟹或姜葱蟹。",
-      ja: "身入りの良い活ガニ。蒸し、チリクラブ、ブラックペッパー、ジンジャースカリオンに。",
-    },
-    image: img("product-live-crab-premium.jpg"),
-    tag: "Live",
+    title: "Live Mud Crabs",
+    image: "/images/product-live-crab-premium.jpg",
+    desc: "Meaty live crabs selected for steaming, chilli crab, black pepper crab or ginger scallion crab.",
+    tag: "Customer favourite",
   },
   {
-    title: {
-      en: "Sri Lanka Roe Crabs",
-      zh: "斯里兰卡膏蟹",
-      ja: "スリランカ産ロークラブ",
-    },
-    text: {
-      en: "Popular for rich roe, firm meat, and premium home dining occasions.",
-      zh: "蟹膏浓郁、肉质结实，适合高级家庭聚餐。",
-      ja: "濃厚なロウとしっかりした身質で、特別な食卓におすすめ。",
-    },
-    image: img("product-yellow-roe-crab-06.jpg"),
-    tag: "Premium",
+    title: "Sri Lanka Roe Crabs",
+    image: "/images/product-yellow-roe-crab-06.jpg",
+    desc: "Popular for rich roe, firm meat and premium home dining occasions.",
+    tag: "Premium roe",
   },
   {
-    title: {
-      en: "Live Lobsters",
-      zh: "活龙虾",
-      ja: "活ロブスター",
-    },
-    text: {
-      en: "Boston lobster and green lobster options depending on daily arrival.",
-      zh: "波士顿龙虾和青龙虾，视每日到货情况而定。",
-      ja: "ボストンロブスター、グリーンロブスターなど日替わり入荷。",
-    },
-    image: img("product-boston-lobster-display.jpg"),
-    tag: "Daily arrival",
+    title: "Live Lobsters",
+    image: "/images/product-boston-lobster-display.jpg",
+    desc: "Boston lobster and green lobster options depending on daily arrival.",
+    tag: "Live selection",
   },
   {
-    title: {
-      en: "Fresh Oysters",
-      zh: "新鲜生蚝",
-      ja: "新鮮な牡蠣",
-    },
-    text: {
-      en: "Cold, clean and suitable for seafood platters or weekend gatherings.",
-      zh: "适合海鲜拼盘、聚会和周末家庭享用。",
-      ja: "シーフードプラッターや週末の集まりにおすすめ。",
-    },
-    image: img("product-oysters-premium-02.jpg"),
-    tag: "Fresh",
+    title: "Fresh Oysters",
+    image: "/images/product-oysters-premium-02.jpg",
+    desc: "Cold, clean and suitable for seafood platters, gatherings or simple home enjoyment.",
+    tag: "Fresh & chilled",
   },
   {
-    title: {
-      en: "Manila Clams",
-      zh: "马尼拉蛤蜊",
-      ja: "マニラクラム",
-    },
-    text: {
-      en: "Great for steaming, chilli lala, white wine style, soup or hotpot.",
-      zh: "适合清蒸、辣椒啦啦、白酒煮、汤或火锅。",
-      ja: "蒸し、チリララ、白ワイン蒸し、スープ、鍋におすすめ。",
-    },
-    image: img("product-manila-clams-01.jpg"),
-    tag: "Shellfish",
+    title: "Manila Clams",
+    image: "/images/product-manila-clams-01.jpg",
+    desc: "Great for steaming, chilli lala, soup, white wine style or home seafood dishes.",
+    tag: "Easy to cook",
   },
   {
-    title: {
-      en: "Soon Hock & Premium Fish",
-      zh: "笋壳鱼与高级活鱼",
-      ja: "Soon Hock・高級活魚",
-    },
-    text: {
-      en: "Live fish options for steaming, Hong Kong style, soup, or home cooking.",
-      zh: "适合清蒸、港式蒸、煮汤或家庭料理。",
-      ja: "蒸し、香港スタイル、スープ、自宅調理に。",
-    },
-    image: img("product-live-soon-hock-01.jpg"),
+    title: "Soon Hock & Premium Fish",
+    image: "/images/product-live-soon-hock-01.jpg",
+    desc: "Live fish options for steaming, Hong Kong style preparation or home cooking.",
     tag: "Live fish",
-  },
-];
-
-const highlights = [
-  {
-    title: "Home Cooking First",
-    text: "Our main focus is helping customers choose suitable live seafood for cooking at home.",
-    image: img("product-live-crab-tank-01.jpg"),
-  },
-  {
-    title: "Clear Recommendations",
-    text: "Ask for suggestions based on weight, number of pax, cooking style, and budget.",
-    image: img("about-jeremy-live-crab.jpg"),
-  },
-  {
-    title: "Fresh Market Experience",
-    text: "Choose from live tanks and daily arrivals at Commonwealth Crescent.",
-    image: img("stall-crab-talk-live-tanks.jpg"),
   },
 ];
 
 const features = [
   {
     title: "Featured on 8 Days",
-    text: "Crab Talk’s live seafood and nearby cooking concept was featured by 8 Days.",
-    image: img("feature-8days-original-thumbnail.jpg"),
-    link: LINKS.eightDays,
-    cta: "Read feature",
+    image: "/images/feature-8days-original-thumbnail.jpg",
+    desc: "Crab Talk’s live seafood and hawker-style cooking collaboration was covered by 8 Days.",
+    link: EIGHT_DAYS_LINK,
+    button: "Read Feature",
   },
   {
     title: "Botak Jazz TikTok Feature",
-    text: "Creator feature on the lobster yee mee and Crab Talk experience.",
-    image: img("feature-botak-jazz-tiktok.jpg"),
-    link: LINKS.botakJazz,
-    cta: "Watch TikTok",
+    image: "/images/feature-botak-jazz-tiktok.jpg",
+    desc: "Lobster yee mee and seafood content featured by Botak Jazz on TikTok.",
+    link: BOTAK_JAZZ_LINK,
+    button: "Watch TikTok",
   },
   {
-    title: "Crab Seller Using AI",
-    text: "A story about how Crab Talk uses AI tools for daily work and content.",
-    image: img("AI-feature.jpeg"),
-    link: LINKS.aiFeature,
-    cta: "View story",
+    title: "AI x Seafood Story",
+    image: "/images/AI-feature.jpeg",
+    desc: "Crab seller using AI for daily work — a modern market business story.",
+    link: AI_FEATURE_LINK,
+    button: "View Story",
   },
 ];
 
-const dishes = [
+const reasons = [
   {
-    title: "Lobster Yee Mee",
-    text: "A popular cooked seafood option when nearby cooking is available.",
-    image: img("dish-lobster-yee-mee-fai-kee-hero.jpg"),
+    title: "See It Live Before Buying",
+    desc: "Choose from live tanks and daily seafood arrivals instead of relying only on photos.",
   },
   {
-    title: "Chilli Crab",
-    text: "A classic Singapore-style option for crab lovers.",
-    image: img("dish-chilli-crab-premium.jpg"),
+    title: "Practical Cooking Advice",
+    desc: "Ask which seafood is best for steaming, chilli crab, soup, bee hoon, or home cooking.",
   },
   {
-    title: "Ginger Scallion Crab",
-    text: "Fragrant, savoury and suitable for customers who prefer a lighter style.",
-    image: img("dish-ginger-scallion-crab.jpg"),
+    title: "Market-Style Value",
+    desc: "Buy seafood directly from the stall and decide how you want to prepare it.",
+  },
+  {
+    title: "Easy Reservation",
+    desc: "WhatsApp ahead to check availability, reserve your seafood, and reduce wasted trips.",
+  },
+];
+
+const steps = [
+  {
+    title: "1. Check Today’s Seafood",
+    desc: "Message us on WhatsApp or Telegram to ask what is available today.",
+  },
+  {
+    title: "2. Reserve or Walk In",
+    desc: "Premium items and larger crabs can sell fast, so pre-order is recommended.",
+  },
+  {
+    title: "3. Pick Your Cooking Style",
+    desc: "Bring home to cook, steam simply, or ask us about nearby cooking options.",
   },
 ];
 
 const reviewHighlights = [
   {
-    title: "Helpful service",
-    text: "Customers often mention patient explanations and useful seafood recommendations.",
+    title: "Freshness",
+    desc: "Customers often highlight the freshness of the live seafood and tanks.",
   },
   {
-    title: "Fresh live seafood",
-    text: "Many visitors come for live crabs, lobsters and seafood selected from the tanks.",
+    title: "Helpful Service",
+    desc: "The team can recommend seafood based on budget, portion size and cooking style.",
   },
   {
-    title: "Good for gatherings",
-    text: "Popular for family meals, weekend seafood dinners, and group orders.",
+    title: "Return Visits",
+    desc: "Many customers come back for crabs, lobsters, oysters and seasonal items.",
   },
 ];
 
 const faqs = [
   {
-    q: "Should I reserve before coming down?",
-    a: "Yes, reservation is recommended for popular items, larger sizes, roe crabs, lobsters and weekend orders.",
+    q: "Do I need to pre-order?",
+    a: "Walk-ins are welcome, but pre-order is recommended because live seafood availability changes daily.",
   },
   {
-    q: "Are the crabs live?",
-    a: "Live items are sold live unless clearly stated otherwise. Availability depends on daily arrival and stock condition.",
+    q: "Are all items live?",
+    a: "Our main focus is live seafood, but some items may be fresh, chilled or seasonal depending on supply. Please check before coming.",
   },
   {
-    q: "Can I choose my own seafood?",
-    a: "Yes. You can choose from available live seafood at the stall, and the team can suggest suitable sizes based on your needs.",
+    q: "Can I buy seafood for home cooking?",
+    a: "Yes. Crab Talk is especially suitable for customers who want to buy live seafood and cook at home.",
   },
   {
-    q: "Do you provide cooking?",
-    a: "Crab Talk focuses mainly on live seafood supply. Nearby cooking may be possible depending on availability, queue and timing. Please check before ordering.",
+    q: "Can the seafood be cooked nearby?",
+    a: "You may ask us about nearby cooking options. Availability depends on timing and kitchen capacity, so please check before ordering.",
   },
   {
-    q: "What is the best way to order?",
-    a: "WhatsApp is best for checking today’s arrivals, reserving seafood and confirming availability before visiting.",
+    q: "How do prices work?",
+    a: "Most premium seafood is priced by weight or by daily arrival. Prices may change depending on size, origin and market supply.",
   },
   {
     q: "Where are you located?",
-    a: "31 Commonwealth Crescent #01-41/42/43 S(149644). Use the Google Maps button for directions.",
+    a: address,
   },
 ];
 
 function App() {
-  const [lang, setLang] = useState("en");
+  const [language, setLanguage] = useState("en");
   const [slide, setSlide] = useState(0);
 
-  const t = COPY[lang];
+  const t = copy[language];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -362,26 +292,122 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  const currentSlide = heroSlides[slide];
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-XXXXXXXXXX") return;
 
-  const year = useMemo(() => new Date().getFullYear(), []);
+    const existingScript = document.querySelector(
+      `script[src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`
+    );
 
-  const label = (value) => {
-    if (typeof value === "string") return value;
-    return value[lang] || value.en;
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      document.head.appendChild(script);
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", GA_MEASUREMENT_ID);
+  }, []);
+
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Live Seafood Supply @ Crab Talk",
+      image: "https://crabtalk.sg/images/stall-crab-talk-front-01.jpg",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "31 Commonwealth Crescent #01-41/42/43",
+        addressLocality: "Singapore",
+        postalCode: "149644",
+        addressCountry: "SG",
+      },
+      url: "https://crabtalk.sg",
+      sameAs: [TIKTOK_LINK, TELEGRAM_LINK],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Monday",
+          opens: "12:00",
+          closes: "17:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Tuesday",
+          opens: "08:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Wednesday",
+          opens: "08:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Thursday",
+          opens: "08:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Friday",
+          opens: "08:00",
+          closes: "20:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "08:00",
+          closes: "20:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Sunday",
+          opens: "08:00",
+          closes: "17:00",
+        },
+      ],
+    };
+
+    const oldSchema = document.getElementById("crabtalk-localbusiness-schema");
+    if (oldSchema) oldSchema.remove();
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "crabtalk-localbusiness-schema";
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      const activeSchema = document.getElementById(
+        "crabtalk-localbusiness-schema"
+      );
+      if (activeSchema) activeSchema.remove();
+    };
+  }, []);
+
+  const currentSlide = useMemo(() => heroSlides[slide], [slide]);
+
+  const track = (eventName) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", eventName);
+    }
   };
 
   return (
-    <main className="site">
+    <div className="site">
       <style>{styles}</style>
 
       <header className="header">
-        <a
-          className="brand"
-          href="#top"
-          onClick={() => track("click_logo")}
-          aria-label="Crab Talk SG home"
-        >
+        <a href="#top" className="brand" aria-label="Crab Talk SG">
           <span className="brandMark">🦀</span>
           <span>
             <strong>Crab Talk SG</strong>
@@ -389,288 +415,207 @@ function App() {
           </span>
         </a>
 
-        <nav className="nav" aria-label="Primary navigation">
-          <a href="#selection">{t.nav.selection}</a>
-          <a href="#home-cooking">{t.nav.home}</a>
-          <a href="#features">{t.nav.features}</a>
-          <a href="#visit">{t.nav.visit}</a>
-          <a href="#faq">{t.nav.faq}</a>
+        <nav className="desktopNav">
+          <a href="#selection">{t.navProducts}</a>
+          <a href="#how">{t.navHow}</a>
+          <a href="#reviews">{t.navReviews}</a>
+          <a href="#faq">{t.navFaq}</a>
         </nav>
 
         <div className="headerActions">
           <select
             className="language"
-            value={lang}
-            onChange={(event) => {
-              setLang(event.target.value);
-              track("change_language", { language: event.target.value });
-            }}
+            value={language}
+            onChange={(event) => setLanguage(event.target.value)}
             aria-label="Select language"
           >
-            <option value="en">English</option>
+            <option value="en">EN</option>
             <option value="zh">中文</option>
             <option value="ja">日本語</option>
           </select>
 
           <a
-            className="smallCta"
-            href={LINKS.whatsapp}
+            className="miniButton"
+            href={WHATSAPP_LINK}
             target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("click_whatsapp_header")}
+            rel="noreferrer"
+            onClick={() => track("whatsapp_header_click")}
           >
             WhatsApp
           </a>
         </div>
       </header>
 
-      <section id="top" className="hero">
-        <div className="heroCopy">
-          <p className="eyebrow">{t.heroBadge}</p>
-          <h1>{t.heroTitle}</h1>
-          <p className="lead">{t.heroText}</p>
+      <main id="top">
+        <section className="hero section">
+          <div className="heroText">
+            <div className="eyebrow">{t.heroTag}</div>
+            <h1>{t.heroTitle}</h1>
+            <p className="heroLead">{t.heroText}</p>
 
-          <div className="heroMeta">
-            <span>{t.openToday}</span>
-            <span>{t.address}</span>
+            <div className="heroBadges">
+              <span>{t.liveToday}</span>
+              <span>{t.homeCook}</span>
+              <span>Commonwealth Crescent</span>
+            </div>
+
+            <div className="heroButtons">
+              <a
+                className="primaryButton"
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => track("whatsapp_hero_click")}
+              >
+                {t.whatsapp}
+              </a>
+              <a
+                className="secondaryButton"
+                href={TELEGRAM_LINK}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => track("telegram_hero_click")}
+              >
+                {t.telegram}
+              </a>
+              <a
+                className="ghostButton"
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => track("maps_hero_click")}
+              >
+                {t.map}
+              </a>
+            </div>
+
+            <div className="addressStrip">
+              <strong>Visit us:</strong> {address}
+            </div>
           </div>
 
-          <div className="ctaRow">
-            <a
-              className="primaryBtn"
-              href={LINKS.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track("click_whatsapp_hero")}
-            >
-              {t.whatsapp}
-            </a>
+          <div className="heroMedia">
+            <div className="heroImageCard">
+              <img src={currentSlide.src} alt={currentSlide.label} />
+              <div className="heroImageOverlay">
+                <span>Daily live seafood</span>
+                <strong>{currentSlide.label}</strong>
+              </div>
+            </div>
 
-            <a
-              className="secondaryBtn"
-              href={LINKS.maps}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track("click_google_maps_hero")}
-            >
-              {t.maps}
-            </a>
+            <div className="slideDots">
+              {heroSlides.map((item, index) => (
+                <button
+                  key={item.src}
+                  className={index === slide ? "dot active" : "dot"}
+                  onClick={() => setSlide(index)}
+                  aria-label={`Show ${item.label}`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section compactSection">
+          <div className="statsGrid">
+            <div>
+              <strong>Live Tanks</strong>
+              <span>Choose before buying</span>
+            </div>
+            <div>
+              <strong>Daily Arrivals</strong>
+              <span>Stock changes by supply</span>
+            </div>
+            <div>
+              <strong>Home Cooking</strong>
+              <span>Simple, fresh, flexible</span>
+            </div>
+            <div>
+              <strong>Market Location</strong>
+              <span>Commonwealth Crescent</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="featured">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.featured}</span>
+            <h2>Crab Talk in the Spotlight</h2>
+            <p>
+              Real market seafood, live tanks and community-driven content —
+              built from the stall, not a showroom.
+            </p>
           </div>
 
-          <div className="trustRow">
-            <span>Live seafood</span>
-            <span>Daily arrivals</span>
-            <span>Home cooking friendly</span>
-          </div>
-        </div>
-
-        <div className="heroVisual" aria-label={currentSlide.title}>
-          <img src={currentSlide.image} alt={currentSlide.title} />
-          <div className="heroOverlay">
-            <span>Fresh selection</span>
-            <strong>{currentSlide.title}</strong>
-          </div>
-
-          <div className="dots" aria-hidden="true">
-            {heroSlides.map((item, index) => (
-              <button
-                key={item.title}
-                className={index === slide ? "active" : ""}
-                onClick={() => {
-                  setSlide(index);
-                  track("click_hero_slide", { slide_title: item.title });
-                }}
-                aria-label={`Show ${item.title}`}
-              />
+          <div className="featureGrid">
+            {features.map((feature) => (
+              <a
+                key={feature.title}
+                className="featureCard"
+                href={feature.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="featureImage">
+                  <img src={feature.image} alt={feature.title} />
+                </div>
+                <div className="featureBody">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                  <span>{feature.button} →</span>
+                </div>
+              </a>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section introGrid">
-        {highlights.map((item) => (
-          <article className="introCard" key={item.title}>
-            <img src={item.image} alt={item.title} loading="lazy" />
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
-          </article>
-        ))}
-      </section>
+        <section className="section" id="selection">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.selection}</span>
+            <h2>Premium Seafood, Market Freshness</h2>
+            <p>{t.selectionText}</p>
+          </div>
 
-      <section id="selection" className="section">
-        <div className="sectionHead">
-          <p className="eyebrow">Daily Arrivals</p>
-          <h2>{t.sectionSelection}</h2>
-          <p>{t.sectionSelectionText}</p>
-        </div>
-
-        <div className="productGrid">
-          {products.map((product) => (
-            <article className="productCard" key={product.title.en}>
-              <div className="photoFrame">
-                <img
-                  src={product.image}
-                  alt={label(product.title)}
-                  loading="lazy"
-                  onError={(event) => {
-                    event.currentTarget.style.display = "none";
-                  }}
-                />
-              </div>
-
-              <div className="cardBody">
-                <span className="tag">{product.tag}</span>
-                <h3>{label(product.title)}</h3>
-                <p>{label(product.text)}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="home-cooking" className="section split">
-        <div className="panel premiumPanel">
-          <p className="eyebrow">Main Focus</p>
-          <h2>{t.homeTitle}</h2>
-          <p>{t.homeText}</p>
-
-          <ul className="cleanList">
-            <li>Choose live seafood from the stall</li>
-            <li>Ask for size and portion recommendations</li>
-            <li>Reserve popular items before visiting</li>
-            <li>Ideal for family meals and weekend gatherings</li>
-          </ul>
-
-          <a
-            className="primaryBtn"
-            href={LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("click_whatsapp_home_cooking")}
-          >
-            Check Today’s Arrival
-          </a>
-        </div>
-
-        <div className="panel softPanel">
-          <p className="eyebrow">Optional</p>
-          <h2>{t.cookingTitle}</h2>
-          <p>{t.cookingText}</p>
-
-          <div className="miniDishGrid">
-            {dishes.map((dish) => (
-              <article className="dishCard" key={dish.title}>
-                <img src={dish.image} alt={dish.title} loading="lazy" />
-                <div>
-                  <h3>{dish.title}</h3>
-                  <p>{dish.text}</p>
+          <div className="selectionGrid">
+            {products.map((product) => (
+              <article className="productCard" key={product.title}>
+                <div className="productImage">
+                  <img src={product.image} alt={product.title} />
+                </div>
+                <div className="productContent">
+                  <span className="productTag">{product.tag}</span>
+                  <h3>{product.title}</h3>
+                  <p>{product.desc}</p>
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="features" className="section">
-        <div className="sectionHead">
-          <p className="eyebrow">Media</p>
-          <h2>{t.featureTitle}</h2>
-          <p>{t.featureText}</p>
-        </div>
+        <section className="section splitSection">
+          <div className="panel premiumPanel">
+            <span className="eyebrow">{t.why}</span>
+            <h2>Built for Customers Who Want to Choose Properly</h2>
+            <p>
+              Crab Talk is for customers who care about seeing the seafood,
+              asking questions, and choosing the right item for the right dish.
+            </p>
 
-        <div className="featureGrid">
-          {features.map((feature) => (
-            <a
-              className="featureCard"
-              href={feature.link}
-              key={feature.title}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                track("click_feature", {
-                  feature_title: feature.title,
-                })
-              }
-            >
-              <div className="featureImage">
-                <img src={feature.image} alt={feature.title} loading="lazy" />
-              </div>
-
-              <div className="featureContent">
-                <h3>{feature.title}</h3>
-                <p>{feature.text}</p>
-                <span>{feature.cta} →</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="section reviewSection">
-        <div className="sectionHead">
-          <p className="eyebrow">Reviews</p>
-          <h2>{t.reviewTitle}</h2>
-          <p>{t.reviewText}</p>
-        </div>
-
-        <div className="reviewGrid">
-          {reviewHighlights.map((review) => (
-            <article className="reviewCard" key={review.title}>
-              <div className="stars">★★★★★</div>
-              <h3>{review.title}</h3>
-              <p>{review.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="visit" className="section visitSection">
-        <div className="visitCard">
-          <div>
-            <p className="eyebrow">Location</p>
-            <h2>Visit Crab Talk SG</h2>
-            <p className="address">{t.address}</p>
-
-            <div className="ctaRow">
-              <a
-                className="primaryBtn"
-                href={LINKS.maps}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("click_google_maps_visit")}
-              >
-                {t.maps}
-              </a>
-
-              <a
-                className="secondaryBtn"
-                href={LINKS.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("click_telegram_visit")}
-              >
-                {t.telegram}
-              </a>
-
-              <a
-                className="secondaryBtn"
-                href={LINKS.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("click_tiktok_visit")}
-              >
-                TikTok
-              </a>
+            <div className="reasonGrid">
+              {reasons.map((reason) => (
+                <div className="reasonItem" key={reason.title}>
+                  <h3>{reason.title}</h3>
+                  <p>{reason.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="hoursBox">
-            <h3>{t.hoursTitle}</h3>
-
+          <div className="panel hoursPanel">
+            <span className="eyebrow">Opening Hours</span>
+            <h2>Visit Crab Talk</h2>
             <div className="hoursList">
-              {HOURS.map(([day, time]) => (
+              {hours.map(([day, time]) => (
                 <div className="hoursRow" key={day}>
                   <span>{day}</span>
                   <strong>{time}</strong>
@@ -678,84 +623,210 @@ function App() {
               ))}
             </div>
 
-            <p className="smallNote">
-              Opening hours may change during public holidays or when live stock sells out.
-              WhatsApp before visiting for specific seafood availability.
+            <a
+              className="fullButton"
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("maps_hours_click")}
+            >
+              Open Google Maps
+            </a>
+          </div>
+        </section>
+
+        <section className="section cookingSection">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.cooking}</span>
+            <h2>Two Simple Ways to Enjoy Your Seafood</h2>
+          </div>
+
+          <div className="cookingGrid">
+            <div className="cookingCard mainCooking">
+              <div>
+                <span className="productTag">Recommended</span>
+                <h3>Buy Live Seafood for Home Cooking</h3>
+                <p>
+                  Choose your seafood from the stall, bring it home, and cook it
+                  your way. Best for families, gatherings and customers who want
+                  control over portion and style.
+                </p>
+              </div>
+              <ul>
+                <li>Steam crabs or fish simply</li>
+                <li>Cook chilli crab, black pepper crab or ginger scallion</li>
+                <li>Use clams, oysters and lobster for home seafood feasts</li>
+              </ul>
+            </div>
+
+            <div className="cookingCard softCooking">
+              <div>
+                <span className="productTag">Limited availability</span>
+                <h3>Ask About Nearby Cooking Options</h3>
+                <p>
+                  Some customers ask about nearby cooking after buying seafood.
+                  Availability depends on timing and kitchen capacity, so please
+                  check with us before planning.
+                </p>
+              </div>
+              <ul>
+                <li>Cooking slots may be limited</li>
+                <li>Cooking fees may apply</li>
+                <li>Best to reserve ahead during peak hours</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="how">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.how}</span>
+            <h2>Reserve in 3 Steps</h2>
+          </div>
+
+          <div className="stepsGrid">
+            {steps.map((step) => (
+              <div className="stepCard" key={step.title}>
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section reviewsSection" id="reviews">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.reviews}</span>
+            <h2>Why Customers Come Back</h2>
+            <p>{t.reviewsText}</p>
+          </div>
+
+          <div className="reviewGrid">
+            {reviewHighlights.map((review) => (
+              <div className="reviewCard" key={review.title}>
+                <div className="stars">★★★★★</div>
+                <h3>{review.title}</h3>
+                <p>{review.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="reviewCta">
+            <p>
+              For the latest customer reviews, photos and updates, check our
+              Google profile.
+            </p>
+            <a
+              className="secondaryButton"
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("google_reviews_click")}
+            >
+              View on Google Maps
+            </a>
+          </div>
+        </section>
+
+        <section className="section" id="faq">
+          <div className="sectionHeader">
+            <span className="eyebrow">{t.faq}</span>
+            <h2>Before You Visit</h2>
+          </div>
+
+          <div className="faqGrid">
+            {faqs.map((faq) => (
+              <details className="faqItem" key={faq.q}>
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className="section finalCta">
+          <div>
+            <span className="eyebrow">{t.footerCta}</span>
+            <h2>Message us before coming down.</h2>
+            <p>
+              Check today’s live seafood availability, reserve premium items, or
+              ask what is best for your cooking plan.
             </p>
           </div>
-        </div>
-      </section>
 
-      <section id="faq" className="section faqSection">
-        <div className="sectionHead">
-          <p className="eyebrow">Useful Info</p>
-          <h2>{t.faqTitle}</h2>
-        </div>
-
-        <div className="faqGrid">
-          {faqs.map((faq) => (
-            <article className="faqCard" key={faq.q}>
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="finalCta">
-        <p className="eyebrow">Ready to order?</p>
-        <h2>Check today’s live seafood before coming down.</h2>
-        <p>
-          For the best experience, reserve early and tell us your preferred seafood,
-          number of pax and cooking plan.
-        </p>
-
-        <div className="ctaRow center">
-          <a
-            className="primaryBtn"
-            href={LINKS.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("click_whatsapp_final")}
-          >
-            WhatsApp Crab Talk
-          </a>
-
-          <a
-            className="secondaryBtn"
-            href={LINKS.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("click_telegram_final")}
-          >
-            Telegram Updates
-          </a>
-        </div>
-      </section>
+          <div className="finalButtons">
+            <a
+              className="primaryButton"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("whatsapp_footer_click")}
+            >
+              {t.whatsapp}
+            </a>
+            <a
+              className="secondaryButton"
+              href={TELEGRAM_LINK}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("telegram_footer_click")}
+            >
+              {t.telegram}
+            </a>
+            <a
+              className="ghostButton"
+              href={TIKTOK_LINK}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => track("tiktok_footer_click")}
+            >
+              TikTok
+            </a>
+          </div>
+        </section>
+      </main>
 
       <footer className="footer">
-        <p>© {year} Crab Talk SG. Live Seafood Supply @ Crab Talk.</p>
-        <p>{t.address}</p>
+        <div>
+          <strong>Live Seafood Supply @ Crab Talk</strong>
+          <p>{address}</p>
+        </div>
+
+        <div className="footerLinks">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+          <a href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
+            Telegram
+          </a>
+          <a href={TIKTOK_LINK} target="_blank" rel="noreferrer">
+            TikTok
+          </a>
+          <a href={MAPS_LINK} target="_blank" rel="noreferrer">
+            Google Maps
+          </a>
+        </div>
       </footer>
-    </main>
+    </div>
   );
 }
 
 const styles = `
 :root {
-  --bg: #031b20;
-  --bg2: #062a31;
+  --bg: #041a20;
+  --bg2: #082b34;
   --panel: rgba(255, 255, 255, 0.075);
-  --panel2: rgba(255, 255, 255, 0.11);
+  --panel2: rgba(255, 255, 255, 0.115);
   --line: rgba(255, 255, 255, 0.16);
-  --text: #f7fcff;
-  --muted: #b8d2d8;
-  --muted2: #8eb0b9;
-  --gold: #f4c15d;
-  --aqua: #65e4ff;
-  --blue: #00b7ff;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-  --radius: 28px;
+  --text: #f6fcff;
+  --muted: #b6ccd3;
+  --soft: #7aa9b5;
+  --cyan: #66e3ff;
+  --cyan2: #0fb7e7;
+  --gold: #f6c76a;
+  --orange: #ff9b4a;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --radius: 26px;
 }
 
 * {
@@ -768,14 +839,15 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(0, 183, 255, 0.16), transparent 34rem),
-    radial-gradient(circle at top right, rgba(244, 193, 93, 0.14), transparent 32rem),
-    linear-gradient(180deg, #03151a 0%, #06242b 45%, #021114 100%);
-  color: var(--text);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Arial, sans-serif;
+  background: var(--bg);
+}
+
+body,
+button,
+select,
+input,
+textarea {
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -783,373 +855,452 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
 .site {
   min-height: 100vh;
-  overflow-x: hidden;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(42, 210, 255, 0.18), transparent 32rem),
+    radial-gradient(circle at 80% 12%, rgba(246, 199, 106, 0.1), transparent 24rem),
+    linear-gradient(180deg, #031318 0%, #06232b 45%, #04161b 100%);
 }
 
 .header {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
   position: sticky;
-  top: 12px;
-  z-index: 20;
+  top: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(2, 24, 29, 0.82);
+  padding: 16px clamp(18px, 4vw, 56px);
+  background: rgba(3, 19, 24, 0.82);
   backdrop-filter: blur(18px);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  border-bottom: 1px solid var(--line);
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: max-content;
+  gap: 12px;
+  min-width: fit-content;
 }
 
 .brandMark {
-  width: 42px;
-  height: 42px;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(0, 183, 255, 0.28), rgba(244, 193, 93, 0.26));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.brand strong,
-.brand small {
-  display: block;
-  line-height: 1.05;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(102, 227, 255, 0.22), rgba(246, 199, 106, 0.18));
+  border: 1px solid var(--line);
 }
 
 .brand strong {
-  font-size: 1rem;
-  letter-spacing: -0.02em;
+  display: block;
+  font-size: 18px;
+  letter-spacing: -0.03em;
 }
 
 .brand small {
-  margin-top: 3px;
-  color: var(--muted2);
-  font-size: 0.74rem;
-}
-
-.nav {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-.nav a {
-  padding: 10px 12px;
-  border-radius: 999px;
+  display: block;
   color: var(--muted);
-  font-size: 0.9rem;
-  transition: 0.2s ease;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
-.nav a:hover {
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.desktopNav a:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .headerActions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .language {
-  border: 1px solid var(--line);
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.08);
+  height: 40px;
   border-radius: 999px;
-  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  padding: 0 12px;
   outline: none;
 }
 
 .language option {
-  color: #021114;
+  color: #07191f;
 }
 
-.smallCta {
-  padding: 10px 14px;
+.miniButton,
+.primaryButton,
+.secondaryButton,
+.ghostButton,
+.fullButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--blue), #5ee7ff);
-  color: #001318;
   font-weight: 800;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
 }
 
-.hero {
-  width: min(1180px, calc(100% - 32px));
-  margin: 42px auto 0;
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.75fr);
-  gap: 28px;
-  align-items: center;
+.miniButton {
+  min-height: 40px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, var(--cyan2), #0890bd);
+  color: white;
+  font-size: 14px;
 }
 
-.heroCopy {
-  padding: clamp(28px, 4vw, 54px);
-  border-radius: calc(var(--radius) + 8px);
+.primaryButton {
+  min-height: 52px;
+  padding: 0 22px;
+  background: linear-gradient(135deg, var(--cyan), var(--cyan2));
+  color: #031318;
+  box-shadow: 0 16px 44px rgba(15, 183, 231, 0.28);
+}
+
+.secondaryButton {
+  min-height: 52px;
+  padding: 0 22px;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--line);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04)),
-    radial-gradient(circle at top left, rgba(0, 183, 255, 0.18), transparent 26rem);
-  box-shadow: var(--shadow);
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--gold);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-weight: 900;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
-
-h1 {
-  margin-bottom: 18px;
-  font-size: clamp(2.35rem, 6vw, 5.7rem);
-  line-height: 0.95;
-  letter-spacing: -0.075em;
-}
-
-h2 {
-  margin-bottom: 14px;
-  font-size: clamp(1.85rem, 4vw, 3.4rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
-}
-
-h3 {
-  margin-bottom: 9px;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  letter-spacing: -0.035em;
-}
-
-.lead {
-  color: var(--muted);
-  font-size: clamp(1.03rem, 1.6vw, 1.25rem);
-  line-height: 1.75;
-  max-width: 680px;
-}
-
-.heroMeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0;
-}
-
-.heroMeta span,
-.trustRow span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 8px 12px;
-  border: 1px solid rgba(101, 228, 255, 0.22);
-  border-radius: 999px;
-  background: rgba(101, 228, 255, 0.08);
-  color: #dffaff;
-  font-size: 0.9rem;
-}
-
-.ctaRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  margin-top: 24px;
-}
-
-.ctaRow.center {
-  justify-content: center;
-}
-
-.primaryBtn,
-.secondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 13px 18px;
-  border-radius: 999px;
-  font-weight: 900;
-  transition: 0.2s ease;
-}
-
-.primaryBtn {
-  background: linear-gradient(135deg, var(--gold), #ffe4a3);
-  color: #1c1100;
-  box-shadow: 0 16px 40px rgba(244, 193, 93, 0.22);
-}
-
-.secondaryBtn {
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
 }
 
-.primaryBtn:hover,
-.secondaryBtn:hover,
-.smallCta:hover {
+.ghostButton {
+  min-height: 52px;
+  padding: 0 22px;
+  background: transparent;
+  border: 1px solid rgba(102, 227, 255, 0.35);
+  color: var(--cyan);
+}
+
+.fullButton {
+  width: 100%;
+  min-height: 52px;
+  background: linear-gradient(135deg, var(--cyan), var(--cyan2));
+  color: #031318;
+  margin-top: 20px;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.ghostButton:hover,
+.miniButton:hover,
+.fullButton:hover {
   transform: translateY(-2px);
 }
 
-.trustRow {
+.section {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 76px 0;
+}
+
+.compactSection {
+  padding: 24px 0 34px;
+}
+
+.hero {
+  min-height: calc(100vh - 78px);
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 46px;
+  padding-top: 56px;
+  padding-bottom: 46px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 900;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.hero h1,
+.sectionHeader h2,
+.panel h2,
+.finalCta h2 {
+  margin: 0;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  max-width: 780px;
+}
+
+.heroLead {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.65;
+  margin: 24px 0 0;
+}
+
+.heroBadges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 26px;
 }
 
-.heroVisual {
-  position: relative;
-  min-height: clamp(360px, 45vw, 560px);
-  border-radius: calc(var(--radius) + 8px);
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: var(--shadow);
+.heroBadges span,
+.productTag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(102, 227, 255, 0.24);
+  background: rgba(102, 227, 255, 0.09);
+  color: #d8f7ff;
+  font-size: 13px;
+  font-weight: 800;
 }
 
-.heroVisual img {
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.addressStrip {
+  max-width: 620px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.addressStrip strong {
+  color: var(--text);
+}
+
+.heroMedia {
+  min-width: 0;
+}
+
+.heroImageCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--shadow);
+  aspect-ratio: 4 / 3;
+}
+
+.heroImageCard img {
   width: 100%;
   height: 100%;
-  min-height: inherit;
   object-fit: cover;
-  object-position: center;
+  display: block;
+  filter: saturate(1.06) contrast(1.04);
 }
 
-.heroOverlay {
+.heroImageOverlay {
   position: absolute;
   left: 18px;
   right: 18px;
   bottom: 18px;
-  padding: 18px;
+  padding: 16px;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(2, 18, 22, 0.52), rgba(2, 18, 22, 0.88));
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(3, 19, 24, 0.76);
   backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
 }
 
-.heroOverlay span {
-  display: block;
+.heroImageOverlay span {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 13px;
 }
 
-.heroOverlay strong {
+.heroImageOverlay strong {
   display: block;
   margin-top: 4px;
-  font-size: 1.28rem;
+  font-size: 20px;
 }
 
-.dots {
-  position: absolute;
-  top: 18px;
-  right: 18px;
+.slideDots {
   display: flex;
-  gap: 8px;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 16px;
 }
 
-.dots button {
+.dot {
   width: 9px;
   height: 9px;
-  border: 0;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.38);
+  border: none;
+  background: rgba(255, 255, 255, 0.32);
   cursor: pointer;
 }
 
-.dots button.active {
+.dot.active {
   width: 28px;
-  background: var(--gold);
+  background: var(--cyan);
 }
 
-.section {
-  width: min(1180px, calc(100% - 32px));
-  margin: 34px auto 0;
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 
-.sectionHead {
+.statsGrid div {
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.statsGrid strong {
+  display: block;
+  font-size: 18px;
+}
+
+.statsGrid span {
+  display: block;
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.sectionHeader {
   max-width: 760px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
-.sectionHead p:not(.eyebrow) {
+.sectionHeader.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionHeader h2,
+.panel h2,
+.finalCta h2 {
+  font-size: clamp(34px, 5vw, 58px);
+}
+
+.sectionHeader p,
+.panel p,
+.finalCta p {
   color: var(--muted);
   line-height: 1.7;
-  font-size: 1.04rem;
+  font-size: 17px;
 }
 
-.introGrid {
+.featureGrid,
+.selectionGrid,
+.stepsGrid,
+.reviewGrid,
+.reasonGrid,
+.cookingGrid,
+.faqGrid {
   display: grid;
+  gap: 18px;
+}
+
+.featureGrid {
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
 }
 
-.introCard {
-  display: grid;
-  grid-template-columns: 104px 1fr;
-  gap: 16px;
-  align-items: center;
-  padding: 14px;
-  border-radius: 24px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-}
-
-.introCard img {
-  width: 104px;
-  height: 94px;
-  object-fit: cover;
-  border-radius: 18px;
-}
-
-.introCard p {
-  color: var(--muted);
-  line-height: 1.55;
-  margin-bottom: 0;
-}
-
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.productCard,
 .featureCard,
+.productCard,
+.stepCard,
 .reviewCard,
-.faqCard,
 .panel,
-.visitCard {
+.cookingCard,
+.faqItem {
   border: 1px solid var(--line);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.055));
-  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+  background: linear-gradient(180deg, var(--panel2), rgba(255, 255, 255, 0.045));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+}
+
+.featureCard {
+  overflow: hidden;
+  border-radius: 28px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(102, 227, 255, 0.45);
+}
+
+.featureImage {
+  height: 210px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.featureImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.featureBody {
+  padding: 22px;
+}
+
+.featureBody h3,
+.productContent h3,
+.stepCard h3,
+.reviewCard h3,
+.reasonItem h3,
+.cookingCard h3 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.featureBody p,
+.productContent p,
+.stepCard p,
+.reviewCard p,
+.reasonItem p,
+.cookingCard p,
+.cookingCard li,
+.faqItem p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.featureBody span {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--cyan);
+  font-weight: 900;
+}
+
+.selectionGrid {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .productCard {
@@ -1157,225 +1308,72 @@ h3 {
   border-radius: 28px;
 }
 
-.photoFrame {
-  height: clamp(160px, 19vw, 218px);
+.productImage {
+  height: 210px;
   padding: 10px;
   background:
-    radial-gradient(circle at center, rgba(101, 228, 255, 0.08), transparent 70%),
-    rgba(0, 0, 0, 0.2);
+    radial-gradient(circle at center, rgba(102, 227, 255, 0.09), transparent 62%),
+    rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid var(--line);
 }
 
-.photoFrame img {
+.productImage img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center;
-  border-radius: 20px;
+  display: block;
+  border-radius: 18px;
 }
 
-.cardBody {
-  padding: 18px;
+.productContent {
+  padding: 22px;
 }
 
-.tag {
-  display: inline-flex;
-  margin-bottom: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  color: #001318;
-  background: linear-gradient(135deg, var(--aqua), #d9fbff);
-  font-size: 0.75rem;
-  font-weight: 900;
+.productContent h3 {
+  margin-top: 12px;
 }
 
-.cardBody p {
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 0;
-}
-
-.split {
+.splitSection {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 18px;
+  align-items: stretch;
 }
 
 .panel {
-  border-radius: 32px;
-  padding: clamp(22px, 3vw, 34px);
+  border-radius: 30px;
+  padding: clamp(24px, 4vw, 36px);
 }
 
-.premiumPanel {
-  background:
-    radial-gradient(circle at top left, rgba(244, 193, 93, 0.16), transparent 28rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.055));
+.reasonGrid {
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 26px;
 }
 
-.softPanel {
-  background:
-    radial-gradient(circle at top right, rgba(0, 183, 255, 0.13), transparent 25rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.05));
-}
-
-.panel p {
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.cleanList {
-  display: grid;
-  gap: 10px;
-  padding: 0;
-  margin: 20px 0 24px;
-  list-style: none;
-}
-
-.cleanList li {
-  position: relative;
-  padding-left: 28px;
-  color: #d9eef2;
-}
-
-.cleanList li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-weight: 900;
-}
-
-.miniDishGrid {
-  display: grid;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.dishCard {
-  display: grid;
-  grid-template-columns: 108px 1fr;
-  gap: 14px;
-  align-items: center;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.055);
-}
-
-.dishCard img {
-  width: 108px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-
-.dishCard p {
-  margin-bottom: 0;
-  font-size: 0.92rem;
-}
-
-.featureGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.featureCard {
-  overflow: hidden;
-  border-radius: 28px;
-  transition: 0.22s ease;
-}
-
-.featureCard:hover {
-  transform: translateY(-4px);
-}
-
-.featureImage {
-  height: 190px;
-  background: rgba(0, 0, 0, 0.18);
-}
-
-.featureImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.featureContent {
+.reasonItem {
   padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.featureContent p {
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.featureContent span {
-  color: var(--gold);
-  font-weight: 900;
-}
-
-.reviewGrid,
-.faqGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.reviewCard,
-.faqCard {
-  border-radius: 24px;
-  padding: 20px;
-}
-
-.stars {
-  color: var(--gold);
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-}
-
-.reviewCard p,
-.faqCard p {
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 0;
-}
-
-.visitCard {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 24px;
-  align-items: start;
-  padding: clamp(22px, 3vw, 34px);
-  border-radius: 32px;
-  background:
-    radial-gradient(circle at bottom left, rgba(0, 183, 255, 0.14), transparent 28rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.055));
-}
-
-.address {
-  color: #eafcff;
-  font-size: 1.15rem;
-  line-height: 1.55;
-}
-
-.hoursBox {
-  padding: 18px;
-  border-radius: 24px;
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid var(--line);
+.reasonItem h3 {
+  font-size: 18px;
 }
 
 .hoursList {
+  margin-top: 24px;
   display: grid;
-  gap: 9px;
+  gap: 10px;
 }
 
 .hoursRow {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 9px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .hoursRow span {
@@ -1386,193 +1384,324 @@ h3 {
   text-align: right;
 }
 
-.smallNote {
-  margin: 14px 0 0;
-  color: var(--muted2);
-  font-size: 0.88rem;
-  line-height: 1.55;
+.cookingSection {
+  padding-top: 40px;
+}
+
+.cookingGrid {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.cookingCard {
+  border-radius: 30px;
+  padding: 28px;
+}
+
+.mainCooking {
+  background:
+    radial-gradient(circle at top right, rgba(246, 199, 106, 0.13), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.05));
+}
+
+.softCooking {
+  background:
+    radial-gradient(circle at top right, rgba(102, 227, 255, 0.12), transparent 22rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+}
+
+.cookingCard ul {
+  padding-left: 18px;
+  margin: 22px 0 0;
+}
+
+.stepsGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stepCard,
+.reviewCard {
+  border-radius: 26px;
+  padding: 24px;
+}
+
+.reviewGrid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stars {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.reviewCta {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.065);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.reviewCta p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.faqGrid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.faqItem {
+  border-radius: 22px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.faqItem summary {
+  cursor: pointer;
+  padding: 20px;
+  font-weight: 900;
+  list-style: none;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0 20px 20px;
 }
 
 .finalCta {
-  width: min(980px, calc(100% - 32px));
-  margin: 44px auto 0;
-  text-align: center;
-  padding: clamp(28px, 5vw, 54px);
-  border-radius: 36px;
-  border: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: clamp(28px, 5vw, 46px);
+  border-radius: 34px;
+  border: 1px solid rgba(102, 227, 255, 0.22);
   background:
-    radial-gradient(circle at top, rgba(244, 193, 93, 0.16), transparent 25rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.05));
+    radial-gradient(circle at top right, rgba(102, 227, 255, 0.16), transparent 26rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
   box-shadow: var(--shadow);
 }
 
-.finalCta p:not(.eyebrow) {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--muted);
-  line-height: 1.7;
+.finalCta div:first-child {
+  max-width: 620px;
+}
+
+.finalButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
 .footer {
-  width: min(1180px, calc(100% - 32px));
-  margin: 32px auto 0;
-  padding: 26px 0 36px;
-  color: var(--muted2);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 26px 0 42px;
   border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer strong {
+  color: var(--text);
 }
 
 .footer p {
-  margin-bottom: 0;
+  margin: 8px 0 0;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.footerLinks a {
+  color: var(--cyan);
+  font-weight: 800;
 }
 
 @media (max-width: 980px) {
-  .header {
-    align-items: flex-start;
-    border-radius: 28px;
-    flex-wrap: wrap;
-  }
-
-  .nav {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 2px;
+  .desktopNav {
+    display: none;
   }
 
   .hero {
     grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 44px;
   }
 
-  .heroVisual {
-    min-height: 420px;
+  .heroMedia {
+    max-width: 720px;
+    width: 100%;
   }
 
-  .introGrid,
-  .productGrid,
+  .statsGrid,
   .featureGrid,
-  .reviewGrid,
-  .faqGrid {
+  .selectionGrid,
+  .stepsGrid,
+  .reviewGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .split,
-  .visitCard {
+  .splitSection,
+  .cookingGrid {
     grid-template-columns: 1fr;
+  }
+
+  .finalCta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .finalButtons {
+    justify-content: flex-start;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 680px) {
   .header {
-    width: calc(100% - 20px);
-    top: 8px;
-    padding: 10px;
+    padding: 12px 14px;
+  }
+
+  .brand strong {
+    font-size: 15px;
   }
 
   .brand small {
     display: none;
   }
 
-  .headerActions {
-    margin-left: auto;
+  .brandMark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .miniButton {
+    display: none;
   }
 
   .language {
-    max-width: 104px;
+    height: 38px;
+    max-width: 84px;
   }
 
-  .smallCta {
-    padding: 10px 12px;
+  .section {
+    width: min(100% - 28px, 1180px);
+    padding: 54px 0;
   }
 
-  .hero,
-  .section,
-  .finalCta,
-  .footer {
-    width: calc(100% - 20px);
+  .compactSection {
+    padding: 12px 0 26px;
   }
 
   .hero {
-    margin-top: 20px;
-    gap: 14px;
+    gap: 28px;
+    padding-top: 34px;
   }
 
-  .heroCopy {
-    padding: 24px 18px;
-    border-radius: 28px;
+  .hero h1 {
+    font-size: 46px;
   }
 
-  .heroVisual {
-    min-height: 330px;
-    border-radius: 28px;
+  .heroLead {
+    font-size: 16px;
   }
 
-  .heroOverlay {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    padding: 14px;
+  .heroButtons {
+    flex-direction: column;
   }
 
-  .ctaRow {
+  .primaryButton,
+  .secondaryButton,
+  .ghostButton {
     width: 100%;
   }
 
-  .primaryBtn,
-  .secondaryBtn {
-    width: 100%;
+  .heroImageCard {
+    border-radius: 24px;
   }
 
-  .introGrid,
-  .productGrid,
+  .statsGrid,
   .featureGrid,
+  .selectionGrid,
+  .stepsGrid,
   .reviewGrid,
-  .faqGrid {
+  .faqGrid,
+  .reasonGrid {
     grid-template-columns: 1fr;
   }
 
-  .introCard {
-    grid-template-columns: 86px 1fr;
+  .featureImage {
+    height: 190px;
   }
 
-  .introCard img {
-    width: 86px;
-    height: 78px;
-  }
-
-  .photoFrame {
+  .productImage {
     height: 185px;
   }
 
-  .featureImage {
-    height: 175px;
+  .productContent,
+  .featureBody,
+  .stepCard,
+  .reviewCard,
+  .cookingCard,
+  .panel {
+    padding: 20px;
   }
 
-  .panel,
-  .visitCard {
-    border-radius: 26px;
-    padding: 18px;
+  .sectionHeader h2,
+  .panel h2,
+  .finalCta h2 {
+    font-size: 34px;
+    line-height: 1;
   }
 
-  .dishCard {
-    grid-template-columns: 92px 1fr;
-  }
-
-  .dishCard img {
-    width: 92px;
-    height: 78px;
-  }
-
-  .hoursRow {
-    font-size: 0.95rem;
+  .reviewCta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer {
     flex-direction: column;
+  }
+
+  .footerLinks {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .productImage {
+    height: 170px;
+  }
+
+  .featureImage {
+    height: 170px;
+  }
+
+  .heroBadges span {
+    width: 100%;
+    justify-content: center;
   }
 }
 `;
