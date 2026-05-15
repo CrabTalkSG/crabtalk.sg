@@ -26,166 +26,258 @@ const HOURS = [
   { day: "Sunday", hours: "8am – 5pm" },
 ];
 
+const img = (name) => `/images/${name}`;
+
 const copy = {
   en: {
-    navHome: "Home",
-    navSelection: "Selection",
+    navBrand: "Crab Talk",
+    navSelection: "Fresh Selection",
     navHow: "How It Works",
-    navFeatures: "Features",
-    navVisit: "Visit",
-    lang: "Language",
-    badge: "Live Seafood Supply @ Crab Talk",
-    heroTitle: "Pick your own live seafood from the tank.",
+    navReviews: "Reviews",
+    navFind: "Find Us",
+    navWhatsapp: "WhatsApp",
+
+    language: "Language",
+    brandLine: "Live Seafood Supply",
+
+    heroBadge: "Live Seafood Supply @ Crab Talk",
+    heroTitle: "Pick Your Live Seafood From Our Tanks",
     heroText:
-      "Visit Crab Talk at Commonwealth Crescent for live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and premium seafood. Selected fresh daily for home cooking, family meals and weekend gatherings.",
+      "Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.",
     heroNote:
-      "Walk in to choose your seafood personally. Availability changes daily.",
-    ctaWhatsapp: "WhatsApp Today’s Availability",
-    ctaDirections: "Get Directions",
+      "Crab Talk is a live seafood stall, not an online shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.",
+    ctaVisit: "Visit Our Stall Today",
+    ctaWhatsapp: "WhatsApp to Check Today’s Arrival",
     ctaTelegram: "Join Telegram Updates",
     today: "Today",
-    openHours: "Opening Hours",
-    selectionTitle: "Fresh Daily Selection",
-    selectionSub:
-      "Our focus is live seafood supply. Choose from the tanks, ask for recommendations, and bring home seafood that fits your meal plan.",
+
+    freshTitle: "Fresh Daily Selection",
+    freshSub:
+      "Pick your own fresh seafood from our live tanks. Daily selection depends on arrival, size and season.",
+
     howTitle: "How It Works",
     howSub:
-      "Simple, transparent and built for customers who want to see the seafood before buying.",
-    step1Title: "1. Visit the stall",
-    step1Text:
-      "Come to Crab Talk and select your own live seafood directly from the tanks.",
-    step2Title: "2. Ask for recommendations",
-    step2Text:
-      "Tell us your pax, budget and cooking style. We help recommend suitable sizes and seafood combinations.",
-    step3Title: "3. Prepare for home cooking",
+      "Come down, choose from the live tanks, and let us prepare your seafood for home cooking.",
+
+    step1Title: "Visit our stall",
+    step1Text: "Come to 31 Commonwealth Crescent #01-41/42/43 S(149644).",
+    step2Title: "Pick from the live tanks",
+    step2Text: "Choose your own live seafood directly from our tanks.",
+    step3Title: "We clean, cut and pack",
     step3Text:
-      "Cleaning and cutting assistance may be available where suitable. Please check with us at the stall.",
-    homeTitle: "Built for Home Cooking",
+      "Need help preparing your seafood for home cooking? Let us know at the stall.",
+    step4Title: "Cook at home",
+    step4Text:
+      "Bring home fresh seafood for steaming, chilli crab, black pepper crab, bee hoon, hotpot or family meals.",
+
+    whyTitle: "Why Customers Visit Crab Talk",
+    whySub:
+      "A simple market-style experience for customers who want to see their seafood before buying.",
+    why1Title: "Live seafood tanks",
+    why1Text:
+      "See the seafood before you buy. Choose live crabs, lobsters, clams, fish and more directly from our tanks.",
+    why2Title: "Selected daily",
+    why2Text:
+      "Our seafood range changes with the daily arrival, so customers can check what is fresh before deciding.",
+    why3Title: "Cleaning and cutting available",
+    why3Text:
+      "Where suitable, we can help clean, cut and pack your seafood for easier home cooking.",
+    why4Title: "Friendly home-cooking advice",
+    why4Text:
+      "Tell us your pax, budget and cooking style. We can suggest suitable seafood and portion sizes.",
+
+    homeTitle: "Made for Home Cooking",
     homeText:
-      "Perfect for customers who want restaurant-quality ingredients without restaurant markups. Steam, chilli crab, black pepper, ginger scallion, bee hoon, hotpot or simple home recipes.",
-    faikeeTitle: "Optional Nearby Cooking",
-    faikeeText:
-      "Selected seafood can sometimes be cooked nearby by Fai Kee, subject to their operating capacity, dish suitability and time slot availability. Please check before ordering.",
-    featuresTitle: "As Featured & Shared",
+      "Perfect for customers who want restaurant-quality ingredients without restaurant pricing. Steam it, make chilli crab, black pepper crab, ginger scallion crab, bee hoon, soup, hotpot or simple family meals.",
+
+    cookingTitle: "Optional Nearby Cooking",
+    cookingText:
+      "Selected seafood may sometimes be cooked nearby by Fai Kee, subject to their capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
+
+    featuresTitle: "Featured & Shared",
     featuresSub:
-      "Crab Talk has been shared by food media and creators, helping more customers discover live seafood at Commonwealth Crescent.",
+      "Crab Talk has been featured by food media and creators, helping more customers discover live seafood at Commonwealth Crescent.",
+
     reviewsTitle: "What Customers Usually Mention",
     reviewsSub:
-      "Customers often highlight fresh seafood, helpful recommendations, friendly service and the convenience of choosing seafood directly from the tank.",
+      "Customers often highlight freshness, friendly advice, transparent selection from the tanks and convenience for home cooking.",
+
     faqTitle: "FAQ",
-    visitTitle: "Visit Crab Talk",
+    visitTitle: "Find Us",
     visitSub:
-      "For the freshest selection, visit earlier or WhatsApp us before coming down.",
+      "For the best selection, visit earlier or WhatsApp us before coming down.",
+    openingHours: "Opening Hours",
     disclaimer:
       "Seafood availability, sizes and prices change daily. Photos are for reference. Please WhatsApp or visit the stall for latest arrivals.",
   },
+
   zh: {
-    navHome: "首页",
-    navSelection: "海鲜选择",
+    navBrand: "Crab Talk",
+    navSelection: "每日海鲜",
     navHow: "购买方式",
-    navFeatures: "媒体推荐",
-    navVisit: "到店",
-    lang: "语言",
-    badge: "Crab Talk 活海鲜供应",
-    heroTitle: "到店亲自从水缸挑选活海鲜。",
+    navReviews: "评价",
+    navFind: "地址",
+    navWhatsapp: "WhatsApp",
+
+    language: "语言",
+    brandLine: "活海鲜供应",
+
+    heroBadge: "Crab Talk 活海鲜供应",
+    heroTitle: "到店从水缸亲自挑选活海鲜",
     heroText:
-      "欢迎到 Commonwealth Crescent 的 Crab Talk，选购活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼及优质海鲜。每日新鲜供应，适合家庭料理、聚餐和周末加菜。",
-    heroNote: "建议亲临门店挑选。每日货量和品种会有所不同。",
-    ctaWhatsapp: "WhatsApp 查询今日货源",
-    ctaDirections: "Google 地图导航",
+      "欢迎到 Commonwealth Crescent 的 Crab Talk 选购活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等海鲜。顾客可现场从水缸挑选，我们也可视情况协助清理、切配和包装，方便带回家料理。",
+    heroNote:
+      "Crab Talk 是活海鲜档口，不是线上商店。WhatsApp 主要用于查询今日到货、货量和预留。",
+    ctaVisit: "今天到店挑选",
+    ctaWhatsapp: "WhatsApp 查询今日到货",
     ctaTelegram: "加入 Telegram 更新",
     today: "今日",
-    openHours: "营业时间",
-    selectionTitle: "每日新鲜海鲜",
-    selectionSub:
-      "我们主打活海鲜供应。顾客可现场挑选，也可询问适合人数、预算和煮法的建议。",
+
+    freshTitle: "每日新鲜海鲜",
+    freshSub:
+      "亲自从活海鲜水缸中挑选。每日货源会根据到货、大小和季节有所不同。",
+
     howTitle: "购买方式",
-    howSub: "简单透明，让顾客亲眼看到海鲜后再决定。",
-    step1Title: "1. 到店挑选",
-    step1Text: "到 Crab Talk 现场，从水缸中挑选您要的活海鲜。",
-    step2Title: "2. 询问建议",
-    step2Text: "告诉我们人数、预算和想煮的菜式，我们会建议适合的大小和搭配。",
-    step3Title: "3. 带回家料理",
-    step3Text: "部分海鲜可视情况提供清理或切配协助，请到店确认。",
+    howSub: "到店、看水缸、选海鲜，我们帮您准备好带回家料理。",
+
+    step1Title: "到店",
+    step1Text: "前往 31 Commonwealth Crescent #01-41/42/43 S(149644)。",
+    step2Title: "从水缸挑选",
+    step2Text: "亲自从我们的活海鲜水缸中选择您要的海鲜。",
+    step3Title: "清理、切配、包装",
+    step3Text: "如需要带回家料理，可在档口询问清理和切配协助。",
+    step4Title: "带回家料理",
+    step4Text: "适合清蒸、辣椒蟹、黑胡椒蟹、米粉、火锅或家庭聚餐。",
+
+    whyTitle: "为什么顾客选择 Crab Talk",
+    whySub: "适合想亲眼看到海鲜后再购买的顾客。",
+    why1Title: "活海鲜水缸",
+    why1Text: "顾客可现场看到和挑选活蟹、龙虾、蛤、鱼等海鲜。",
+    why2Title: "每日精选",
+    why2Text: "货源每日不同，可根据当天到货选择新鲜海鲜。",
+    why3Title: "可协助清理切配",
+    why3Text: "视海鲜种类和现场情况，我们可协助处理，方便回家料理。",
+    why4Title: "家庭料理建议",
+    why4Text: "告诉我们人数、预算和想煮的菜式，我们可给出合适建议。",
+
     homeTitle: "适合家庭料理",
     homeText:
-      "适合想在家享用优质海鲜的顾客。可清蒸、辣椒蟹、黑胡椒、姜葱、米粉、火锅或家常料理。",
-    faikeeTitle: "附近熟食代煮选项",
-    faikeeText:
-      "部分海鲜可视情况由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定，请先确认。",
+      "适合想在家享用优质海鲜的顾客。可清蒸、辣椒蟹、黑胡椒蟹、姜葱蟹、米粉、汤品、火锅或家常料理。",
+
+    cookingTitle: "附近代煮选项",
+    cookingText:
+      "部分海鲜有时可由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定。Crab Talk 的主要重点仍是活海鲜供应和家庭料理。",
+
     featuresTitle: "媒体与达人分享",
-    featuresSub: "Crab Talk 曾被媒体和美食达人介绍，让更多顾客认识 Commonwealth Crescent 的活海鲜。",
+    featuresSub:
+      "Crab Talk 曾被媒体和美食达人介绍，让更多顾客认识 Commonwealth Crescent 的活海鲜。",
+
     reviewsTitle: "顾客常提到",
     reviewsSub:
-      "顾客经常提到海鲜新鲜、推荐实在、服务友善，也喜欢能现场从水缸挑选。",
+      "顾客常提到海鲜新鲜、推荐实在、现场挑选透明，以及适合带回家料理。",
+
     faqTitle: "常见问题",
-    visitTitle: "欢迎到店",
+    visitTitle: "地址与营业时间",
     visitSub: "想要更多选择，建议早点到店或先 WhatsApp 查询。",
+    openingHours: "营业时间",
     disclaimer:
       "海鲜货量、大小和价格每日不同。图片仅供参考，请 WhatsApp 或到店查询最新货源。",
   },
+
   ja: {
-    navHome: "ホーム",
+    navBrand: "Crab Talk",
     navSelection: "海鮮ラインナップ",
     navHow: "購入方法",
-    navFeatures: "紹介記事",
-    navVisit: "アクセス",
-    lang: "言語",
-    badge: "Crab Talk ライブシーフード",
-    heroTitle: "水槽から自分で選ぶ新鮮なライブシーフード。",
+    navReviews: "レビュー",
+    navFind: "アクセス",
+    navWhatsapp: "WhatsApp",
+
+    language: "言語",
+    brandLine: "ライブシーフード",
+
+    heroBadge: "Crab Talk ライブシーフード",
+    heroTitle: "水槽から自分で選ぶライブシーフード",
     heroText:
-      "Commonwealth Crescent の Crab Talk では、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを販売しています。家庭料理、家族の食事、週末の集まりにおすすめです。",
-    heroNote: "店頭で実物を見て選べます。入荷内容は日によって変わります。",
+      "Commonwealth Crescent の Crab Talk では、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを店頭で選べます。水槽から選んだ海鮮を、必要に応じて清掃・カット・包装して、ご家庭で調理しやすくします。",
+    heroNote:
+      "Crab Talk はオンラインショップではなく、ライブシーフードの店舗です。WhatsApp は主に本日の入荷、在庫、取り置き確認用です。",
+    ctaVisit: "店舗へ行く",
     ctaWhatsapp: "WhatsAppで本日の入荷確認",
-    ctaDirections: "Google Mapで行く",
     ctaTelegram: "Telegram更新に参加",
     today: "本日",
-    openHours: "営業時間",
-    selectionTitle: "毎日の新鮮ラインナップ",
-    selectionSub:
-      "ライブシーフード販売が中心です。水槽から選び、人数・予算・調理方法に合わせて相談できます。",
+
+    freshTitle: "毎日の新鮮ラインナップ",
+    freshSub:
+      "水槽から自分で選べるライブシーフード。入荷、サイズ、季節により内容は変わります。",
+
     howTitle: "購入方法",
-    howSub: "実物を確認してから選べる、分かりやすい購入スタイルです。",
-    step1Title: "1. 店頭へ来店",
-    step1Text: "Crab Talk に来店し、水槽から直接ライブシーフードを選びます。",
-    step2Title: "2. おすすめを相談",
-    step2Text: "人数、予算、調理方法を伝えると、適したサイズや組み合わせを提案します。",
-    step3Title: "3. 家で調理",
-    step3Text: "状況により、清掃やカットのサポートが可能な場合があります。店頭で確認してください。",
+    howSub:
+      "来店して、水槽から選び、家庭料理用に準備して持ち帰るシンプルな流れです。",
+
+    step1Title: "店舗へ来店",
+    step1Text: "31 Commonwealth Crescent #01-41/42/43 S(149644) へお越しください。",
+    step2Title: "水槽から選ぶ",
+    step2Text: "ライブシーフードを水槽から直接選べます。",
+    step3Title: "清掃・カット・包装",
+    step3Text:
+      "家庭料理用の準備が必要な場合は、店頭でご相談ください。",
+    step4Title: "自宅で調理",
+    step4Text:
+      "蒸し料理、チリクラブ、ブラックペッパークラブ、ビーフン、鍋料理、家族の食事におすすめです。",
+
+    whyTitle: "Crab Talk が選ばれる理由",
+    whySub: "購入前に海鮮を自分の目で確認したいお客様に向いています。",
+    why1Title: "ライブ水槽",
+    why1Text:
+      "活ガニ、ロブスター、貝、魚などを水槽から見て選べます。",
+    why2Title: "毎日入荷",
+    why2Text:
+      "入荷内容は日によって変わるため、その日の新鮮な海鮮を選べます。",
+    why3Title: "清掃・カット対応",
+    why3Text:
+      "海鮮の種類や状況により、ご家庭で調理しやすいように準備可能です。",
+    why4Title: "家庭料理の相談",
+    why4Text:
+      "人数、予算、調理方法に合わせて、サイズや組み合わせを提案できます。",
+
     homeTitle: "家庭料理に最適",
     homeText:
-      "レストラン品質の食材を家で楽しみたい方に。蒸し料理、チリクラブ、ブラックペッパー、ジンジャースキャリオン、ビーフン、鍋料理などに向いています。",
-    faikeeTitle: "近くでの調理オプション",
-    faikeeText:
-      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。事前にご確認ください。",
-    featuresTitle: "メディア・クリエイター紹介",
+      "レストラン品質の食材を家で楽しみたい方に。蒸し料理、チリクラブ、ブラックペッパークラブ、ジンジャースキャリオン、ビーフン、スープ、鍋料理におすすめです。",
+
+    cookingTitle: "近くでの調理オプション",
+    cookingText:
+      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。Crab Talk の主なサービスはライブシーフード販売です。",
+
+    featuresTitle: "メディア・SNS紹介",
     featuresSub:
       "Crab Talk はメディアやフードクリエイターにも紹介され、Commonwealth Crescent のライブシーフードとして注目されています。",
+
     reviewsTitle: "お客様がよく評価する点",
     reviewsSub:
-      "新鮮な海鮮、親切な提案、フレンドリーな接客、水槽から選べる点がよく評価されています。",
+      "新鮮さ、親切な提案、水槽から選べる安心感、家庭料理への便利さがよく評価されています。",
+
     faqTitle: "よくある質問",
-    visitTitle: "店舗情報",
-    visitSub: "品揃えを重視する場合は、早めの来店または WhatsApp での確認がおすすめです。",
+    visitTitle: "アクセス・営業時間",
+    visitSub:
+      "品揃えを重視する場合は、早めの来店または WhatsApp での確認がおすすめです。",
+    openingHours: "営業時間",
     disclaimer:
       "入荷状況、サイズ、価格は日によって変わります。写真は参考用です。最新情報は WhatsApp または店頭でご確認ください。",
   },
 };
 
-const img = (name) => `/images/${name}`;
-
 const heroSlides = [
   {
     image: img("product-live-crab-premium.jpg"),
-    label: "Live mud crabs selected daily",
+    label: "Pick live crabs from our tanks",
   },
   {
     image: img("product-yellow-roe-crab-06.jpg"),
-    label: "Sri Lanka yellow roe crabs",
+    label: "Sri Lanka roe crabs, selected fresh",
   },
   {
     image: img("stall-crab-talk-front-02.jpg"),
-    label: "Visit our Commonwealth Crescent stall",
+    label: "Visit Crab Talk at Commonwealth Crescent",
   },
   {
     image: img("feature-8days-original-thumbnail.jpg"),
@@ -201,7 +293,7 @@ const freshSelection = [
       ja: "活マッドクラブ",
     },
     desc: {
-      en: "Meaty, active crabs selected for steaming, chilli crab, black pepper or ginger scallion crab.",
+      en: "Meaty, active crabs suitable for steaming, chilli crab, black pepper or ginger scallion crab.",
       zh: "肉质饱满，适合清蒸、辣椒蟹、黑胡椒或姜葱做法。",
       ja: "蒸し料理、チリクラブ、ブラックペッパー、ジンジャースキャリオンにおすすめ。",
     },
@@ -214,7 +306,7 @@ const freshSelection = [
       ja: "スリランカ蟹味噌入り蟹",
     },
     desc: {
-      en: "Popular for rich roe, firm meat and premium home dining occasions.",
+      en: "Rich roe, firm meat and popular for premium home dining occasions.",
       zh: "膏香浓郁，肉质结实，适合家庭宴客和节日聚餐。",
       ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
     },
@@ -301,7 +393,7 @@ const featureCards = [
 const faqItems = [
   {
     q: "Can I buy directly online?",
-    a: "Crab Talk is mainly a walk-in live seafood stall. You can WhatsApp us to check availability, but the best experience is to visit and choose your seafood directly from the tanks.",
+    a: "Crab Talk is mainly a walk-in live seafood stall. You can WhatsApp us to check availability or reserve, but the best experience is to visit and choose your seafood directly from the tanks.",
   },
   {
     q: "Do you help with cleaning or cutting?",
@@ -323,6 +415,7 @@ const faqItems = [
 
 function getTodayHours() {
   const jsDay = new Date().getDay();
+
   const map = {
     0: "Sunday",
     1: "Monday",
@@ -332,6 +425,7 @@ function getTodayHours() {
     5: "Friday",
     6: "Saturday",
   };
+
   const today = map[jsDay];
   return HOURS.find((item) => item.day === today);
 }
@@ -339,25 +433,30 @@ function getTodayHours() {
 function App() {
   const [language, setLanguage] = useState("en");
   const [heroIndex, setHeroIndex] = useState(0);
-  const t = copy[language];
 
+  const t = copy[language];
   const todayHours = useMemo(() => getTodayHours(), []);
+
+  const translated = (field) => field[language] || field.en;
+  const selectedHero = heroSlides[heroIndex];
 
   useEffect(() => {
     const title =
       "Crab Talk SG | Live Seafood Supply at Commonwealth Crescent";
     const description =
-      "Visit Crab Talk at 31 Commonwealth Crescent #01-41/42/43 S(149644) for live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and premium seafood.";
+      "Visit Crab Talk at 31 Commonwealth Crescent #01-41/42/43 S(149644) to pick live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and premium seafood from the tanks.";
 
     document.title = title;
 
     const setMeta = (name, content, attr = "name") => {
       let tag = document.querySelector(`meta[${attr}="${name}"]`);
+
       if (!tag) {
         tag = document.createElement("meta");
         tag.setAttribute(attr, name);
         document.head.appendChild(tag);
       }
+
       tag.setAttribute("content", content);
     };
 
@@ -365,14 +464,20 @@ function App() {
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
-    setMeta("og:image", "/images/feature-8days-original-thumbnail.jpg", "property");
+    setMeta(
+      "og:image",
+      "/images/feature-8days-original-thumbnail.jpg",
+      "property"
+    );
 
     let favicon = document.querySelector('link[rel="icon"]');
+
     if (!favicon) {
       favicon = document.createElement("link");
       favicon.rel = "icon";
       document.head.appendChild(favicon);
     }
+
     favicon.href =
       "data:image/svg+xml," +
       encodeURIComponent(`
@@ -406,35 +511,39 @@ function App() {
     }
 
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
       window.dataLayer.push(arguments);
     }
+
     window.gtag = gtag;
 
     gtag("js", new Date());
     gtag("config", GOOGLE_TAG_ID);
   }, []);
 
-  const selectedHero = heroSlides[heroIndex];
-
-  const translated = (field) => field[language] || field.en;
-
   return (
     <>
       <style>{`
         :root {
-          --ink: #0a2630;
-          --muted: #5a6b73;
-          --ocean: #0b6378;
-          --ocean-dark: #073946;
-          --aqua: #21a8c7;
-          --gold: #d6b765;
-          --gold-soft: #fff2bf;
-          --cream: #fbfaf5;
+          --ink: #06343b;
+          --ink2: #0b4750;
+          --muted: #607477;
+          --softText: #7a8c8f;
+          --teal: #003f4a;
+          --teal2: #006f7f;
+          --aqua: #00a6b8;
+          --gold: #d8b45f;
+          --gold2: #fff3c5;
+          --cream: #fffdf7;
+          --bg: #f7fbfa;
           --card: #ffffff;
-          --line: rgba(10, 38, 48, 0.12);
-          --shadow: 0 18px 45px rgba(6, 36, 45, 0.12);
+          --line: rgba(6, 52, 59, 0.12);
+          --lineStrong: rgba(6, 52, 59, 0.18);
+          --shadow: 0 18px 48px rgba(6, 52, 59, 0.12);
+          --shadowSoft: 0 10px 28px rgba(6, 52, 59, 0.08);
           --radius: 24px;
+          --radiusLarge: 32px;
         }
 
         * {
@@ -447,7 +556,7 @@ function App() {
 
         body {
           margin: 0;
-          background: var(--cream);
+          background: var(--bg);
           color: var(--ink);
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
         }
@@ -456,11 +565,16 @@ function App() {
           color: inherit;
         }
 
+        img {
+          max-width: 100%;
+        }
+
         .page {
           min-height: 100vh;
           background:
-            radial-gradient(circle at top left, rgba(33, 168, 199, 0.12), transparent 32rem),
-            linear-gradient(180deg, #ffffff 0%, #fbfaf5 42%, #f5fbfc 100%);
+            radial-gradient(circle at top left, rgba(0, 166, 184, 0.14), transparent 34rem),
+            radial-gradient(circle at 85% 6%, rgba(216, 180, 95, 0.18), transparent 24rem),
+            linear-gradient(180deg, #ffffff 0%, #f7fbfa 48%, #f4faf9 100%);
         }
 
         .container {
@@ -471,21 +585,21 @@ function App() {
         .topbar {
           position: sticky;
           top: 0;
-          z-index: 20;
-          background: rgba(255, 255, 255, 0.92);
-          backdrop-filter: blur(18px);
+          z-index: 50;
+          background: rgba(255, 255, 255, 0.94);
           border-bottom: 1px solid var(--line);
+          backdrop-filter: blur(18px);
         }
 
         .nav {
-          height: 76px;
+          min-height: 74px;
           display: flex;
           align-items: center;
           justify-content: space-between;
           gap: 22px;
         }
 
-        .brand {
+        .logo {
           display: flex;
           align-items: center;
           gap: 12px;
@@ -493,50 +607,53 @@ function App() {
           min-width: max-content;
         }
 
-        .brandIcon {
-          width: 48px;
-          height: 48px;
-          border-radius: 16px;
-          display: grid;
-          place-items: center;
-          background: linear-gradient(135deg, var(--ocean), var(--aqua));
-          box-shadow: 0 12px 28px rgba(11, 99, 120, 0.24);
-          color: white;
-          font-size: 26px;
+        .logoMark {
+          width: 42px;
+          height: 42px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, #003f4a, #00a6b8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          box-shadow: 0 10px 24px rgba(0, 63, 74, 0.2);
         }
 
-        .brandText strong {
+        .logoText strong {
           display: block;
           font-size: 22px;
-          letter-spacing: 0.04em;
+          font-weight: 950;
+          color: #06343b;
+          letter-spacing: -0.03em;
           line-height: 1;
-          color: var(--ink);
         }
 
-        .brandText span {
+        .logoText span {
           display: block;
           margin-top: 4px;
           font-size: 12px;
-          color: var(--muted);
-          letter-spacing: 0.08em;
+          color: #6b7c7f;
+          font-weight: 800;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
         }
 
         .navLinks {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 18px;
           font-size: 14px;
           color: var(--muted);
+          font-weight: 800;
         }
 
         .navLinks a {
           text-decoration: none;
-          font-weight: 700;
         }
 
         .navLinks a:hover {
-          color: var(--ocean);
+          color: var(--teal2);
         }
 
         .navActions {
@@ -546,13 +663,14 @@ function App() {
         }
 
         .languageSelect {
-          border: 1px solid var(--line);
+          border: 1px solid var(--lineStrong);
           border-radius: 999px;
-          padding: 10px 12px;
-          background: white;
+          background: #ffffff;
           color: var(--ink);
-          font-weight: 800;
+          font-weight: 900;
+          padding: 10px 12px;
           outline: none;
+          box-shadow: 0 6px 16px rgba(6, 52, 59, 0.06);
         }
 
         .button {
@@ -560,16 +678,16 @@ function App() {
           align-items: center;
           justify-content: center;
           gap: 9px;
-          min-height: 46px;
-          padding: 13px 18px;
+          min-height: 45px;
+          padding: 12px 18px;
           border-radius: 999px;
           border: 1px solid transparent;
           text-decoration: none;
-          font-weight: 900;
-          letter-spacing: 0.01em;
-          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-          cursor: pointer;
+          font-weight: 950;
+          line-height: 1;
           white-space: nowrap;
+          cursor: pointer;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
 
         .button:hover {
@@ -577,148 +695,151 @@ function App() {
         }
 
         .buttonPrimary {
-          background: linear-gradient(135deg, #0b7c8d, #19b4d2);
-          color: white;
-          box-shadow: 0 16px 32px rgba(11, 124, 141, 0.24);
+          background: linear-gradient(135deg, #003f4a, #00899a);
+          color: #ffffff;
+          box-shadow: 0 14px 28px rgba(0, 63, 74, 0.24);
         }
 
         .buttonGold {
-          background: linear-gradient(135deg, #f3df95, #d4b35c);
-          color: #082730;
-          box-shadow: 0 16px 32px rgba(212, 179, 92, 0.25);
+          background: linear-gradient(135deg, #fff0b7, #d8b45f);
+          color: #06343b;
+          box-shadow: 0 14px 28px rgba(216, 180, 95, 0.22);
         }
 
         .buttonGhost {
-          background: white;
+          background: #ffffff;
+          border-color: var(--lineStrong);
           color: var(--ink);
-          border-color: var(--line);
+          box-shadow: 0 10px 24px rgba(6, 52, 59, 0.06);
         }
 
         .hero {
-          padding: 66px 0 54px;
+          padding: 52px 0 34px;
         }
 
         .heroGrid {
           display: grid;
           grid-template-columns: 1.02fr 0.98fr;
-          gap: 48px;
+          gap: 44px;
           align-items: center;
         }
 
         .eyebrowRow {
           display: flex;
           flex-wrap: wrap;
-          gap: 12px;
-          margin-bottom: 24px;
+          gap: 10px;
+          margin-bottom: 20px;
         }
 
         .pill {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 11px 16px;
+          padding: 10px 14px;
           border-radius: 999px;
-          background: white;
-          border: 1px solid var(--line);
+          border: 1px solid var(--lineStrong);
+          background: #ffffff;
           color: var(--ink);
-          font-size: 13px;
-          font-weight: 900;
-          letter-spacing: 0.12em;
+          box-shadow: 0 8px 20px rgba(6, 52, 59, 0.06);
+          font-size: 12px;
+          font-weight: 950;
+          letter-spacing: 0.11em;
           text-transform: uppercase;
-          box-shadow: 0 8px 22px rgba(6, 36, 45, 0.06);
         }
 
         .pillGold {
-          background: var(--gold-soft);
-          border-color: rgba(214, 183, 101, 0.45);
+          background: var(--gold2);
+          border-color: rgba(216, 180, 95, 0.48);
         }
 
         .hero h1 {
           margin: 0;
-          font-size: clamp(42px, 5.2vw, 68px);
+          max-width: 760px;
+          font-size: clamp(40px, 5vw, 64px);
           line-height: 0.98;
           letter-spacing: -0.06em;
           color: var(--ink);
-          max-width: 820px;
         }
 
         .heroText {
-          margin: 24px 0 0;
-          color: #38535d;
-          font-size: clamp(18px, 2vw, 23px);
-          line-height: 1.65;
+          margin: 22px 0 0;
           max-width: 760px;
+          color: #38565b;
+          font-size: clamp(17px, 1.75vw, 21px);
+          line-height: 1.62;
         }
 
         .heroNote {
-          margin: 18px 0 0;
-          color: var(--ocean);
+          margin: 16px 0 0;
+          max-width: 720px;
+          color: var(--teal2);
+          font-size: 15px;
+          line-height: 1.55;
           font-weight: 900;
+          padding-left: 14px;
+          border-left: 4px solid var(--gold);
         }
 
         .heroCtas {
           display: flex;
           flex-wrap: wrap;
           gap: 12px;
-          margin-top: 28px;
+          margin-top: 26px;
         }
 
         .addressCard {
-          margin-top: 28px;
+          margin-top: 24px;
           display: flex;
-          gap: 14px;
           align-items: center;
+          gap: 14px;
           max-width: 660px;
-          padding: 18px;
+          padding: 16px;
           border-radius: 20px;
-          border: 1px solid rgba(214, 183, 101, 0.45);
-          background: rgba(255, 255, 255, 0.76);
-          box-shadow: 0 12px 30px rgba(6, 36, 45, 0.08);
+          border: 1px solid rgba(216, 180, 95, 0.42);
+          background: rgba(255, 255, 255, 0.86);
+          box-shadow: var(--shadowSoft);
         }
 
         .addressPin {
-          width: 46px;
-          height: 46px;
-          border-radius: 50%;
+          width: 44px;
+          height: 44px;
+          border-radius: 16px;
           display: grid;
           place-items: center;
-          background: #eef8fa;
-          color: var(--ocean);
+          background: #edf8f7;
+          color: var(--teal2);
           font-size: 22px;
           flex: 0 0 auto;
         }
 
         .addressCard strong {
           display: block;
-          font-size: 17px;
+          font-size: 16px;
+          line-height: 1.35;
         }
 
         .addressCard a {
-          margin-top: 5px;
           display: inline-block;
+          margin-top: 5px;
+          color: var(--teal2);
           text-decoration: none;
-          color: var(--ocean);
-          font-weight: 900;
-        }
-
-        .heroMedia {
-          position: relative;
+          font-weight: 950;
         }
 
         .heroFrame {
-          border-radius: 34px;
-          padding: 18px;
-          background: linear-gradient(135deg, rgba(11, 99, 120, 0.2), rgba(214, 183, 101, 0.24));
-          border: 1px solid rgba(10, 38, 48, 0.14);
+          border-radius: 30px;
+          padding: 14px;
+          background: linear-gradient(135deg, rgba(0, 166, 184, 0.16), rgba(216, 180, 95, 0.2));
+          border: 1px solid rgba(6, 52, 59, 0.14);
           box-shadow: var(--shadow);
         }
 
         .heroImageWrap {
           position: relative;
           overflow: hidden;
-          border-radius: 24px;
-          background: white;
+          border-radius: 22px;
           aspect-ratio: 4 / 3;
+          background: #f8fbfb;
         }
 
         .heroImageWrap img {
@@ -731,94 +852,140 @@ function App() {
 
         .heroCaption {
           position: absolute;
-          left: 16px;
-          right: 16px;
-          bottom: 16px;
-          padding: 12px 14px;
-          border-radius: 18px;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(12px);
+          left: 14px;
+          right: 14px;
+          bottom: 14px;
+          padding: 11px 14px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.92);
           color: var(--ink);
-          font-weight: 900;
+          font-size: 14px;
+          font-weight: 950;
           box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+          backdrop-filter: blur(12px);
         }
 
         .heroDots {
           display: flex;
-          gap: 8px;
           justify-content: center;
-          margin-top: 16px;
+          gap: 8px;
+          margin-top: 14px;
         }
 
         .dot {
           width: 9px;
           height: 9px;
-          border-radius: 50%;
           border: 0;
-          background: rgba(10, 38, 48, 0.22);
+          border-radius: 999px;
+          background: rgba(6, 52, 59, 0.22);
           cursor: pointer;
         }
 
         .dotActive {
-          background: var(--ocean);
-          width: 26px;
-          border-radius: 999px;
+          width: 28px;
+          background: var(--teal2);
         }
 
         section {
-          padding: 58px 0;
+          padding: 48px 0;
         }
 
         .sectionHeader {
           display: flex;
-          align-items: end;
+          align-items: flex-end;
           justify-content: space-between;
-          gap: 26px;
-          margin-bottom: 26px;
+          gap: 28px;
+          margin-bottom: 24px;
         }
 
         .sectionKicker {
           margin: 0 0 8px;
-          color: var(--ocean);
-          font-weight: 950;
-          letter-spacing: 0.13em;
-          text-transform: uppercase;
+          color: var(--teal2);
           font-size: 13px;
+          font-weight: 950;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
         }
 
         .sectionHeader h2 {
           margin: 0;
-          font-size: clamp(30px, 3.5vw, 46px);
+          font-size: clamp(30px, 3.4vw, 44px);
           line-height: 1.05;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.045em;
         }
 
         .sectionHeader p {
           margin: 0;
-          max-width: 560px;
+          max-width: 580px;
           color: var(--muted);
-          line-height: 1.65;
           font-size: 17px;
+          line-height: 1.62;
+        }
+
+        .howSection {
+          padding-top: 32px;
+        }
+
+        .howGrid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+        }
+
+        .stepCard {
+          position: relative;
+          min-height: 238px;
+          padding: 22px;
+          border-radius: var(--radius);
+          background: #ffffff;
+          border: 1px solid var(--line);
+          box-shadow: var(--shadowSoft);
+        }
+
+        .stepNumber {
+          width: 40px;
+          height: 40px;
+          border-radius: 14px;
+          display: grid;
+          place-items: center;
+          margin-bottom: 16px;
+          background: linear-gradient(135deg, #003f4a, #00a6b8);
+          color: #ffffff;
+          font-weight: 950;
+        }
+
+        .stepCard h3 {
+          margin: 0;
+          font-size: 20px;
+          line-height: 1.18;
+          letter-spacing: -0.03em;
+        }
+
+        .stepCard p {
+          margin: 10px 0 0;
+          color: var(--muted);
+          font-size: 15.5px;
+          line-height: 1.55;
         }
 
         .selectionGrid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 22px;
+          gap: 20px;
         }
 
         .productCard {
           overflow: hidden;
-          border-radius: 26px;
-          background: white;
+          border-radius: 24px;
+          background: #ffffff;
           border: 1px solid var(--line);
-          box-shadow: 0 12px 32px rgba(6, 36, 45, 0.08);
+          box-shadow: var(--shadowSoft);
         }
 
         .productImage {
-          height: 190px;
+          height: 178px;
           padding: 10px;
-          background: #f7fbfb;
+          background: #f6fbfa;
           border-bottom: 1px solid var(--line);
         }
 
@@ -827,67 +994,65 @@ function App() {
           height: 100%;
           object-fit: contain;
           display: block;
-          border-radius: 18px;
+          border-radius: 16px;
         }
 
         .productBody {
-          padding: 20px;
+          padding: 19px;
         }
 
         .productBody h3 {
           margin: 0;
-          font-size: 23px;
-          letter-spacing: -0.03em;
+          font-size: 22px;
+          letter-spacing: -0.035em;
+          line-height: 1.15;
         }
 
         .productBody p {
           margin: 10px 0 0;
           color: var(--muted);
+          font-size: 15.5px;
           line-height: 1.55;
-          font-size: 16px;
         }
 
-        .howGrid {
+        .whyGrid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
         }
 
-        .stepCard,
-        .infoPanel,
-        .reviewCard,
-        .faqItem {
-          background: white;
-          border: 1px solid var(--line);
+        .whyCard {
+          padding: 22px;
           border-radius: var(--radius);
-          box-shadow: 0 12px 30px rgba(6, 36, 45, 0.07);
+          background: #ffffff;
+          border: 1px solid var(--line);
+          box-shadow: var(--shadowSoft);
         }
 
-        .stepCard {
-          padding: 24px;
-        }
-
-        .stepIcon {
-          width: 46px;
-          height: 46px;
+        .whyIcon {
+          width: 44px;
+          height: 44px;
           border-radius: 16px;
           display: grid;
           place-items: center;
-          background: #eef8fa;
-          color: var(--ocean);
+          margin-bottom: 14px;
+          background: #edf8f7;
+          color: var(--teal2);
           font-size: 22px;
-          margin-bottom: 16px;
         }
 
-        .stepCard h3 {
+        .whyCard h3 {
           margin: 0;
-          font-size: 22px;
+          font-size: 20px;
+          line-height: 1.16;
+          letter-spacing: -0.03em;
         }
 
-        .stepCard p {
+        .whyCard p {
           margin: 10px 0 0;
           color: var(--muted);
-          line-height: 1.6;
+          font-size: 15.5px;
+          line-height: 1.55;
         }
 
         .twoCol {
@@ -898,14 +1063,18 @@ function App() {
 
         .infoPanel {
           overflow: hidden;
+          border-radius: var(--radiusLarge);
+          background: #ffffff;
+          border: 1px solid var(--line);
+          box-shadow: var(--shadowSoft);
         }
 
         .infoPanel img {
           width: 100%;
-          height: 220px;
+          height: 210px;
           object-fit: contain;
-          background: #f7fbfb;
           display: block;
+          background: #f6fbfa;
           border-bottom: 1px solid var(--line);
         }
 
@@ -915,63 +1084,69 @@ function App() {
 
         .infoPanelBody h3 {
           margin: 0;
-          font-size: 26px;
-          letter-spacing: -0.03em;
+          font-size: 27px;
+          line-height: 1.08;
+          letter-spacing: -0.04em;
         }
 
         .infoPanelBody p {
           margin: 12px 0 0;
           color: var(--muted);
+          font-size: 16px;
           line-height: 1.65;
         }
 
         .featureGrid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 22px;
+          gap: 20px;
         }
 
         .featureCard {
           display: flex;
           flex-direction: column;
           overflow: hidden;
-          border-radius: 26px;
-          background: white;
+          min-height: 100%;
+          border-radius: 24px;
+          background: #ffffff;
           border: 1px solid var(--line);
-          box-shadow: 0 12px 32px rgba(6, 36, 45, 0.08);
+          box-shadow: var(--shadowSoft);
           text-decoration: none;
         }
 
         .featureCard img {
           width: 100%;
-          height: 190px;
+          height: 178px;
           object-fit: contain;
-          background: #f7fbfb;
+          display: block;
+          background: #f6fbfa;
           border-bottom: 1px solid var(--line);
         }
 
         .featureBody {
-          padding: 20px;
           display: flex;
           flex-direction: column;
           gap: 10px;
           flex: 1;
+          padding: 19px;
         }
 
         .featureBody h3 {
           margin: 0;
-          font-size: 22px;
+          font-size: 21px;
+          letter-spacing: -0.03em;
         }
 
         .featureBody p {
           margin: 0;
-          color: var(--muted);
-          line-height: 1.55;
           flex: 1;
+          color: var(--muted);
+          font-size: 15.5px;
+          line-height: 1.55;
         }
 
         .featureButton {
-          color: var(--ocean);
+          color: var(--teal2);
           font-weight: 950;
         }
 
@@ -983,18 +1158,23 @@ function App() {
 
         .reviewCard {
           padding: 22px;
+          border-radius: var(--radius);
+          background: #ffffff;
+          border: 1px solid var(--line);
+          box-shadow: var(--shadowSoft);
         }
 
         .stars {
-          color: #d29d19;
-          letter-spacing: 2px;
-          font-size: 18px;
           margin-bottom: 12px;
+          color: #d29d19;
+          font-size: 18px;
+          letter-spacing: 2px;
         }
 
         .reviewCard p {
           margin: 0;
           color: var(--muted);
+          font-size: 15.5px;
           line-height: 1.6;
         }
 
@@ -1012,47 +1192,70 @@ function App() {
 
         .faqItem {
           padding: 22px;
+          border-radius: var(--radius);
+          background: #ffffff;
+          border: 1px solid var(--line);
+          box-shadow: var(--shadowSoft);
         }
 
         .faqItem h3 {
           margin: 0;
           font-size: 18px;
+          letter-spacing: -0.02em;
         }
 
         .faqItem p {
           margin: 10px 0 0;
           color: var(--muted);
+          font-size: 15.5px;
           line-height: 1.6;
         }
 
         .visitBox {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 24px;
+          gap: 26px;
           padding: 28px;
-          border-radius: 30px;
-          background: linear-gradient(135deg, #073946, #0b6378);
-          color: white;
+          border-radius: var(--radiusLarge);
+          background: linear-gradient(135deg, #003f4a, #007889);
+          color: #ffffff;
           box-shadow: var(--shadow);
         }
 
         .visitBox h2 {
           margin: 0;
-          font-size: clamp(30px, 4vw, 48px);
-          letter-spacing: -0.04em;
+          font-size: clamp(30px, 3.5vw, 46px);
+          line-height: 1.05;
+          letter-spacing: -0.045em;
         }
 
         .visitBox p {
-          color: rgba(255, 255, 255, 0.82);
+          margin: 14px 0 0;
+          color: rgba(255, 255, 255, 0.84);
+          font-size: 16.5px;
           line-height: 1.65;
-          font-size: 17px;
+        }
+
+        .visitAddress {
+          margin-top: 18px;
+          padding: 16px;
+          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          font-weight: 900;
+          line-height: 1.45;
         }
 
         .hoursList {
+          padding: 18px;
+          border-radius: 22px;
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.16);
-          border-radius: 22px;
-          padding: 18px;
+        }
+
+        .hoursList h3 {
+          margin: 0 0 10px;
+          font-size: 22px;
         }
 
         .hourRow {
@@ -1060,7 +1263,7 @@ function App() {
           justify-content: space-between;
           gap: 16px;
           padding: 10px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.14);
         }
 
         .hourRow:last-child {
@@ -1068,11 +1271,11 @@ function App() {
         }
 
         .hourRow strong {
-          color: white;
+          color: #ffffff;
         }
 
         .hourRow span {
-          color: rgba(255, 255, 255, 0.82);
+          color: rgba(255, 255, 255, 0.84);
           text-align: right;
         }
 
@@ -1086,8 +1289,8 @@ function App() {
         .footerInner {
           display: flex;
           justify-content: space-between;
-          gap: 20px;
           align-items: center;
+          gap: 20px;
         }
 
         .socials {
@@ -1097,8 +1300,8 @@ function App() {
         }
 
         .socials a {
-          color: var(--ocean);
-          font-weight: 900;
+          color: var(--teal2);
+          font-weight: 950;
           text-decoration: none;
         }
 
@@ -1106,9 +1309,43 @@ function App() {
           display: none;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 1080px) {
+          .navLinks {
+            gap: 12px;
+            font-size: 13px;
+          }
+
+          .heroGrid {
+            grid-template-columns: 1fr;
+          }
+
+          .hero h1 {
+            max-width: 900px;
+          }
+
+          .heroText {
+            max-width: 900px;
+          }
+
+          .howGrid,
+          .whyGrid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .selectionGrid,
+          .featureGrid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .twoCol,
+          .visitBox {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 860px) {
           .nav {
-            height: auto;
+            min-height: auto;
             padding: 14px 0;
             align-items: flex-start;
           }
@@ -1117,51 +1354,14 @@ function App() {
             display: none;
           }
 
-          .brandIcon {
-            width: 44px;
-            height: 44px;
-          }
-
-          .brandText strong {
-            font-size: 19px;
-          }
-
-          .navActions {
-            gap: 8px;
-          }
-
           .navActions .buttonPrimary {
             display: none;
           }
 
-          .hero {
-            padding: 42px 0 34px;
-          }
-
-          .heroGrid,
-          .twoCol,
-          .visitBox {
-            grid-template-columns: 1fr;
-          }
-
-          .hero h1 {
-            font-size: clamp(38px, 10vw, 56px);
-          }
-
-          .selectionGrid,
-          .featureGrid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .howGrid,
-          .reviewsGrid,
-          .faqGrid {
-            grid-template-columns: 1fr;
-          }
-
           .sectionHeader {
-            align-items: flex-start;
             flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
           }
         }
 
@@ -1170,27 +1370,45 @@ function App() {
             width: min(100% - 28px, 1180px);
           }
 
+          .logoMark {
+            width: 40px;
+            height: 40px;
+            border-radius: 13px;
+          }
+
+          .logoText strong {
+            font-size: 19px;
+          }
+
+          .logoText span {
+            font-size: 10.5px;
+          }
+
           .languageSelect {
-            max-width: 96px;
+            max-width: 94px;
             padding: 9px 8px;
             font-size: 12px;
           }
 
           .hero {
-            padding-top: 32px;
+            padding: 32px 0 26px;
           }
 
           .eyebrowRow {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
           }
 
           .pill {
-            font-size: 11px;
-            padding: 9px 12px;
+            font-size: 10.5px;
+            padding: 8px 11px;
+          }
+
+          .hero h1 {
+            font-size: clamp(35px, 11vw, 48px);
           }
 
           .heroText {
-            font-size: 17px;
+            font-size: 16.5px;
           }
 
           .heroCtas {
@@ -1206,7 +1424,7 @@ function App() {
           }
 
           .heroFrame {
-            padding: 10px;
+            padding: 9px;
             border-radius: 24px;
           }
 
@@ -1214,22 +1432,41 @@ function App() {
             border-radius: 18px;
           }
 
-          section {
-            padding: 42px 0;
+          .heroCaption {
+            font-size: 12.5px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
           }
 
+          section {
+            padding: 40px 0;
+          }
+
+          .howGrid,
+          .whyGrid,
           .selectionGrid,
-          .featureGrid {
+          .featureGrid,
+          .reviewsGrid,
+          .faqGrid {
             grid-template-columns: 1fr;
+          }
+
+          .stepCard {
+            min-height: auto;
           }
 
           .productImage,
           .featureCard img {
-            height: 170px;
+            height: 168px;
           }
 
           .infoPanel img {
-            height: 190px;
+            height: 188px;
+          }
+
+          .visitBox {
+            padding: 22px;
           }
 
           .footerInner {
@@ -1242,16 +1479,15 @@ function App() {
             left: 14px;
             right: 14px;
             bottom: 14px;
-            z-index: 30;
+            z-index: 60;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
           }
 
           .mobileCta .button {
-            width: 100%;
             min-height: 48px;
-            box-shadow: 0 14px 30px rgba(6, 36, 45, 0.18);
+            box-shadow: 0 14px 30px rgba(6, 52, 59, 0.2);
           }
 
           .footer {
@@ -1263,20 +1499,20 @@ function App() {
       <div className="page">
         <header className="topbar">
           <div className="container nav">
-            <a className="brand" href="#home" aria-label="Crab Talk home">
-              <div className="brandIcon">🦀</div>
-              <div className="brandText">
-                <strong>CRAB TALK</strong>
-                <span>Live Seafood Supply</span>
+            <a className="logo" href="#home" aria-label="Crab Talk home">
+              <div className="logoMark">🦀</div>
+              <div className="logoText">
+                <strong>Crab Talk</strong>
+                <span>{t.brandLine}</span>
               </div>
             </a>
 
             <nav className="navLinks" aria-label="Main navigation">
-              <a href="#home">{t.navHome}</a>
+              <a href="#home">{t.navBrand}</a>
               <a href="#selection">{t.navSelection}</a>
               <a href="#how">{t.navHow}</a>
-              <a href="#features">{t.navFeatures}</a>
-              <a href="#visit">{t.navVisit}</a>
+              <a href="#reviews">{t.navReviews}</a>
+              <a href="#visit">{t.navFind}</a>
             </nav>
 
             <div className="navActions">
@@ -1284,7 +1520,7 @@ function App() {
                 className="languageSelect"
                 value={language}
                 onChange={(event) => setLanguage(event.target.value)}
-                aria-label={t.lang}
+                aria-label={t.language}
               >
                 <option value="en">EN</option>
                 <option value="zh">中文</option>
@@ -1292,7 +1528,7 @@ function App() {
               </select>
 
               <a className="button buttonPrimary" href={LINKS.whatsapp}>
-                WhatsApp
+                {t.navWhatsapp}
               </a>
             </div>
           </div>
@@ -1303,7 +1539,7 @@ function App() {
             <div className="container heroGrid">
               <div>
                 <div className="eyebrowRow">
-                  <span className="pill pillGold">{t.badge}</span>
+                  <span className="pill pillGold">{t.heroBadge}</span>
                   <span className="pill">
                     {t.today}: {todayHours.day} {todayHours.hours}
                   </span>
@@ -1315,17 +1551,19 @@ function App() {
                 <p className="heroNote">{t.heroNote}</p>
 
                 <div className="heroCtas">
-                  <a className="button buttonPrimary" href={LINKS.whatsapp}>
-                    {t.ctaWhatsapp}
-                  </a>
                   <a
                     className="button buttonGold"
                     href={LINKS.maps}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {t.ctaDirections}
+                    {t.ctaVisit}
                   </a>
+
+                  <a className="button buttonPrimary" href={LINKS.whatsapp}>
+                    {t.ctaWhatsapp}
+                  </a>
+
                   <a
                     className="button buttonGhost"
                     href={LINKS.telegram}
@@ -1345,7 +1583,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {t.ctaDirections}
+                      {t.ctaVisit}
                     </a>
                   </div>
                 </div>
@@ -1373,14 +1611,52 @@ function App() {
             </div>
           </section>
 
+          <section className="howSection" id="how">
+            <div className="container">
+              <div className="sectionHeader">
+                <div>
+                  <p className="sectionKicker">Clear buying process</p>
+                  <h2>{t.howTitle}</h2>
+                </div>
+                <p>{t.howSub}</p>
+              </div>
+
+              <div className="howGrid">
+                <article className="stepCard">
+                  <div className="stepNumber">1</div>
+                  <h3>{t.step1Title}</h3>
+                  <p>{t.step1Text}</p>
+                </article>
+
+                <article className="stepCard">
+                  <div className="stepNumber">2</div>
+                  <h3>{t.step2Title}</h3>
+                  <p>{t.step2Text}</p>
+                </article>
+
+                <article className="stepCard">
+                  <div className="stepNumber">3</div>
+                  <h3>{t.step3Title}</h3>
+                  <p>{t.step3Text}</p>
+                </article>
+
+                <article className="stepCard">
+                  <div className="stepNumber">4</div>
+                  <h3>{t.step4Title}</h3>
+                  <p>{t.step4Text}</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
           <section id="selection">
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Live seafood</p>
-                  <h2>{t.selectionTitle}</h2>
+                  <p className="sectionKicker">Live seafood tanks</p>
+                  <h2>{t.freshTitle}</h2>
                 </div>
-                <p>{t.selectionSub}</p>
+                <p>{t.freshSub}</p>
               </div>
 
               <div className="selectionGrid">
@@ -1399,33 +1675,39 @@ function App() {
             </div>
           </section>
 
-          <section id="how">
+          <section>
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Simple process</p>
-                  <h2>{t.howTitle}</h2>
+                  <p className="sectionKicker">Why visit us</p>
+                  <h2>{t.whyTitle}</h2>
                 </div>
-                <p>{t.howSub}</p>
+                <p>{t.whySub}</p>
               </div>
 
-              <div className="howGrid">
-                <article className="stepCard">
-                  <div className="stepIcon">🛒</div>
-                  <h3>{t.step1Title}</h3>
-                  <p>{t.step1Text}</p>
+              <div className="whyGrid">
+                <article className="whyCard">
+                  <div className="whyIcon">🦀</div>
+                  <h3>{t.why1Title}</h3>
+                  <p>{t.why1Text}</p>
                 </article>
 
-                <article className="stepCard">
-                  <div className="stepIcon">💬</div>
-                  <h3>{t.step2Title}</h3>
-                  <p>{t.step2Text}</p>
+                <article className="whyCard">
+                  <div className="whyIcon">🌊</div>
+                  <h3>{t.why2Title}</h3>
+                  <p>{t.why2Text}</p>
                 </article>
 
-                <article className="stepCard">
-                  <div className="stepIcon">🍽️</div>
-                  <h3>{t.step3Title}</h3>
-                  <p>{t.step3Text}</p>
+                <article className="whyCard">
+                  <div className="whyIcon">🔪</div>
+                  <h3>{t.why3Title}</h3>
+                  <p>{t.why3Text}</p>
+                </article>
+
+                <article className="whyCard">
+                  <div className="whyIcon">💬</div>
+                  <h3>{t.why4Title}</h3>
+                  <p>{t.why4Text}</p>
                 </article>
               </div>
             </div>
@@ -1450,8 +1732,8 @@ function App() {
                   alt="Optional nearby cooking"
                 />
                 <div className="infoPanelBody">
-                  <h3>{t.faikeeTitle}</h3>
-                  <p>{t.faikeeText}</p>
+                  <h3>{t.cookingTitle}</h3>
+                  <p>{t.cookingText}</p>
                 </div>
               </article>
             </div>
@@ -1461,7 +1743,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Media & creators</p>
+                  <p className="sectionKicker">Social proof</p>
                   <h2>{t.featuresTitle}</h2>
                 </div>
                 <p>{t.featuresSub}</p>
@@ -1488,11 +1770,11 @@ function App() {
             </div>
           </section>
 
-          <section>
+          <section id="reviews">
             <div className="container">
               <div className="sectionHeader">
                 <div>
-                  <p className="sectionKicker">Trust points</p>
+                  <p className="sectionKicker">Customer confidence</p>
                   <h2>{t.reviewsTitle}</h2>
                 </div>
                 <p>{t.reviewsSub}</p>
@@ -1553,11 +1835,13 @@ function App() {
             <div className="container">
               <div className="visitBox">
                 <div>
-                  <p className="sectionKicker" style={{ color: "#f3df95" }}>
+                  <p className="sectionKicker" style={{ color: "#fff0b7" }}>
                     Commonwealth Crescent
                   </p>
                   <h2>{t.visitTitle}</h2>
                   <p>{t.visitSub}</p>
+
+                  <div className="visitAddress">{ADDRESS}</div>
 
                   <div className="heroCtas">
                     <a className="button buttonGold" href={LINKS.whatsapp}>
@@ -1569,13 +1853,14 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {t.ctaDirections}
+                      {t.ctaVisit}
                     </a>
                   </div>
                 </div>
 
                 <div className="hoursList">
-                  <h3 style={{ margin: "0 0 10px" }}>{t.openHours}</h3>
+                  <h3>{t.openingHours}</h3>
+
                   {HOURS.map((item) => (
                     <div className="hourRow" key={item.day}>
                       <strong>{item.day}</strong>
