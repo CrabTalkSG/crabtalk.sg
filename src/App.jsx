@@ -46,7 +46,7 @@ const heroSlides = [
     },
   },
   {
-    image: img("stall-crab-talk-front-02.jpg"),
+   image: img("product-sri-lanka-roe-crab-new.jpg"),
     label: {
       en: "Visit our physical stall at Commonwealth Crescent",
       zh: "欢迎到 Commonwealth Crescent 实体档口",
@@ -88,7 +88,7 @@ const freshSelection = [
       zh: "膏香浓郁，肉质结实，适合家庭宴客和节日聚餐。",
       ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
     },
-    image: img("product-yellow-roe-crab-06.jpg"),
+    image: img("product-sri-lanka-roe-crab-new.jpg"),
   },
   {
     title: {
@@ -101,7 +101,7 @@ const freshSelection = [
       zh: "每日视货源供应波士顿龙虾、青龙虾等选择。",
       ja: "入荷状況により、ボストンロブスターやグリーンロブスターをご用意。",
     },
-    image: img("product-boston-lobster-display.jpg"),
+  image: img("product-live-lobster-new.jpg"),
   },
   {
     title: {
@@ -114,7 +114,7 @@ const freshSelection = [
       zh: "适合海鲜拼盘、聚餐或周末加菜。",
       ja: "シーフードプレート、集まり、週末のごちそうにおすすめ。",
     },
-    image: img("product-oysters-premium-02.jpg"),
+image: img("product-oysters-new.jpg"),
   },
   {
     title: {
@@ -127,7 +127,7 @@ const freshSelection = [
       zh: "适合清蒸、辣椒啦啦、白酒煮、汤品或火锅。",
       ja: "蒸し料理、チリララ、白ワイン風、スープ、鍋料理におすすめ。",
     },
-    image: img("product-manila-clams-01.jpg"),
+image: img("product-manila-clams-new.jpg"),
   },
   {
     title: {
