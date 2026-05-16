@@ -38,7 +38,7 @@ const heroSlides = [
     },
   },
   {
-    image: img("product-sri-lanka-roe-crab-new.jpg"),
+    image: img("product-yellow-roe-crab-06.jpg"),
     label: {
       en: "Sri Lanka roe crabs for premium home dining",
       zh: "斯里兰卡膏蟹，适合家庭聚餐",
@@ -46,7 +46,7 @@ const heroSlides = [
     },
   },
   {
-  image: img("stall-crab-talk-front-02.jpg"),
+   image: img("product-sri-lanka-roe-crab-new.jpg"),
     label: {
       en: "Visit our physical stall at Commonwealth Crescent",
       zh: "欢迎到 Commonwealth Crescent 实体档口",
@@ -1306,6 +1306,68 @@ function App() {
           border-bottom: 1px solid var(--line);
         }
 
+        .optionalCookingSlider {
+          position: relative;
+          height: 260px;
+          overflow: hidden;
+          padding: 10px;
+          background: #f6fbfa;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .optionalCookingSlide {
+          position: absolute;
+          inset: 10px;
+          opacity: 0;
+          animation: optionalCookingFade 12s infinite;
+        }
+
+        .optionalCookingSlide img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          border-radius: 18px;
+          background: #ffffff;
+          border-bottom: 0;
+        }
+
+        .optionalCookingCaption {
+          position: absolute;
+          left: 14px;
+          bottom: 14px;
+          padding: 8px 13px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.94);
+          color: var(--ink);
+          font-size: 13px;
+          font-weight: 950;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+          backdrop-filter: blur(10px);
+        }
+
+        @keyframes optionalCookingFade {
+          0% {
+            opacity: 1;
+            transform: scale(1);
+          }
+
+          25% {
+            opacity: 1;
+            transform: scale(1);
+          }
+
+          33% {
+            opacity: 0;
+            transform: scale(1.02);
+          }
+
+          100% {
+            opacity: 0;
+            transform: scale(1.02);
+          }
+        }
+
         .cookingGallery {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -1744,6 +1806,16 @@ function App() {
             height: 188px;
           }
 
+          .optionalCookingSlider {
+            height: 210px;
+          }
+
+          .optionalCookingCaption {
+            left: 12px;
+            bottom: 12px;
+            font-size: 12px;
+          }
+
           .cookingGalleryItem {
             height: 118px;
           }
@@ -2042,10 +2114,15 @@ function App() {
               </article>
 
               <article className="infoPanel">
-                <div className="cookingGallery">
-                  {optionalCookingImages.map((item) => (
-                    <div className="cookingGalleryItem" key={item.image}>
+                <div className="optionalCookingSlider">
+                  {optionalCookingImages.map((item, index) => (
+                    <div
+                      className="optionalCookingSlide"
+                      key={item.image}
+                      style={{ animationDelay: `${index * 3}s` }}
+                    >
                       <SmartImage src={item.image} alt={item.alt} />
+                      <div className="optionalCookingCaption">{item.alt}</div>
                     </div>
                   ))}
                 </div>
