@@ -38,7 +38,7 @@ const heroSlides = [
     },
   },
   {
-    image: img("product-yellow-roe-crab-06.jpg"),
+   image: img("product-sri-lanka-roe-crab-new.jpg"),
     label: {
       en: "Sri Lanka roe crabs for premium home dining",
       zh: "斯里兰卡膏蟹，适合家庭聚餐",
@@ -88,7 +88,7 @@ const freshSelection = [
       zh: "膏香浓郁，肉质结实，适合家庭宴客和节日聚餐。",
       ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
     },
-    image: img("product-yellow-roe-crab-06.jpg"),
+   image: img("product-sri-lanka-roe-crab-new.jpg"),
   },
   {
     title: {
