@@ -114,7 +114,7 @@ const freshSelection = [
       zh: "适合海鲜拼盘、聚餐或周末加菜。",
       ja: "シーフードプレート、集まり、週末のごちそうにおすすめ。",
     },
-    image: img("product-oysters-premium-02.jpg"),
+   image: img("product-oysters-new.jpg"),
   },
   {
     title: {
