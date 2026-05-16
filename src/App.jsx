@@ -101,7 +101,7 @@ const freshSelection = [
       zh: "每日视货源供应波士顿龙虾、青龙虾等选择。",
       ja: "入荷状況により、ボストンロブスターやグリーンロブスターをご用意。",
     },
-    image: img("product-boston-lobster-display.jpg"),
+   image: img("product-live-lobster-new.jpg"),
   },
   {
     title: {
