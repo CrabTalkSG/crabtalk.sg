@@ -727,8 +727,8 @@ function App() {
                 <div className="infoImage largeImage">
                   <SmartImage
                     src={[
-                      img("feature-8days-original-thumbnail.jpg"),
                       img("dish-chilli-crab-rich-sauce.jpg"),
+                      img("product-live-crab-premium.jpg"),
                       img("dish-steamed-crab-01.jpg"),
                     ]}
                     alt="Seafood prepared for home cooking"
