@@ -127,7 +127,7 @@ const freshSelection = [
       zh: "适合清蒸、辣椒啦啦、白酒煮、汤品或火锅。",
       ja: "蒸し料理、チリララ、白ワイン風、スープ、鍋料理におすすめ。",
     },
-    image: img("product-manila-clams-01.jpg"),
+    image: img("product-manila-clams-new.jpg"),
   },
   {
     title: {
