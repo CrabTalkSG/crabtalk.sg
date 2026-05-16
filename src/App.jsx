@@ -10,6 +10,8 @@ const LINKS = {
   maps: "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac",
   eightDays:
     "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
+  botakJazz: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
+  aiFeature: "https://www.facebook.com/share/v/1Djwg4h7UP/",
 };
 
 const ADDRESS = "31 Commonwealth Crescent #01-41/42/43, Singapore 149644";
@@ -31,144 +33,200 @@ const languages = {
     code: "EN",
     brand: "CRAB TALK",
     brandSub: "LIVE SEAFOOD SUPPLY",
+
     navHome: "Crab Talk",
     navSelection: "Fresh Selection",
     navHow: "How It Works",
     navReviews: "Reviews",
     navFind: "Find Us",
     whatsapp: "WhatsApp",
+
     heroBadge: "Physical Live Seafood Stall",
     heroTitle: "Pick Your Live Seafood From Our Tanks",
     heroText:
       "Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.",
     heroNote:
       "Crab Talk is not an online seafood shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.",
+
     visitStall: "Visit Our Stall Today",
     checkArrival: "WhatsApp to Check Today’s Arrival",
     telegram: "Join Telegram Updates",
     addressLabel: "Stall Address",
     today: "Today",
+
     selectionKicker: "Fresh Daily Selection",
     selectionTitle: "Pick Your Own Fresh Seafood From Our Live Tanks",
     selectionText:
       "Daily selection depends on arrival, size and season. Visit the stall to choose what looks best on the day.",
+
     howKicker: "Simple Buying Process",
     howTitle: "How It Works",
     howText:
       "Clear, simple and made for customers who want to see their seafood before buying.",
+
     homeTitle: "Made for Home Cooking",
     homeText:
       "Ideal for family meals, gatherings and weekend seafood nights. Choose from the tank, request cleaning or cutting where suitable, and bring home fresh seafood ready for your own cooking.",
+
     cookingTitle: "Optional Nearby Cooking",
     cookingText:
       "Selected seafood may sometimes be cooked nearby, subject to capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
+
     whyKicker: "Why Customers Visit",
     whyTitle: "Why Crab Talk",
+
+    featuredKicker: "Featured / Social Proof",
+    featuredTitle: "Seen Across Local Food Content",
+
     reviewsKicker: "Customer Feedback",
-    reviewsTitle: "What Customers Say",
+    reviewsTitle: "Google Reviews & Customer Trust",
+    reviewsText:
+      "For the latest public reviews, photos and customer feedback, please view Crab Talk directly on Google Maps.",
+    viewGoogleReviews: "View Google Reviews",
+
     faqKicker: "FAQ",
     faqTitle: "Common Questions",
+
     visitKicker: "Find Us",
     visitTitle: "Visit Crab Talk at Commonwealth Crescent",
     visitText:
       "Come down, choose from the live tanks, and ask our team what is suitable for your budget, pax and cooking style.",
     openingHours: "Opening Hours",
+
     footerText:
       "Live seafood availability changes daily. Prices, sizes and preparation services are subject to stock and stall capacity.",
   },
+
   zh: {
     code: "中文",
     brand: "CRAB TALK",
     brandSub: "活海鲜供应",
+
     navHome: "Crab Talk",
     navSelection: "新鲜选择",
     navHow: "购买流程",
     navReviews: "顾客评价",
     navFind: "地址",
     whatsapp: "WhatsApp",
+
     heroBadge: "实体活海鲜档口",
     heroTitle: "到水缸亲自挑选活海鲜",
     heroText:
       "欢迎到 Commonwealth Crescent 的 Crab Talk，亲自挑选活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等。挑选后，可向我们询问清理、切好和打包服务，方便回家料理。",
     heroNote:
       "Crab Talk 不是线上海鲜店。WhatsApp 主要用于查询当天到货、库存和预留咨询。",
+
     visitStall: "今天到档口看看",
     checkArrival: "WhatsApp 查询今日到货",
     telegram: "加入 Telegram 更新",
     addressLabel: "档口地址",
     today: "今日",
+
     selectionKicker: "每日新鲜选择",
     selectionTitle: "从活海鲜水缸亲自挑选",
     selectionText:
       "每日货源会根据到货、尺寸和季节而变化。欢迎到店挑选当天最合适的海鲜。",
+
     howKicker: "简单购买流程",
     howTitle: "如何购买",
     howText: "适合想亲眼看货、亲自挑选海鲜的顾客。",
+
     homeTitle: "适合家庭料理",
     homeText:
       "适合家庭聚餐、周末加菜和海鲜晚餐。可从水缸挑选海鲜，并根据情况询问清理、切好和打包服务。",
+
     cookingTitle: "附近代煮选项",
     cookingText:
       "部分海鲜有时可安排附近代煮，需视对方档口容量、菜式和时段而定。Crab Talk 的主要服务仍是活海鲜供应和家庭料理准备。",
+
     whyKicker: "为什么选择我们",
     whyTitle: "为什么顾客会来 Crab Talk",
+
+    featuredKicker: "媒体与社交平台",
+    featuredTitle: "本地美食内容推荐",
+
     reviewsKicker: "顾客反馈",
-    reviewsTitle: "顾客怎么说",
+    reviewsTitle: "Google 评价与顾客信任",
+    reviewsText:
+      "最新的公开评价、照片和顾客反馈，建议直接到 Google Maps 查看 Crab Talk。",
+    viewGoogleReviews: "查看 Google 评价",
+
     faqKicker: "FAQ",
     faqTitle: "常见问题",
+
     visitKicker: "地址",
     visitTitle: "到 Commonwealth Crescent 找 Crab Talk",
     visitText:
       "欢迎到店从水缸挑选海鲜，并告诉我们人数、预算和想要的煮法，我们会尽量建议适合的选择。",
     openingHours: "营业时间",
+
     footerText:
       "活海鲜供应每日不同。价格、尺寸和处理服务需视当天库存和档口情况而定。",
   },
+
   ja: {
     code: "日本語",
     brand: "CRAB TALK",
     brandSub: "ライブシーフード販売",
+
     navHome: "Crab Talk",
     navSelection: "海鮮ラインナップ",
     navHow: "購入方法",
     navReviews: "レビュー",
     navFind: "アクセス",
     whatsapp: "WhatsApp",
+
     heroBadge: "実店舗のライブシーフードストール",
     heroTitle: "水槽から活きた海鮮を選べます",
     heroText:
       "Commonwealth Crescent の Crab Talk で、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを店頭で選べます。選んだ海鮮は、必要に応じて清掃・カット・梱包についてご相談ください。",
     heroNote:
       "Crab Talk はオンライン海鮮ショップではありません。WhatsApp は主に当日の入荷、在庫、取り置き相談用です。",
+
     visitStall: "店舗への行き方",
     checkArrival: "WhatsAppで本日の入荷確認",
     telegram: "Telegram更新を見る",
     addressLabel: "店舗住所",
     today: "本日",
+
     selectionKicker: "毎日の新鮮ラインナップ",
     selectionTitle: "ライブ水槽から自分で選べる海鮮",
     selectionText:
       "入荷、サイズ、季節によりラインナップは変わります。店頭で実際に見てお選びください。",
+
     howKicker: "分かりやすい購入方法",
     howTitle: "購入の流れ",
     howText: "実際に海鮮を見てから買いたい方に向いています。",
+
     homeTitle: "家庭料理にぴったり",
     homeText:
       "家族の食事、週末の海鮮料理、ホームパーティーにおすすめです。水槽から選び、可能な場合は清掃・カット・梱包についてご相談ください。",
+
     cookingTitle: "近隣調理オプション",
     cookingText:
       "一部の海鮮は近隣で調理できる場合がありますが、混雑状況、料理内容、時間枠によります。Crab Talk の主なサービスは家庭料理向けのライブシーフード販売です。",
+
     whyKicker: "選ばれる理由",
     whyTitle: "Crab Talk の魅力",
+
+    featuredKicker: "掲載・SNS",
+    featuredTitle: "ローカルフードコンテンツでも紹介",
+
     reviewsKicker: "お客様の声",
-    reviewsTitle: "レビュー",
+    reviewsTitle: "Google レビューと信頼",
+    reviewsText:
+      "最新の公開レビュー、写真、お客様の声は Google Maps で直接ご確認ください。",
+    viewGoogleReviews: "Google レビューを見る",
+
     faqKicker: "FAQ",
     faqTitle: "よくある質問",
+
     visitKicker: "アクセス",
     visitTitle: "Commonwealth Crescent の Crab Talk へ",
     visitText:
       "人数、予算、調理方法を教えていただければ、店頭で合う海鮮をご提案します。",
     openingHours: "営業時間",
+
     footerText:
       "ライブシーフードの在庫は日々変わります。価格、サイズ、下処理サービスは当日の在庫と店頭状況によります。",
   },
@@ -186,7 +244,11 @@ const selectionItems = [
       zh: "适合清蒸、辣椒蟹、黑胡椒蟹或姜葱蟹。",
       ja: "蒸し料理、チリクラブ、ブラックペッパー、ジンジャースキャリオンにおすすめ。",
     },
-    image: img("product-live-crab-premium.jpg"),
+    image: [
+      img("product-live-crab-premium.jpg"),
+      img("product-live-crab-premium-01.jpg"),
+      img("product-live-crab.jpg"),
+    ],
   },
   {
     title: {
@@ -199,7 +261,11 @@ const selectionItems = [
       zh: "膏香浓郁，肉质结实，适合家庭聚餐。",
       ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
     },
-    image: img("product-yellow-roe-crab-06.jpg"),
+    image: [
+      img("product-yellow-roe-crab-06.jpg"),
+      img("product-yellow-roe-crab.jpg"),
+      img("product-sri-lanka-roe-crab.jpg"),
+    ],
   },
   {
     title: {
@@ -229,7 +295,11 @@ const selectionItems = [
       zh: "适合海鲜拼盘、聚餐和周末加菜。",
       ja: "シーフードプレート、集まり、週末のごちそうにおすすめ。",
     },
-    image: img("product-oysters-premium-02.jpg"),
+    image: [
+      img("product-oysters-premium-02.jpg"),
+      img("product-oysters-new.jpg"),
+      img("product-fresh-oysters.jpg"),
+    ],
   },
   {
     title: {
@@ -242,7 +312,11 @@ const selectionItems = [
       zh: "适合清蒸、辣椒啦啦、白酒煮、汤品或火锅。",
       ja: "蒸し料理、チリララ、白ワイン風、スープ、鍋料理におすすめ。",
     },
-    image: img("product-manila-clams-01.jpg"),
+    image: [
+      img("product-manila-clams-01.jpg"),
+      img("product-manila-clams-new.jpg"),
+      img("product-manila-clams-closeup.jpg"),
+    ],
   },
   {
     title: {
@@ -258,6 +332,7 @@ const selectionItems = [
     image: [
       img("product-live-soon-hock-premium-fish.jpg"),
       img("product-live-soon-hock-01.jpg"),
+      img("Live Soon Hock.jpeg"),
     ],
   },
 ];
@@ -372,30 +447,45 @@ const whyItems = [
   },
 ];
 
-const reviews = [
+const reviewTrustCards = [
   {
-    text: {
-      en: "Fresh seafood and friendly service. The team gives useful advice on what to choose and how to cook it.",
-      zh: "海鲜新鲜，服务亲切，也会建议适合的选择和煮法。",
-      ja: "新鮮な海鮮と親切なサービス。選び方や調理方法も相談できます。",
+    icon: "⭐",
+    title: {
+      en: "Public Google reviews",
+      zh: "公开 Google 评价",
+      ja: "Google 公開レビュー",
     },
-    name: "Customer feedback",
+    text: {
+      en: "See the latest customer comments, ratings and photos directly on Google Maps.",
+      zh: "可直接在 Google Maps 查看最新顾客评价、评分和照片。",
+      ja: "Google Maps で最新のレビュー、評価、写真をご確認いただけます。",
+    },
   },
   {
-    text: {
-      en: "Good place to buy live crabs and seafood for home cooking. Helpful when choosing portions for family meals.",
-      zh: "适合买活蟹和海鲜回家料理，也会帮忙建议家庭份量。",
-      ja: "活ガニや海鮮を家庭料理用に買うのに便利。人数に合わせた量も相談できます。",
+    icon: "📸",
+    title: {
+      en: "Real customer photos",
+      zh: "真实顾客照片",
+      ja: "実際のお客様写真",
     },
-    name: "Customer feedback",
+    text: {
+      en: "Customers often share photos of live seafood, stall visits and cooked meals.",
+      zh: "顾客常分享活海鲜、到店体验和料理照片。",
+      ja: "お客様が海鮮、店舗、料理写真を投稿されています。",
+    },
   },
   {
-    text: {
-      en: "A different market experience — choose from the tanks and bring home seafood prepared for cooking.",
-      zh: "很不一样的市场体验，可以从水缸挑选，再带回家料理。",
-      ja: "水槽から選んで、家庭料理用に持ち帰れる市場らしい体験です。",
+    icon: "🦀",
+    title: {
+      en: "Visit before buying",
+      zh: "购买前可亲自看货",
+      ja: "購入前に実物確認",
     },
-    name: "Customer feedback",
+    text: {
+      en: "The best way to judge quality is to come down and choose from the live tanks.",
+      zh: "判断品质最好的方法，是亲自到店从水缸挑选。",
+      ja: "品質を確認するには、店頭で水槽から選ぶのが一番です。",
+    },
   },
 ];
 
@@ -456,60 +546,117 @@ const faqs = {
   ],
 };
 
+const homeCookingImages = [
+  img("product-live-crab-premium.jpg"),
+  img("product-yellow-roe-crab-06.jpg"),
+  img("product-live-lobster-new.jpg"),
+  img("product-live-soon-hock-premium-fish.jpg"),
+];
+
 const optionalCookingImages = [
   img("dish-lobster-yee-mee-table-shot.jpg"),
   img("dish-lobster-bee-hoon-fai-kee-01.jpg"),
   img("partner-fai-kee-food-overview.jpg"),
   img("dish-steamed-soon-hock-fai-kee.jpg"),
   img("dish-chilli-crab-table-shot.jpg"),
+  img("cooking-lobster-yee-mee.jpg"),
+  img("cooking-lobster-bee-hoon.jpg"),
+  img("cooking-chilli-crab.jpg"),
+  img("cooking-steamed-fish.jpg"),
 ];
 
 const featureCards = [
   {
     title: "8 Days Feature",
     text: "Featured for the live seafood stall and nearby cooking concept at Commonwealth Crescent.",
-    image: img("feature-8days-original-thumbnail.jpg"),
+    image: [
+      img("feature-8days-original-thumbnail.jpg"),
+      img("8days_feature.jpg"),
+    ],
     link: LINKS.eightDays,
   },
   {
-    title: "TikTok Updates",
-    text: "Follow our latest seafood arrivals, tank videos and daily updates.",
-    image: img("feature-botak-jazz-tiktok.jpg"),
-    link: LINKS.tiktok,
+    title: "Botak Jazz TikTok",
+    text: "Local TikTok feature showing the Crab Talk seafood experience.",
+    image: [
+      img("feature-botak-jazz-tiktok.jpg"),
+      img("botak-jazz-feature.jpg"),
+      img("Botak_feature.jpg"),
+    ],
+    link: LINKS.botakJazz,
   },
   {
-    title: "Telegram Community",
-    text: "Join our Telegram group for new arrivals and limited daily updates.",
-    image: img("stall-crab-talk-front-01.jpg"),
-    link: LINKS.telegram,
+    title: "AI Feature",
+    text: "Story feature about a crab seller using AI for daily work.",
+    image: [
+      img("AI-feature.jpeg"),
+      img("ai-feature.jpeg"),
+      img("feature-ai.jpg"),
+    ],
+    link: LINKS.aiFeature,
   },
 ];
 
-function SmartImage({ src, alt, className = "" }) {
-  const sources = Array.isArray(src) ? src : [src];
-  const [index, setIndex] = useState(0);
-  const [failed, setFailed] = useState(false);
+function SmartImage({
+  src,
+  alt,
+  className = "",
+  fit = "cover",
+  interval = 3000,
+}) {
+  const sources = useMemo(() => {
+    if (Array.isArray(src)) return src.filter(Boolean);
+    return src ? [src] : [];
+  }, [src]);
 
-  if (failed) {
+  const [index, setIndex] = useState(0);
+  const [failedIndexes, setFailedIndexes] = useState([]);
+
+  useEffect(() => {
+    setIndex(0);
+    setFailedIndexes([]);
+  }, [sources.join("|")]);
+
+  const availableSources = sources.filter(
+    (_, sourceIndex) => !failedIndexes.includes(sourceIndex)
+  );
+
+  useEffect(() => {
+    if (availableSources.length <= 1) return undefined;
+
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % availableSources.length);
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [availableSources.length, interval]);
+
+  if (!availableSources.length) {
     return (
       <div className={`imageFallback ${className}`}>
         <span>🦀</span>
+        <strong>Crab Talk</strong>
       </div>
     );
   }
 
+  const safeIndex = index % availableSources.length;
+  const activeSrc = availableSources[safeIndex];
+  const originalIndex = sources.indexOf(activeSrc);
+
   return (
     <img
       className={className}
-      src={sources[index]}
+      src={activeSrc}
       alt={alt}
       loading="lazy"
+      style={{ objectFit: fit }}
       onError={() => {
-        if (index < sources.length - 1) {
-          setIndex(index + 1);
-        } else {
-          setFailed(true);
-        }
+        setFailedIndexes((current) => {
+          if (current.includes(originalIndex)) return current;
+          return [...current, originalIndex];
+        });
+        setIndex(0);
       }}
     />
   );
@@ -527,8 +674,10 @@ function Logo() {
             img("Logo.png"),
           ]}
           alt="Crab Talk logo"
+          fit="cover"
         />
       </div>
+
       <div className="logoText">
         <strong>CRAB TALK</strong>
         <span>LIVE SEAFOOD SUPPLY</span>
@@ -547,9 +696,53 @@ function getTodayHours() {
 }
 
 function App() {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState(() => {
+    if (typeof window === "undefined") return "en";
+    return localStorage.getItem("crabtalk_language") || "en";
+  });
+
   const t = languages[lang];
   const today = useMemo(() => getTodayHours(), []);
+
+  useEffect(() => {
+    localStorage.setItem("crabtalk_language", lang);
+  }, [lang]);
+
+  useEffect(() => {
+    const title = "Crab Talk SG | Live Seafood Stall at Commonwealth Crescent";
+    const description =
+      "Visit Crab Talk at 31 Commonwealth Crescent #01-41/42/43 S(149644) to pick live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and premium seafood from the tanks.";
+
+    document.title = title;
+
+    const setMeta = (name, content, attr = "name") => {
+      let tag = document.querySelector(`meta[${attr}="${name}"]`);
+
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, name);
+        document.head.appendChild(tag);
+      }
+
+      tag.setAttribute("content", content);
+    };
+
+    setMeta("description", description);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:type", "website", "property");
+    setMeta("og:image", "/images/feature-8days-original-thumbnail.jpg", "property");
+
+    let favicon = document.querySelector('link[rel="icon"]');
+
+    if (!favicon) {
+      favicon = document.createElement("link");
+      favicon.rel = "icon";
+      document.head.appendChild(favicon);
+    }
+
+    favicon.href = "/images/crabtalk-logo.png?v=4";
+  }, []);
 
   useEffect(() => {
     if (!GOOGLE_TAG_ID) return;
@@ -566,11 +759,13 @@ function App() {
     }
 
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
       window.dataLayer.push(arguments);
     }
 
     window.gtag = gtag;
+
     gtag("js", new Date());
     gtag("config", GOOGLE_TAG_ID);
   }, []);
@@ -666,8 +861,10 @@ function App() {
                     img("stall-crab-talk-live-tanks.jpg"),
                     img("stall-crab-talk-front-02.jpg"),
                     img("feature-8days-original-thumbnail.jpg"),
+                    img("product-live-crab-premium.jpg"),
                   ]}
                   alt="Crab Talk live seafood stall"
+                  fit="cover"
                 />
               </div>
             </div>
@@ -685,7 +882,11 @@ function App() {
                 {selectionItems.map((item) => (
                   <article className="productCard" key={item.title.en}>
                     <div className="productMedia">
-                      <SmartImage src={item.image} alt={item.title[lang]} />
+                      <SmartImage
+                        src={item.image}
+                        alt={item.title[lang]}
+                        fit="contain"
+                      />
                     </div>
 
                     <div className="productBody">
@@ -713,6 +914,7 @@ function App() {
                       <span className="stepNumber">{index + 1}</span>
                       <span className="stepIcon">{step.icon}</span>
                     </div>
+
                     <h3>{step.title[lang]}</h3>
                     <p>{step.text[lang]}</p>
                   </article>
@@ -726,12 +928,9 @@ function App() {
               <article className="infoCard">
                 <div className="infoImage largeImage">
                   <SmartImage
-                    src={[
-                      img("dish-chilli-crab-rich-sauce.jpg"),
-                      img("product-live-crab-premium.jpg"),
-                      img("dish-steamed-crab-01.jpg"),
-                    ]}
-                    alt="Seafood prepared for home cooking"
+                    src={homeCookingImages}
+                    alt="Live seafood selected for home cooking"
+                    fit="cover"
                   />
                 </div>
 
@@ -746,10 +945,14 @@ function App() {
                   {optionalCookingImages.map((photo, index) => (
                     <div
                       className="optionalSlide"
-                      key={photo}
+                      key={`${photo}-${index}`}
                       style={{ animationDelay: `${index * 3}s` }}
                     >
-                      <SmartImage src={photo} alt="Nearby cooked seafood dish" />
+                      <SmartImage
+                        src={photo}
+                        alt="Nearby cooked seafood dish"
+                        fit="contain"
+                      />
                     </div>
                   ))}
                 </div>
@@ -784,8 +987,8 @@ function App() {
           <section className="section sectionTint">
             <div className="container">
               <div className="sectionHeader">
-                <p>Featured / Social Proof</p>
-                <h2>Seen Across Local Food Content</h2>
+                <p>{t.featuredKicker}</p>
+                <h2>{t.featuredTitle}</h2>
               </div>
 
               <div className="featureGrid">
@@ -797,7 +1000,12 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <SmartImage src={feature.image} alt={feature.title} />
+                    <SmartImage
+                      src={feature.image}
+                      alt={feature.title}
+                      fit="cover"
+                    />
+
                     <div>
                       <h3>{feature.title}</h3>
                       <p>{feature.text}</p>
@@ -813,16 +1021,28 @@ function App() {
               <div className="sectionHeader">
                 <p>{t.reviewsKicker}</p>
                 <h2>{t.reviewsTitle}</h2>
+                <span>{t.reviewsText}</span>
               </div>
 
               <div className="reviewsGrid">
-                {reviews.map((review) => (
-                  <article className="reviewCard" key={review.text.en}>
-                    <div className="stars">★★★★★</div>
+                {reviewTrustCards.map((review) => (
+                  <article className="reviewCard" key={review.title.en}>
+                    <div className="reviewIcon">{review.icon}</div>
+                    <h3>{review.title[lang]}</h3>
                     <p>{review.text[lang]}</p>
-                    <strong>{review.name}</strong>
                   </article>
                 ))}
+              </div>
+
+              <div className="centerCta">
+                <a
+                  className="button buttonGold"
+                  href={LINKS.maps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.viewGoogleReviews}
+                </a>
               </div>
             </div>
           </section>
@@ -917,6 +1137,7 @@ function App() {
           <a className="button buttonPrimary" href={LINKS.whatsapp}>
             WhatsApp
           </a>
+
           <a
             className="button buttonGold"
             href={LINKS.maps}
@@ -939,6 +1160,7 @@ const styles = `
   --gold: #d8b152;
   --goldLight: #fff1bd;
   --cream: #f7fbfa;
+  --soft: #eef7f5;
   --card: #ffffff;
   --line: #dce7e6;
   --muted: #637579;
@@ -958,7 +1180,7 @@ body {
   margin: 0;
   background: var(--cream);
   color: var(--teal);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
 a {
@@ -980,13 +1202,13 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
 
 .headerInner {
-  height: 92px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1001,8 +1223,8 @@ img {
 }
 
 .logoMark {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   border-radius: 18px;
   background: linear-gradient(135deg, #003f4a, #00a6b8);
   display: flex;
@@ -1029,8 +1251,8 @@ img {
 
 .logoText span {
   display: block;
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 7px;
+  font-size: 12px;
   color: #a8842f;
   font-weight: 900;
   letter-spacing: 0.18em;
@@ -1039,7 +1261,7 @@ img {
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
   font-size: 15px;
   font-weight: 850;
   color: #5d6d70;
@@ -1104,7 +1326,7 @@ img {
 }
 
 .hero {
-  padding: 78px 0 66px;
+  padding: 72px 0 64px;
   background:
     radial-gradient(circle at top left, rgba(42, 169, 184, 0.12), transparent 32%),
     linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
@@ -1216,8 +1438,8 @@ img {
 }
 
 .heroImageCard {
-  padding: 18px;
-  border-radius: 36px;
+  padding: 16px;
+  border-radius: 34px;
   background: white;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
@@ -1225,18 +1447,17 @@ img {
 
 .heroImageCard img {
   width: 100%;
-  height: min(560px, 58vw);
-  min-height: 390px;
-  object-fit: cover;
-  border-radius: 26px;
+  height: min(530px, 56vw);
+  min-height: 360px;
+  border-radius: 24px;
 }
 
 .section {
-  padding: 78px 0;
+  padding: 74px 0;
 }
 
 .sectionTint {
-  background: #eef7f5;
+  background: var(--soft);
 }
 
 .sectionHeader {
@@ -1290,27 +1511,29 @@ img {
 }
 
 .productMedia {
-  height: 235px;
+  height: 225px;
   background: #f7fbfa;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 8px;
 }
 
 .productMedia img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  border-radius: 20px;
 }
 
 .productBody {
-  padding: 24px;
+  padding: 22px;
 }
 
 .productBody h3,
 .stepCard h3,
 .whyCard h3,
+.reviewCard h3,
 .faqCard h3,
 .featureCard h3 {
   margin: 0;
@@ -1371,7 +1594,8 @@ img {
 }
 
 .stepIcon,
-.whyIcon {
+.whyIcon,
+.reviewIcon {
   font-size: 34px;
 }
 
@@ -1383,17 +1607,20 @@ img {
 
 .infoImage,
 .optionalSlider {
-  height: 330px;
+  height: 315px;
   background: #f7fbfa;
   border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
 }
 
+.largeImage {
+  padding: 0;
+}
+
 .largeImage img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .optionalSlider {
@@ -1404,26 +1631,46 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: cookingFade 15s infinite;
+  padding: 10px;
+  animation: cookingFade 27s infinite;
 }
 
 .optionalSlide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  border-radius: 20px;
   background: #f7fbfa;
 }
 
 @keyframes cookingFade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  20% { opacity: 1; }
-  25% { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+
+  4% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  11% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  15% {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.015);
+  }
 }
 
 .infoBody {
-  padding: 30px;
+  padding: 28px;
 }
 
 .infoBody h2 {
@@ -1452,8 +1699,7 @@ img {
 
 .featureCard img {
   width: 100%;
-  height: 210px;
-  object-fit: cover;
+  height: 205px;
   background: #f7fbfa;
 }
 
@@ -1465,16 +1711,18 @@ img {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.stars {
-  color: #d59a19;
-  letter-spacing: 0.08em;
+.reviewCard {
+  min-height: 210px;
+}
+
+.reviewIcon {
   margin-bottom: 16px;
 }
 
-.reviewCard strong {
-  display: block;
-  color: var(--teal);
-  margin-top: 16px;
+.centerCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
 }
 
 .faqGrid {
@@ -1593,7 +1841,15 @@ img {
   place-items: center;
   background: #eef7f5;
   color: var(--teal);
-  font-size: 42px;
+  font-size: 34px;
+  text-align: center;
+  padding: 20px;
+}
+
+.imageFallback strong {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 @media (max-width: 1020px) {
@@ -1617,7 +1873,7 @@ img {
   }
 
   .heroImageCard img {
-    height: 440px;
+    height: 420px;
     min-height: unset;
   }
 }
@@ -1628,22 +1884,22 @@ img {
   }
 
   .headerInner {
-    height: 78px;
+    height: 76px;
   }
 
   .logoMark {
-    width: 48px;
-    height: 48px;
-    border-radius: 16px;
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
   }
 
   .logoText strong {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .logoText span {
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
   }
 
   .headerWhatsapp {
@@ -1653,19 +1909,20 @@ img {
   .languageSelect {
     height: 42px;
     padding: 0 12px;
+    max-width: 96px;
   }
 
   .hero {
-    padding: 42px 0 44px;
+    padding: 40px 0 42px;
   }
 
   .hero h1 {
-    font-size: 43px;
+    font-size: 41px;
     letter-spacing: -0.06em;
   }
 
   .heroText {
-    font-size: 17px;
+    font-size: 16.5px;
   }
 
   .heroBadges span {
@@ -1674,18 +1931,30 @@ img {
     font-size: 11px;
   }
 
+  .addressCard {
+    align-items: flex-start;
+  }
+
+  .addressCard strong {
+    font-size: 15px;
+  }
+
+  .heroCtas .button {
+    width: 100%;
+  }
+
   .heroImageCard {
     padding: 10px;
     border-radius: 26px;
   }
 
   .heroImageCard img {
-    height: 300px;
+    height: 292px;
     border-radius: 20px;
   }
 
   .section {
-    padding: 52px 0;
+    padding: 50px 0;
   }
 
   .sectionHeader h2 {
@@ -1706,12 +1975,12 @@ img {
   }
 
   .productMedia {
-    height: 215px;
+    height: 205px;
   }
 
   .infoImage,
   .optionalSlider {
-    height: 260px;
+    height: 248px;
   }
 
   .infoBody {
@@ -1723,12 +1992,16 @@ img {
   }
 
   .visitCard {
-    padding: 26px;
+    padding: 25px;
     border-radius: 28px;
   }
 
   .visitCard h2 {
     font-size: 34px;
+  }
+
+  .visitAddress {
+    font-size: 16px;
   }
 
   .footerInner {
@@ -1764,19 +2037,15 @@ img {
 
 @media (max-width: 420px) {
   .logoText strong {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   .logoText span {
-    font-size: 9px;
+    font-size: 8.5px;
   }
 
   .hero h1 {
-    font-size: 38px;
-  }
-
-  .heroCtas .button {
-    width: 100%;
+    font-size: 37px;
   }
 }
 `;
