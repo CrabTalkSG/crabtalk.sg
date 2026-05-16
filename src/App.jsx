@@ -38,7 +38,7 @@ const heroSlides = [
     },
   },
   {
-   image: img("product-sri-lanka-roe-crab-new.jpg"),
+    image: img("product-yellow-roe-crab-06.jpg"),
     label: {
       en: "Sri Lanka roe crabs for premium home dining",
       zh: "斯里兰卡膏蟹，适合家庭聚餐",
@@ -88,7 +88,7 @@ const freshSelection = [
       zh: "膏香浓郁，肉质结实，适合家庭宴客和节日聚餐。",
       ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
     },
-   image: img("product-sri-lanka-roe-crab-new.jpg"),
+    image: img("product-yellow-roe-crab-06.jpg"),
   },
   {
     title: {
@@ -101,7 +101,7 @@ const freshSelection = [
       zh: "每日视货源供应波士顿龙虾、青龙虾等选择。",
       ja: "入荷状況により、ボストンロブスターやグリーンロブスターをご用意。",
     },
-   image: img("product-live-lobster-new.jpg"),
+    image: img("product-boston-lobster-display.jpg"),
   },
   {
     title: {
@@ -114,7 +114,7 @@ const freshSelection = [
       zh: "适合海鲜拼盘、聚餐或周末加菜。",
       ja: "シーフードプレート、集まり、週末のごちそうにおすすめ。",
     },
-   image: img("product-oysters-new.jpg"),
+    image: img("product-oysters-premium-02.jpg"),
   },
   {
     title: {
@@ -127,7 +127,7 @@ const freshSelection = [
       zh: "适合清蒸、辣椒啦啦、白酒煮、汤品或火锅。",
       ja: "蒸し料理、チリララ、白ワイン風、スープ、鍋料理におすすめ。",
     },
-    image: img("product-manila-clams-new.jpg"),
+    image: img("product-manila-clams-01.jpg"),
   },
   {
     title: {
@@ -141,6 +141,25 @@ const freshSelection = [
       ja: "蒸し料理、香港風、家庭料理に向いた活魚です。",
     },
     image: img("product-live-soon-hock-premium-fish.jpg"),
+  },
+];
+
+const optionalCookingImages = [
+  {
+    image: img("cooking-lobster-yee-mee.jpg"),
+    alt: "Lobster Yee Mee",
+  },
+  {
+    image: img("cooking-lobster-bee-hoon.jpg"),
+    alt: "Lobster Bee Hoon",
+  },
+  {
+    image: img("cooking-chilli-crab.jpg"),
+    alt: "Chilli Crab",
+  },
+  {
+    image: img("cooking-steamed-fish.jpg"),
+    alt: "Steamed Fish",
   },
 ];
 
@@ -241,7 +260,7 @@ const copy = {
 
     cookingTitle: "Optional Nearby Cooking",
     cookingText:
-      "Selected seafood may sometimes be cooked nearby by Fai Kee, subject to their capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
+      "Selected seafood may sometimes be cooked nearby by Fai Kee, subject to their capacity, dish suitability and time slot availability. Popular choices include Lobster Yee Mee, Lobster Bee Hoon, chilli crab and steamed fish. Crab Talk’s main focus remains live seafood supply for home cooking.",
 
     featuresKicker: "Social Proof",
     featuresTitle: "Featured & Shared",
@@ -361,7 +380,7 @@ const copy = {
 
     cookingTitle: "附近代煮选项",
     cookingText:
-      "部分海鲜有时可由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定。Crab Talk 的主要重点仍是活海鲜供应和家庭料理。",
+      "部分海鲜有时可由附近 Fai Kee 烹煮，但需视他们当天人手、菜式和时段安排而定。热门菜式包括龙虾伊面、龙虾米粉、辣椒蟹和清蒸鱼。Crab Talk 的主要重点仍是活海鲜供应和家庭料理。",
 
     featuresKicker: "媒体与分享",
     featuresTitle: "媒体与达人分享",
@@ -484,7 +503,7 @@ const copy = {
 
     cookingTitle: "近くでの調理オプション",
     cookingText:
-      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。Crab Talk の主なサービスはライブシーフード販売です。",
+      "一部の海鮮は近くの Fai Kee で調理できる場合がありますが、混雑状況、料理内容、時間枠により異なります。人気料理はロブスター伊麺、ロブスタービーフン、チリクラブ、蒸し魚などです。Crab Talk の主なサービスはライブシーフード販売です。",
 
     featuresKicker: "メディア紹介",
     featuresTitle: "メディア・SNS紹介",
@@ -566,7 +585,7 @@ function LogoImage() {
 
   return (
     <img
-      src="/images/crabtalk-logo.png"
+      src="/images/crabtalk-logo.png?v=3"
       alt="Crab Talk logo"
       onError={() => setHasError(true)}
     />
@@ -644,7 +663,7 @@ function App() {
       document.head.appendChild(favicon);
     }
 
-    favicon.href = "/images/crabtalk-logo.png";
+    favicon.href = "/images/crabtalk-logo.png?v=3";
   }, []);
 
   useEffect(() => {
@@ -686,15 +705,11 @@ function App() {
       <style>{`
         :root {
           --ink: #06343b;
-          --ink2: #0b4750;
           --muted: #61777b;
-          --muted2: #829196;
           --teal: #003f4a;
           --teal2: #007f91;
-          --aqua: #00a6b8;
           --gold: #d8b45f;
           --gold2: #fff3c5;
-          --cream: #fffdf7;
           --bg: #f7fbfa;
           --card: #ffffff;
           --line: rgba(6, 52, 59, 0.12);
@@ -715,8 +730,8 @@ function App() {
 
         body {
           margin: 0;
-          background: #f7fbfa;
-          color: #06343b;
+          background: var(--bg);
+          color: var(--ink);
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
         }
 
@@ -866,11 +881,7 @@ function App() {
           line-height: 1;
           white-space: nowrap;
           cursor: pointer;
-          transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease,
-            background 0.2s ease,
-            border-color 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .button:hover {
@@ -1295,6 +1306,32 @@ function App() {
           border-bottom: 1px solid var(--line);
         }
 
+        .cookingGallery {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+          padding: 10px;
+          background: #f6fbfa;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .cookingGalleryItem {
+          height: 132px;
+          overflow: hidden;
+          border-radius: 16px;
+          background: #ffffff;
+          border: 1px solid rgba(6, 52, 59, 0.1);
+        }
+
+        .cookingGalleryItem img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+          background: #ffffff;
+          border-bottom: 0;
+        }
+
         .infoPanelBody {
           padding: 24px;
         }
@@ -1560,10 +1597,7 @@ function App() {
             grid-template-columns: 1fr;
           }
 
-          .hero h1 {
-            max-width: 900px;
-          }
-
+          .hero h1,
           .heroText {
             max-width: 900px;
           }
@@ -1708,6 +1742,10 @@ function App() {
 
           .infoPanel img {
             height: 188px;
+          }
+
+          .cookingGalleryItem {
+            height: 118px;
           }
 
           .visitBox {
@@ -2004,10 +2042,14 @@ function App() {
               </article>
 
               <article className="infoPanel">
-                <SmartImage
-                  src={img("dish-lobster-yee-mee-fai-kee-hero.jpg")}
-                  alt="Optional nearby cooking"
-                />
+                <div className="cookingGallery">
+                  {optionalCookingImages.map((item) => (
+                    <div className="cookingGalleryItem" key={item.image}>
+                      <SmartImage src={item.image} alt={item.alt} />
+                    </div>
+                  ))}
+                </div>
+
                 <div className="infoPanelBody">
                   <h3>{t.cookingTitle}</h3>
                   <p>{t.cookingText}</p>
