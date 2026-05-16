@@ -38,7 +38,7 @@ const heroSlides = [
     },
   },
   {
-    image: img("product-yellow-roe-crab-06.jpg"),
+    image: img("product-sri-lanka-roe-crab-new.jpg"),
     label: {
       en: "Sri Lanka roe crabs for premium home dining",
       zh: "斯里兰卡膏蟹，适合家庭聚餐",
@@ -46,7 +46,7 @@ const heroSlides = [
     },
   },
   {
-   image: img("product-sri-lanka-roe-crab-new.jpg"),
+  image: img("stall-crab-talk-front-02.jpg"),
     label: {
       en: "Visit our physical stall at Commonwealth Crescent",
       zh: "欢迎到 Commonwealth Crescent 实体档口",
