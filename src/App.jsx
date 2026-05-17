@@ -10,6 +10,8 @@ const LINKS = {
   maps: "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac",
   eightDays:
     "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
+  facebookFeature: "https://www.facebook.com/share/v/1G11gaRXxS/",
+  shinMin: "https://www.facebook.com/share/v/1G11gaRXxS/",
 };
 
 const ADDRESS = "31 Commonwealth Crescent #01-41/42/43, Singapore 149644";
@@ -490,10 +492,10 @@ const featureCards = [
     link: LINKS.tiktok,
   },
   {
-    title: "Telegram Community",
-    text: "Join our Telegram group for new arrivals and limited daily updates.",
+    title: "Facebook Feature",
+    text: "Local Facebook feature highlighting Crab Talk and our live seafood stall story.",
     image: img("stall-crab-talk-front-01.jpg"),
-    link: LINKS.telegram,
+    link: LINKS.facebookFeature,
   },
   {
     title: "Shin Min News Feature",
@@ -825,7 +827,7 @@ function App() {
             <div className="container">
               <div className="sectionHeader">
                 <p>Featured / Social Proof</p>
-                <h2>Seen Across Local Food Content</h2>
+                <h2>Featured Locally</h2>
               </div>
 
               <div className="featureGrid">
