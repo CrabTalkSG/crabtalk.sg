@@ -11,7 +11,6 @@ const LINKS = {
   eightDays:
     "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
   facebookFeature: "https://www.facebook.com/share/v/1G11gaRXxS/",
-  shinMin: "https://www.facebook.com/share/v/1G11gaRXxS/",
 };
 
 const ADDRESS = "31 Commonwealth Crescent #01-41/42/43, Singapore 149644";
@@ -458,18 +457,6 @@ const faqs = {
   ],
 };
 
-const heroImages = [
-  img("stall-crab-talk-live-tanks.jpg"),
-  img("stall-crab-talk-front-02.jpg"),
-  img("feature-8days-original-thumbnail.jpg"),
-];
-
-const homeCookingImages = [
-  img("feature-8days-original-thumbnail.jpg"),
-  img("dish-chilli-crab-rich-sauce.jpg"),
-  img("dish-steamed-crab-01.jpg"),
-];
-
 const optionalCookingImages = [
   img("dish-lobster-yee-mee-table-shot.jpg"),
   img("dish-lobster-bee-hoon-fai-kee-01.jpg"),
@@ -481,7 +468,7 @@ const optionalCookingImages = [
 const featureCards = [
   {
     title: "8 Days Feature",
-    text: "Featured for the live seafood stall and nearby cooking concept at Commonwealth Crescent.",
+    text: "Featured for our live seafood stall and optional nearby cooking concept at Commonwealth Crescent.",
     image: img("feature-8days-original-thumbnail.jpg"),
     link: LINKS.eightDays,
   },
@@ -493,22 +480,26 @@ const featureCards = [
   },
   {
     title: "Facebook Feature",
-    text: "Local Facebook feature highlighting Crab Talk and our live seafood stall story.",
-    image: img("stall-crab-talk-front-01.jpg"),
+    text: "Local Facebook feature highlighting Crab Talk as a live seafood seller using AI content to share our stall story, fresh arrivals and market-style seafood experience.",
+    image: img("AI-feature.jpg"),
     link: LINKS.facebookFeature,
-  },
-  {
-    title: "Shin Min News Feature",
-    text: "Also seen on Shin Min News, adding more local recognition for Crab Talk.",
-    image: img("feature-shin-min-news.jpg"),
-    link: LINKS.shinMin,
   },
 ];
 
-function SmartImage({ src, alt, className = "" }) {
+function SmartImage({ src, alt, className = "", rotate = false }) {
   const sources = Array.isArray(src) ? src : [src];
   const [index, setIndex] = useState(0);
   const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (!rotate || sources.length <= 1 || failed) return undefined;
+
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % sources.length);
+    }, 3600);
+
+    return () => window.clearInterval(timer);
+  }, [rotate, sources.length, failed]);
 
   if (failed) {
     return (
@@ -531,38 +522,6 @@ function SmartImage({ src, alt, className = "" }) {
           setFailed(true);
         }
       }}
-    />
-  );
-}
-
-function RotatingImage({ images, alt, className = "", interval = 3600 }) {
-  const sources = Array.isArray(images) ? images.filter(Boolean) : [images].filter(Boolean);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (sources.length <= 1) return undefined;
-
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % sources.length);
-    }, interval);
-
-    return () => window.clearInterval(timer);
-  }, [sources.length, interval]);
-
-  if (!sources.length) {
-    return (
-      <div className={`imageFallback ${className}`}>
-        <span>🦀</span>
-      </div>
-    );
-  }
-
-  return (
-    <SmartImage
-      key={sources[activeIndex]}
-      src={sources[activeIndex]}
-      alt={alt}
-      className={className}
     />
   );
 }
@@ -713,10 +672,13 @@ function App() {
               </div>
 
               <div className="heroImageCard">
-                <RotatingImage
-                  images={heroImages}
+                <SmartImage
+                  src={[
+                    img("stall-crab-talk-live-tanks.jpg"),
+                    img("stall-crab-talk-front-02.jpg"),
+                    img("feature-8days-original-thumbnail.jpg"),
+                  ]}
                   alt="Crab Talk live seafood stall"
-                  interval={4200}
                 />
               </div>
             </div>
@@ -774,10 +736,13 @@ function App() {
             <div className="container twoColumn">
               <article className="infoCard">
                 <div className="infoImage largeImage">
-                  <RotatingImage
-                    images={homeCookingImages}
+                  <SmartImage
+                    src={[
+                      img("feature-8days-original-thumbnail.jpg"),
+                      img("dish-chilli-crab-rich-sauce.jpg"),
+                      img("dish-steamed-crab-01.jpg"),
+                    ]}
                     alt="Seafood prepared for home cooking"
-                    interval={3800}
                   />
                 </div>
 
@@ -789,11 +754,15 @@ function App() {
 
               <article className="infoCard">
                 <div className="optionalSlider">
-                  <RotatingImage
-                    images={optionalCookingImages}
-                    alt="Nearby cooked seafood dish"
-                    interval={3800}
-                  />
+                  {optionalCookingImages.map((photo, index) => (
+                    <div
+                      className="optionalSlide"
+                      key={photo}
+                      style={{ animationDelay: `${index * 3}s` }}
+                    >
+                      <SmartImage src={photo} alt="Nearby cooked seafood dish" />
+                    </div>
+                  ))}
                 </div>
 
                 <div className="infoBody">
@@ -1442,13 +1411,6 @@ img {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-.optionalSlider > img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #f7fbfa;
-}
-
 .optionalSlide {
   position: absolute;
   inset: 0;
@@ -1487,7 +1449,7 @@ img {
 }
 
 .featureGrid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .featureCard {
