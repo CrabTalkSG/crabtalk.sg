@@ -1,1795 +1,1996 @@
-import { useEffect, useMemo, useState } from "react";
+Yes. This version uses **Google Maps for real reviews** instead of fake review text. It adds a **Google Reviews** section with buttons to open your Google Maps listing, plus cleaner review trust cards.
 
-const GOOGLE_TAG_ID = "G-V94NDT5ZCR";
+The operating hours / Fai Kee timing are based on the public 8 Days feature, which lists Crab Talk’s hours and Fai Kee as Tue–Sat 3–9pm, closed Sun & Mon.  Take App is also included as your online ordering link.
 
-const LINKS = {
-  whatsapp:
-    "https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.",
-  telegram: "https://t.me/CrabTalkSG",
-  tiktok: "https://www.tiktok.com/@liveseafood_crabtalksg",
-  maps: "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac",
-  eightDays:
-    "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
-  facebookFeature: "https://www.facebook.com/share/v/1G11gaRXxS/",
-};
+Replace your full **`src/App.jsx`** with this:
 
-const ADDRESS = "31 Commonwealth Crescent #01-41/42/43, Singapore 149644";
+```jsx
+import React, { useEffect, useState } from "react";
 
 const img = (name) => `/images/${name}`;
 
-const HOURS = [
-  { day: "Monday", hours: "12pm – 5pm" },
-  { day: "Tuesday", hours: "8am – 7pm" },
-  { day: "Wednesday", hours: "8am – 7pm" },
-  { day: "Thursday", hours: "8am – 7pm" },
-  { day: "Friday", hours: "8am – 8pm" },
-  { day: "Saturday", hours: "8am – 8pm" },
-  { day: "Sunday", hours: "8am – 5pm" },
+const whatsappLink =
+  "https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.";
+const telegramLink = "https://t.me/CrabTalkSG";
+const mapsLink = "https://maps.app.goo.gl/1GKdK2y6jpbqfg8N8?g_st=ac";
+const takeAppLink = "https://take.app/crabtalk";
+const instagramLink = "https://www.instagram.com/liveseafoodsupply_crabtalksg/";
+
+const heroImages = [
+  img("product-yellow-roe-crab-06.jpg"),
+  img("product-live-crab-premium.jpg"),
+  img("product-boston-lobster-display.jpg"),
+  img("feature-8days-original-thumbnail.jpg"),
+  img("botak-jazz-feature.jpg"),
 ];
 
-const languages = {
+const productImages = {
+  crab: img("product-live-crab-premium.jpg"),
+  roe: img("product-yellow-roe-crab-06.jpg"),
+  lobster: img("product-boston-lobster-display.jpg"),
+  oysters: img("product-oysters-premium-02.jpg"),
+  clams: img("product-manila-clams-01.jpg"),
+  fish: img("product-live-soon-hock-premium-fish.jpg"),
+};
+
+const featureImages = {
+  days: img("feature-8days-original-thumbnail.jpg"),
+  botak: img("botak-jazz-feature.jpg"),
+  ai: img("AI-feature.jpeg"),
+};
+
+const content = {
   en: {
-    code: "EN",
-    brand: "CRAB TALK",
-    brandSub: "LIVE SEAFOOD SUPPLY",
-    navHome: "Crab Talk",
-    navSelection: "Fresh Selection",
-    navHow: "How It Works",
-    navReviews: "Reviews",
-    navFind: "Find Us",
-    whatsapp: "WhatsApp",
-    heroBadge: "Physical Live Seafood Stall",
-    heroTitle: "Pick Your Live Seafood From Our Tanks",
-    heroText:
-      "Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.",
-    heroNote:
-      "Crab Talk is not an online seafood shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.",
-    visitStall: "Visit Our Stall Today",
-    checkArrival: "WhatsApp to Check Today’s Arrival",
-    telegram: "Join Telegram Updates",
-    addressLabel: "Stall Address",
-    today: "Today",
-    selectionKicker: "Fresh Daily Selection",
-    selectionTitle: "Pick Your Own Fresh Seafood From Our Live Tanks",
-    selectionText:
-      "Daily selection depends on arrival, size and season. Visit the stall to choose what looks best on the day.",
-    howKicker: "Simple Buying Process",
-    howTitle: "How It Works",
-    howText:
-      "Clear, simple and made for customers who want to see their seafood before buying.",
-    homeTitle: "Made for Home Cooking",
-    homeText:
-      "Ideal for family meals, gatherings and weekend seafood nights. Choose from the tank, request cleaning or cutting where suitable, and bring home fresh seafood ready for your own cooking.",
-    cookingTitle: "Optional Nearby Cooking",
+    brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    nav: {
+      seafood: "Seafood",
+      hours: "Hours",
+      telegram: "Telegram",
+      features: "Features",
+      reviews: "Reviews",
+      faq: "FAQ",
+      visit: "Visit",
+      whatsapp: "WhatsApp",
+    },
+    eyebrow: "Live Seafood • Fresh Daily • Singapore",
+    heroTitle: "Premium live seafood for home cooking.",
+    heroCopy:
+      "Choose live crabs, lobsters, oysters, clams and premium fish directly from Crab Talk. Fresh daily selections for families, gatherings and seafood lovers who want restaurant-quality seafood at home.",
+    visitUs: "Visit us:",
+    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    whatsappReserve: "WhatsApp to Reserve",
+    telegramJoin: "Join Telegram Updates",
+    maps: "Open Google Maps",
+    orderOnline: "Order Online",
+    instagram: "Instagram",
+    heroBadge: "Daily arrivals vary. Telegram updates first.",
+
+    trust: [
+      {
+        title: "Freshness You Can See",
+        text: "Pick live seafood directly from our tanks before bringing it home.",
+      },
+      {
+        title: "Reserve Before Coming",
+        text: "Popular items move fast. Message us to check today’s availability first.",
+      },
+      {
+        title: "Quality Over Weight",
+        text: "For crabs, weight alone does not tell everything. We look at size, condition, vitality and meatiness.",
+      },
+    ],
+
+    hoursKicker: "Opening Hours",
+    hoursTitle: "Plan your visit before coming down",
+    hoursDesc:
+      "Live seafood availability changes daily. For the best selection, join Telegram or WhatsApp us before visiting.",
+    crabTalkHours: [
+      "Monday: 12pm – 5pm",
+      "Tuesday: 8am – 7pm",
+      "Wednesday: 8am – 7pm",
+      "Thursday: 8am – 7pm",
+      "Friday: 8am – 8pm",
+      "Saturday: 8am – 8pm",
+      "Sunday: 8am – 5pm",
+    ],
+    cookingTitle: "Nearby cooking option",
     cookingText:
-      "Selected seafood may sometimes be cooked nearby, subject to capacity, dish suitability and time slot availability. Crab Talk’s main focus remains live seafood supply for home cooking.",
-    whyKicker: "Why Customers Visit",
-    whyTitle: "Why Crab Talk",
-    reviewsKicker: "Customer Feedback",
-    reviewsTitle: "What Customers Say",
+      "Fai Kee Fishhead Bee Hoon is located upstairs at #02-74. Publicly listed hours are Tuesday to Saturday, 3pm–9pm. Closed on Sunday and Monday. Cooking capacity is limited, so advance planning is recommended.",
+    onlineOrderText:
+      "Online ordering is available through Crab Talk’s Take App page. Daily prices and availability may change depending on stock.",
+
+    freshKicker: "Fresh Daily Selection",
+    freshTitle: "Choose your seafood",
+    freshDesc:
+      "Our focus is live seafood supply: selected, packed and ready for home cooking. Availability depends on daily stock.",
+    freshSelection: [
+      {
+        title: "Live Mud Crabs",
+        text: "Meaty, active mud crabs selected for steaming, chilli crab, black pepper crab or ginger scallion crab.",
+        image: productImages.crab,
+      },
+      {
+        title: "Sri Lanka Roe Crabs",
+        text: "Premium roe crabs with rich flavour, firm meat and beautiful roe. Popular for home steaming and family occasions.",
+        image: productImages.roe,
+      },
+      {
+        title: "Live Lobsters",
+        text: "Boston lobster and green lobster selections depending on daily arrival. Suitable for steaming, yee mee or bee hoon.",
+        image: productImages.lobster,
+      },
+      {
+        title: "Fresh Oysters",
+        text: "Cold, clean and suitable for seafood platters, gatherings or premium home dining.",
+        image: productImages.oysters,
+      },
+      {
+        title: "Manila Clams",
+        text: "Great for steaming, chilli lala, white wine garlic style or seafood soup.",
+        image: productImages.clams,
+      },
+      {
+        title: "Soon Hock & Premium Fish",
+        text: "Live fish options for steaming, Hong Kong style, Teochew style or home cooking.",
+        image: productImages.fish,
+      },
+    ],
+
+    arrivalsKicker: "Popular Daily Arrivals",
+    arrivalsTitle: "Check today’s stock before heading down",
+    arrivalsDesc:
+      "Stock changes quickly, especially on weekends. Telegram is the best place to see fresh arrivals, limited drops and sold-out updates.",
+    arrivals: [
+      "Live Mud Crabs",
+      "Sri Lanka Yellow Roe / Red Roe Crabs",
+      "Boston Lobster",
+      "Green Lobster",
+      "Fresh Oysters",
+      "Manila Clams",
+      "Soon Hock & Premium Fish",
+      "Seasonal Live Seafood",
+    ],
+
+    howKicker: "How It Works",
+    howTitle: "Simple seafood buying experience",
+    howDesc:
+      "Designed mainly for customers who want to buy live seafood and cook it fresh at home.",
+    steps: [
+      {
+        number: "01",
+        title: "Check Today’s Stock",
+        text: "Join Telegram or message us on WhatsApp to check available seafood, sizes and recommendations.",
+      },
+      {
+        number: "02",
+        title: "Reserve Your Pick",
+        text: "Reserve your preferred crab, lobster, oysters, clams or premium fish before coming down.",
+      },
+      {
+        number: "03",
+        title: "Collect & Cook Fresh",
+        text: "Bring home and cook your way. Ask us about nearby cooking options only when needed and subject to availability.",
+      },
+    ],
+
+    cookingIdeasKicker: "Home Cooking Ideas",
+    cookingIdeasTitle: "Easy ways to enjoy your seafood",
+    cookingIdeas: [
+      "Mud Crab: chilli crab, black pepper crab, steamed crab, ginger scallion crab",
+      "Lobster: garlic butter, steamed lobster, lobster yee mee, lobster bee hoon",
+      "Manila Clams: white wine garlic, chilli lala, steamed clams, seafood soup",
+      "Soon Hock: Hong Kong steam, Teochew steam, light soy sauce steam",
+      "Oysters: chilled platter, grilled cheese, garlic butter oysters",
+    ],
+
+    telegramKicker: "Daily Seafood Updates",
+    telegramTitle: "Join Crab Talk on Telegram",
+    telegramText:
+      "Get faster updates on today’s arrivals, limited seafood drops, popular sizes, reservation reminders and sold-out notices.",
+    telegramButton: "Join t.me/CrabTalkSG",
+    telegramPoints: [
+      "🦀 See fresh arrivals before heading down",
+      "🦞 Limited items and promo updates",
+      "⚠️ Sold-out notices and reservation reminders",
+    ],
+
+    featuresKicker: "Media & Social Features",
+    featuresTitle: "As seen online",
+    featuresDesc:
+      "Crab Talk has been featured by local food media and content creators for live seafood, lobster yee mee and our market-style seafood experience.",
+    viewFeature: "View feature →",
+    featureCards: [
+      {
+        title: "Featured on 8 Days",
+        text: "Crab Talk’s live seafood and hawker-style cooked seafood collaboration was featured by 8 Days.",
+        image: featureImages.days,
+        link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
+      },
+      {
+        title: "Featured by Botak Jazz",
+        text: "Botak Jazz tried the lobster yee mee and shared the experience on TikTok.",
+        image: featureImages.botak,
+        link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
+      },
+      {
+        title: "AI in Daily Seafood Work",
+        text: "Story feature on how Crab Talk uses AI in daily operations and customer communication.",
+        image: featureImages.ai,
+        link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "Google Reviews",
+    reviewsTitle: "See what customers say on Google",
+    reviewsDesc:
+      "Read the latest real customer reviews, ratings and customer photos directly on our Google Maps listing.",
+    reviewCards: [
+      {
+        title: "Real Customer Feedback",
+        text: "View updated customer comments directly from Google Maps.",
+      },
+      {
+        title: "Photos From Visitors",
+        text: "See customer-uploaded photos of seafood, the stall and dining experiences.",
+      },
+      {
+        title: "Leave Us a Review",
+        text: "Visited Crab Talk? Your review helps more seafood lovers find us.",
+      },
+    ],
+    viewGoogleReviews: "View Google Reviews",
+
     faqKicker: "FAQ",
-    faqTitle: "Common Questions",
-    visitKicker: "Find Us",
-    visitTitle: "Visit Crab Talk at Commonwealth Crescent",
+    faqTitle: "Common questions",
+    faq: [
+      {
+        q: "Do I need to pre-order?",
+        a: "Walk-in is welcome, but reservation is recommended for popular items such as roe crabs, lobsters and premium fish.",
+      },
+      {
+        q: "Can I buy seafood for home cooking?",
+        a: "Yes. Crab Talk mainly focuses on live seafood for customers to bring home and cook fresh.",
+      },
+      {
+        q: "Do you sell by weight or by piece?",
+        a: "It depends on the item. For crabs, piece pricing may be used because weight alone does not tell the full quality, meatiness or condition.",
+      },
+      {
+        q: "Can the seafood be cooked nearby?",
+        a: "Nearby cooking may be available depending on timing and kitchen capacity. Fai Kee is closed on Sunday and Monday.",
+      },
+      {
+        q: "Where are you located?",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644).",
+      },
+    ],
+
+    visitKicker: "Visit Crab Talk",
+    visitTitle: "Walk in or reserve before coming",
     visitText:
-      "Come down, choose from the live tanks, and ask our team what is suitable for your budget, pax and cooking style.",
-    openingHours: "Opening Hours",
-    footerText:
-      "Live seafood availability changes daily. Prices, sizes and preparation services are subject to stock and stall capacity.",
+      "For the best selection, join Telegram for updates or message us before visiting. Live seafood availability changes daily, especially for roe crabs, lobsters, oysters, Soon Hock and premium items.",
+    getDirections: "Get Directions",
+    footer: "© Crab Talk SG — Live Seafood Supply @ Crab Talk",
   },
+
   zh: {
-    code: "中文",
-    brand: "CRAB TALK",
-    brandSub: "活海鲜供应",
-    navHome: "Crab Talk",
-    navSelection: "新鲜选择",
-    navHow: "购买流程",
-    navReviews: "顾客评价",
-    navFind: "地址",
-    whatsapp: "WhatsApp",
-    heroBadge: "实体活海鲜档口",
-    heroTitle: "到水缸亲自挑选活海鲜",
-    heroText:
-      "欢迎到 Commonwealth Crescent 的 Crab Talk，亲自挑选活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等。挑选后，可向我们询问清理、切好和打包服务，方便回家料理。",
-    heroNote:
-      "Crab Talk 不是线上海鲜店。WhatsApp 主要用于查询当天到货、库存和预留咨询。",
-    visitStall: "今天到档口看看",
-    checkArrival: "WhatsApp 查询今日到货",
-    telegram: "加入 Telegram 更新",
-    addressLabel: "档口地址",
-    today: "今日",
-    selectionKicker: "每日新鲜选择",
-    selectionTitle: "从活海鲜水缸亲自挑选",
-    selectionText:
-      "每日货源会根据到货、尺寸和季节而变化。欢迎到店挑选当天最合适的海鲜。",
-    howKicker: "简单购买流程",
-    howTitle: "如何购买",
-    howText: "适合想亲眼看货、亲自挑选海鲜的顾客。",
-    homeTitle: "适合家庭料理",
-    homeText:
-      "适合家庭聚餐、周末加菜和海鲜晚餐。可从水缸挑选海鲜，并根据情况询问清理、切好和打包服务。",
-    cookingTitle: "附近代煮选项",
+    brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    nav: {
+      seafood: "海鲜",
+      hours: "营业时间",
+      telegram: "Telegram",
+      features: "媒体报道",
+      reviews: "Google评价",
+      faq: "常见问题",
+      visit: "到店",
+      whatsapp: "WhatsApp",
+    },
+    eyebrow: "活海鲜 • 每日新鲜到货 • 新加坡",
+    heroTitle: "适合家里烹煮的高级活海鲜。",
+    heroCopy:
+      "在 Crab Talk 直接挑选活螃蟹、龙虾、生蚝、蛤蜊和高级活鱼。适合家庭聚餐、周末加菜，以及想在家享受餐厅级海鲜的顾客。",
+    visitUs: "地址：",
+    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    whatsappReserve: "WhatsApp 预订",
+    telegramJoin: "加入 Telegram 看每日更新",
+    maps: "打开 Google Maps",
+    orderOnline: "线上下单",
+    instagram: "Instagram",
+    heroBadge: "每日到货不同，Telegram 优先更新。",
+
+    trust: [
+      {
+        title: "新鲜看得见",
+        text: "顾客可直接从水缸挑选活海鲜，再带回家烹煮。",
+      },
+      {
+        title: "建议先预订",
+        text: "热门海鲜很快售完。来之前可先联系我们确认当天货源。",
+      },
+      {
+        title: "品质不只看重量",
+        text: "螃蟹的重量不能代表全部品质。我们会看大小、状态、活力和肉质。",
+      },
+    ],
+
+    hoursKicker: "营业时间",
+    hoursTitle: "来店前建议先确认",
+    hoursDesc:
+      "活海鲜每日货源不同。想要更多选择，建议先加入 Telegram 或 WhatsApp 咨询。",
+    crabTalkHours: [
+      "星期一：12pm – 5pm",
+      "星期二：8am – 7pm",
+      "星期三：8am – 7pm",
+      "星期四：8am – 7pm",
+      "星期五：8am – 8pm",
+      "星期六：8am – 8pm",
+      "星期日：8am – 5pm",
+    ],
+    cookingTitle: "附近烹煮选择",
     cookingText:
-      "部分海鲜有时可安排附近代煮，需视对方档口容量、菜式和时段而定。Crab Talk 的主要服务仍是活海鲜供应和家庭料理准备。",
-    whyKicker: "为什么选择我们",
-    whyTitle: "为什么顾客会来 Crab Talk",
-    reviewsKicker: "顾客反馈",
-    reviewsTitle: "顾客怎么说",
-    faqKicker: "FAQ",
-    faqTitle: "常见问题",
-    visitKicker: "地址",
-    visitTitle: "到 Commonwealth Crescent 找 Crab Talk",
+      "Fai Kee Fishhead Bee Hoon 位于二楼 #02-74。公开资料显示营业时间为星期二至星期六 3pm–9pm，星期日和星期一休息。烹煮能力有限，建议提前安排。",
+    onlineOrderText:
+      "Crab Talk 的 Take App 页面可线上下单。每日价格和货源会根据当天库存调整。",
+
+    freshKicker: "每日新鲜选择",
+    freshTitle: "选择你的海鲜",
+    freshDesc:
+      "我们主要供应活海鲜：现选、打包，适合带回家新鲜烹煮。货源以每日到货为准。",
+    freshSelection: [
+      {
+        title: "活肉蟹",
+        text: "肉质饱满、活力好的泥蟹，适合清蒸、辣椒蟹、黑胡椒蟹或姜葱炒蟹。",
+        image: productImages.crab,
+      },
+      {
+        title: "斯里兰卡膏蟹",
+        text: "高级膏蟹，蟹膏香浓、肉质结实，非常适合清蒸或家庭聚餐。",
+        image: productImages.roe,
+      },
+      {
+        title: "活龙虾",
+        text: "每日视货源供应波士顿龙虾或青龙虾，适合清蒸、伊面或米粉。",
+        image: productImages.lobster,
+      },
+      {
+        title: "新鲜生蚝",
+        text: "冰鲜干净，适合海鲜拼盘、聚会或高级家庭餐。",
+        image: productImages.oysters,
+      },
+      {
+        title: "马尼拉蛤蜊",
+        text: "适合清蒸、辣椒啦啦、白酒蒜香或海鲜汤。",
+        image: productImages.clams,
+      },
+      {
+        title: "笋壳鱼与高级活鱼",
+        text: "适合清蒸、港式蒸鱼、潮州蒸或家庭烹煮。",
+        image: productImages.fish,
+      },
+    ],
+
+    arrivalsKicker: "常见每日到货",
+    arrivalsTitle: "来店前先查看当天货源",
+    arrivalsDesc:
+      "库存变化很快，特别是周末。Telegram 是查看新货、限量海鲜和售完通知的最佳方式。",
+    arrivals: [
+      "活肉蟹",
+      "斯里兰卡黄膏蟹 / 红膏蟹",
+      "波士顿龙虾",
+      "青龙虾",
+      "新鲜生蚝",
+      "马尼拉蛤蜊",
+      "笋壳鱼与高级活鱼",
+      "季节性活海鲜",
+    ],
+
+    howKicker: "购买方式",
+    howTitle: "简单方便的活海鲜购买体验",
+    howDesc: "主要适合想购买活海鲜并带回家新鲜烹煮的顾客。",
+    steps: [
+      {
+        number: "01",
+        title: "查看当天货源",
+        text: "加入 Telegram 或通过 WhatsApp 联系我们，确认当天海鲜、尺寸和推荐。",
+      },
+      {
+        number: "02",
+        title: "预订想要的海鲜",
+        text: "来店前可先预订螃蟹、龙虾、生蚝、蛤蜊或高级活鱼。",
+      },
+      {
+        number: "03",
+        title: "取货回家烹煮",
+        text: "带回家用自己喜欢的方式烹煮；如需要附近烹煮选择，请先确认当天是否可安排。",
+      },
+    ],
+
+    cookingIdeasKicker: "家庭烹煮建议",
+    cookingIdeasTitle: "简单又受欢迎的煮法",
+    cookingIdeas: [
+      "肉蟹：辣椒蟹、黑胡椒蟹、清蒸蟹、姜葱炒蟹",
+      "龙虾：蒜香牛油、清蒸、龙虾伊面、龙虾米粉",
+      "马尼拉蛤蜊：白酒蒜香、辣椒啦啦、清蒸、海鲜汤",
+      "笋壳鱼：港式蒸、潮州蒸、清蒸酱油",
+      "生蚝：冰镇拼盘、芝士烤、蒜香牛油烤",
+    ],
+
+    telegramKicker: "每日海鲜更新",
+    telegramTitle: "加入 Crab Talk Telegram",
+    telegramText:
+      "更快看到每日新货、限量海鲜、热门尺寸、预订提醒和售完通知。",
+    telegramButton: "加入 t.me/CrabTalkSG",
+    telegramPoints: [
+      "🦀 来店前先看当天新货",
+      "🦞 限量海鲜与促销更新",
+      "⚠️ 售完通知与预订提醒",
+    ],
+
+    featuresKicker: "媒体与社交平台报道",
+    featuresTitle: "线上推荐与报道",
+    featuresDesc:
+      "Crab Talk 曾被本地美食媒体和内容创作者介绍，内容包括活海鲜、龙虾伊面和市场式海鲜体验。",
+    viewFeature: "查看报道 →",
+    featureCards: [
+      {
+        title: "8 Days 报道",
+        text: "Crab Talk 的活海鲜和熟食合作模式曾被 8 Days 介绍。",
+        image: featureImages.days,
+        link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
+      },
+      {
+        title: "Botak Jazz 推荐",
+        text: "Botak Jazz 在 TikTok 分享了龙虾伊面的体验。",
+        image: featureImages.botak,
+        link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
+      },
+      {
+        title: "AI 日常经营故事",
+        text: "关于 Crab Talk 如何在日常经营和客户沟通中使用 AI 的故事。",
+        image: featureImages.ai,
+        link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "Google 评价",
+    reviewsTitle: "查看顾客在 Google 上的真实评价",
+    reviewsDesc:
+      "点击 Google Maps 查看最新真实顾客评价、评分和顾客上传照片。",
+    reviewCards: [
+      {
+        title: "真实顾客反馈",
+        text: "直接在 Google Maps 查看最新顾客留言。",
+      },
+      {
+        title: "顾客上传照片",
+        text: "查看顾客拍摄的海鲜、摊位和用餐照片。",
+      },
+      {
+        title: "欢迎留下评价",
+        text: "如果您到访过 Crab Talk，您的评价能帮助更多海鲜爱好者找到我们。",
+      },
+    ],
+    viewGoogleReviews: "查看 Google 评价",
+
+    faqKicker: "常见问题",
+    faqTitle: "顾客常问",
+    faq: [
+      {
+        q: "需要预订吗？",
+        a: "可以直接到店，但膏蟹、龙虾和高级鱼类等热门商品建议先预订。",
+      },
+      {
+        q: "可以买回家自己煮吗？",
+        a: "可以。Crab Talk 主要就是供应适合带回家烹煮的活海鲜。",
+      },
+      {
+        q: "海鲜是按重量还是按只卖？",
+        a: "视商品而定。螃蟹有时会按只售卖，因为重量不能完全代表品质、肉质和状态。",
+      },
+      {
+        q: "附近可以帮忙烹煮吗？",
+        a: "视时间和厨房能力而定。Fai Kee 星期日和星期一休息。",
+      },
+      {
+        q: "地址在哪里？",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644)。",
+      },
+    ],
+
+    visitKicker: "到访 Crab Talk",
+    visitTitle: "欢迎到店，也建议先预订",
     visitText:
-      "欢迎到店从水缸挑选海鲜，并告诉我们人数、预算和想要的煮法，我们会尽量建议适合的选择。",
-    openingHours: "营业时间",
-    footerText:
-      "活海鲜供应每日不同。价格、尺寸和处理服务需视当天库存和档口情况而定。",
+      "想要更多选择，建议先加入 Telegram 看更新，或来店前联系我们。膏蟹、龙虾、生蚝、笋壳鱼和高级海鲜货源每天不同。",
+    getDirections: "路线导航",
+    footer: "© Crab Talk SG — Live Seafood Supply @ Crab Talk",
   },
+
   ja: {
-    code: "日本語",
-    brand: "CRAB TALK",
-    brandSub: "ライブシーフード販売",
-    navHome: "Crab Talk",
-    navSelection: "海鮮ラインナップ",
-    navHow: "購入方法",
-    navReviews: "レビュー",
-    navFind: "アクセス",
-    whatsapp: "WhatsApp",
-    heroBadge: "実店舗のライブシーフードストール",
-    heroTitle: "水槽から活きた海鮮を選べます",
-    heroText:
-      "Commonwealth Crescent の Crab Talk で、活ガニ、蟹味噌入り蟹、ロブスター、牡蠣、マニラクラム、Soon Hock などを店頭で選べます。選んだ海鮮は、必要に応じて清掃・カット・梱包についてご相談ください。",
-    heroNote:
-      "Crab Talk はオンライン海鮮ショップではありません。WhatsApp は主に当日の入荷、在庫、取り置き相談用です。",
-    visitStall: "店舗への行き方",
-    checkArrival: "WhatsAppで本日の入荷確認",
-    telegram: "Telegram更新を見る",
-    addressLabel: "店舗住所",
-    today: "本日",
-    selectionKicker: "毎日の新鮮ラインナップ",
-    selectionTitle: "ライブ水槽から自分で選べる海鮮",
-    selectionText:
-      "入荷、サイズ、季節によりラインナップは変わります。店頭で実際に見てお選びください。",
-    howKicker: "分かりやすい購入方法",
-    howTitle: "購入の流れ",
-    howText: "実際に海鮮を見てから買いたい方に向いています。",
-    homeTitle: "家庭料理にぴったり",
-    homeText:
-      "家族の食事、週末の海鮮料理、ホームパーティーにおすすめです。水槽から選び、可能な場合は清掃・カット・梱包についてご相談ください。",
-    cookingTitle: "近隣調理オプション",
+    brandSub: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    nav: {
+      seafood: "海鮮",
+      hours: "営業時間",
+      telegram: "Telegram",
+      features: "掲載情報",
+      reviews: "Google口コミ",
+      faq: "FAQ",
+      visit: "アクセス",
+      whatsapp: "WhatsApp",
+    },
+    eyebrow: "活き海鮮 • 毎日入荷 • シンガポール",
+    heroTitle: "ご自宅で楽しめるプレミアム活き海鮮。",
+    heroCopy:
+      "Crab Talk では、活き蟹、ロブスター、牡蠣、アサリ、高級活魚を直接お選びいただけます。ご家庭での食事、週末のごちそう、海鮮好きの方におすすめです。",
+    visitUs: "住所：",
+    address: "31 Commonwealth Crescent #01-41/42/43 S(149644)",
+    whatsappReserve: "WhatsAppで予約",
+    telegramJoin: "Telegramで入荷情報を見る",
+    maps: "Google Mapsを開く",
+    orderOnline: "オンライン注文",
+    instagram: "Instagram",
+    heroBadge: "入荷状況は毎日変わります。Telegramで優先更新。",
+
+    trust: [
+      {
+        title: "見て分かる新鮮さ",
+        text: "水槽から活きた海鮮を直接選び、ご自宅へお持ち帰りいただけます。",
+      },
+      {
+        title: "来店前の予約がおすすめ",
+        text: "人気商品は早く売り切れるため、事前に在庫確認がおすすめです。",
+      },
+      {
+        title: "重量だけでは分からない品質",
+        text: "蟹は重さだけでなく、サイズ、状態、活力、身入りを見て選ぶことが大切です。",
+      },
+    ],
+
+    hoursKicker: "営業時間",
+    hoursTitle: "ご来店前にご確認ください",
+    hoursDesc:
+      "活き海鮮の在庫は毎日変わります。良い商品を選ぶために、TelegramまたはWhatsAppで事前確認をおすすめします。",
+    crabTalkHours: [
+      "月曜日：12pm – 5pm",
+      "火曜日：8am – 7pm",
+      "水曜日：8am – 7pm",
+      "木曜日：8am – 7pm",
+      "金曜日：8am – 8pm",
+      "土曜日：8am – 8pm",
+      "日曜日：8am – 5pm",
+    ],
+    cookingTitle: "近隣の調理オプション",
     cookingText:
-      "一部の海鮮は近隣で調理できる場合がありますが、混雑状況、料理内容、時間枠によります。Crab Talk の主なサービスは家庭料理向けのライブシーフード販売です。",
-    whyKicker: "選ばれる理由",
-    whyTitle: "Crab Talk の魅力",
-    reviewsKicker: "お客様の声",
-    reviewsTitle: "レビュー",
+      "Fai Kee Fishhead Bee Hoon は2階 #02-74 にあります。公開情報では営業時間は火曜日〜土曜日 3pm–9pm、日曜日と月曜日は休みです。調理対応には限りがあるため、事前確認がおすすめです。",
+    onlineOrderText:
+      "Crab Talk の Take App ページからオンライン注文も可能です。価格と在庫は日によって変わります。",
+
+    freshKicker: "毎日の新鮮セレクション",
+    freshTitle: "海鮮を選ぶ",
+    freshDesc:
+      "Crab Talk は活き海鮮の販売が中心です。お選びいただいた海鮮を包装し、ご自宅で新鮮に調理できます。",
+    freshSelection: [
+      {
+        title: "活きマッドクラブ",
+        text: "身入りの良い活き蟹。蒸し蟹、チリクラブ、ブラックペッパークラブ、ジンジャースキャリオンにおすすめです。",
+        image: productImages.crab,
+      },
+      {
+        title: "スリランカ産 蟹味噌・卵入り蟹",
+        text: "濃厚な蟹味噌としっかりした身が特徴。蒸し料理や家族の食事に人気です。",
+        image: productImages.roe,
+      },
+      {
+        title: "活きロブスター",
+        text: "入荷状況によりボストンロブスターやグリーンロブスターをご用意。蒸し料理、伊麺、ビーフンにおすすめです。",
+        image: productImages.lobster,
+      },
+      {
+        title: "新鮮な牡蠣",
+        text: "冷たく清潔で、海鮮プレートや週末のごちそうにぴったりです。",
+        image: productImages.oysters,
+      },
+      {
+        title: "マニラアサリ",
+        text: "蒸し料理、チリ風、白ワインガーリック、海鮮スープにおすすめです。",
+        image: productImages.clams,
+      },
+      {
+        title: "スーンホック＆高級活魚",
+        text: "蒸し魚、香港風、潮州風、ご家庭での海鮮料理に適した活魚をご用意しています。",
+        image: productImages.fish,
+      },
+    ],
+
+    arrivalsKicker: "人気の入荷商品",
+    arrivalsTitle: "来店前に本日の在庫を確認",
+    arrivalsDesc:
+      "特に週末は在庫の動きが早いです。Telegramで新入荷、限定商品、売り切れ情報を確認できます。",
+    arrivals: [
+      "活きマッドクラブ",
+      "スリランカ産 黄膏蟹 / 赤膏蟹",
+      "ボストンロブスター",
+      "グリーンロブスター",
+      "新鮮な牡蠣",
+      "マニラアサリ",
+      "スーンホック＆高級活魚",
+      "季節限定の活き海鮮",
+    ],
+
+    howKicker: "購入方法",
+    howTitle: "シンプルな活き海鮮の購入体験",
+    howDesc:
+      "活き海鮮を購入し、ご自宅で新鮮に調理したいお客様向けです。",
+    steps: [
+      {
+        number: "01",
+        title: "本日の在庫を確認",
+        text: "TelegramまたはWhatsAppで本日の入荷、サイズ、おすすめ商品を確認できます。",
+      },
+      {
+        number: "02",
+        title: "希望の商品を予約",
+        text: "蟹、ロブスター、牡蠣、アサリ、高級活魚などを来店前に予約できます。",
+      },
+      {
+        number: "03",
+        title: "受け取り・自宅で調理",
+        text: "お持ち帰り後、お好みの方法で調理できます。近隣の調理オプションは状況により確認可能です。",
+      },
+    ],
+
+    cookingIdeasKicker: "家庭調理のアイデア",
+    cookingIdeasTitle: "おすすめの食べ方",
+    cookingIdeas: [
+      "マッドクラブ：チリクラブ、ブラックペッパー、蒸し蟹、ジンジャースキャリオン",
+      "ロブスター：ガーリックバター、蒸し、ロブスター伊麺、ロブスタービーフン",
+      "マニラアサリ：白ワインガーリック、チリ風、蒸し、海鮮スープ",
+      "スーンホック：香港風蒸し、潮州蒸し、ライトソイソース蒸し",
+      "牡蠣：冷製プレート、チーズ焼き、ガーリックバター焼き",
+    ],
+
+    telegramKicker: "毎日の海鮮入荷情報",
+    telegramTitle: "Crab Talk の Telegram に参加",
+    telegramText:
+      "本日の入荷、限定商品、人気サイズ、予約案内、売り切れ情報をより早く確認できます。",
+    telegramButton: "t.me/CrabTalkSG に参加",
+    telegramPoints: [
+      "🦀 来店前に本日の入荷を確認",
+      "🦞 限定商品とプロモーション情報",
+      "⚠️ 売り切れ情報と予約リマインダー",
+    ],
+
+    featuresKicker: "メディア・SNS掲載",
+    featuresTitle: "オンラインで紹介されました",
+    featuresDesc:
+      "Crab Talk は、活き海鮮、ロブスター伊麺、市場スタイルの海鮮体験で、地元メディアやクリエイターに紹介されています。",
+    viewFeature: "掲載を見る →",
+    featureCards: [
+      {
+        title: "8 Days 掲載",
+        text: "Crab Talk の活き海鮮とホーカー調理コラボが 8 Days に掲載されました。",
+        image: featureImages.days,
+        link: "https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541",
+      },
+      {
+        title: "Botak Jazz に紹介",
+        text: "Botak Jazz が TikTok でロブスター伊麺の体験を紹介しました。",
+        image: featureImages.botak,
+        link: "https://www.tiktok.com/@botakjazz/video/7602204733155364116",
+      },
+      {
+        title: "AI活用ストーリー",
+        text: "Crab Talk が日々の業務や顧客対応でAIを活用しているストーリーです。",
+        image: featureImages.ai,
+        link: "https://www.facebook.com/share/v/1Djwg4h7UP/",
+      },
+    ],
+
+    reviewsKicker: "Google口コミ",
+    reviewsTitle: "Googleでお客様の口コミを見る",
+    reviewsDesc:
+      "最新のリアルな口コミ、評価、お客様の写真はGoogle Mapsで確認できます。",
+    reviewCards: [
+      {
+        title: "リアルなお客様の声",
+        text: "最新のコメントはGoogle Mapsで直接確認できます。",
+      },
+      {
+        title: "お客様の写真",
+        text: "海鮮、店舗、食事体験の写真をご覧いただけます。",
+      },
+      {
+        title: "口コミ投稿も歓迎",
+        text: "Crab Talkにご来店いただいた方の口コミは、他のお客様の参考になります。",
+      },
+    ],
+    viewGoogleReviews: "Google口コミを見る",
+
     faqKicker: "FAQ",
     faqTitle: "よくある質問",
-    visitKicker: "アクセス",
-    visitTitle: "Commonwealth Crescent の Crab Talk へ",
+    faq: [
+      {
+        q: "予約は必要ですか？",
+        a: "直接来店も可能ですが、蟹、ロブスター、高級魚など人気商品は事前予約がおすすめです。",
+      },
+      {
+        q: "自宅で調理するために買えますか？",
+        a: "はい。Crab Talk はご自宅で調理できる活き海鮮の販売が中心です。",
+      },
+      {
+        q: "量り売りですか？一匹売りですか？",
+        a: "商品によります。蟹は重量だけでは品質、身入り、状態が分からないため、一匹単位の場合もあります。",
+      },
+      {
+        q: "近くで調理してもらえますか？",
+        a: "時間と厨房の状況によります。Fai Kee は日曜日と月曜日が休みです。",
+      },
+      {
+        q: "場所はどこですか？",
+        a: "31 Commonwealth Crescent #01-41/42/43 S(149644)。",
+      },
+    ],
+
+    visitKicker: "Crab Talk へお越しください",
+    visitTitle: "来店前の確認・予約がおすすめ",
     visitText:
-      "人数、予算、調理方法を教えていただければ、店頭で合う海鮮をご提案します。",
-    openingHours: "営業時間",
-    footerText:
-      "ライブシーフードの在庫は日々変わります。価格、サイズ、下処理サービスは当日の在庫と店頭状況によります。",
+      "より良い商品を選ぶために、Telegramで入荷情報を確認するか、来店前にお問い合わせください。蟹、ロブスター、牡蠣、スーンホック、高級海鮮は日によって入荷が変わります。",
+    getDirections: "道順を見る",
+    footer: "© Crab Talk SG — Live Seafood Supply @ Crab Talk",
   },
 };
 
-const selectionItems = [
-  {
-    title: {
-      en: "Live Mud Crabs",
-      zh: "活泥蟹",
-      ja: "活マッドクラブ",
-    },
-    text: {
-      en: "Meaty crabs suitable for steaming, chilli crab, black pepper crab or ginger scallion crab.",
-      zh: "适合清蒸、辣椒蟹、黑胡椒蟹或姜葱蟹。",
-      ja: "蒸し料理、チリクラブ、ブラックペッパー、ジンジャースキャリオンにおすすめ。",
-    },
-    image: img("product-live-crab-premium.jpg"),
-  },
-  {
-    title: {
-      en: "Sri Lanka Roe Crabs",
-      zh: "斯里兰卡膏蟹",
-      ja: "スリランカ蟹味噌入り蟹",
-    },
-    text: {
-      en: "Rich roe, firm meat and popular for premium home dining.",
-      zh: "膏香浓郁，肉质结实，适合家庭聚餐。",
-      ja: "濃厚な蟹味噌としっかりした身質で、特別な食事に人気です。",
-    },
-    image: img("product-yellow-roe-crab-06.jpg"),
-  },
-  {
-    title: {
-      en: "Live Lobsters",
-      zh: "活龙虾",
-      ja: "活ロブスター",
-    },
-    text: {
-      en: "Boston lobster and green lobster options depending on daily arrival.",
-      zh: "视每日到货供应波士顿龙虾和青龙虾。",
-      ja: "入荷状況により、ボストンロブスターやグリーンロブスターをご用意。",
-    },
-    image: [
-      img("product-live-lobster-new.jpg"),
-      img("product-boston-lobster-display.jpg"),
-      img("product-live-green-lobster-01.jpg"),
-    ],
-  },
-  {
-    title: {
-      en: "Fresh Oysters",
-      zh: "新鲜生蚝",
-      ja: "新鮮な牡蠣",
-    },
-    text: {
-      en: "Cold, clean and suitable for platters, gatherings or weekend treats.",
-      zh: "适合海鲜拼盘、聚餐和周末加菜。",
-      ja: "シーフードプレート、集まり、週末のごちそうにおすすめ。",
-    },
-    image: img("product-oysters-premium-02.jpg"),
-  },
-  {
-    title: {
-      en: "Manila Clams",
-      zh: "马尼拉蛤",
-      ja: "マニラクラム",
-    },
-    text: {
-      en: "Great for steaming, chilli lala, white wine style, soup or hotpot.",
-      zh: "适合清蒸、辣椒啦啦、白酒煮、汤品或火锅。",
-      ja: "蒸し料理、チリララ、白ワイン風、スープ、鍋料理におすすめ。",
-    },
-    image: img("product-manila-clams-01.jpg"),
-  },
-  {
-    title: {
-      en: "Soon Hock & Premium Fish",
-      zh: "笋壳鱼与优质活鱼",
-      ja: "Soon Hock と高級魚",
-    },
-    text: {
-      en: "Live fish options for steaming, Hong Kong style preparation or home cooking.",
-      zh: "适合清蒸、港式蒸鱼或家庭料理。",
-      ja: "蒸し料理、香港風、家庭料理に向いた活魚です。",
-    },
-    image: [
-      img("product-live-soon-hock-premium-fish.jpg"),
-      img("product-live-soon-hock-01.jpg"),
-    ],
-  },
-];
-
-const howSteps = [
-  {
-    icon: "📍",
-    title: {
-      en: "Visit our stall",
-      zh: "到我们的档口",
-      ja: "店舗へ来店",
-    },
-    text: {
-      en: "Come to 31 Commonwealth Crescent #01-41/42/43 S(149644).",
-      zh: "地址：31 Commonwealth Crescent #01-41/42/43 S(149644)。",
-      ja: "31 Commonwealth Crescent #01-41/42/43 S(149644) へお越しください。",
-    },
-  },
-  {
-    icon: "🌊",
-    title: {
-      en: "Pick from the live tanks",
-      zh: "从水缸挑选",
-      ja: "水槽から選ぶ",
-    },
-    text: {
-      en: "Choose your own live seafood directly from our tanks.",
-      zh: "从活海鲜水缸亲自挑选。",
-      ja: "ライブ水槽から直接お選びいただけます。",
-    },
-  },
-  {
-    icon: "🔪",
-    title: {
-      en: "We clean, cut and pack",
-      zh: "清理、切好、打包",
-      ja: "清掃・カット・梱包",
-    },
-    text: {
-      en: "Need help preparing your seafood for home cooking? Let us know at the stall.",
-      zh: "需要帮忙处理回家料理的海鲜？请在档口告诉我们。",
-      ja: "家庭料理用の下処理が必要な場合は、店頭でご相談ください。",
-    },
-  },
-  {
-    icon: "🍲",
-    title: {
-      en: "Cook at home",
-      zh: "回家料理",
-      ja: "自宅で調理",
-    },
-    text: {
-      en: "Bring home fresh seafood for steaming, chilli crab, black pepper crab, bee hoon, hotpot or family meals.",
-      zh: "带回家做清蒸、辣椒蟹、黑胡椒蟹、米粉、火锅或家庭餐。",
-      ja: "蒸し料理、チリクラブ、ブラックペッパー、ビーフン、鍋料理に。",
-    },
-  },
-];
-
-const whyItems = [
-  {
-    icon: "🦀",
-    title: {
-      en: "Live seafood you can see",
-      zh: "看得到的活海鲜",
-      ja: "目で見て選べる活海鮮",
-    },
-    text: {
-      en: "Pick crabs, lobsters, clams and fish directly from the tanks.",
-      zh: "直接从水缸挑选螃蟹、龙虾、蛤蜊和活鱼。",
-      ja: "カニ、ロブスター、貝、魚を水槽から直接選べます。",
-    },
-  },
-  {
-    icon: "🌅",
-    title: {
-      en: "Selected daily",
-      zh: "每日挑选",
-      ja: "毎日入荷",
-    },
-    text: {
-      en: "Selection changes with the day’s arrival, season and size.",
-      zh: "货源会根据每日到货、季节和尺寸而变化。",
-      ja: "入荷、季節、サイズによってラインナップが変わります。",
-    },
-  },
-  {
-    icon: "🔪",
-    title: {
-      en: "Cleaning and cutting available",
-      zh: "可询问清理与切好",
-      ja: "下処理相談可",
-    },
-    text: {
-      en: "Where suitable, seafood can be cleaned, cut and packed for easier home cooking.",
-      zh: "适合的海鲜可询问清理、切好和打包服务。",
-      ja: "可能なものは清掃・カット・梱包もご相談ください。",
-    },
-  },
-  {
-    icon: "💬",
-    title: {
-      en: "Friendly advice",
-      zh: "亲切建议",
-      ja: "調理アドバイス",
-    },
-    text: {
-      en: "Tell us your pax, budget and cooking style. We can recommend suitable seafood.",
-      zh: "告诉我们人数、预算和煮法，我们会建议适合的海鲜。",
-      ja: "人数、予算、調理方法に合わせておすすめを提案します。",
-    },
-  },
-];
-
-const reviews = [
-  {
-    text: {
-      en: "Fresh seafood and friendly service. The team gives useful advice on what to choose and how to cook it.",
-      zh: "海鲜新鲜，服务亲切，也会建议适合的选择和煮法。",
-      ja: "新鮮な海鮮と親切なサービス。選び方や調理方法も相談できます。",
-    },
-    name: "Customer feedback",
-  },
-  {
-    text: {
-      en: "Good place to buy live crabs and seafood for home cooking. Helpful when choosing portions for family meals.",
-      zh: "适合买活蟹和海鲜回家料理，也会帮忙建议家庭份量。",
-      ja: "活ガニや海鮮を家庭料理用に買うのに便利。人数に合わせた量も相談できます。",
-    },
-    name: "Customer feedback",
-  },
-  {
-    text: {
-      en: "A different market experience — choose from the tanks and bring home seafood prepared for cooking.",
-      zh: "很不一样的市场体验，可以从水缸挑选，再带回家料理。",
-      ja: "水槽から選んで、家庭料理用に持ち帰れる市場らしい体験です。",
-    },
-    name: "Customer feedback",
-  },
-];
-
-const faqs = {
-  en: [
-    {
-      q: "Can I buy directly online?",
-      a: "Crab Talk is mainly a physical live seafood stall. WhatsApp is for checking availability, today’s arrival and reservation enquiries.",
-    },
-    {
-      q: "Can you clean and cut the seafood?",
-      a: "For selected seafood, cleaning, cutting and packing may be available depending on item type and stall capacity.",
-    },
-    {
-      q: "Are prices fixed every day?",
-      a: "Live seafood prices depend on arrival, size, season and supply. Check with us before coming down if you need specific items.",
-    },
-    {
-      q: "Can the seafood be cooked nearby?",
-      a: "Some seafood may sometimes be cooked nearby, subject to capacity and timing. Please check at the stall.",
-    },
-  ],
-  zh: [
-    {
-      q: "可以直接线上购买吗？",
-      a: "Crab Talk 主要是实体活海鲜档口。WhatsApp 主要用于查询库存、当天到货和预留咨询。",
-    },
-    {
-      q: "可以帮忙清理和切好吗？",
-      a: "部分海鲜可根据种类和档口情况询问清理、切好和打包服务。",
-    },
-    {
-      q: "价格每天一样吗？",
-      a: "活海鲜价格会根据到货、尺寸、季节和供应而变化。如需特定海鲜，建议来之前先询问。",
-    },
-    {
-      q: "可以在附近代煮吗？",
-      a: "部分海鲜有时可安排附近代煮，但需视容量和时间而定。请在档口确认。",
-    },
-  ],
-  ja: [
-    {
-      q: "オンラインで直接購入できますか？",
-      a: "Crab Talk は主に実店舗のライブシーフードストールです。WhatsApp は在庫、当日の入荷、取り置き相談用です。",
-    },
-    {
-      q: "清掃やカットはできますか？",
-      a: "一部の海鮮は、種類や店頭状況により清掃・カット・梱包をご相談いただけます。",
-    },
-    {
-      q: "価格は毎日同じですか？",
-      a: "ライブシーフードの価格は入荷、サイズ、季節、供給状況によって変わります。",
-    },
-    {
-      q: "近くで調理できますか？",
-      a: "一部の海鮮は近隣で調理できる場合がありますが、混雑状況と時間によります。店頭でご確認ください。",
-    },
-  ],
-};
-
-const optionalCookingImages = [
-  img("dish-lobster-yee-mee-table-shot.jpg"),
-  img("dish-lobster-bee-hoon-fai-kee-01.jpg"),
-  img("partner-fai-kee-food-overview.jpg"),
-  img("dish-steamed-soon-hock-fai-kee.jpg"),
-  img("dish-chilli-crab-table-shot.jpg"),
-];
-
-const featureCards = [
-  {
-    title: "8 Days Feature",
-    text: "Featured for our live seafood stall and optional nearby cooking concept at Commonwealth Crescent.",
-    image: img("feature-8days-original-thumbnail.jpg"),
-    link: LINKS.eightDays,
-  },
-  {
-    title: "TikTok Updates",
-    text: "Follow our latest seafood arrivals, tank videos and daily updates.",
-    image: img("feature-botak-jazz-tiktok.jpg"),
-    link: LINKS.tiktok,
-  },
-  {
-    title: "Facebook Feature",
-    text: "Local Facebook feature highlighting Crab Talk as a live seafood seller using AI content to share our stall story, fresh arrivals and market-style seafood experience.",
-    image: img("AI-feature.jpg"),
-    link: LINKS.facebookFeature,
-  },
-];
-
-function SmartImage({ src, alt, className = "", rotate = false }) {
-  const sources = Array.isArray(src) ? src : [src];
-  const [index, setIndex] = useState(0);
-  const [failed, setFailed] = useState(false);
-
-  useEffect(() => {
-    if (!rotate || sources.length <= 1 || failed) return undefined;
-
-    const timer = window.setInterval(() => {
-      setIndex((current) => (current + 1) % sources.length);
-    }, 3600);
-
-    return () => window.clearInterval(timer);
-  }, [rotate, sources.length, failed]);
-
-  if (failed) {
-    return (
-      <div className={`imageFallback ${className}`}>
-        <span>🦀</span>
-      </div>
-    );
-  }
-
-  return (
-    <img
-      className={className}
-      src={sources[index]}
-      alt={alt}
-      loading="lazy"
-      onError={() => {
-        if (index < sources.length - 1) {
-          setIndex(index + 1);
-        } else {
-          setFailed(true);
-        }
-      }}
-    />
-  );
-}
-
-function Logo() {
-  return (
-    <a className="logoLockup" href="#home" aria-label="Crab Talk home">
-      <div className="logoMark">
-        <SmartImage
-          src={[
-            img("crabtalk-logo.png"),
-            img("crab-talk-logo.png"),
-            img("logo.png"),
-            img("Logo.png"),
-          ]}
-          alt="Crab Talk logo"
-        />
-      </div>
-      <div className="logoText">
-        <strong>CRAB TALK</strong>
-        <span>LIVE SEAFOOD SUPPLY</span>
-      </div>
-    </a>
-  );
-}
-
-function getTodayHours() {
-  const day = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    timeZone: "Asia/Singapore",
+export default function App() {
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [lang, setLang] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("crabtalk_lang") || "en";
+    }
+    return "en";
   });
 
-  return HOURS.find((item) => item.day === day) || HOURS[0];
-}
-
-function App() {
-  const [lang, setLang] = useState("en");
-  const t = languages[lang];
-  const today = useMemo(() => getTodayHours(), []);
+  const t = content[lang];
 
   useEffect(() => {
-    if (!GOOGLE_TAG_ID) return;
+    localStorage.setItem("crabtalk_lang", lang);
+  }, [lang]);
 
-    const existing = document.querySelector(
-      `script[src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}"]`
-    );
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
 
-    if (!existing) {
-      const script = document.createElement("script");
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`;
-      document.head.appendChild(script);
-    }
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-
-    window.gtag = gtag;
-    gtag("js", new Date());
-    gtag("config", GOOGLE_TAG_ID);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <>
-      <style>{styles}</style>
+    <div className="site">
+      <style>{`
+        * {
+          box-sizing: border-box;
+        }
 
-      <div className="site" id="home">
-        <header className="header">
-          <div className="container headerInner">
-            <Logo />
+        html {
+          scroll-behavior: smooth;
+        }
 
-            <nav className="desktopNav" aria-label="Main navigation">
-              <a href="#home">{t.navHome}</a>
-              <a href="#selection">{t.navSelection}</a>
-              <a href="#how">{t.navHow}</a>
-              <a href="#reviews">{t.navReviews}</a>
-              <a href="#visit">{t.navFind}</a>
-            </nav>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          background: #021216;
+          color: white;
+        }
 
-            <div className="headerActions">
-              <select
-                className="languageSelect"
-                value={lang}
-                onChange={(event) => setLang(event.target.value)}
-                aria-label="Select language"
+        .site {
+          min-height: 100vh;
+          background:
+            radial-gradient(circle at 8% 8%, rgba(25, 190, 210, 0.30), transparent 30%),
+            radial-gradient(circle at 92% 10%, rgba(255, 205, 96, 0.16), transparent 30%),
+            radial-gradient(circle at 50% 55%, rgba(9, 88, 101, 0.20), transparent 36%),
+            linear-gradient(180deg, #021216 0%, #062830 48%, #021216 100%);
+          overflow-x: hidden;
+        }
+
+        a {
+          color: inherit;
+        }
+
+        .topbar {
+          position: sticky;
+          top: 0;
+          z-index: 50;
+          backdrop-filter: blur(18px);
+          background: rgba(2, 18, 22, 0.92);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar-inner {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 14px 22px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 18px;
+        }
+
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          min-width: 250px;
+        }
+
+        .brand-mark {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #ffd166, #18c7df);
+          color: #021216;
+          font-size: 22px;
+          box-shadow: 0 0 28px rgba(24, 199, 223, 0.35);
+          flex: 0 0 auto;
+        }
+
+        .brand-title {
+          font-size: 20px;
+          font-weight: 900;
+          letter-spacing: 0.2px;
+        }
+
+        .brand-sub {
+          margin-top: 3px;
+          font-size: 12px;
+          color: #9fd9e4;
+          line-height: 1.35;
+        }
+
+        .nav {
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          font-size: 14px;
+        }
+
+        .nav a {
+          color: #d7f6ff;
+          text-decoration: none;
+          opacity: 0.88;
+          white-space: nowrap;
+        }
+
+        .nav a:hover {
+          opacity: 1;
+          color: #ffd166;
+        }
+
+        .nav-cta {
+          padding: 10px 15px;
+          border-radius: 999px;
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          color: #021216 !important;
+          font-weight: 900;
+          box-shadow: 0 12px 30px rgba(255, 183, 3, 0.22);
+        }
+
+        .language-switcher {
+          display: flex;
+          gap: 6px;
+          padding: 5px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.07);
+          border: 1px solid rgba(255,255,255,0.12);
+          flex: 0 0 auto;
+        }
+
+        .language-switcher button {
+          border: 0;
+          cursor: pointer;
+          padding: 8px 10px;
+          border-radius: 999px;
+          background: transparent;
+          color: #d7f6ff;
+          font-weight: 800;
+          font-size: 12px;
+        }
+
+        .language-switcher button.active {
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          color: #021216;
+        }
+
+        .hero {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 56px 22px 34px;
+          display: grid;
+          grid-template-columns: 1.02fr 0.98fr;
+          gap: 34px;
+          align-items: center;
+        }
+
+        .eyebrow {
+          display: inline-flex;
+          align-items: center;
+          width: fit-content;
+          gap: 8px;
+          padding: 8px 13px;
+          border-radius: 999px;
+          background: rgba(255, 209, 102, 0.12);
+          border: 1px solid rgba(255, 209, 102, 0.30);
+          color: #ffd166;
+          font-size: 13px;
+          font-weight: 900;
+          margin-bottom: 18px;
+        }
+
+        h1 {
+          margin: 0;
+          font-size: clamp(38px, 5.2vw, 74px);
+          line-height: 0.95;
+          letter-spacing: -2.2px;
+        }
+
+        .hero-copy {
+          margin: 22px 0 0;
+          max-width: 620px;
+          font-size: clamp(16px, 2vw, 20px);
+          line-height: 1.65;
+          color: #c7e8ef;
+        }
+
+        .address {
+          margin-top: 20px;
+          padding: 15px 17px;
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.11);
+          color: #ffffff;
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-top: 24px;
+        }
+
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 14px 19px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: 900;
+          font-size: 15px;
+          transition: transform 0.2s ease, opacity 0.2s ease;
+          text-align: center;
+        }
+
+        .btn:hover {
+          transform: translateY(-2px);
+        }
+
+        .btn-primary {
+          color: #021216;
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          box-shadow: 0 14px 34px rgba(255, 183, 3, 0.24);
+        }
+
+        .btn-secondary {
+          color: white;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .btn-telegram {
+          color: white;
+          background: linear-gradient(135deg, #20a8e0, #0b7ea2);
+          box-shadow: 0 14px 34px rgba(32, 168, 224, 0.22);
+        }
+
+        .hero-frame {
+          position: relative;
+          border-radius: 30px;
+          padding: 10px;
+          background:
+            linear-gradient(135deg, rgba(255, 209, 102, 0.45), rgba(30, 198, 220, 0.22)),
+            rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+        }
+
+        .hero-image-box {
+          height: 380px;
+          border-radius: 23px;
+          overflow: hidden;
+          background: #061e23;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          background: #061e23;
+        }
+
+        .hero-badge {
+          position: absolute;
+          left: 24px;
+          bottom: 24px;
+          padding: 11px 14px;
+          border-radius: 16px;
+          background: rgba(2, 18, 22, 0.84);
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          backdrop-filter: blur(10px);
+          font-size: 13px;
+          color: #d7f6ff;
+        }
+
+        .trust-row {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 0 22px 34px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+
+        .trust-card {
+          padding: 18px;
+          border-radius: 22px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .trust-card h3 {
+          margin: 0 0 7px;
+          font-size: 18px;
+        }
+
+        .trust-card p {
+          margin: 0;
+          color: #b7d8df;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .section {
+          max-width: 1180px;
+          margin: 0 auto;
+          padding: 48px 22px;
+        }
+
+        .section-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          gap: 24px;
+          margin-bottom: 22px;
+        }
+
+        .section-kicker {
+          color: #ffd166;
+          font-size: 13px;
+          font-weight: 900;
+          text-transform: uppercase;
+          letter-spacing: 1.8px;
+          margin-bottom: 8px;
+        }
+
+        h2 {
+          margin: 0;
+          font-size: clamp(28px, 3.4vw, 46px);
+          letter-spacing: -1.2px;
+        }
+
+        .section-desc {
+          max-width: 560px;
+          margin: 0;
+          color: #b7d8df;
+          line-height: 1.65;
+          font-size: 15px;
+        }
+
+        .info-panel {
+          border-radius: 30px;
+          padding: 34px;
+          background:
+            radial-gradient(circle at top right, rgba(255, 209, 102, 0.16), transparent 34%),
+            linear-gradient(135deg, rgba(22, 199, 223, 0.14), rgba(255, 209, 102, 0.08)),
+            rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(255, 255, 255, 0.13);
+          box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
+        }
+
+        .info-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+          margin-top: 22px;
+        }
+
+        .mini-card {
+          padding: 20px;
+          border-radius: 22px;
+          background: rgba(255,255,255,0.065);
+          border: 1px solid rgba(255,255,255,0.11);
+        }
+
+        .mini-card h3 {
+          margin: 0 0 12px;
+          font-size: 21px;
+        }
+
+        .mini-card p,
+        .mini-card li {
+          color: #c5e4ea;
+          line-height: 1.65;
+          font-size: 15px;
+        }
+
+        .mini-card ul {
+          margin: 0;
+          padding-left: 18px;
+        }
+
+        .selection-grid,
+        .steps-grid,
+        .feature-grid,
+        .reviews-grid,
+        .faq-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+
+        .product-card,
+        .step-card,
+        .feature-card,
+        .review-card,
+        .faq-card {
+          overflow: hidden;
+          border-radius: 24px;
+          background: rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(255, 255, 255, 0.11);
+          box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+        }
+
+        .product-card,
+        .feature-card {
+          transition: transform 0.22s ease, border-color 0.22s ease;
+        }
+
+        .product-card:hover,
+        .feature-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(255, 209, 102, 0.38);
+        }
+
+        .product-image-wrap,
+        .feature-image-wrap {
+          height: 215px;
+          background: #061e23;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .feature-image-wrap {
+          height: 185px;
+        }
+
+        .product-image,
+        .feature-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          background: #061e23;
+          padding: 5px;
+        }
+
+        .product-body,
+        .feature-body,
+        .review-card,
+        .faq-card {
+          padding: 19px 20px 21px;
+        }
+
+        .product-body h3,
+        .feature-body h3,
+        .step-card h3,
+        .review-card h3,
+        .faq-card h3 {
+          margin: 0 0 9px;
+          font-size: 22px;
+          letter-spacing: -0.4px;
+        }
+
+        .product-body p,
+        .feature-body p,
+        .step-card p,
+        .review-card p,
+        .faq-card p {
+          margin: 0;
+          color: #c0dce2;
+          font-size: 15px;
+          line-height: 1.6;
+        }
+
+        .feature-card {
+          text-decoration: none;
+          color: white;
+        }
+
+        .feature-link {
+          display: inline-block;
+          margin-top: 13px;
+          color: #ffd166;
+          font-weight: 900;
+          font-size: 14px;
+        }
+
+        .step-card {
+          padding: 26px;
+        }
+
+        .step-number {
+          color: rgba(255, 209, 102, 0.34);
+          font-size: 44px;
+          font-weight: 900;
+          line-height: 1;
+          margin-bottom: 10px;
+        }
+
+        .arrivals-list,
+        .ideas-list {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+          margin-top: 22px;
+        }
+
+        .arrival-pill,
+        .idea-item,
+        .telegram-point {
+          padding: 14px 15px;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.10);
+          color: #d7f6ff;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+
+        .ideas-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .telegram-box,
+        .visit-box,
+        .google-review-box {
+          border-radius: 30px;
+          padding: 36px;
+          display: grid;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 26px;
+          align-items: center;
+          background:
+            radial-gradient(circle at top right, rgba(32, 168, 224, 0.24), transparent 34%),
+            linear-gradient(135deg, rgba(22, 199, 223, 0.14), rgba(255, 209, 102, 0.08)),
+            rgba(255, 255, 255, 0.055);
+          border: 1px solid rgba(255, 255, 255, 0.13);
+          box-shadow: 0 22px 70px rgba(0, 0, 0, 0.20);
+        }
+
+        .google-review-box {
+          grid-template-columns: 1fr;
+        }
+
+        .telegram-box p,
+        .visit-box p,
+        .google-review-box p {
+          margin: 12px 0 0;
+          color: #c5e4ea;
+          line-height: 1.7;
+        }
+
+        .telegram-points,
+        .visit-actions {
+          display: grid;
+          gap: 12px;
+        }
+
+        .review-card h3 {
+          color: #ffd166;
+        }
+
+        .review-icon {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, #ffd166, #ffb703);
+          color: #021216;
+          font-weight: 900;
+          margin-bottom: 14px;
+        }
+
+        .footer {
+          padding: 32px 22px 46px;
+          text-align: center;
+          color: #88b8c2;
+          font-size: 13px;
+        }
+
+        .mobile-sticky {
+          display: none;
+        }
+
+        @media (max-width: 1100px) {
+          .topbar-inner {
+            flex-wrap: wrap;
+          }
+
+          .nav {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+
+        @media (max-width: 960px) {
+          .hero {
+            grid-template-columns: 1fr;
+          }
+
+          .hero-image-box {
+            height: 330px;
+          }
+
+          .trust-row,
+          .selection-grid,
+          .feature-grid,
+          .steps-grid,
+          .reviews-grid,
+          .faq-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .telegram-box,
+          .visit-box,
+          .info-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .arrivals-list {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 680px) {
+          .topbar-inner {
+            padding: 12px 16px;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .brand {
+            min-width: unset;
+          }
+
+          .brand-mark {
+            width: 38px;
+            height: 38px;
+            font-size: 20px;
+          }
+
+          .brand-title {
+            font-size: 18px;
+          }
+
+          .brand-sub {
+            font-size: 11px;
+          }
+
+          .nav {
+            display: none;
+          }
+
+          .language-switcher {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .language-switcher button {
+            flex: 1;
+          }
+
+          .hero,
+          .section,
+          .trust-row {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+
+          .hero {
+            padding-top: 32px;
+            gap: 24px;
+          }
+
+          .hero-copy {
+            font-size: 16px;
+          }
+
+          .hero-image-box {
+            height: 245px;
+          }
+
+          .hero-frame {
+            border-radius: 24px;
+            padding: 8px;
+          }
+
+          .hero-image-box {
+            border-radius: 18px;
+          }
+
+          .hero-badge {
+            left: 18px;
+            bottom: 18px;
+            max-width: calc(100% - 36px);
+          }
+
+          .trust-row,
+          .selection-grid,
+          .feature-grid,
+          .steps-grid,
+          .reviews-grid,
+          .faq-grid,
+          .arrivals-list,
+          .ideas-list {
+            grid-template-columns: 1fr;
+            gap: 15px;
+          }
+
+          .section {
+            padding-top: 36px;
+            padding-bottom: 36px;
+          }
+
+          .section-head {
+            display: block;
+          }
+
+          .section-desc {
+            margin-top: 12px;
+          }
+
+          .product-image-wrap {
+            height: 188px;
+          }
+
+          .feature-image-wrap {
+            height: 178px;
+          }
+
+          .step-card,
+          .telegram-box,
+          .visit-box,
+          .info-panel,
+          .google-review-box {
+            padding: 22px;
+            border-radius: 22px;
+          }
+
+          .hero-actions {
+            flex-direction: column;
+          }
+
+          .btn {
+            width: 100%;
+          }
+
+          .mobile-sticky {
+            position: fixed;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            z-index: 70;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 9px;
+            border-radius: 999px;
+            background: rgba(2, 18, 22, 0.90);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+          }
+
+          .mobile-sticky a {
+            padding: 11px 7px;
+            border-radius: 999px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+          }
+
+          .mobile-whatsapp {
+            background: linear-gradient(135deg, #ffd166, #ffb703);
+            color: #021216;
+          }
+
+          .mobile-telegram {
+            background: linear-gradient(135deg, #20a8e0, #0b7ea2);
+            color: white;
+          }
+
+          .mobile-map {
+            background: rgba(255, 255, 255, 0.10);
+            color: white;
+          }
+
+          .footer {
+            padding-bottom: 92px;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .hero-image-box {
+            height: 220px;
+          }
+
+          .product-image-wrap {
+            height: 174px;
+          }
+
+          .feature-image-wrap {
+            height: 168px;
+          }
+
+          .address {
+            font-size: 14px;
+          }
+        }
+      `}</style>
+
+      <header className="topbar">
+        <div className="topbar-inner">
+          <div className="brand">
+            <div className="brand-mark">🦀</div>
+            <div>
+              <div className="brand-title">Crab Talk SG</div>
+              <div className="brand-sub">{t.brandSub}</div>
+            </div>
+          </div>
+
+          <nav className="nav">
+            <a href="#selection">{t.nav.seafood}</a>
+            <a href="#hours">{t.nav.hours}</a>
+            <a href="#telegram">{t.nav.telegram}</a>
+            <a href="#features">{t.nav.features}</a>
+            <a href="#reviews">{t.nav.reviews}</a>
+            <a href="#faq">{t.nav.faq}</a>
+            <a href="#visit">{t.nav.visit}</a>
+            <a className="nav-cta" href={whatsappLink}>
+              {t.nav.whatsapp}
+            </a>
+          </nav>
+
+          <div className="language-switcher">
+            <button
+              className={lang === "en" ? "active" : ""}
+              onClick={() => setLang("en")}
+            >
+              EN
+            </button>
+            <button
+              className={lang === "zh" ? "active" : ""}
+              onClick={() => setLang("zh")}
+            >
+              中文
+            </button>
+            <button
+              className={lang === "ja" ? "active" : ""}
+              onClick={() => setLang("ja")}
+            >
+              日本語
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="hero">
+          <div>
+            <div className="eyebrow">{t.eyebrow}</div>
+            <h1>{t.heroTitle}</h1>
+            <p className="hero-copy">{t.heroCopy}</p>
+
+            <div className="address">
+              <strong>{t.visitUs}</strong>
+              <br />
+              {t.address}
+            </div>
+
+            <div className="hero-actions">
+              <a className="btn btn-primary" href={whatsappLink}>
+                {t.whatsappReserve}
+              </a>
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <option value="en">EN</option>
-                <option value="zh">中文</option>
-                <option value="ja">日本語</option>
-              </select>
-
-              <a className="button buttonPrimary headerWhatsapp" href={LINKS.whatsapp}>
-                {t.whatsapp}
+                {t.telegramJoin}
+              </a>
+              <a
+                className="btn btn-secondary"
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.maps}
               </a>
             </div>
           </div>
-        </header>
 
-        <main>
-          <section className="hero">
-            <div className="container heroGrid">
-              <div className="heroContent">
-                <div className="heroBadges">
-                  <span>{t.heroBadge}</span>
-                  <span>
-                    {t.today}: {today.day} {today.hours}
-                  </span>
-                </div>
+          <div className="hero-frame">
+            <div className="hero-image-box">
+              <img
+                className="hero-image"
+                src={heroImages[heroIndex]}
+                alt="Crab Talk premium live seafood"
+              />
+            </div>
+            <div className="hero-badge">{t.heroBadge}</div>
+          </div>
+        </section>
 
-                <h1>{t.heroTitle}</h1>
+        <div className="trust-row">
+          {t.trust.map((item) => (
+            <div className="trust-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
 
-                <p className="heroText">{t.heroText}</p>
-                <p className="heroNote">{t.heroNote}</p>
+        <section className="section" id="hours">
+          <div className="info-panel">
+            <div className="section-kicker">{t.hoursKicker}</div>
+            <h2>{t.hoursTitle}</h2>
+            <p className="section-desc">{t.hoursDesc}</p>
 
-                <div className="addressCard">
-                  <span>📍</span>
-                  <div>
-                    <small>{t.addressLabel}</small>
-                    <strong>{ADDRESS}</strong>
-                  </div>
-                </div>
+            <div className="info-grid">
+              <div className="mini-card">
+                <h3>Crab Talk</h3>
+                <ul>
+                  {t.crabTalkHours.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
 
-                <div className="heroCtas">
+                <div className="hero-actions">
+                  <a className="btn btn-primary" href={whatsappLink}>
+                    {t.whatsappReserve}
+                  </a>
                   <a
-                    className="button buttonGold"
-                    href={LINKS.maps}
+                    className="btn btn-secondary"
+                    href={takeAppLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {t.visitStall}
-                  </a>
-
-                  <a className="button buttonPrimary" href={LINKS.whatsapp}>
-                    {t.checkArrival}
-                  </a>
-
-                  <a
-                    className="button buttonOutline"
-                    href={LINKS.telegram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.telegram}
+                    {t.orderOnline}
                   </a>
                 </div>
               </div>
 
-              <div className="heroImageCard">
-                <SmartImage
-                  src={[
-                    img("stall-crab-talk-live-tanks.jpg"),
-                    img("stall-crab-talk-front-02.jpg"),
-                    img("feature-8days-original-thumbnail.jpg"),
-                  ]}
-                  alt="Crab Talk live seafood stall"
-                />
+              <div className="mini-card">
+                <h3>{t.cookingTitle}</h3>
+                <p>{t.cookingText}</p>
+                <p>{t.onlineOrderText}</p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section id="selection" className="section sectionTint">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>{t.selectionKicker}</p>
-                <h2>{t.selectionTitle}</h2>
-                <span>{t.selectionText}</span>
-              </div>
-
-              <div className="productGrid">
-                {selectionItems.map((item) => (
-                  <article className="productCard" key={item.title.en}>
-                    <div className="productMedia">
-                      <SmartImage src={item.image} alt={item.title[lang]} />
-                    </div>
-
-                    <div className="productBody">
-                      <h3>{item.title[lang]}</h3>
-                      <p>{item.text[lang]}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+        <section className="section" id="selection">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.freshKicker}</div>
+              <h2>{t.freshTitle}</h2>
             </div>
-          </section>
+            <p className="section-desc">{t.freshDesc}</p>
+          </div>
 
-          <section id="how" className="section">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>{t.howKicker}</p>
-                <h2>{t.howTitle}</h2>
-                <span>{t.howText}</span>
-              </div>
-
-              <div className="stepsGrid">
-                {howSteps.map((step, index) => (
-                  <article className="stepCard" key={step.title.en}>
-                    <div className="stepTop">
-                      <span className="stepNumber">{index + 1}</span>
-                      <span className="stepIcon">{step.icon}</span>
-                    </div>
-                    <h3>{step.title[lang]}</h3>
-                    <p>{step.text[lang]}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="section sectionTint">
-            <div className="container twoColumn">
-              <article className="infoCard">
-                <div className="infoImage largeImage">
-                  <SmartImage
-                    src={[
-                      img("feature-8days-original-thumbnail.jpg"),
-                      img("dish-chilli-crab-rich-sauce.jpg"),
-                      img("dish-steamed-crab-01.jpg"),
-                    ]}
-                    alt="Seafood prepared for home cooking"
+          <div className="selection-grid">
+            {t.freshSelection.map((item) => (
+              <article className="product-card" key={item.title}>
+                <div className="product-image-wrap">
+                  <img
+                    className="product-image"
+                    src={item.image}
+                    alt={item.title}
                   />
                 </div>
-
-                <div className="infoBody">
-                  <h2>{t.homeTitle}</h2>
-                  <p>{t.homeText}</p>
+                <div className="product-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
 
-              <article className="infoCard">
-                <div className="optionalSlider">
-                  {optionalCookingImages.map((photo, index) => (
-                    <div
-                      className="optionalSlide"
-                      key={photo}
-                      style={{ animationDelay: `${index * 3}s` }}
-                    >
-                      <SmartImage src={photo} alt="Nearby cooked seafood dish" />
-                    </div>
-                  ))}
+        <section className="section">
+          <div className="info-panel">
+            <div className="section-kicker">{t.arrivalsKicker}</div>
+            <h2>{t.arrivalsTitle}</h2>
+            <p className="section-desc">{t.arrivalsDesc}</p>
+
+            <div className="arrivals-list">
+              {t.arrivals.map((item) => (
+                <div className="arrival-pill" key={item}>
+                  {item}
                 </div>
-
-                <div className="infoBody">
-                  <h2>{t.cookingTitle}</h2>
-                  <p>{t.cookingText}</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section className="section">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>{t.whyKicker}</p>
-                <h2>{t.whyTitle}</h2>
-              </div>
-
-              <div className="whyGrid">
-                {whyItems.map((item) => (
-                  <article className="whyCard" key={item.title.en}>
-                    <div className="whyIcon">{item.icon}</div>
-                    <h3>{item.title[lang]}</h3>
-                    <p>{item.text[lang]}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="section sectionTint">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>Featured / Social Proof</p>
-                <h2>Featured Locally</h2>
-              </div>
-
-              <div className="featureGrid">
-                {featureCards.map((feature) => (
-                  <a
-                    className="featureCard"
-                    key={feature.title}
-                    href={feature.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <SmartImage src={feature.image} alt={feature.title} />
-                    <div>
-                      <h3>{feature.title}</h3>
-                      <p>{feature.text}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="reviews" className="section">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>{t.reviewsKicker}</p>
-                <h2>{t.reviewsTitle}</h2>
-              </div>
-
-              <div className="reviewsGrid">
-                {reviews.map((review) => (
-                  <article className="reviewCard" key={review.text.en}>
-                    <div className="stars">★★★★★</div>
-                    <p>{review.text[lang]}</p>
-                    <strong>{review.name}</strong>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="section sectionTint">
-            <div className="container">
-              <div className="sectionHeader">
-                <p>{t.faqKicker}</p>
-                <h2>{t.faqTitle}</h2>
-              </div>
-
-              <div className="faqGrid">
-                {faqs[lang].map((item) => (
-                  <article className="faqCard" key={item.q}>
-                    <h3>{item.q}</h3>
-                    <p>{item.a}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="visit" className="section">
-            <div className="container">
-              <div className="visitCard">
-                <div>
-                  <p className="visitKicker">{t.visitKicker}</p>
-                  <h2>{t.visitTitle}</h2>
-                  <p>{t.visitText}</p>
-
-                  <div className="visitAddress">{ADDRESS}</div>
-
-                  <div className="heroCtas">
-                    <a
-                      className="button buttonGold"
-                      href={LINKS.maps}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t.visitStall}
-                    </a>
-
-                    <a className="button buttonPrimary" href={LINKS.whatsapp}>
-                      {t.checkArrival}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="hoursBox">
-                  <h3>{t.openingHours}</h3>
-
-                  {HOURS.map((item) => (
-                    <div
-                      className={`hourRow ${
-                        item.day === today.day ? "activeHour" : ""
-                      }`}
-                      key={item.day}
-                    >
-                      <strong>{item.day}</strong>
-                      <span>{item.hours}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-
-        <footer className="footer">
-          <div className="container footerInner">
-            <div>
-              <Logo />
-              <p>{t.footerText}</p>
+              ))}
             </div>
 
-            <div className="footerLinks">
-              <a href={LINKS.whatsapp}>WhatsApp</a>
-              <a href={LINKS.telegram} target="_blank" rel="noopener noreferrer">
-                Telegram
+            <div className="hero-actions">
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.telegramJoin}
               </a>
-              <a href={LINKS.tiktok} target="_blank" rel="noopener noreferrer">
-                TikTok
-              </a>
-              <a href={LINKS.maps} target="_blank" rel="noopener noreferrer">
-                Google Maps
+              <a className="btn btn-primary" href={whatsappLink}>
+                {t.whatsappReserve}
               </a>
             </div>
           </div>
-        </footer>
+        </section>
 
-        <div className="mobileBar">
-          <a className="button buttonPrimary" href={LINKS.whatsapp}>
-            WhatsApp
-          </a>
-          <a
-            className="button buttonGold"
-            href={LINKS.maps}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Directions
-          </a>
-        </div>
+        <section className="section">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.howKicker}</div>
+              <h2>{t.howTitle}</h2>
+            </div>
+            <p className="section-desc">{t.howDesc}</p>
+          </div>
+
+          <div className="steps-grid">
+            {t.steps.map((item) => (
+              <article className="step-card" key={item.title}>
+                <div className="step-number">{item.number}</div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="info-panel">
+            <div className="section-kicker">{t.cookingIdeasKicker}</div>
+            <h2>{t.cookingIdeasTitle}</h2>
+
+            <div className="ideas-list">
+              {t.cookingIdeas.map((item) => (
+                <div className="idea-item" key={item}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="telegram">
+          <div className="telegram-box">
+            <div>
+              <div className="section-kicker">{t.telegramKicker}</div>
+              <h2>{t.telegramTitle}</h2>
+              <p>{t.telegramText}</p>
+
+              <div className="hero-actions">
+                <a
+                  className="btn btn-telegram"
+                  href={telegramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.telegramButton}
+                </a>
+                <a className="btn btn-primary" href={whatsappLink}>
+                  {t.whatsappReserve}
+                </a>
+              </div>
+            </div>
+
+            <div className="telegram-points">
+              {t.telegramPoints.map((point) => (
+                <div className="telegram-point" key={point}>
+                  {point}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="features">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.featuresKicker}</div>
+              <h2>{t.featuresTitle}</h2>
+            </div>
+            <p className="section-desc">{t.featuresDesc}</p>
+          </div>
+
+          <div className="feature-grid">
+            {t.featureCards.map((item) => (
+              <a
+                className="feature-card"
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="feature-image-wrap">
+                  <img
+                    className="feature-image"
+                    src={item.image}
+                    alt={item.title}
+                  />
+                </div>
+                <div className="feature-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  <span className="feature-link">{t.viewFeature}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="reviews">
+          <div className="google-review-box">
+            <div>
+              <div className="section-kicker">{t.reviewsKicker}</div>
+              <h2>{t.reviewsTitle}</h2>
+              <p className="section-desc">{t.reviewsDesc}</p>
+
+              <div className="hero-actions">
+                <a
+                  className="btn btn-primary"
+                  href={mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.viewGoogleReviews}
+                </a>
+                <a
+                  className="btn btn-secondary"
+                  href={mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.maps}
+                </a>
+              </div>
+            </div>
+
+            <div className="reviews-grid">
+              {t.reviewCards.map((item, index) => (
+                <div className="review-card" key={item.title}>
+                  <div className="review-icon">{index + 1}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="faq">
+          <div className="section-head">
+            <div>
+              <div className="section-kicker">{t.faqKicker}</div>
+              <h2>{t.faqTitle}</h2>
+            </div>
+          </div>
+
+          <div className="faq-grid">
+            {t.faq.map((item) => (
+              <div className="faq-card" key={item.q}>
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section" id="visit">
+          <div className="visit-box">
+            <div>
+              <div className="section-kicker">{t.visitKicker}</div>
+              <h2>{t.visitTitle}</h2>
+              <p>{t.visitText}</p>
+            </div>
+
+            <div className="visit-actions">
+              <a className="btn btn-primary" href={whatsappLink}>
+                {t.whatsappReserve}
+              </a>
+              <a
+                className="btn btn-telegram"
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.telegramJoin}
+              </a>
+              <a
+                className="btn btn-secondary"
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.getDirections}
+              </a>
+              <a
+                className="btn btn-secondary"
+                href={instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.instagram}
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div className="mobile-sticky">
+        <a className="mobile-whatsapp" href={whatsappLink}>
+          WhatsApp
+        </a>
+        <a
+          className="mobile-telegram"
+          href={telegramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Telegram
+        </a>
+        <a
+          className="mobile-map"
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Map
+        </a>
       </div>
-    </>
+
+      <footer className="footer">{t.footer}</footer>
+    </div>
   );
 }
+```
 
-const styles = `
-:root {
-  --teal: #06343b;
-  --teal2: #0b5964;
-  --aqua: #2aa9b8;
-  --gold: #d8b152;
-  --goldLight: #fff1bd;
-  --cream: #f7fbfa;
-  --card: #ffffff;
-  --line: #dce7e6;
-  --muted: #637579;
-  --shadow: 0 22px 55px rgba(6, 52, 59, 0.12);
-  --radius: 28px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--teal);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.container {
-  width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
-}
-
-.headerInner {
-  height: 92px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-}
-
-.logoLockup {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: max-content;
-}
-
-.logoMark {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #003f4a, #00a6b8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 12px 26px rgba(0, 63, 74, 0.2);
-  overflow: hidden;
-}
-
-.logoMark img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.logoText strong {
-  display: block;
-  font-size: 28px;
-  line-height: 1;
-  font-weight: 950;
-  color: var(--teal);
-  letter-spacing: -0.04em;
-}
-
-.logoText span {
-  display: block;
-  margin-top: 8px;
-  font-size: 13px;
-  color: #a8842f;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-}
-
-.desktopNav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  font-size: 15px;
-  font-weight: 850;
-  color: #5d6d70;
-}
-
-.desktopNav a:hover {
-  color: var(--teal);
-}
-
-.headerActions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.languageSelect {
-  height: 48px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: white;
-  padding: 0 18px;
-  color: var(--teal);
-  font-weight: 900;
-  outline: none;
-}
-
-.button {
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0 22px;
-  font-size: 15px;
-  font-weight: 950;
-  border: 1px solid transparent;
-  transition: 0.2s ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.buttonPrimary {
-  background: var(--teal2);
-  color: white;
-  box-shadow: 0 16px 32px rgba(11, 89, 100, 0.2);
-}
-
-.buttonGold {
-  background: var(--goldLight);
-  color: var(--teal);
-  border-color: rgba(216, 177, 82, 0.45);
-}
-
-.buttonOutline {
-  background: white;
-  color: var(--teal);
-  border-color: var(--line);
-}
-
-.hero {
-  padding: 78px 0 66px;
-  background:
-    radial-gradient(circle at top left, rgba(42, 169, 184, 0.12), transparent 32%),
-    linear-gradient(180deg, #ffffff 0%, #f7fbfa 100%);
-}
-
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 54px;
-  align-items: center;
-}
-
-.heroBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.heroBadges span {
-  display: inline-flex;
-  min-height: 38px;
-  align-items: center;
-  border-radius: 999px;
-  padding: 0 16px;
-  background: white;
-  border: 1px solid var(--line);
-  color: var(--teal);
-  font-size: 13px;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.heroBadges span:first-child {
-  background: var(--goldLight);
-  border-color: rgba(216, 177, 82, 0.55);
-}
-
-.hero h1 {
-  max-width: 720px;
-  margin: 0;
-  font-size: clamp(46px, 6.4vw, 82px);
-  line-height: 0.95;
-  letter-spacing: -0.07em;
-  color: var(--teal);
-}
-
-.heroText {
-  max-width: 760px;
-  margin: 28px 0 0;
-  font-size: clamp(18px, 2vw, 24px);
-  line-height: 1.65;
-  color: #49666b;
-}
-
-.heroNote {
-  max-width: 760px;
-  margin: 18px 0 0;
-  padding: 16px 18px;
-  border-left: 5px solid var(--gold);
-  border-radius: 18px;
-  background: white;
-  color: #526a6e;
-  font-weight: 700;
-  line-height: 1.6;
-}
-
-.addressCard {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 24px;
-  padding: 18px;
-  border-radius: 22px;
-  background: white;
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(6, 52, 59, 0.08);
-}
-
-.addressCard span {
-  width: 44px;
-  height: 44px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: #eef7f5;
-  font-size: 22px;
-}
-
-.addressCard small {
-  display: block;
-  color: var(--muted);
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.addressCard strong {
-  display: block;
-  color: var(--teal);
-  font-size: 17px;
-}
-
-.heroCtas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.heroImageCard {
-  padding: 18px;
-  border-radius: 36px;
-  background: white;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.heroImageCard img {
-  width: 100%;
-  height: min(560px, 58vw);
-  min-height: 390px;
-  object-fit: cover;
-  border-radius: 26px;
-}
-
-.section {
-  padding: 78px 0;
-}
-
-.sectionTint {
-  background: #eef7f5;
-}
-
-.sectionHeader {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 30px;
-  align-items: end;
-  margin-bottom: 34px;
-}
-
-.sectionHeader p {
-  margin: 0 0 10px;
-  color: #a8842f;
-  font-size: 13px;
-  font-weight: 950;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.sectionHeader h2 {
-  margin: 0;
-  font-size: clamp(32px, 4vw, 54px);
-  line-height: 1;
-  letter-spacing: -0.055em;
-}
-
-.sectionHeader span {
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.productGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.productCard,
-.stepCard,
-.whyCard,
-.reviewCard,
-.faqCard,
-.infoCard,
-.featureCard {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 15px 34px rgba(6, 52, 59, 0.07);
-}
-
-.productMedia {
-  height: 235px;
-  background: #f7fbfa;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.productMedia img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.productBody {
-  padding: 24px;
-}
-
-.productBody h3,
-.stepCard h3,
-.whyCard h3,
-.faqCard h3,
-.featureCard h3 {
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: -0.03em;
-}
-
-.productBody p,
-.stepCard p,
-.whyCard p,
-.reviewCard p,
-.faqCard p,
-.featureCard p,
-.infoBody p,
-.visitCard p,
-.footer p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-.stepsGrid,
-.whyGrid,
-.reviewsGrid,
-.faqGrid,
-.featureGrid {
-  display: grid;
-  gap: 20px;
-}
-
-.stepsGrid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.stepCard,
-.whyCard,
-.reviewCard,
-.faqCard {
-  padding: 26px;
-}
-
-.stepTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-}
-
-.stepNumber {
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: var(--teal);
-  color: white;
-  font-weight: 950;
-}
-
-.stepIcon,
-.whyIcon {
-  font-size: 34px;
-}
-
-.twoColumn {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 26px;
-}
-
-.infoImage,
-.optionalSlider {
-  height: 330px;
-  background: #f7fbfa;
-  border-bottom: 1px solid var(--line);
-  position: relative;
-  overflow: hidden;
-}
-
-.largeImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.optionalSlider {
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-.optionalSlide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  animation: cookingFade 15s infinite;
-}
-
-.optionalSlide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #f7fbfa;
-}
-
-@keyframes cookingFade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  20% { opacity: 1; }
-  25% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.infoBody {
-  padding: 30px;
-}
-
-.infoBody h2 {
-  margin: 0 0 12px;
-  font-size: 34px;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
-}
-
-.whyGrid {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.featureGrid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.featureCard {
-  display: block;
-  transition: 0.2s ease;
-}
-
-.featureCard:hover {
-  transform: translateY(-4px);
-}
-
-.featureCard img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  background: #f7fbfa;
-}
-
-.featureCard div {
-  padding: 22px;
-}
-
-.reviewsGrid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.stars {
-  color: #d59a19;
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
-}
-
-.reviewCard strong {
-  display: block;
-  color: var(--teal);
-  margin-top: 16px;
-}
-
-.faqGrid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.visitCard {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 36px;
-  padding: 36px;
-  border-radius: 34px;
-  background: linear-gradient(135deg, var(--teal), #0b5964);
-  color: white;
-  box-shadow: var(--shadow);
-}
-
-.visitKicker {
-  color: var(--goldLight) !important;
-  font-size: 13px !important;
-  font-weight: 950;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.visitCard h2 {
-  margin: 0;
-  font-size: clamp(34px, 4vw, 58px);
-  line-height: 1;
-  letter-spacing: -0.06em;
-}
-
-.visitCard p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 18px;
-}
-
-.visitAddress {
-  margin-top: 22px;
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.hoursBox {
-  padding: 24px;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.hoursBox h3 {
-  margin: 0 0 18px;
-  font-size: 24px;
-}
-
-.hourRow {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.hourRow:last-child {
-  border-bottom: 0;
-}
-
-.activeHour {
-  color: var(--goldLight);
-  font-weight: 950;
-}
-
-.footer {
-  padding: 42px 0 110px;
-  background: white;
-  border-top: 1px solid var(--line);
-}
-
-.footerInner {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.footer .logoLockup {
-  margin-bottom: 16px;
-}
-
-.footerLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-content: flex-start;
-  justify-content: flex-end;
-}
-
-.footerLinks a {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: #eef7f5;
-  color: var(--teal);
-  font-weight: 850;
-}
-
-.mobileBar {
-  display: none;
-}
-
-.imageFallback {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  background: #eef7f5;
-  color: var(--teal);
-  font-size: 42px;
-}
-
-@media (max-width: 1020px) {
-  .desktopNav {
-    display: none;
-  }
-
-  .heroGrid,
-  .twoColumn,
-  .visitCard,
-  .sectionHeader {
-    grid-template-columns: 1fr;
-  }
-
-  .productGrid,
-  .stepsGrid,
-  .whyGrid,
-  .featureGrid,
-  .reviewsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .heroImageCard img {
-    height: 440px;
-    min-height: unset;
-  }
-}
-
-@media (max-width: 720px) {
-  .container {
-    width: min(100% - 28px, 1180px);
-  }
-
-  .headerInner {
-    height: 78px;
-  }
-
-  .logoMark {
-    width: 48px;
-    height: 48px;
-    border-radius: 16px;
-  }
-
-  .logoText strong {
-    font-size: 22px;
-  }
-
-  .logoText span {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-  }
-
-  .headerWhatsapp {
-    display: none;
-  }
-
-  .languageSelect {
-    height: 42px;
-    padding: 0 12px;
-  }
-
-  .hero {
-    padding: 42px 0 44px;
-  }
-
-  .hero h1 {
-    font-size: 43px;
-    letter-spacing: -0.06em;
-  }
-
-  .heroText {
-    font-size: 17px;
-  }
-
-  .heroBadges span {
-    width: 100%;
-    justify-content: center;
-    font-size: 11px;
-  }
-
-  .heroImageCard {
-    padding: 10px;
-    border-radius: 26px;
-  }
-
-  .heroImageCard img {
-    height: 300px;
-    border-radius: 20px;
-  }
-
-  .section {
-    padding: 52px 0;
-  }
-
-  .sectionHeader h2 {
-    font-size: 34px;
-  }
-
-  .sectionHeader span {
-    font-size: 16px;
-  }
-
-  .productGrid,
-  .stepsGrid,
-  .whyGrid,
-  .featureGrid,
-  .reviewsGrid,
-  .faqGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .productMedia {
-    height: 215px;
-  }
-
-  .infoImage,
-  .optionalSlider {
-    height: 260px;
-  }
-
-  .infoBody {
-    padding: 24px;
-  }
-
-  .infoBody h2 {
-    font-size: 28px;
-  }
-
-  .visitCard {
-    padding: 26px;
-    border-radius: 28px;
-  }
-
-  .visitCard h2 {
-    font-size: 34px;
-  }
-
-  .footerInner {
-    flex-direction: column;
-  }
-
-  .footerLinks {
-    justify-content: flex-start;
-  }
-
-  .mobileBar {
-    position: fixed;
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    z-index: 200;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid var(--line);
-    box-shadow: 0 18px 45px rgba(6, 52, 59, 0.18);
-    backdrop-filter: blur(14px);
-  }
-
-  .mobileBar .button {
-    min-height: 46px;
-    padding: 0 12px;
-  }
-}
-
-@media (max-width: 420px) {
-  .logoText strong {
-    font-size: 19px;
-  }
-
-  .logoText span {
-    font-size: 9px;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .heroCtas .button {
-    width: 100%;
-  }
-}
-`;
-
-export default App;
+This avoids using fake review quotes. It directs customers to your **real Google Maps review page**, which is safer and more trustworthy.
