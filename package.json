@@ -2,5 +2,9 @@
   "name": "crabtalk-sg-static",
   "version": "1.0.0",
   "private": true,
-  "description": "Static Crab Talk website. Upload root files to GitHub. Uses existing public/images files already in the repository."
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi",
+    "start": "echo 'Static site. Open index.html directly.'"
+  },
+  "devDependencies": {}
 }
