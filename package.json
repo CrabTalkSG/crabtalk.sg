@@ -1,8 +1,7 @@
 {
-  "name": "crabtalk-sg-simple-static",
-  "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html robots.txt sitemap.xml dist/"
-  }
+    "build": "rm -rf dist && mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
