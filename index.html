@@ -104,7 +104,9 @@
     .find-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-list{display:grid;gap:12px}.info-row{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.info-row strong{display:block;color:var(--navy)}.map-frame{width:100%;min-height:370px;border:0;border-radius:24px;box-shadow:var(--shadow);background:#e2e8f0}
     footer{background:#061b2a;color:#cbd5e1;padding:34px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-grid strong{color:#fff}.footer-links{display:flex;gap:14px;flex-wrap:wrap}.footer-links a{font-weight:800;color:#e2e8f0}
     .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;border-radius:999px;padding:14px 18px;font-weight:1000;box-shadow:0 14px 34px rgba(37,211,102,.35)}
-    [data-lang="zh"]{display:none}body.zh [data-lang="en"]{display:none}body.zh [data-lang="zh"]{display:inline}body.zh p[data-lang="zh"],body.zh div[data-lang="zh"]{display:block}
+    [data-lang="zh"],[data-lang="jp"]{display:none}
+    body.zh [data-lang="en"],body.zh [data-lang="jp"],body.jp [data-lang="en"],body.jp [data-lang="zh"]{display:none!important}
+    body.zh [data-lang="zh"],body.jp [data-lang="jp"]{display:revert}
     .missing-image{background:linear-gradient(135deg,#dbeafe,#fef3c7);display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:900;text-align:center;padding:18px}
 
     @media(max-width:920px){.nav-links{display:none}.mobile-only{display:inline-flex}.hero-grid,.reviews-wrap,.find-grid,.cta-box{grid-template-columns:1fr}.hero-card{transform:none}.hero-card img{height:360px}.grid-4,.grid-3{grid-template-columns:1fr 1fr}.rating-panel{position:relative;top:auto}.section-head{display:block}.section-head p{margin-top:12px}.footer-grid{display:block}.footer-links{margin-top:18px}.quick-stats{grid-template-columns:1fr 1fr}}
@@ -120,6 +122,7 @@
     "url":"https://www.crabtalk.sg/",
     "image":"https://raw.githubusercontent.com/CrabTalkSG/crabtalk.sg/main/public/images/stall-crab-talk-front-01.jpg",
     "telephone":"+65 9839 8671",
+    "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"17:00"}],
     "priceRange":"$$",
     "address":{
       "@type":"PostalAddress",
@@ -131,6 +134,7 @@
     "sameAs":[
       "https://www.tiktok.com/@liveseafood_crabtalksg",
       "https://www.facebook.com/61575561066703/",
+      "https://t.me/CrabTalkSG",
       "https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.3070246,103.8005474,17z/"
     ],
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"56"}
@@ -147,12 +151,13 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#seafood">Fresh Selection</a>
         <a href="#how">How It Works</a>
+        <a href="#hours">Hours</a>
         <a href="#featured">Featured Locally</a>
         <a href="#reviews">Reviews</a>
         <a href="#find">Find Us</a>
       </nav>
       <div style="display:flex;gap:8px;align-items:center">
-        <button class="lang-toggle" type="button" id="langBtn">EN / 中文</button>
+        <button class="lang-toggle" type="button" id="langBtn">EN / 中文 / 日本語</button>
         <a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_header')">WhatsApp</a>
       </div>
     </div>
@@ -165,11 +170,14 @@
           <div class="status-row">
             <span class="eyebrow">Physical live seafood stall</span>
             <span class="eyebrow">Commonwealth Crescent Market</span>
+            <span class="eyebrow">Open daily: 8am – 5pm</span>
           </div>
           <h1 data-lang="en">Pick Your Live Seafood From Our Tanks</h1>
           <h1 data-lang="zh">到 Crab Talk 亲自挑选活海鲜</h1>
+          <h1 data-lang="jp">水槽から選ぶライブシーフード</h1>
           <p class="lead" data-lang="en">Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.</p>
           <p class="lead" data-lang="zh">欢迎到联邦弯市场 Crab Talk 选购活螃蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等。可现场挑选，也可 WhatsApp 查询当天货量。</p>
+          <p class="lead" data-lang="jp">Commonwealth Crescent Market の Crab Talk で、活き蟹・膏蟹・ロブスター・牡蠣・マニラ貝・Soon Hock などを水槽から直接お選びください。ご来店前に WhatsApp で当日の在庫をご確認ください。</p>
           <div class="hero-actions">
             <a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_hero')">Check Today’s Availability</a>
             <a class="pill pill-soft" href="#reviews">Read Real Google Reviews</a>
@@ -231,6 +239,25 @@
       </div>
     </section>
 
+
+    <section id="hours">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-lang="en">Operation Hours</h2>
+          <h2 data-lang="zh">营业时间</h2>
+          <h2 data-lang="jp">営業時間</h2>
+          <p data-lang="en">Visit our physical live seafood stall at Commonwealth Crescent Market. If you are making a special trip, WhatsApp us first to check today’s arrival and availability.</p>
+          <p data-lang="zh">欢迎到 Commonwealth Crescent Market 的实体活海鲜摊位。若特地前来，建议先 WhatsApp 查询当天到货和现货。</p>
+          <p data-lang="jp">Commonwealth Crescent Market の実店舗へお越しください。ご来店前に WhatsApp で当日の入荷・在庫をご確認いただくと確実です。</p>
+        </div>
+        <div class="grid grid-3 steps">
+          <div class="card step"><h3>Crab Talk Stall</h3><p><strong>Monday – Sunday</strong><br>8:00am – 5:00pm</p></div>
+          <div class="card step"><h3>Before You Come</h3><p>Live seafood is based on daily arrivals. WhatsApp us before coming down for specific seafood or crab sizes.</p></div>
+          <div class="card step"><h3>Market Rest Days</h3><p>Closed during selected market rest days or special closures. Check WhatsApp before making a special trip.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section id="featured">
       <div class="container">
         <div class="section-head">
@@ -240,7 +267,6 @@
         <div class="grid grid-4">
           <article class="card feature-card"><img class="photo js-img" src="/images/feature-8days-crab-talk-fai-kee.jpg" data-file="feature-8days-crab-talk-fai-kee.jpg" alt="8 Days feature on Crab Talk and Fai Kee" /><div class="card-body"><span class="tag">8 Days</span><h3>Featured on 8 Days</h3><p>Coverage of the Commonwealth Crab Talk × Fai Kee live seafood hawker collaboration.</p><a class="pill pill-soft" target="_blank" rel="noopener" href="https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541" onclick="trackClick('feature_8days')">Read Feature</a></div></article>
           <article class="card feature-card"><img class="photo js-img" src="/images/feature-botak-jazz-tiktok.jpg" data-file="feature-botak-jazz-tiktok.jpg" alt="Botak Jazz TikTok feature" /><div class="card-body"><span class="tag">TikTok Feature</span><h3>Featured by Botak Jazz</h3><p>Local TikTok feature showing the live seafood and cooked crab experience.</p><a class="pill pill-soft" target="_blank" rel="noopener" href="https://www.tiktok.com/@botakjazz/video/7602204733155364116" onclick="trackClick('feature_tiktok_botakjazz')">Watch TikTok</a></div></article>
-          <article class="card feature-card"><img class="photo js-img" src="/images/botak-jazz-feature.jpg" data-file="botak-jazz-feature.jpg" alt="Crab Talk TikTok" /><div class="card-body"><span class="tag">Crab Talk TikTok</span><h3>Follow Our TikTok</h3><p>See current arrivals, stall videos and live seafood updates from Crab Talk.</p><a class="pill pill-soft" target="_blank" rel="noopener" href="https://www.tiktok.com/@liveseafood_crabtalksg" onclick="trackClick('crabtalk_tiktok')">Open TikTok</a></div></article>
           <article class="card feature-card"><img class="photo js-img" src="/images/stall-crab-talk-front-02.jpg" data-file="stall-crab-talk-front-02.jpg" alt="Crab Talk Facebook" /><div class="card-body"><span class="tag">Facebook</span><h3>Find Us on Facebook</h3><p>Connect with Crab Talk and share our page with friends looking for live seafood.</p><a class="pill pill-soft" target="_blank" rel="noopener" href="https://www.facebook.com/61575561066703/" onclick="trackClick('facebook')">Open Facebook</a></div></article>
         </div>
       </div>
@@ -283,7 +309,9 @@
         <div class="find-grid">
           <div class="info-list">
             <div class="info-row"><strong>Address</strong>31 Commonwealth Cres, #01-41/42/43, Singapore 149644</div>
-            <div class="info-row"><strong>WhatsApp / Phone</strong><a href="https://wa.me/6598398671" onclick="trackClick('whatsapp_find')">+65 9839 8671</a></div>
+            <div class="info-row"><strong>WhatsApp</strong><a href="https://wa.me/6598398671" onclick="trackClick('whatsapp_find')">Message Crab Talk on WhatsApp</a></div>
+            <div class="info-row"><strong>Operation Hours</strong>Monday – Sunday, 8:00am – 5:00pm</div>
+            <div class="info-row"><strong>Telegram</strong><a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener" onclick="trackClick('telegram_find')">Join Crab Talk on Telegram</a></div>
             <div class="info-row"><strong>Google Reviews</strong><a href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.3070246,103.8005474,17z/" target="_blank" rel="noopener" onclick="trackClick('google_maps_find')">Open Crab Talk on Google Maps</a></div>
             <div class="info-row"><strong>Review Link</strong><a href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener" onclick="trackClick('review_link_find')">Ask customers to leave a Google review</a></div>
           </div>
@@ -299,6 +327,7 @@
       <div class="footer-links">
         <a href="https://www.tiktok.com/@liveseafood_crabtalksg" target="_blank" rel="noopener" onclick="trackClick('footer_tiktok')">TikTok</a>
         <a href="https://www.facebook.com/61575561066703/" target="_blank" rel="noopener" onclick="trackClick('footer_facebook')">Facebook</a>
+        <a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener" onclick="trackClick('footer_telegram')">Telegram</a>
         <a href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener" onclick="trackClick('footer_review')">Review Us</a>
       </div>
     </div>
@@ -332,7 +361,16 @@
     });
 
     const langBtn = document.getElementById('langBtn');
-    langBtn.addEventListener('click', () => document.body.classList.toggle('zh'));
+    const languageOrder = ['en', 'zh', 'jp'];
+    const languageLabels = { en: 'EN / 中文 / 日本語', zh: '中文 / EN / 日本語', jp: '日本語 / EN / 中文' };
+    let activeLanguage = 'en';
+    langBtn.addEventListener('click', () => {
+      const nextIndex = (languageOrder.indexOf(activeLanguage) + 1) % languageOrder.length;
+      activeLanguage = languageOrder[nextIndex];
+      document.body.classList.remove('zh', 'jp');
+      if (activeLanguage !== 'en') document.body.classList.add(activeLanguage);
+      langBtn.textContent = languageLabels[activeLanguage];
+    });
 
     function trackClick(label) {
       if (typeof gtag === 'function') {
