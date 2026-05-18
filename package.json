@@ -1,7 +1,6 @@
 {
-  "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  "name": "crabtalk-sg-static",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static Crab Talk website. Upload root files to GitHub. Uses existing public/images files already in the repository."
 }
