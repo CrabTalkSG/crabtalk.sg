@@ -1,9 +1,8 @@
 {
-  "name": "crabtalk-static-website",
+  "name": "crabtalk-sg-simple-static",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node ./scripts/build.mjs"
-  },
-  "devDependencies": {}
+    "build": "rm -rf dist && mkdir -p dist && cp index.html robots.txt sitemap.xml dist/"
+  }
 }

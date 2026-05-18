@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Live Seafood Supply @ Crab Talk | Commonwealth Crescent Market</title>
-  <meta name="description" content="Live seafood stall at Commonwealth Crescent Market. Check today’s availability for live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. WhatsApp Crab Talk to reserve." />
+  <meta name="description" content="Live Seafood Supply @ Crab Talk at Commonwealth Crescent Market. Choose live crabs, roe crabs, lobsters, oysters, clams, Soon Hock and more. WhatsApp to check today's availability." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.crabtalk.sg/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Live Seafood Supply @ Crab Talk" />
-  <meta property="og:description" content="Choose live seafood directly at Commonwealth Crescent Market. WhatsApp to check today’s availability and reserve." />
+  <meta property="og:description" content="Choose live seafood directly at Commonwealth Crescent Market. WhatsApp to check today's availability and reserve." />
   <meta property="og:url" content="https://www.crabtalk.sg/" />
   <meta property="og:site_name" content="Crab Talk SG" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -23,19 +23,29 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-V94NDT5ZCR');
+
+    function trackWhatsApp(label){
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_whatsapp', {
+          event_category: 'engagement',
+          event_label: label || 'whatsapp',
+          transport_type: 'beacon'
+        });
+      }
+    }
   </script>
 
-  <!-- LocalBusiness SEO data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Live Seafood Supply @ Crab Talk",
-    "alternateName": "Crab Talk",
+    "alternateName": "Crab Talk SG",
     "url": "https://www.crabtalk.sg/",
     "telephone": "+6598398671",
+    "image": "https://www.crabtalk.sg/",
     "priceRange": "$$",
-    "description": "Live seafood stall at Commonwealth Crescent Market offering live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and seasonal seafood.",
+    "description": "Live seafood stall at Commonwealth Crescent Market offering live crabs, roe crabs, lobsters, oysters, clams, Soon Hock and more.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "31 Commonwealth Crescent, #01-41/42/43",
@@ -55,381 +65,258 @@
     },
     "sameAs": [
       "https://www.tiktok.com/@liveseafood_crabtalksg",
-      "https://g.page/r/CSHPT3CVB1CjEAE/review",
-      "https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.3070246,103.8005474,17z/"
-    ]
+      "https://t.me/CrabTalkSG",
+      "https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/"
+    ],
+    "areaServed": "Singapore"
   }
   </script>
 
   <style>
-    :root {
-      --navy: #04324d;
-      --navy-2: #06283b;
-      --teal: #0b7285;
-      --teal-2: #0f9faf;
-      --gold: #f5b301;
-      --cream: #fff8e6;
-      --paper: #f7fbfc;
-      --ink: #12313d;
-      --muted: #627782;
-      --line: rgba(4,50,77,0.14);
-      --white: #ffffff;
-      --shadow: 0 18px 50px rgba(4,50,77,0.12);
-      --radius: 24px;
-      --max: 1120px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    :root{
+      --navy:#07354a;
+      --deep:#052535;
+      --teal:#0b6f78;
+      --aqua:#e8fbff;
+      --cream:#fff8df;
+      --gold:#f3c64b;
+      --ink:#10212b;
+      --muted:#5f7380;
+      --line:#dce8ec;
+      --white:#ffffff;
+      --shadow:0 18px 50px rgba(7,53,74,.14);
+      --radius:24px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.55; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -0.04em; }
-    .brand-mark {
-      width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center;
-      background: linear-gradient(135deg, #fff, #e4fbff); border: 1px solid var(--line); box-shadow: var(--shadow);
-      font-size: 24px;
-    }
-    .brand small { display: block; font-size: 11px; letter-spacing: 0.12em; color: var(--teal); margin-top: -4px; }
-    .nav-links { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
-    .nav-links a { padding: 9px 12px; border-radius: 999px; }
-    .nav-links a:hover { background: #eef8fa; color: var(--navy); }
-    .nav-cta { background: #25d366 !important; color: #07331b !important; font-weight: 800; box-shadow: 0 10px 24px rgba(37,211,102,0.22); }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f7fbfc;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+    .topbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);letter-spacing:.02em}
+    .brand-badge{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#e8fbff,#fff8df);box-shadow:0 8px 25px rgba(7,53,74,.12);font-size:28px}
+    .brand small{display:block;font-size:11px;letter-spacing:.18em;color:var(--teal);font-weight:800;margin-top:-3px}
+    .navlinks{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:800;color:#33505e}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 18px;font-weight:900;border:1px solid transparent;transition:.2s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(7,53,74,.14)}
+    .btn-primary{background:var(--navy);color:#fff}
+    .btn-outline{background:#fff;color:var(--navy);border-color:#cfe0e6}
+    .btn-gold{background:var(--gold);color:#2b2410}
+    .lang{display:inline-flex;border:1px solid var(--line);background:#fff;border-radius:999px;overflow:hidden}
+    .lang button{border:0;background:transparent;padding:9px 12px;font-weight:900;color:#60737c;cursor:pointer}
+    .lang button.active{background:var(--navy);color:#fff}
 
-    .hero { padding: 72px 0 48px; background: radial-gradient(circle at 20% 10%, rgba(17,184,200,0.18), transparent 35%), linear-gradient(180deg,#fff 0%,#f3fbfd 100%); }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: var(--cream); color: #5b4200; border: 1px solid rgba(245,179,1,0.35); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-    h1 { font-size: clamp(42px, 7vw, 76px); line-height: 0.95; letter-spacing: -0.075em; margin: 0 0 22px; color: var(--navy-2); }
-    .lead { font-size: clamp(17px, 2.4vw, 21px); color: var(--muted); max-width: 660px; margin: 0 0 26px; }
-    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 13px 18px; border-radius: 999px; font-weight: 900; border: 1px solid transparent; transition: transform .18s ease, box-shadow .18s ease; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--gold); color: #3b2d00; box-shadow: 0 14px 30px rgba(245,179,1,0.24); }
-    .btn-teal { background: var(--teal); color: white; box-shadow: 0 14px 30px rgba(11,114,133,0.22); }
-    .btn-light { background: white; color: var(--teal); border-color: var(--line); }
-    .notice { padding: 14px 16px; background: white; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 16px; color: var(--muted); max-width: 620px; box-shadow: 0 10px 28px rgba(4,50,77,0.06); }
-    .notice strong { color: var(--navy); }
+    .hero{padding:64px 0 44px;background:radial-gradient(circle at 78% 12%,#dffbff 0,#f7fbfc 35%,#fff 70%)}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:34px;align-items:center}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--cream);border:1px solid #f4e5a9;color:#31444d;border-radius:999px;padding:8px 12px;font-weight:900;font-size:12px;letter-spacing:.04em;text-transform:uppercase;margin:6px 8px 8px 0}
+    h1{font-size:clamp(42px,6vw,76px);line-height:.94;margin:18px 0 18px;color:var(--deep);letter-spacing:-.06em}
+    .lead{font-size:18px;color:#54707d;max-width:620px;margin:0 0 24px}
+    .notice{background:#fff;border-left:5px solid var(--gold);border-radius:18px;padding:16px 18px;box-shadow:0 12px 34px rgba(7,53,74,.08);color:#345160;margin-top:18px;font-weight:750}
+    .hero-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:32px;padding:24px;box-shadow:var(--shadow);overflow:hidden}
+    .tank{height:360px;border-radius:26px;background:linear-gradient(180deg,#0b8aa0 0%,#084e69 44%,#03293c 100%);position:relative;overflow:hidden;border:8px solid #fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 12px 32px rgba(7,53,74,.18)}
+    .bubble{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);animation:float 7s infinite ease-in-out}
+    .b1{width:24px;height:24px;left:13%;bottom:40px}.b2{width:12px;height:12px;left:28%;bottom:90px;animation-delay:1s}.b3{width:18px;height:18px;right:18%;bottom:65px;animation-delay:2s}.b4{width:10px;height:10px;right:34%;bottom:120px;animation-delay:3s}
+    @keyframes float{50%{transform:translateY(-115px);opacity:.85}100%{transform:translateY(-230px);opacity:0}}
+    .seafood-emoji{position:absolute;font-size:80px;filter:drop-shadow(0 18px 16px rgba(0,0,0,.25))}
+    .crab{left:38px;bottom:35px}.lobster{right:40px;bottom:58px}.fish{left:170px;top:72px}.clam{right:165px;top:132px;font-size:58px}.oyster{left:98px;top:162px;font-size:56px}
+    .rating-card{position:absolute;left:34px;right:34px;bottom:34px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+    .stars{color:#f0b429;letter-spacing:1px;font-size:20px}
+    .rating-card strong{font-size:28px;color:var(--navy)}
 
-    .tank-card { background: white; border: 1px solid var(--line); border-radius: 34px; padding: 18px; box-shadow: var(--shadow); }
-    .tank-visual { min-height: 430px; border-radius: 26px; overflow: hidden; position: relative; background: linear-gradient(180deg,#e7fbff,#c9f2f8 48%,#07566d); }
-    .tank-visual:before { content:""; position:absolute; inset:22px; border-radius:22px; border:10px solid rgba(255,255,255,0.55); box-shadow: inset 0 0 0 2px rgba(4,50,77,.08); }
-    .waterline { position: absolute; left: 0; right: 0; top: 35%; height: 6px; background: rgba(255,255,255,0.75); box-shadow: 0 18px 55px rgba(255,255,255,0.45); }
-    .bubble { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.55); animation: float 6s infinite ease-in-out; }
-    .b1 { width: 18px; height: 18px; left: 18%; top: 58%; }
-    .b2 { width: 10px; height: 10px; left: 70%; top: 48%; animation-delay: 1s; }
-    .b3 { width: 24px; height: 24px; left: 50%; top: 74%; animation-delay: 2s; }
-    @keyframes float { 0%,100% { transform: translateY(0); opacity:.7; } 50% { transform: translateY(-28px); opacity:1; } }
-    .seafood-icons { position: absolute; inset: 0; display: grid; place-items: center; }
-    .seafood-icons .circle { width: 250px; height: 250px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.42); font-size: 96px; box-shadow: 0 18px 60px rgba(4,50,77,0.18); }
-    .tank-caption { position: absolute; left: 28px; right: 28px; bottom: 28px; padding: 16px; border-radius: 20px; background: rgba(3,27,40,0.78); color: white; backdrop-filter: blur(8px); }
-    .tank-caption strong { display:block; font-size: 20px; }
+    section{padding:70px 0}
+    .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:26px}
+    .section-head h2{font-size:clamp(30px,4vw,46px);line-height:1;margin:0;color:var(--deep);letter-spacing:-.04em}
+    .section-head p{margin:0;color:#617682;max-width:520px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 28px rgba(7,53,74,.06)}
+    .card h3{margin:10px 0 8px;color:var(--navy);font-size:22px;line-height:1.12}
+    .card p{margin:0;color:#5c737e}
+    .icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:var(--aqua);font-size:28px}
+    .selection{background:linear-gradient(180deg,#fff,#ecfbff)}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .product{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:142px;box-shadow:0 8px 22px rgba(7,53,74,.05)}
+    .product b{display:block;color:var(--navy);margin-top:8px;font-size:18px}.product span{font-size:14px;color:#667b84}
+    .emoji-lg{font-size:42px;line-height:1}
+    .availability{background:var(--deep);color:#fff;border-radius:34px;padding:34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;box-shadow:var(--shadow)}
+    .availability h2{margin:0 0 8px;font-size:36px;letter-spacing:-.04em}.availability p{margin:0;color:#c9dce4;max-width:720px}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;font-weight:800;color:#eefbff;font-size:13px}
 
-    section { padding: 70px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
-    .section-label { color: var(--teal); font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; margin-bottom: 8px; }
-    h2 { font-size: clamp(30px, 4.4vw, 52px); line-height: 1; letter-spacing: -0.055em; margin: 0; color: var(--navy-2); }
-    .section-copy { color: var(--muted); max-width: 560px; margin: 10px 0 0; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 12px 34px rgba(4,50,77,0.08); }
-    .card-icon { width: 46px; height: 46px; border-radius: 16px; background: #e9f9fc; display:grid; place-items:center; font-size: 24px; margin-bottom: 16px; }
-    .card h3 { margin: 0 0 8px; font-size: 22px; color: var(--navy); letter-spacing: -0.02em; }
-    .card p { margin: 0 0 14px; color: var(--muted); }
-    .text-link { color: var(--teal); font-weight: 900; }
+    .reviews{background:#fff}
+    .review-summary{display:grid;grid-template-columns:260px 1fr;gap:20px;margin-bottom:18px}
+    .score{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+    .score .big{font-size:64px;font-weight:950;line-height:1}.score p{margin:8px 0 0;color:#dff5fb}.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .review{background:#f7fbfc;border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:10px}
+    .review-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.review-name{font-weight:950;color:var(--navy)}.review-time{font-size:13px;color:#71838b;font-weight:800}.review p{margin:0;color:#405964}.quote{font-size:18px;line-height:1.5}.source-note{font-size:13px;color:#738890;margin-top:14px}
+    .how{background:#f2fbfd}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step-num{width:44px;height:44px;border-radius:50%;background:var(--gold);display:grid;place-items:center;font-weight:950;color:#2b2410}
+    .map-card{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.map-box{min-height:340px;border-radius:var(--radius);background:linear-gradient(135deg,#e9f8fb,#fff8df);display:grid;place-items:center;text-align:center;border:1px solid var(--line);padding:28px}.address-list{display:grid;gap:12px}.address-line{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;font-weight:800;color:#35515c}.footer{padding:34px 0;background:var(--deep);color:#d7e9ef}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px}.small{font-size:13px;color:#9db4bd}
+    .floating-wa{position:fixed;right:18px;bottom:18px;z-index:50;background:#25D366;color:#062314;border-radius:999px;padding:14px 18px;font-weight:950;box-shadow:0 15px 35px rgba(0,0,0,.2)}
+    .zh{display:none}body.zh-mode .en{display:none}body.zh-mode .zh{display:inline}body.zh-mode .zh.block{display:block}body.zh-mode .en.block{display:none}
 
-    .availability { background: var(--navy-2); color: white; }
-    .availability h2 { color: white; }
-    .availability .section-copy { color: rgba(255,255,255,0.72); }
-    .availability-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 18px; align-items: stretch; }
-    .stock-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: var(--radius); padding: 26px; }
-    .stock-list { display: grid; gap: 12px; margin-top: 18px; }
-    .stock-item { display:flex; align-items:center; justify-content:space-between; gap:10px; padding: 14px 16px; border-radius: 16px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.88); }
-    .stock-item strong { color: white; }
-    .tag { padding: 5px 9px; border-radius: 999px; background: rgba(245,179,1,0.16); color: #ffd45a; font-size: 12px; font-weight: 900; white-space: nowrap; }
-
-    .reviews { background: #f8fbfc; }
-    .rating-card { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; background:white; border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); margin-bottom:18px; }
-    .stars { color: #f4b400; font-size: 24px; letter-spacing: 2px; }
-    .review-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .review-card { background: white; border:1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 12px 34px rgba(4,50,77,0.08); display:flex; flex-direction:column; gap:12px; }
-    .review-top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
-    .reviewer { font-weight: 900; color: var(--navy); }
-    .review-meta { color: var(--muted); font-size: 13px; }
-    .review-card p { margin: 0; color: #364e58; }
-    .review-note { margin-top: 14px; color: var(--muted); font-size: 13px; }
-    .review-cta { margin-top: 20px; display:flex; flex-wrap:wrap; gap:12px; }
-
-    .feature-card { display:grid; grid-template-columns: 1fr 1.1fr; gap: 18px; background:white; border:1px solid var(--line); border-radius: var(--radius); overflow:hidden; box-shadow: var(--shadow); }
-    .feature-media { min-height: 260px; display:grid; place-items:center; background: linear-gradient(135deg,#05314b,#0aa2b2); color:white; font-size:80px; }
-    .feature-body { padding: 28px; }
-    .feature-body h3 { font-size: 28px; line-height:1.05; margin:0 0 12px; color:var(--navy); }
-    .feature-body p { color: var(--muted); margin:0 0 18px; }
-
-    .steps { background: linear-gradient(180deg,#fff,#eef8fa); }
-    .step { display: grid; grid-template-columns: 54px 1fr; gap: 16px; align-items:start; }
-    .step-no { width:54px; height:54px; display:grid; place-items:center; border-radius:18px; background:var(--teal); color:white; font-weight: 900; font-size:20px; }
-
-    .visit { background: var(--navy-2); color: white; }
-    .visit h2 { color:white; }
-    .visit .card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); color:white; }
-    .visit .card p { color: rgba(255,255,255,0.74); }
-    .visit .card h3 { color:white; }
-
-    .footer { padding: 28px 0 94px; background: #031b28; color: rgba(255,255,255,0.72); }
-    .footer-inner { display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; align-items:center; }
-    .footer-links { display:flex; gap:14px; flex-wrap:wrap; }
-    .footer-links a { color:white; opacity:.86; }
-    .floating-whatsapp { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 70; background: #25d366; color: #07331b; box-shadow: 0 16px 40px rgba(0,0,0,0.22); white-space: nowrap; }
-    .floating-whatsapp:hover { transform: translateX(-50%) translateY(-2px); }
-
-    @media (max-width: 900px) {
-      .nav-links a:not(.nav-cta) { display:none; }
-      .hero-grid, .availability-grid, .feature-card { grid-template-columns: 1fr; }
-      .grid-3, .review-grid { grid-template-columns: 1fr; }
-      .tank-visual { min-height: 330px; }
-      .section-head { display:block; }
-    }
-    @media (max-width: 520px) {
-      .container { width: min(var(--max), calc(100% - 22px)); }
-      .hero { padding-top: 46px; }
-      h1 { font-size: 43px; }
-      .btn { width: 100%; }
-      .rating-card { align-items:flex-start; }
-      .stock-item { align-items:flex-start; flex-direction:column; }
-    }
+    @media (max-width:900px){.navlinks{display:none}.hero-grid,.review-summary,.map-card{grid-template-columns:1fr}.grid-3,.steps{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}.availability{grid-template-columns:1fr}.hero{padding-top:34px}.tank{height:300px}.seafood-emoji{font-size:60px}.footer-grid{display:block}.floating-wa{left:16px;right:16px;text-align:center}.section-head{display:block}.section-head p{margin-top:10px}}
+    @media (max-width:560px){.wrap{width:min(100% - 24px,1120px)}.products{grid-template-columns:1fr}h1{font-size:44px}.availability h2{font-size:30px}.hero-card{padding:12px}.rating-card{left:18px;right:18px;bottom:18px}.btn{width:100%;margin-top:8px}.hero-actions{display:grid}.lang{display:none}}
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="container nav">
+    <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Crab Talk home">
-        <span class="brand-mark">🦀</span>
-        <span>Crab Talk <small>Live Seafood Supply</small></span>
+        <span class="brand-badge">🦀</span>
+        <span>CRAB TALK<small>LIVE SEAFOOD SUPPLY</small></span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#selection">Fresh Selection</a>
-        <a href="#how">How It Works</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#find-us">Find Us</a>
-        <a class="nav-cta whatsapp-track" data-whatsapp-purpose="nav" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">WhatsApp</a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#selection"><span class="en">Fresh Selection</span><span class="zh">海鲜选择</span></a>
+        <a href="#how"><span class="en">How It Works</span><span class="zh">购买流程</span></a>
+        <a href="#reviews"><span class="en">Reviews</span><span class="zh">真实评价</span></a>
+        <a href="#find"><span class="en">Find Us</span><span class="zh">地址</span></a>
       </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="lang" aria-label="Language switcher"><button class="active" onclick="setLang('en', this)">EN</button><button onclick="setLang('zh', this)">中</button></div>
+        <a class="btn btn-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability." onclick="trackWhatsApp('top_nav')" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="wrap hero-grid">
         <div>
-          <div class="pill-row">
-            <span class="pill">Physical live seafood stall</span>
-            <span class="pill">WhatsApp before coming</span>
+          <span class="pill"><span class="en">Physical Live Seafood Stall</span><span class="zh">实体活海鲜摊位</span></span>
+          <span class="pill"><span class="en">Commonwealth Crescent Market</span><span class="zh">Commonwealth Crescent 巴刹</span></span>
+          <h1><span class="en">Pick Your Live Seafood From Our Tanks</span><span class="zh">现场挑选活海鲜</span></h1>
+          <p class="lead"><span class="en">Visit Crab Talk at Commonwealth Crescent to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. Select your seafood fresh from the tank, then let us clean, cut and pack it for easy home cooking.</span><span class="zh">欢迎到 Crab Talk 现场挑选活蟹、膏蟹、龙虾、生蚝、马尼拉蛤、笋壳鱼等。可询问当天到货、预留和处理建议。</span></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20what%20live%20seafood%20is%20available%20today%3F" onclick="trackWhatsApp('hero_check_availability')" target="_blank" rel="noopener"><span class="en">Check Today’s Availability</span><span class="zh">查询今日海鲜</span></a>
+            <a class="btn btn-outline" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener"><span class="en">Leave a Google Review</span><span class="zh">留下 Google 评价</span></a>
           </div>
-          <h1>Pick Your Live Seafood From Our Tanks</h1>
-          <p class="lead">Visit Crab Talk at Commonwealth Crescent Market to choose live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and seasonal arrivals. Check today’s stock before making your trip.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary whatsapp-track" data-whatsapp-purpose="hero-stock" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">Check Today’s Stock</a>
-            <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=31+Commonwealth+Crescent+%2301-41%2F42%2F43+Singapore+149644" target="_blank" rel="noopener">Get Directions</a>
-          </div>
-          <div class="notice"><strong>Important:</strong> Crab Talk is not an online seafood shop. Availability changes daily because seafood is live and seasonal. WhatsApp is mainly for today’s arrivals, reservation enquiries and review requests.</div>
+          <div class="notice"><span class="en">Crab Talk is not an online seafood shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.</span><span class="zh">Crab Talk 是实体活海鲜摊位，WhatsApp 主要用于查询当天货量、到货与预留。</span></div>
         </div>
-        <div class="tank-card" aria-label="Live seafood tank illustration">
-          <div class="tank-visual">
-            <span class="waterline"></span>
-            <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
-            <div class="seafood-icons"><div class="circle">🦀</div></div>
-            <div class="tank-caption"><strong>Live seafood, selected by you</strong><span>Ask Jeremy or Alam what is best for steaming, chilli crab, black bean, ginger onion or bee hoon style cooking.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="availability" class="availability">
-      <div class="container availability-grid">
-        <div class="stock-box">
-          <div class="section-label">Today’s Availability</div>
-          <h2>Stock changes daily. Ask before coming.</h2>
-          <p class="section-copy">For the most accurate answer, send us a WhatsApp message. We can confirm what is still swimming in the tanks, the estimated size, and whether reservation is recommended.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary whatsapp-track" data-whatsapp-purpose="availability-jeremy" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">WhatsApp Jeremy · 9839 8671</a>
-            <a class="btn btn-light whatsapp-track" data-whatsapp-purpose="availability-alam" href="https://wa.me/6589243955?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">WhatsApp Alam · 8924 3955</a>
-          </div>
-        </div>
-        <div class="stock-box">
-          <h3 style="margin:0 0 10px;font-size:26px;">Common arrivals to check</h3>
-          <div class="stock-list">
-            <div class="stock-item"><strong>Live Mud Crabs / Roe Crabs</strong><span class="tag">Ask size & roe</span></div>
-            <div class="stock-item"><strong>Boston / Green / Rock Lobster</strong><span class="tag">Ask weight</span></div>
-            <div class="stock-item"><strong>Oysters / Manila Clams</strong><span class="tag">Ask freshness</span></div>
-            <div class="stock-item"><strong>Soon Hock / Grouper / Seasonal Fish</strong><span class="tag">Ask availability</span></div>
+        <div class="hero-card" aria-label="Live seafood tanks illustration">
+          <div class="tank">
+            <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span><span class="bubble b4"></span>
+            <span class="seafood-emoji crab">🦀</span><span class="seafood-emoji lobster">🦞</span><span class="seafood-emoji fish">🐟</span><span class="seafood-emoji clam">🐚</span><span class="seafood-emoji oyster">🦪</span>
+            <div class="rating-card">
+              <div><div class="stars">★★★★★</div><div><strong>5.0</strong> <span class="en">Google rating</span><span class="zh">Google 评分</span></div></div>
+              <div style="text-align:right;font-weight:900;color:#31515e"><span class="en">56 reviews</span><span class="zh">56 条评价</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="selection">
-      <div class="container">
+    <section id="selection" class="selection">
+      <div class="wrap">
         <div class="section-head">
-          <div>
-            <div class="section-label">Fresh Selection</div>
-            <h2>Choose from the tank, then decide how you want to enjoy it.</h2>
-          </div>
-          <p class="section-copy">Best selection is always subject to daily arrivals. Walk in to choose, or WhatsApp first if you are coming for something specific.</p>
+          <h2><span class="en">Fresh Selection</span><span class="zh">新鲜选择</span></h2>
+          <p><span class="en">Stock changes by arrival. Message us before coming if you are looking for a specific size, species or roe crab.</span><span class="zh">每日货量会变化，如需指定品种、大小或膏蟹，建议先 WhatsApp 询问。</span></p>
         </div>
-        <div class="grid-3">
-          <article class="card"><div class="card-icon">🦀</div><h3>Live Crabs</h3><p>Mud crabs, roe crabs and seasonal crab arrivals. Ask us which crab suits steaming, chilli crab, black bean or ginger onion.</p><a class="text-link whatsapp-track" data-whatsapp-purpose="ask-crabs" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20what%20live%20crabs%20are%20available%20today%3F" target="_blank" rel="noopener">Ask about crabs →</a></article>
-          <article class="card"><div class="card-icon">🦞</div><h3>Lobsters</h3><p>Boston lobster, Green lobster and seasonal premium lobsters when available. Popular for yee mee, bee hoon and home cooking.</p><a class="text-link whatsapp-track" data-whatsapp-purpose="ask-lobsters" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20what%20lobsters%20are%20available%20today%3F" target="_blank" rel="noopener">Ask about lobsters →</a></article>
-          <article class="card"><div class="card-icon">🐟</div><h3>Clams, Oysters & Fish</h3><p>Oysters, Manila clams, Soon Hock, grouper and other seasonal items. Great for steaming, soup or zi char cooking nearby.</p><a class="text-link whatsapp-track" data-whatsapp-purpose="ask-arrivals" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20clams%2C%20oysters%20and%20fish%20arrivals%3F" target="_blank" rel="noopener">Ask about arrivals →</a></article>
+        <div class="products">
+          <div class="product"><div class="emoji-lg">🦀</div><b>Live Mud Crabs</b><span>Meaty live crabs, different sizes.</span></div>
+          <div class="product"><div class="emoji-lg">🟠</div><b>Roe Crabs</b><span>Yellow roe / red roe when available.</span></div>
+          <div class="product"><div class="emoji-lg">🦞</div><b>Lobsters</b><span>Boston, green lobster and seasonal arrivals.</span></div>
+          <div class="product"><div class="emoji-lg">🦪</div><b>Oysters</b><span>Fresh oyster arrivals, subject to stock.</span></div>
+          <div class="product"><div class="emoji-lg">🐚</div><b>Manila Clams</b><span>For steaming, soup or zi char style cooking.</span></div>
+          <div class="product"><div class="emoji-lg">🐟</div><b>Soon Hock</b><span>Popular for Hong Kong-style steaming.</span></div>
+          <div class="product"><div class="emoji-lg">🦐</div><b>Prawns</b><span>Ask us what size is available today.</span></div>
+          <div class="product"><div class="emoji-lg">🍲</div><b>Cooking Nearby</b><span>Ask about cooking options with nearby stalls.</span></div>
         </div>
       </div>
     </section>
 
-    <section id="how" class="steps">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <div class="section-label">How It Works</div>
-            <h2>Simple live seafood buying.</h2>
-          </div>
+    <section>
+      <div class="wrap availability">
+        <div>
+          <h2><span class="en">Today’s Availability Changes Fast</span><span class="zh">每日货量有限，售完为止</span></h2>
+          <p><span class="en">For accurate stock, sizes and reservation, message us on WhatsApp. We can advise what is suitable for steaming, chilli crab, black bean, ginger onion, bee hoon or home cooking.</span><span class="zh">请通过 WhatsApp 查询当天库存、大小和预留。我们可根据你的煮法推荐适合的海鲜。</span></p>
+          <div class="badge-row"><span class="badge">Live stock</span><span class="badge">Roe crab enquiry</span><span class="badge">Cooking advice</span><span class="badge">Reservation</span></div>
         </div>
-        <div class="grid-3">
-          <article class="card step"><div class="step-no">1</div><div><h3>Check stock</h3><p>WhatsApp us to check today’s arrivals, size and estimated availability before visiting.</p></div></article>
-          <article class="card step"><div class="step-no">2</div><div><h3>Choose live seafood</h3><p>Pick from the tanks at Commonwealth Crescent Market. We can recommend based on your cooking plan.</p></div></article>
-          <article class="card step"><div class="step-no">3</div><div><h3>Cook at home or nearby</h3><p>Bring it home, or ask us about nearby cooking options depending on timing and availability.</p></div></article>
+        <a class="btn btn-gold" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20please%20send%20me%20today%27s%20availability%20and%20prices." onclick="trackWhatsApp('availability_section')" target="_blank" rel="noopener"><span class="en">WhatsApp 9839 8671</span><span class="zh">WhatsApp 9839 8671</span></a>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2><span class="en">How It Works</span><span class="zh">购买流程</span></h2>
+          <p><span class="en">A simple market-style seafood buying experience.</span><span class="zh">简单直接的巴刹活海鲜购买体验。</span></p>
+        </div>
+        <div class="steps">
+          <div class="card"><div class="step-num">1</div><h3>Choose Live Seafood</h3><p>Pick from the tank based on your preferred size, budget and cooking style.</p></div>
+          <div class="card"><div class="step-num">2</div><h3>Ask for Advice</h3><p>We can recommend what works best for steaming, crab dishes or home cooking.</p></div>
+          <div class="card"><div class="step-num">3</div><h3>Clean & Pack</h3><p>We help prepare and pack the seafood so it is easier to bring home.</p></div>
         </div>
       </div>
     </section>
 
     <section id="reviews" class="reviews">
-      <div class="container">
+      <div class="wrap">
         <div class="section-head">
-          <div>
-            <div class="section-label">Real Google Reviews</div>
-            <h2>5.0 rating from 56 Google reviews.</h2>
-          </div>
-          <p class="section-copy">These are real review excerpts copied from Crab Talk’s Google Business Profile screenshots. For the latest full reviews, open the Google review page.</p>
+          <h2><span class="en">Real Google Reviews</span><span class="zh">真实 Google 评价</span></h2>
+          <p><span class="en">Selected real reviews from Crab Talk’s Google Business Profile screenshots. Latest public rating shown: 5.0 stars from 56 Google reviews.</span><span class="zh">以下为 Crab Talk Google 商家资料截图中的真实顾客评价。当前显示：5.0 星，56 条 Google 评价。</span></p>
         </div>
-
-        <div class="rating-card">
-          <div>
-            <div style="font-size:38px;font-weight:950;color:var(--navy);letter-spacing:-0.04em;">5.0 <span class="stars">★★★★★</span></div>
-            <div style="color:var(--muted);font-weight:800;">56 Google reviews shown on Crab Talk’s Google Business Profile</div>
-          </div>
-          <div class="review-cta" style="margin-top:0;">
-            <a class="btn btn-teal review-track" data-review-purpose="read-google-reviews" href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.3070246,103.8005474,17z/" target="_blank" rel="noopener">Read Google Reviews</a>
-            <a class="btn btn-primary review-track" data-review-purpose="leave-google-review" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener">Leave a Google Review</a>
+        <div class="review-summary">
+          <div class="score"><div class="big">5.0</div><div class="stars">★★★★★</div><p>56 Google reviews</p><a class="btn btn-gold" style="margin-top:18px" href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/" target="_blank" rel="noopener">View on Google</a></div>
+          <div class="review-grid">
+            <article class="review"><div class="review-top"><div><div class="review-name">Damien Yap</div><div class="stars">★★★★★</div></div><div class="review-time">7 weeks ago</div></div><p class="quote">“I’m really glad I did! I was assisted by Jeremy, the boss himself, who was incredibly patient and knowledgeable. He took the time to explain the different category of crabs and recommended which dishes they would be best suited for.”</p></article>
+            <article class="review"><div class="review-top"><div><div class="review-name">CY</div><div class="stars">★★★★★</div></div><div class="review-time">10 weeks ago</div></div><p class="quote">“The freshness, amazing quality, and incredible roe are just so good. It’s the best place for live seafood, always impressive. The service is great too, and the owners even share awesome cooking tips.”</p></article>
+            <article class="review"><div class="review-top"><div><div class="review-name">byron teo</div><div class="stars">★★★★★</div></div><div class="review-time">10 weeks ago</div></div><p class="quote">“Absolutely gem find hidden amidst the most unexpected place! The good crab is superb with rich thick Roe. You can buy and have them cook upstairs and it was heaven.”</p></article>
+            <article class="review"><div class="review-top"><div><div class="review-name">Google reviewer</div><div class="stars">★★★★★</div></div><div class="review-time">3 weeks ago</div></div><p class="quote">“Had a super pleasant experience at this stall. Totally no experience in buying crab or lobster. Trusted the owner to recommend. Turned out awesome. Crabs were sweet and meaty. Lobsters were just as awesome.”</p></article>
+            <article class="review"><div class="review-top"><div><div class="review-name">Google reviewer</div><div class="stars">★★★★★</div></div><div class="review-time">Recent review</div></div><p class="quote">“Saw the live crabs and was amazed with the range of sizes that they have. Also the prices were reasonable. Lam who was serving us was very friendly and not pushy at all.”</p></article>
+            <article class="review"><div class="review-top"><div><div class="review-name">Crab Talk customers</div><div class="stars">★★★★★</div></div><div class="review-time">Google reviews</div></div><p class="quote">“Customers mention fresh live seafood, rich roe, helpful service, patient recommendations and useful cooking tips for home cooking or nearby cooking options.”</p></article>
           </div>
         </div>
-
-        <div class="review-grid">
-          <article class="review-card">
-            <div class="review-top"><div><div class="reviewer">Damien Yap</div><div class="review-meta">Local Guide · 7 weeks ago</div></div><div class="stars">★★★★★</div></div>
-            <p>“Assisted by Jeremy, the boss himself, who was incredibly patient and knowledgeable.”</p>
-            <p>“He even recommended a good zi char stall for us to have the crabs cooked.”</p>
-          </article>
-          <article class="review-card">
-            <div class="review-top"><div><div class="reviewer">CY</div><div class="review-meta">Local Guide · 10 weeks ago</div></div><div class="stars">★★★★★</div></div>
-            <p>“The freshness, amazing quality, and incredible roe are just so good.”</p>
-            <p>“It’s the best place for live seafood, always impressive.”</p>
-          </article>
-          <article class="review-card">
-            <div class="review-top"><div><div class="reviewer">byron teo</div><div class="review-meta">Local Guide · 10 weeks ago</div></div><div class="stars">★★★★★</div></div>
-            <p>“Absolutely gem find hidden amidst the most unexpected place!”</p>
-            <p>“The good crab is superb with rich thick roe.”</p>
-          </article>
-          <article class="review-card">
-            <div class="review-top"><div><div class="reviewer">Google reviewer</div><div class="review-meta">3 weeks ago</div></div><div class="stars">★★★★★</div></div>
-            <p>“Totally no experience in buying crab or lobster. Trusted the owner to recommend.”</p>
-            <p>“Crabs were sweet and meaty. Lobsters were just as awesome.”</p>
-          </article>
-        </div>
-        <div class="review-note">To keep the website honest, this page uses fixed real excerpts plus buttons to Google Maps for the latest live reviews. A fully automatic live Google review feed requires the official Google Places API.</div>
+        <p class="source-note">Review text on this website is manually displayed from Google Business Profile screenshots provided by the business owner. To see all current public reviews, open the Google Maps profile.</p>
       </div>
     </section>
 
-    <section id="featured">
-      <div class="container">
-        <div class="section-head">
+    <section>
+      <div class="wrap">
+        <div class="availability" style="background:linear-gradient(135deg,#0b6f78,#07354a)">
           <div>
-            <div class="section-label">Featured Locally</div>
-            <h2>As seen on 8 Days.</h2>
+            <h2><span class="en">Enjoyed Crab Talk?</span><span class="zh">喜欢 Crab Talk 吗？</span></h2>
+            <p><span class="en">Your Google review helps more seafood lovers find us at Commonwealth Crescent Market.</span><span class="zh">你的 Google 评价可以帮助更多顾客找到我们。</span></p>
           </div>
+          <a class="btn btn-gold" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener"><span class="en">Leave a Google Review</span><span class="zh">留下 Google 评价</span></a>
         </div>
-        <article class="feature-card">
-          <div class="feature-media">📰</div>
-          <div class="feature-body">
-            <h3>8 Days feature on Crab Talk and the hawker cooking collaboration</h3>
-            <p>Crab Talk’s live seafood model and hawker-style cooking collaboration were featured by 8 Days. Read the article for the full story.</p>
-            <a class="btn btn-teal" href="https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541" target="_blank" rel="noopener">Read 8 Days Feature</a>
-          </div>
-        </article>
       </div>
     </section>
 
-    <section id="find-us" class="visit">
-      <div class="container">
+    <section id="find">
+      <div class="wrap">
         <div class="section-head">
-          <div>
-            <div class="section-label">Find Us</div>
-            <h2>Visit Crab Talk at Commonwealth Crescent Market.</h2>
-          </div>
+          <h2><span class="en">Find Us</span><span class="zh">地址</span></h2>
+          <p><span class="en">Visit us at Commonwealth Crescent Market. WhatsApp before coming for live stock availability.</span><span class="zh">欢迎到 Commonwealth Crescent Market。来之前可先 WhatsApp 查询货量。</span></p>
         </div>
-        <div class="grid-3">
-          <article class="card"><h3>Address</h3><p>31 Commonwealth Crescent<br>#01-41/42/43<br>Singapore 149644</p><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=31+Commonwealth+Crescent+%2301-41%2F42%2F43+Singapore+149644" target="_blank" rel="noopener">Open Google Maps →</a></article>
-          <article class="card"><h3>Contact</h3><p>Jeremy: 9839 8671<br>Alam: 8924 3955</p><a class="text-link whatsapp-track" data-whatsapp-purpose="contact" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">WhatsApp now →</a></article>
-          <article class="card"><h3>Before coming</h3><p>Live seafood availability changes quickly. For specific crabs, lobsters, oysters or fish, message us first to avoid a wasted trip.</p><a class="text-link" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener">Leave us a Google review →</a></article>
+        <div class="map-card">
+          <div class="map-box"><div><div style="font-size:72px">📍</div><h3 style="font-size:30px;color:var(--navy);margin:10px 0">Commonwealth Crescent Market</h3><p style="color:#607681">31 Commonwealth Crescent, #01-41/42/43, Singapore 149644</p><a class="btn btn-primary" href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/" target="_blank" rel="noopener">Open Google Maps</a></div></div>
+          <div class="address-list">
+            <div class="address-line">📍 31 Commonwealth Crescent, #01-41/42/43, Singapore 149644</div>
+            <div class="address-line">📞 WhatsApp / Phone: 9839 8671</div>
+            <div class="address-line">🦀 Live crabs, roe crabs, lobsters, oysters, clams, fish and seasonal arrivals</div>
+            <div class="address-line">⭐ Google rating: 5.0 from 56 reviews</div>
+            <div class="address-line">💬 Best to WhatsApp first for today’s arrival and stock</div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Live Seafood Supply @ Crab Talk</div>
-      <div class="footer-links">
-        <a href="https://www.tiktok.com/@liveseafood_crabtalksg" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.3070246,103.8005474,17z/" target="_blank" rel="noopener">Google Maps</a>
-        <a href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener">Review Us</a>
-      </div>
+    <div class="wrap footer-grid">
+      <div><strong>Live Seafood Supply @ Crab Talk</strong><div class="small">Commonwealth Crescent Market · Singapore</div></div>
+      <div class="small">© <span id="year"></span> Crab Talk SG. All rights reserved.</div>
     </div>
   </footer>
 
-  <a class="btn floating-whatsapp whatsapp-track" data-whatsapp-purpose="floating" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20may%20I%20check%20today%27s%20live%20seafood%20availability%3F" target="_blank" rel="noopener">WhatsApp Today’s Stock</a>
+  <a class="floating-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20availability." onclick="trackWhatsApp('floating_button')" target="_blank" rel="noopener">💬 WhatsApp Crab Talk</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    function trackClick(eventName, params) {
-      if (typeof gtag === 'function') {
-        gtag('event', eventName, params || {});
-      }
+    function setLang(lang, button){
+      document.body.classList.toggle('zh-mode', lang === 'zh');
+      document.querySelectorAll('.lang button').forEach(function(btn){ btn.classList.remove('active'); });
+      button.classList.add('active');
     }
-
-    document.querySelectorAll('.whatsapp-track').forEach(function(link) {
-      link.addEventListener('click', function() {
-        trackClick('whatsapp_click', {
-          event_category: 'engagement',
-          event_label: link.dataset.whatsappPurpose || link.textContent.trim(),
-          destination_url: link.href
-        });
-      });
-    });
-
-    document.querySelectorAll('.review-track').forEach(function(link) {
-      link.addEventListener('click', function() {
-        trackClick('google_review_click', {
-          event_category: 'engagement',
-          event_label: link.dataset.reviewPurpose || link.textContent.trim(),
-          destination_url: link.href
-        });
-      });
-    });
   </script>
 </body>
 </html>
