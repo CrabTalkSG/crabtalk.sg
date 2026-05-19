@@ -60,7 +60,9 @@
     .nav-links a:hover{color:var(--teal)}
     .pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:10px 15px;font-weight:900;border:1px solid transparent;white-space:nowrap}
     .pill-primary{background:var(--navy);color:white;box-shadow:0 8px 24px rgba(4,50,77,.2)}
+    .pill-telegram{background:#229ED9;color:white;box-shadow:0 8px 24px rgba(34,158,217,.22)}
     .pill-soft{background:#e9f7f8;color:var(--navy);border-color:#c9eef0}
+    .top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
     .lang-toggle{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-weight:900;color:#334155;cursor:pointer}
     .mobile-only{display:none}
 
@@ -125,7 +127,7 @@
     .missing-image{background:linear-gradient(135deg,#dbeafe,#fef3c7);display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:900;text-align:center;padding:18px}
 
     @media(max-width:920px){.nav-links{display:none}.mobile-only{display:inline-flex}.hero-grid,.reviews-wrap,.find-grid,.cta-box{grid-template-columns:1fr}.hero-card{transform:none}.hero-card img{height:360px}.grid-4,.grid-3{grid-template-columns:1fr 1fr}.rating-panel{position:relative;top:auto}.section-head{display:block}.section-head p{margin-top:12px}.footer-grid{display:block}.footer-links{margin-top:18px}.quick-stats{grid-template-columns:1fr 1fr}.hours-table th:nth-child(3),.hours-table td:nth-child(3){display:none}.hours-table td{padding:13px 10px}.hours-table .time{font-size:.96rem}}
-    @media(max-width:560px){.container{width:min(100% - 22px,1160px)}.hero{padding-top:32px}.brand-logo{width:52px;height:52px}.hero-card img{height:310px}.hero-mini img{height:125px}.grid-4,.grid-3,.quick-stats{grid-template-columns:1fr}.photo{height:230px}.cta-box{padding:22px}.float-wa{left:12px;right:12px;text-align:center}.status-row{gap:8px}.eyebrow{font-size:.7rem}}
+    @media(max-width:560px){.container{width:min(100% - 22px,1160px)}.hero{padding-top:32px}.brand-logo{width:52px;height:52px}.brand-text{display:none}.top-actions{gap:6px}.top-actions .pill,.lang-toggle{font-size:.76rem;padding:10px 11px}.hero-card img{height:310px}.hero-mini img{height:125px}.grid-4,.grid-3,.quick-stats{grid-template-columns:1fr}.photo{height:230px}.cta-box{padding:22px}.float-wa{left:12px;right:12px;text-align:center}.status-row{gap:8px}.eyebrow{font-size:.7rem}}
   </style>
 
   <script type="application/ld+json">
@@ -176,8 +178,9 @@
         <a href="#reviews">Reviews</a>
         <a href="#find">Find Us</a>
       </nav>
-      <div style="display:flex;gap:8px;align-items:center">
+      <div class="top-actions">
         <button class="lang-toggle" type="button" id="langBtn">EN / 中文 / 日本語</button>
+        <a class="pill pill-telegram" href="https://t.me/CrabTalkSG" target="_blank" rel="noopener" onclick="trackClick('telegram_header')">Join Telegram</a>
         <a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_header')">WhatsApp</a>
       </div>
     </div>
