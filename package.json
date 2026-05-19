@@ -1,12 +1,10 @@
 {
-  "name": "crabtalk-seo-pages",
+  "name": "crabtalk-professional-seo-8-pages",
   "version": "1.0.0",
   "private": true,
+  "description": "Professional Crab Talk static website with SEO subpages.",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp *.html style.css robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public dist/public && cp -R public/* dist/; fi",
-    "start": "npx serve dist"
+    "build": "rm -rf dist && mkdir -p dist && cp -R . dist && rm -rf dist/dist dist/.git dist/node_modules"
   },
-  "devDependencies": {
-    "serve": "^14.2.4"
-  }
+  "devDependencies": {}
 }
