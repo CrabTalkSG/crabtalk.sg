@@ -101,6 +101,17 @@
     .feature-card{display:flex;flex-direction:column;min-height:100%}.feature-card .photo{height:190px}.feature-card .card-body{display:flex;flex:1;flex-direction:column}.feature-card .pill{margin-top:auto;align-self:flex-start}
     .cta{background:#fff8ea;border-top:1px solid #f8e6ad;border-bottom:1px solid #f8e6ad}.cta-box{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid #f2d88b;border-radius:30px;padding:28px;box-shadow:var(--shadow)}.cta h2{margin:0;color:var(--deep);font-size:clamp(2rem,4vw,3rem);letter-spacing:-.05em;line-height:1}.cta p{margin:10px 0 0;color:#64748b}
 
+
+    .hours-card{grid-column:1 / -1;padding:22px}
+    .hours-table{width:100%;border-collapse:separate;border-spacing:0 10px;margin-top:14px}
+    .hours-table th{padding:0 14px 4px;text-align:left;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#64748b}
+    .hours-table td{padding:15px 14px;background:#f7fbfb;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .hours-table td:first-child{border-left:1px solid var(--line);border-radius:16px 0 0 16px}
+    .hours-table td:last-child{border-right:1px solid var(--line);border-radius:0 16px 16px 0}
+    .hours-table .day{font-weight:1000;color:var(--deep)}
+    .hours-table .time{font-weight:1000;color:var(--brand);white-space:nowrap}
+    .hours-table .note{color:#64748b;font-weight:800}
+    .hours-note{margin-top:12px;color:#64748b;font-weight:800;line-height:1.7}
     .find-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-list{display:grid;gap:12px}.info-row{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.info-row strong{display:block;color:var(--navy)}.map-frame{width:100%;min-height:370px;border:0;border-radius:24px;box-shadow:var(--shadow);background:#e2e8f0}
     footer{background:#061b2a;color:#cbd5e1;padding:34px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-grid strong{color:#fff}.footer-links{display:flex;gap:14px;flex-wrap:wrap}.footer-links a{font-weight:800;color:#e2e8f0}
     .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;border-radius:999px;padding:14px 18px;font-weight:1000;box-shadow:0 14px 34px rgba(37,211,102,.35)}
@@ -109,7 +120,7 @@
     body.zh [data-lang="zh"],body.jp [data-lang="jp"]{display:revert}
     .missing-image{background:linear-gradient(135deg,#dbeafe,#fef3c7);display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:900;text-align:center;padding:18px}
 
-    @media(max-width:920px){.nav-links{display:none}.mobile-only{display:inline-flex}.hero-grid,.reviews-wrap,.find-grid,.cta-box{grid-template-columns:1fr}.hero-card{transform:none}.hero-card img{height:360px}.grid-4,.grid-3{grid-template-columns:1fr 1fr}.rating-panel{position:relative;top:auto}.section-head{display:block}.section-head p{margin-top:12px}.footer-grid{display:block}.footer-links{margin-top:18px}.quick-stats{grid-template-columns:1fr 1fr}}
+    @media(max-width:920px){.nav-links{display:none}.mobile-only{display:inline-flex}.hero-grid,.reviews-wrap,.find-grid,.cta-box{grid-template-columns:1fr}.hero-card{transform:none}.hero-card img{height:360px}.grid-4,.grid-3{grid-template-columns:1fr 1fr}.rating-panel{position:relative;top:auto}.section-head{display:block}.section-head p{margin-top:12px}.footer-grid{display:block}.footer-links{margin-top:18px}.quick-stats{grid-template-columns:1fr 1fr}.hours-table th:nth-child(3),.hours-table td:nth-child(3){display:none}.hours-table td{padding:13px 10px}.hours-table .time{font-size:.96rem}}
     @media(max-width:560px){.container{width:min(100% - 22px,1160px)}.hero{padding-top:32px}.brand-logo{width:52px;height:52px}.hero-card img{height:310px}.hero-mini img{height:125px}.grid-4,.grid-3,.quick-stats{grid-template-columns:1fr}.photo{height:230px}.cta-box{padding:22px}.float-wa{left:12px;right:12px;text-align:center}.status-row{gap:8px}.eyebrow{font-size:.7rem}}
   </style>
 
@@ -175,7 +186,7 @@
           <div class="status-row">
             <span class="eyebrow">Physical live seafood stall</span>
             <span class="eyebrow">Commonwealth Crescent Market</span>
-            <span class="eyebrow">Mon 12–5pm · Tue–Thu 8am–7pm · Fri–Sat 8am–8pm · Sun 8am–5pm</span>
+            <span class="eyebrow">Business hours vary by day — see table below</span>
           </div>
           <h1 data-lang="en">Pick Your Live Seafood From Our Tanks</h1>
           <h1 data-lang="zh">到 Crab Talk 亲自挑选活海鲜</h1>
@@ -248,17 +259,33 @@
     <section id="hours">
       <div class="container">
         <div class="section-head">
-          <h2 data-lang="en">Operation Hours</h2>
-          <h2 data-lang="zh">营业时间</h2>
-          <h2 data-lang="jp">営業時間</h2>
-          <p data-lang="en">Visit our physical live seafood stall at Commonwealth Crescent Market. If you are making a special trip, WhatsApp us first to check today’s arrival and availability.</p>
-          <p data-lang="zh">欢迎到 Commonwealth Crescent Market 的实体活海鲜摊位。若特地前来，建议先 WhatsApp 查询当天到货和现货。</p>
-          <p data-lang="jp">Commonwealth Crescent Market の実店舗へお越しください。ご来店前に WhatsApp で当日の入荷・在庫をご確認いただくと確実です。</p>
+          <h2><span data-lang="en">Operating Hours</span><span data-lang="zh">营业时间</span><span data-lang="jp">営業時間</span></h2>
+          <p><span data-lang="en">Displayed clearly by day. For live crabs, lobsters, oysters and special items, WhatsApp us first to check availability.</span><span data-lang="zh">以下按星期清楚列出。如需活蟹、龙虾、生蚝或特别海鲜，建议先 WhatsApp 查询。</span><span data-lang="jp">曜日別に分かりやすく表示しています。活蟹、ロブスター、牡蠣、特別入荷品は事前にWhatsAppで在庫確認をおすすめします。</span></p>
         </div>
-        <div class="grid grid-3 steps">
-          <div class="card step"><h3>Crab Talk Stall</h3><p><strong>Monday</strong><br>12:00pm – 5:00pm<br><br><strong>Tuesday – Thursday</strong><br>8:00am – 7:00pm<br><br><strong>Friday – Saturday</strong><br>8:00am – 8:00pm<br><br><strong>Sunday</strong><br>8:00am – 5:00pm</p></div>
-          <div class="card step"><h3>Before You Come</h3><p>Live seafood is based on daily arrivals. WhatsApp us before coming down for specific seafood or crab sizes.</p></div>
-          <div class="card step"><h3>Market Rest Days</h3><p>Closed during selected market rest days or special closures. Check WhatsApp before making a special trip.</p></div>
+        <div class="card hours-card">
+          <table class="hours-table" aria-label="Crab Talk operating hours">
+            <thead>
+              <tr>
+                <th><span data-lang="en">Day</span><span data-lang="zh">星期</span><span data-lang="jp">曜日</span></th>
+                <th><span data-lang="en">Opening Hours</span><span data-lang="zh">营业时间</span><span data-lang="jp">営業時間</span></th>
+                <th><span data-lang="en">Note</span><span data-lang="zh">备注</span><span data-lang="jp">備考</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="day"><span data-lang="en">Monday</span><span data-lang="zh">星期一</span><span data-lang="jp">月曜日</span></td><td class="time">12PM – 5PM</td><td class="note"><span data-lang="en">Shorter operating day</span><span data-lang="zh">较短营业日</span><span data-lang="jp">短縮営業日</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Tuesday</span><span data-lang="zh">星期二</span><span data-lang="jp">火曜日</span></td><td class="time">8AM – 7PM</td><td class="note"><span data-lang="en">Regular weekday hours</span><span data-lang="zh">平日营业时间</span><span data-lang="jp">通常平日営業</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Wednesday</span><span data-lang="zh">星期三</span><span data-lang="jp">水曜日</span></td><td class="time">8AM – 7PM</td><td class="note"><span data-lang="en">Regular weekday hours</span><span data-lang="zh">平日营业时间</span><span data-lang="jp">通常平日営業</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Thursday</span><span data-lang="zh">星期四</span><span data-lang="jp">木曜日</span></td><td class="time">8AM – 7PM</td><td class="note"><span data-lang="en">Regular weekday hours</span><span data-lang="zh">平日营业时间</span><span data-lang="jp">通常平日営業</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Friday</span><span data-lang="zh">星期五</span><span data-lang="jp">金曜日</span></td><td class="time">8AM – 8PM</td><td class="note"><span data-lang="en">Extended evening hours</span><span data-lang="zh">延长至晚上</span><span data-lang="jp">夜まで延長営業</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Saturday</span><span data-lang="zh">星期六</span><span data-lang="jp">土曜日</span></td><td class="time">8AM – 8PM</td><td class="note"><span data-lang="en">Extended evening hours</span><span data-lang="zh">延长至晚上</span><span data-lang="jp">夜まで延長営業</span></td></tr>
+              <tr><td class="day"><span data-lang="en">Sunday</span><span data-lang="zh">星期日</span><span data-lang="jp">日曜日</span></td><td class="time">8AM – 5PM</td><td class="note"><span data-lang="en">Closes at 5PM</span><span data-lang="zh">下午5点结束营业</span><span data-lang="jp">17時閉店</span></td></tr>
+            </tbody>
+          </table>
+          <div class="hours-note">
+            <span data-lang="en">For reservation and live seafood availability, please use the WhatsApp button.</span>
+            <span data-lang="zh">如需预订或查询当天活海鲜，请点击 WhatsApp。</span>
+            <span data-lang="jp">ご予約・当日の在庫確認はWhatsAppボタンからお問い合わせください。</span>
+          </div>
         </div>
       </div>
     </section>
