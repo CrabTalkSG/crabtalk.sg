@@ -1,10 +1,12 @@
 {
-  "name": "crabtalk-sg-static",
+  "name": "crabtalk-seo-pages",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi",
-    "start": "echo 'Static site. Open index.html directly.'"
+    "build": "rm -rf dist && mkdir -p dist && cp *.html style.css robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public dist/public && cp -R public/* dist/; fi",
+    "start": "npx serve dist"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
 }
