@@ -234,14 +234,14 @@
       gap: 1rem;
       margin-top: 1.5rem;
     }
-    .seo-keywords span, .faq-card {
+    .seo-keywords > span, .faq-card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 1.25rem;
       padding: 1rem 1.15rem;
       box-shadow: 0 14px 35px rgba(15, 35, 55, .06);
     }
-    .seo-keywords span {
+    .seo-keywords > span {
       font-weight: 900;
       color: var(--blue);
       letter-spacing: .01em;
@@ -254,6 +254,28 @@
     .faq-card p {
       font-size: .98rem;
       margin: 0;
+    }
+
+    .seo-keywords > span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70px;
+      text-align: center;
+    }
+    .seo-keywords > span [data-lang] {
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      min-height: 0 !important;
+    }
+    @media(max-width:560px){
+      .seo-rich, .faq-section { padding: 3rem 5vw; }
+      .seo-rich h2, .faq-section h2 { font-size: clamp(2rem, 10vw, 3rem); }
+      .seo-keywords { grid-template-columns: 1fr; }
+      .seo-keywords > span { min-height: 58px; }
     }
   </style>
 <script type="application/ld+json">
