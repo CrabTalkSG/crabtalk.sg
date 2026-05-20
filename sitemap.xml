@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.crabtalk.sg/</loc><priority>1.00</priority></url>
-  <url><loc>https://www.crabtalk.sg/live-crab-singapore</loc><priority>0.90</priority></url>
-  <url><loc>https://www.crabtalk.sg/buy-live-crab-singapore</loc><priority>0.90</priority></url>
-  <url><loc>https://www.crabtalk.sg/roe-crab-singapore</loc><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/live-seafood-singapore</loc><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/lobster-singapore</loc><priority>0.80</priority></url>
-  <url><loc>https://www.crabtalk.sg/crab-bee-hoon-singapore</loc><priority>0.75</priority></url>
-  <url><loc>https://www.crabtalk.sg/commonwealth-seafood-market</loc><priority>0.75</priority></url>
-  <url><loc>https://www.crabtalk.sg/fai-kee-crab-talk-collaboration</loc><priority>0.75</priority></url>
+  <url><loc>https://www.crabtalk.sg/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.00</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/live-crab-singapore/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/roe-crab-singapore/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/live-seafood-singapore/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/lobster-singapore/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/commonwealth-seafood/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/crab-bee-hoon-singapore/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.crabtalk.sg/seo/fai-kee-seafood-cooking/</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 </urlset>

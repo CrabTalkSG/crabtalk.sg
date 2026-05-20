@@ -1,12 +1,25 @@
 {
-  "rewrites": [
-    { "source": "/live-crab-singapore", "destination": "/seo/live-crab-singapore.html" },
-    { "source": "/buy-live-crab-singapore", "destination": "/seo/buy-live-crab-singapore.html" },
-    { "source": "/roe-crab-singapore", "destination": "/seo/roe-crab-singapore.html" },
-    { "source": "/live-seafood-singapore", "destination": "/seo/live-seafood-singapore.html" },
-    { "source": "/lobster-singapore", "destination": "/seo/lobster-singapore.html" },
-    { "source": "/crab-bee-hoon-singapore", "destination": "/seo/crab-bee-hoon-singapore.html" },
-    { "source": "/commonwealth-seafood-market", "destination": "/seo/commonwealth-seafood-market.html" },
-    { "source": "/fai-kee-crab-talk-collaboration", "destination": "/seo/fai-kee-crab-talk-collaboration.html" }
-  ]
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
