@@ -1,7 +1,12 @@
 {
-  "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false
+  "rewrites": [
+    { "source": "/live-crab-singapore", "destination": "/seo/live-crab-singapore.html" },
+    { "source": "/buy-live-crab-singapore", "destination": "/seo/buy-live-crab-singapore.html" },
+    { "source": "/roe-crab-singapore", "destination": "/seo/roe-crab-singapore.html" },
+    { "source": "/live-seafood-singapore", "destination": "/seo/live-seafood-singapore.html" },
+    { "source": "/lobster-singapore", "destination": "/seo/lobster-singapore.html" },
+    { "source": "/crab-bee-hoon-singapore", "destination": "/seo/crab-bee-hoon-singapore.html" },
+    { "source": "/commonwealth-seafood-market", "destination": "/seo/commonwealth-seafood-market.html" },
+    { "source": "/fai-kee-crab-talk-collaboration", "destination": "/seo/fai-kee-crab-talk-collaboration.html" }
+  ]
 }
