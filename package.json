@@ -1,9 +1,10 @@
 {
-  "name": "crabtalk-complete-static-site",
+  "name": "crabtalk-sg-static",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp -R index.html robots.txt sitemap.xml dist/ && [ -d public ] && cp -R public dist/public || true && for d in live-seafood-singapore live-crabs-singapore roe-crab-singapore live-lobster-singapore manila-clams-singapore soon-hock-singapore alaskan-king-crab-singapore reviews-media; do [ -d \"$d\" ] && cp -R \"$d\" dist/ || true; done"
+    "build": "mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi",
+    "start": "echo 'Static site. Open index.html directly.'"
   },
   "devDependencies": {}
 }
