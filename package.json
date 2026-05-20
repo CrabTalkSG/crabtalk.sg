@@ -1,1 +1,1 @@
-{"scripts":{"build":"rm -rf dist && mkdir -p dist && cp index.html style.css robots.txt sitemap.xml dist/ && cp -R seo dist/seo && if [ -d public ]; then cp -R public/* dist/; fi"},"dependencies":{},"devDependencies":{}}
+{"scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0"},"dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest","lucide-react":"latest"},"devDependencies":{}}
