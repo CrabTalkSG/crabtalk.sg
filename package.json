@@ -1,1 +1,10 @@
-{"scripts":{"start":"vite --host 0.0.0.0","dev":"vite --host 0.0.0.0","build":"vite build"},"dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest","lucide-react":"latest"},"devDependencies":{}}
+{
+  "name": "crabtalk-sg-static",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html robots.txt sitemap.xml dist/ && if [ -d public ]; then cp -R public/* dist/; fi",
+    "start": "echo 'Static site. Open index.html directly.'"
+  },
+  "devDependencies": {}
+}
