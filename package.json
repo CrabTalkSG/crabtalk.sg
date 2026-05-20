@@ -1,9 +1,9 @@
 {
-  "name": "crabtalk-seo-subpages-image-safe",
+  "name": "crabtalk-complete-static-site",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && find . -maxdepth 1 -type f \\( -name '*.html' -o -name '*.txt' -o -name '*.xml' -o -name '*.json' -o -name '*.ico' \\) -exec cp {} dist/ \\; && for d in public live-seafood-singapore live-crabs-singapore roe-crab-singapore live-lobster-singapore alaskan-king-crab-singapore oysters-shellfish-singapore soon-hock-singapore fai-kee-collaboration reviews-media; do [ -d \"$d\" ] && cp -R \"$d\" dist/ || true; done"
+    "build": "rm -rf dist && mkdir -p dist && cp -R index.html robots.txt sitemap.xml dist/ && [ -d public ] && cp -R public dist/public || true && for d in live-seafood-singapore live-crabs-singapore roe-crab-singapore live-lobster-singapore manila-clams-singapore soon-hock-singapore alaskan-king-crab-singapore reviews-media; do [ -d \"$d\" ] && cp -R \"$d\" dist/ || true; done"
   },
   "devDependencies": {}
 }
