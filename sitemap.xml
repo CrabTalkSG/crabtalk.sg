@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.crabtalk.sg/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.crabtalk.sg/live-seafood-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/live-crabs-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/roe-crab-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/australian-rock-lobster-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/alaskan-king-crab-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/oysters-shellfish-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/soon-hock-singapore/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.crabtalk.sg/fai-kee-collaboration/</loc><lastmod>2026-05-19</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.crabtalk.sg/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.crabtalk.sg/live-seafood-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/live-crabs-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/roe-crab-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/australian-rock-lobster-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/alaskan-king-crab-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/oysters-shellfish-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/soon-hock-singapore/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.crabtalk.sg/crab-talk-fai-kee-collaboration/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
