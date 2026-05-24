@@ -256,14 +256,34 @@
       margin: 0;
     }
 
-    .seo-keywords > span {
+    .seo-keywords > span,
+    .seo-keywords > a.seo-keyword-link {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 70px;
       text-align: center;
     }
-    .seo-keywords > span [data-lang] {
+
+    .seo-keywords > a.seo-keyword-link {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 1.25rem;
+      padding: 1rem 1.15rem;
+      box-shadow: 0 14px 35px rgba(15, 35, 55, .06);
+      font-weight: 900;
+      color: var(--blue);
+      letter-spacing: .01em;
+      text-decoration: none;
+    }
+
+    .seo-keywords > a.seo-keyword-link:hover {
+      color: var(--teal);
+      border-color: #c9eef0;
+      background: #f3fbfc;
+    }
+    .seo-keywords > span [data-lang],
+    .seo-keywords > a.seo-keyword-link [data-lang] {
       background: transparent !important;
       border: 0 !important;
       box-shadow: none !important;
@@ -275,7 +295,7 @@
       .seo-rich, .faq-section { padding: 3rem 5vw; }
       .seo-rich h2, .faq-section h2 { font-size: clamp(2rem, 10vw, 3rem); }
       .seo-keywords { grid-template-columns: 1fr; }
-      .seo-keywords > span { min-height: 58px; }
+      .seo-keywords > span, .seo-keywords > a.seo-keyword-link { min-height: 58px; }
     }
   </style>
 <script type="application/ld+json">
@@ -526,20 +546,12 @@
       <span data-lang="zh">每天到货不同。周末热门海鲜可能较早售完，建议到访前 WhatsApp Crab Talk 查询今日活蟹、膏蟹、龙虾、蛤蜊和鱼类供应。</span>
       <span data-lang="jp">在庫は毎日変わります。週末の人気商品は早めに売り切れる場合がありますので、来店前にWhatsAppで本日の活ガニ、膏入りガニ、ロブスター、貝、魚の在庫をご確認ください。</span>
     </p>
-    <p>
-      <a href="/yellow-roe-crab-singapore" class="pill pill-soft" style="margin-top:6px;display:inline-flex;">
-        Sri Lanka Yellow Roe Crab Singapore Guide
-      </a>
-      <a href="/live-mud-crab-singapore" class="pill pill-soft" style="margin-top:6px;display:inline-flex;">
-        Live Mud Crab Singapore Guide
-      </a>
-    </p>
     <div class="seo-keywords">
-      <span><span data-lang="en">Sri Lanka Roe Crabs</span><span data-lang="zh">斯里兰卡膏蟹</span><span data-lang="jp">スリランカ産 roe crab</span></span>
-      <span><span data-lang="en">Live Mud Crabs</span><span data-lang="zh">活泥蟹</span><span data-lang="jp">活マッドクラブ</span></span>
-      <span><span data-lang="en">Live Lobsters</span><span data-lang="zh">活龙虾</span><span data-lang="jp">活ロブスター</span></span>
-      <span><span data-lang="en">Manila Clams</span><span data-lang="zh">马尼拉蛤</span><span data-lang="jp">マニラクラム</span></span>
-      <span><span data-lang="en">Soon Hock Fish</span><span data-lang="zh">笋壳鱼</span><span data-lang="jp">スーンホック</span></span>
+      <a href="/yellow-roe-crab-singapore" class="seo-keyword-link"><span data-lang="en">Sri Lanka Yellow Roe Crabs</span><span data-lang="zh">斯里兰卡黄膏蟹</span><span data-lang="jp">スリランカ産イエロー roe crab</span></a>
+      <a href="/live-mud-crab-singapore" class="seo-keyword-link"><span data-lang="en">Live Mud Crabs</span><span data-lang="zh">活泥蟹</span><span data-lang="jp">活マッドクラブ</span></a>
+      <a href="/live-lobster-singapore" class="seo-keyword-link"><span data-lang="en">Live Lobsters</span><span data-lang="zh">活龙虾</span><span data-lang="jp">活ロブスター</span></a>
+      <a href="/manila-clams-singapore" class="seo-keyword-link"><span data-lang="en">Manila Clams</span><span data-lang="zh">马尼拉蛤</span><span data-lang="jp">マニラクラム</span></a>
+      <a href="/soon-hock-fish-singapore" class="seo-keyword-link"><span data-lang="en">Soon Hock Fish</span><span data-lang="zh">笋壳鱼</span><span data-lang="jp">スーンホック</span></a>
       <span><span data-lang="en">Weekend Reservations Recommended</span><span data-lang="zh">周末建议预留</span><span data-lang="jp">週末は予約推奨</span></span>
     </div>
   </div>
