@@ -38,6 +38,7 @@ const languages = {
     navSelection: "Fresh Selection",
     navHow: "How It Works",
     navReviews: "Reviews",
+    navGuides: "Seafood Guides",
     navFind: "Find Us",
     whatsapp: "WhatsApp",
     heroBadge: "Physical Live Seafood Stall",
@@ -76,6 +77,18 @@ const languages = {
     visitText:
       "Come down, choose from the live tanks, and ask our team what is suitable for your budget, pax and cooking style.",
     openingHours: "Opening Hours",
+    todaysKicker: "Updated Daily",
+    todaysTitle: "Today’s Live Seafood Availability",
+    todaysText:
+      "Fresh arrivals change daily. WhatsApp before visiting to check today’s live crabs, roe crabs, lobsters, clams and fish.",
+    whyPremiumKicker: "Why Customers Choose Crab Talk",
+    whyPremiumTitle: "Premium Live Seafood, Market Honesty",
+    whyPremiumText:
+      "A physical live seafood stall experience with premium selection, honest recommendations and direct WhatsApp reservation.",
+    guideKicker: "Seafood Guides",
+    guideTitle: "Explore Crab Talk Seafood Pages",
+    guideText:
+      "Compare live crabs, roe crabs, lobsters and premium seafood options in Singapore.",
     footerText:
       "Live seafood availability changes daily. Prices, sizes and preparation services are subject to stock and stall capacity.",
   },
@@ -87,6 +100,7 @@ const languages = {
     navSelection: "新鲜选择",
     navHow: "购买流程",
     navReviews: "顾客评价",
+    navGuides: "海鲜指南",
     navFind: "地址",
     whatsapp: "WhatsApp",
     heroBadge: "实体活海鲜档口",
@@ -587,6 +601,114 @@ function getTodayHours() {
   return HOURS.find((item) => item.day === day) || HOURS[0];
 }
 
+const arrivalItems = [
+  {
+    badge: { en: "Roe Crab", zh: "膏蟹", ja: "膏入りガニ" },
+    title: { en: "Sri Lanka Yellow Roe Crab", zh: "斯里兰卡黄膏蟹", ja: "スリランカ産イエロー roe crab" },
+    text: {
+      en: "Premium roe crab best enjoyed cold or grilled for natural sweetness and creamy roe.",
+      zh: "高级黄膏蟹，建议冷蟹或烧烤，突出天然鲜甜和浓郁蟹膏。",
+      ja: "濃厚な roe と自然な甘みを楽しむなら、冷製またはグリルがおすすめです。",
+    },
+    image: img("Yellow Roe Crab_Photo4.jpg"),
+  },
+  {
+    badge: { en: "Live Crab", zh: "活蟹", ja: "活ガニ" },
+    title: { en: "Live Mud Crabs", zh: "活泥蟹", ja: "活マッドクラブ" },
+    text: {
+      en: "Choose directly from our tanks and ask for size, meat quality and cooking recommendations.",
+      zh: "从水缸亲自挑选，也可咨询规格、肉质和料理建议。",
+      ja: "水槽から直接選び、サイズや身入り、調理方法について相談できます。",
+    },
+    image: img("product-live-crabs-new.jpg"),
+  },
+  {
+    badge: { en: "Lobster", zh: "龙虾", ja: "ロブスター" },
+    title: { en: "Live Lobsters", zh: "活龙虾", ja: "活ロブスター" },
+    text: {
+      en: "Suitable for steaming, grilling, lobster bee hoon or lobster yee mee arrangements.",
+      zh: "适合清蒸、烧烤、龙虾米粉或龙虾伊面安排。",
+      ja: "蒸し、グリル、ロブスタービーフン、イーミーにもおすすめです。",
+    },
+    image: img("product-live-lobster-new.jpg"),
+  },
+  {
+    badge: { en: "Live Fish", zh: "活鱼", ja: "活魚" },
+    title: { en: "Soon Hock & Seasonal Fish", zh: "笋壳鱼与时令活鱼", ja: "スーンホックと季節の活魚" },
+    text: {
+      en: "Premium live fish options depend on daily arrival and tank availability.",
+      zh: "高级活鱼选择视每日到货和水缸库存而定。",
+      ja: "プレミアム活魚は毎日の入荷と水槽在庫により異なります。",
+    },
+    image: img("product-live-soon-hock-premium-fish.jpg"),
+  },
+];
+
+const premiumWhyItems = [
+  {
+    icon: "🦀",
+    title: { en: "Choose From Live Tanks", zh: "水缸现选", ja: "水槽から選ぶ" },
+    text: {
+      en: "See the seafood before buying instead of ordering blindly online.",
+      zh: "购买前可亲眼看到海鲜，不是盲目线上下单。",
+      ja: "オンラインで見ずに買うのではなく、実物を見て選べます。",
+    },
+  },
+  {
+    icon: "🥇",
+    title: { en: "Roe Crab Specialist", zh: "膏蟹专门推荐", ja: "膏入りガニに強い" },
+    text: {
+      en: "Focused recommendations for yellow roe crabs, red roe crabs and premium live mud crabs.",
+      zh: "专注推荐黄膏蟹、红膏蟹和高级活泥蟹。",
+      ja: "イエロー roe crab、レッド roe crab、活マッドクラブの提案が得意です。",
+    },
+  },
+  {
+    icon: "📲",
+    title: { en: "WhatsApp First", zh: "WhatsApp 查询", ja: "WhatsAppで確認" },
+    text: {
+      en: "Check today’s arrivals, sizes and availability before coming down.",
+      zh: "到访前先查询今日到货、规格和供应情况。",
+      ja: "来店前に本日の入荷、サイズ、在庫を確認できます。",
+    },
+  },
+  {
+    icon: "🍜",
+    title: { en: "Nearby Cooking Options", zh: "附近代煮选择", ja: "近隣調理も相談可" },
+    text: {
+      en: "Arrange hawker-style cooking nearby when available for selected seafood.",
+      zh: "部分海鲜可视情况安排附近熟食档代煮。",
+      ja: "対象海鮮は状況により近隣での調理相談が可能です。",
+    },
+  },
+  {
+    icon: "⭐",
+    title: { en: "Featured Locally", zh: "本地媒体推荐", ja: "地元掲載" },
+    text: {
+      en: "Crab Talk has been featured for live seafood and hawker-style seafood cooking.",
+      zh: "Crab Talk 曾因活海鲜与熟食合作受到本地报道。",
+      ja: "活き海鮮とホーカー調理で地元メディアに掲載されました。",
+    },
+  },
+  {
+    icon: "🏪",
+    title: { en: "Real Market Experience", zh: "真实市场体验", ja: "本物の市場体験" },
+    text: {
+      en: "Premium seafood without losing the authenticity of a local wet market visit.",
+      zh: "既有高级海鲜选择，也保留本地市场真实体验。",
+      ja: "プレミアム海鮮とローカル市場らしさを同時に楽しめます。",
+    },
+  },
+];
+
+const guideLinks = [
+  { title: { en: "Yellow Roe Crab Singapore", zh: "新加坡黄膏蟹", ja: "イエロー roe crab" }, href: "/yellow-roe-crab-singapore" },
+  { title: { en: "Live Mud Crab Singapore", zh: "新加坡活泥蟹", ja: "活マッドクラブ" }, href: "/live-mud-crab-singapore" },
+  { title: { en: "Live Lobster Singapore", zh: "新加坡活龙虾", ja: "活ロブスター" }, href: "/live-lobster-singapore" },
+  { title: { en: "Alaska King Crab Singapore", zh: "阿拉斯加帝王蟹", ja: "アラスカ産キングクラブ" }, href: "/alaska-king-crab-singapore" },
+];
+
+
 function App() {
   const [lang, setLang] = useState("en");
   const t = languages[lang];
@@ -630,6 +752,7 @@ function App() {
               <a href="#selection">{t.navSelection}</a>
               <a href="#how">{t.navHow}</a>
               <a href="#reviews">{t.navReviews}</a>
+              <a href="#guides">{t.navGuides}</a>
               <a href="#visit">{t.navFind}</a>
             </nav>
 
@@ -707,6 +830,37 @@ function App() {
                   alt="Crab Talk live seafood stall"
                   interval={4200}
                 />
+              </div>
+            </div>
+          </section>
+
+          <section id="today-arrivals" className="section premiumArrival">
+            <div className="container">
+              <div className="sectionHeader">
+                <p>{t.todaysKicker}</p>
+                <h2>{t.todaysTitle}</h2>
+                <span>{t.todaysText}</span>
+              </div>
+
+              <div className="arrivalGrid">
+                {arrivalItems.map((item) => (
+                  <article className="arrivalCard" key={item.title.en}>
+                    <div className="arrivalMedia">
+                      <SmartImage src={item.image} alt={item.title[lang]} />
+                    </div>
+                    <div className="arrivalBody">
+                      <span>{item.badge[lang]}</span>
+                      <h3>{item.title[lang]}</h3>
+                      <p>{item.text[lang]}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="centerCta">
+                <a className="button buttonPrimary" href={LINKS.whatsapp}>
+                  {t.checkArrival}
+                </a>
               </div>
             </div>
           </section>
@@ -812,6 +966,26 @@ function App() {
             </div>
           </section>
 
+          <section className="section premiumWhy">
+            <div className="container">
+              <div className="sectionHeader">
+                <p>{t.whyPremiumKicker}</p>
+                <h2>{t.whyPremiumTitle}</h2>
+                <span>{t.whyPremiumText}</span>
+              </div>
+
+              <div className="premiumWhyGrid">
+                {premiumWhyItems.map((item) => (
+                  <article className="premiumWhyCard" key={item.title.en}>
+                    <div>{item.icon}</div>
+                    <h3>{item.title[lang]}</h3>
+                    <p>{item.text[lang]}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <section className="section sectionTint">
             <div className="container">
               <div className="sectionHeader">
@@ -871,6 +1045,24 @@ function App() {
                     <h3>{item.q}</h3>
                     <p>{item.a}</p>
                   </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="guides" className="section sectionTint">
+            <div className="container">
+              <div className="sectionHeader">
+                <p>{t.guideKicker}</p>
+                <h2>{t.guideTitle}</h2>
+                <span>{t.guideText}</span>
+              </div>
+
+              <div className="guideGrid">
+                {guideLinks.map((guide) => (
+                  <a className="guideCard" href={guide.href} key={guide.href}>
+                    {guide.title[lang]}
+                  </a>
                 ))}
               </div>
             </div>
@@ -1635,6 +1827,140 @@ img {
   font-size: 42px;
 }
 
+.premiumArrival {
+  background:
+    radial-gradient(circle at top right, rgba(216, 177, 82, 0.16), transparent 32%),
+    linear-gradient(135deg, #f7fbfa 0%, #eef8f6 58%, #fff8ea 100%);
+}
+
+.arrivalGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.arrivalCard {
+  overflow: hidden;
+  border-radius: 26px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 42px rgba(6, 52, 59, 0.08);
+}
+
+.arrivalMedia {
+  height: 205px;
+  background: #eef7f5;
+}
+
+.arrivalMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrivalBody {
+  padding: 20px;
+}
+
+.arrivalBody span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--goldLight);
+  color: #7b5a11;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.arrivalBody h3 {
+  margin: 0 0 8px;
+  color: var(--teal);
+  font-size: 21px;
+  line-height: 1.15;
+}
+
+.arrivalBody p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.centerCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.premiumWhy {
+  background: #ffffff;
+}
+
+.premiumWhyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.premiumWhyCard {
+  padding: 26px;
+  border-radius: 26px;
+  background: #f7fbfa;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 34px rgba(6, 52, 59, 0.06);
+}
+
+.premiumWhyCard div {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: white;
+  font-size: 24px;
+}
+
+.premiumWhyCard h3 {
+  margin: 0 0 8px;
+  color: var(--teal);
+  font-size: 22px;
+}
+
+.premiumWhyCard p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.guideCard {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  text-align: center;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid var(--line);
+  color: var(--teal);
+  font-weight: 950;
+  box-shadow: 0 12px 34px rgba(6, 52, 59, 0.06);
+}
+
+.guideCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--aqua);
+}
+
+
 @media (max-width: 1020px) {
   .desktopNav {
     display: none;
@@ -1651,7 +1977,10 @@ img {
   .stepsGrid,
   .whyGrid,
   .featureGrid,
-  .reviewsGrid {
+  .reviewsGrid,
+  .arrivalGrid,
+  .premiumWhyGrid,
+  .guideGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1740,7 +2069,10 @@ img {
   .whyGrid,
   .featureGrid,
   .reviewsGrid,
-  .faqGrid {
+  .faqGrid,
+  .arrivalGrid,
+  .premiumWhyGrid,
+  .guideGrid {
     grid-template-columns: 1fr;
   }
 

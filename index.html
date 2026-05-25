@@ -297,6 +297,28 @@
       .seo-keywords { grid-template-columns: 1fr; }
       .seo-keywords > span, .seo-keywords > a.seo-keyword-link { min-height: 58px; }
     }
+  
+/* === Crab Talk Premium UX Improvements - May 2026 === */
+.premium-arrivals{padding:72px 0;background:linear-gradient(135deg,#f7fbfa 0%,#eef8f6 55%,#fff8ea 100%)}
+.arrival-card-wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
+.arrival-heading{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}
+.arrival-heading h2,.why-crabtalk h2,.internal-links h2{color:#061b2a;font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.055em;margin:0}
+.arrival-heading p,.why-crabtalk p,.internal-links p{color:#64748b;font-size:1rem;line-height:1.75;margin:10px 0 0;max-width:620px}
+.arrival-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.arrival-card{background:#fff;border:1px solid #e5e7eb;border-radius:24px;overflow:hidden;box-shadow:0 18px 45px rgba(4,50,77,.08)}
+.arrival-card img{width:100%;height:190px;object-fit:cover;background:#eef2f7}
+.arrival-card div{padding:18px}.arrival-card span{display:inline-flex;margin-bottom:10px;padding:5px 10px;border-radius:999px;background:#fff3c4;color:#7a5200;font-weight:900;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em}
+.arrival-card h3{margin:0 0 8px;color:#061b2a;font-size:1.15rem;line-height:1.2}.arrival-card p{margin:0;color:#64748b;font-size:.93rem;line-height:1.6}.arrival-cta{margin-top:24px;display:flex;justify-content:center}
+.why-crabtalk,.internal-links{padding:72px 0;background:#fff}
+.why-grid{width:min(1160px,calc(100% - 32px));margin:28px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.why-card,.internal-card{background:#f7fbfa;border:1px solid #dce9e6;border-radius:24px;padding:24px;box-shadow:0 12px 34px rgba(7,63,63,.06)}
+.why-card strong{display:block;color:#073b3a;font-size:1.1rem;margin-bottom:8px}
+.internal-grid{width:min(1160px,calc(100% - 32px));margin:28px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.internal-card{text-decoration:none;color:#073b3a;font-weight:900;text-align:center;transition:transform .18s ease,border-color .18s ease}.internal-card:hover{transform:translateY(-2px);border-color:#0c8a94}
+.mobile-conversion-bar{position:fixed;left:14px;right:14px;bottom:14px;z-index:999;display:none;gap:10px}.mobile-conversion-bar a{flex:1;text-align:center;padding:13px 10px;border-radius:999px;color:#fff;background:#073b3a;text-decoration:none;font-weight:1000;box-shadow:0 14px 34px rgba(7,59,58,.24)}.mobile-conversion-bar a:first-child{background:#25d366}
+@media(max-width:920px){.arrival-heading{display:block}.arrival-grid,.why-grid,.internal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.arrival-grid,.why-grid,.internal-grid{grid-template-columns:1fr}.mobile-conversion-bar{display:flex}body{padding-bottom:76px}}
+
   </style>
 <script type="application/ld+json">
 {
@@ -471,6 +493,19 @@
   ]
 }
   </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How do I check today’s live seafood availability at Crab Talk?","acceptedAnswer":{"@type":"Answer","text":"Customers can WhatsApp Crab Talk before visiting to check today’s live seafood arrivals, available sizes and reservation options."}},
+    {"@type":"Question","name":"Can I choose live seafood directly from the tanks?","acceptedAnswer":{"@type":"Answer","text":"Yes. Crab Talk is a physical live seafood stall at Commonwealth Crescent Market where customers can choose live seafood directly from the tanks."}},
+    {"@type":"Question","name":"What seafood is Crab Talk known for?","acceptedAnswer":{"@type":"Answer","text":"Crab Talk is known for live mud crabs, Sri Lanka Yellow Roe Crabs, lobsters, Manila clams, Soon Hock fish and seasonal premium seafood."}}
+  ]
+}
+</script>
+
 </head>
 <body class="en">
 <header class="topbar">
@@ -534,6 +569,67 @@
 </div>
 </div>
 </section>
+
+<section class="premium-arrivals" id="todays-arrivals-visual">
+  <div class="arrival-card-wrap">
+    <div class="arrival-heading">
+      <div>
+        <span class="eyebrow">Updated Daily</span>
+        <h2>Today’s Live Seafood Availability</h2>
+      </div>
+      <p>Fresh arrivals change daily. WhatsApp Crab Talk before visiting to check today’s live crabs, roe crabs, lobsters, clams and fish.</p>
+    </div>
+
+    <div class="arrival-grid">
+      <article class="arrival-card"><img src="/images/Yellow%20Roe%20Crab_Photo4.jpg" alt="Sri Lanka Yellow Roe Crab Singapore"><div><span>Roe Crab</span><h3>Sri Lanka Yellow Roe Crab</h3><p>Premium roe crab best enjoyed cold or grilled for natural sweetness and creamy roe.</p></div></article>
+      <article class="arrival-card"><img src="/images/product-live-crabs-new.jpg" alt="Live mud crab Singapore"><div><span>Live Crab</span><h3>Live Mud Crabs</h3><p>Choose directly from our tanks. Ask for size and meat quality recommendations.</p></div></article>
+      <article class="arrival-card"><img src="/images/product-live-lobster-new.jpg" alt="Live lobster Singapore"><div><span>Lobster</span><h3>Live Lobsters</h3><p>Suitable for steaming, grilling, lobster bee hoon or lobster yee mee arrangements.</p></div></article>
+      <article class="arrival-card"><img src="/images/product-live-soon-hock-premium-fish.jpg" alt="Soon Hock fish Singapore"><div><span>Live Fish</span><h3>Soon Hock & Seasonal Fish</h3><p>Premium live fish options depend on daily arrival and tank availability.</p></div></article>
+    </div>
+
+    <div class="arrival-cta">
+      <a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_todays_arrivals')">WhatsApp to Check Today’s Arrival</a>
+    </div>
+  </div>
+</section>
+
+<section class="why-crabtalk" id="why-crabtalk">
+  <div class="arrival-card-wrap">
+    <span class="eyebrow">Why Customers Choose Crab Talk</span>
+    <h2>Premium Live Seafood, Market Honesty</h2>
+    <p>Crab Talk combines the trust of a physical market stall with premium live seafood selection and direct WhatsApp reservation.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card"><strong>Choose From Live Tanks</strong><p>See the seafood before buying instead of ordering blindly online.</p></div>
+    <div class="why-card"><strong>Roe Crab Specialist</strong><p>Focused recommendations for yellow roe crabs, red roe crabs and premium live mud crabs.</p></div>
+    <div class="why-card"><strong>WhatsApp First</strong><p>Check today’s arrivals, sizes and availability before coming down.</p></div>
+    <div class="why-card"><strong>Nearby Cooking Options</strong><p>Arrange hawker-style cooking nearby when available for selected seafood.</p></div>
+    <div class="why-card"><strong>Featured Locally</strong><p>Crab Talk has been featured for live seafood and hawker-style seafood cooking.</p></div>
+    <div class="why-card"><strong>Real Market Experience</strong><p>Premium seafood without losing the authenticity of a local wet market visit.</p></div>
+  </div>
+</section>
+
+<section class="internal-links" id="seafood-guides">
+  <div class="arrival-card-wrap">
+    <span class="eyebrow">Seafood Guides</span>
+    <h2>Explore Crab Talk Seafood Pages</h2>
+    <p>Browse our SEO seafood guides to compare live crabs, roe crabs, lobsters and premium seafood options in Singapore.</p>
+  </div>
+
+  <div class="internal-grid">
+    <a class="internal-card" href="/yellow-roe-crab-singapore">Yellow Roe Crab Singapore</a>
+    <a class="internal-card" href="/live-mud-crab-singapore">Live Mud Crab Singapore</a>
+    <a class="internal-card" href="/live-lobster-singapore">Live Lobster Singapore</a>
+    <a class="internal-card" href="/alaska-king-crab-singapore">Alaska King Crab Singapore</a>
+  </div>
+</section>
+
+<div class="mobile-conversion-bar">
+  <a href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('mobile_sticky_whatsapp')">WhatsApp</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Live%20Seafood%20Supply%20%40%20Crab%20Talk%2031%20Commonwealth%20Crescent" onclick="trackClick('mobile_sticky_maps')">Visit Stall</a>
+</div>
+
 <section class="seo-rich" id="today-arrivals">
   <div class="section-inner">
     <h2>
