@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
 const GOOGLE_TAG_ID = "G-V94NDT5ZCR";
-const GOOGLE_ADS_ID = "AW-799808799";
 
 const LINKS = {
   whatsapp:
