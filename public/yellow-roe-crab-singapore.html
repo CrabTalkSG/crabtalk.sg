@@ -500,5 +500,103 @@
 
 </div>
 
+
+<style>
+.seo-lang-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;margin:0 0 18px}
+.seo-lang-bar button{border:1px solid #dce9e6;background:#fff;color:#0f5b52;border-radius:999px;padding:8px 13px;font-weight:800;cursor:pointer}
+.seo-lang-bar button.active{background:#0f5b52;color:#fff}
+.seo-localized-card{background:#fff;border:1px solid rgba(16,32,58,.08);border-radius:22px;padding:28px;margin:28px 0;box-shadow:0 8px 24px rgba(16,32,58,.06)}
+.seo-localized-card h2{margin-top:0}
+.seo-localized-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.seo-localized-links a{display:inline-flex;padding:11px 16px;border-radius:999px;background:#f0faf8;color:#0f5b52;font-weight:800;text-decoration:none}
+</style>
+<script>
+(function(){
+  const PAGE_DATA = {"en_title": "Sri Lanka Yellow Roe Crab in Singapore", "zh_title": "新加坡斯里兰卡黄膏蟹", "jp_title": "シンガポールのスリランカ産イエロー Roe Crab", "image": "/images/Yellow%20Roe%20Crab_Photo4.jpg", "alt": "Sri Lanka Yellow Roe Crab Singapore", "en": [["Where to Buy Yellow Roe Crab in Singapore", "Crab Talk is located at Commonwealth Crescent Market and supplies live Sri Lanka Yellow Roe Crabs depending on daily arrivals. Customers can walk in to select from the tanks or WhatsApp ahead to check preferred sizes."], ["Why Yellow Roe Crab Is Popular", "Yellow Roe Crab is known for rich golden roe, creamy texture and sweet crab meat. For premium roe crabs, Crab Talk recommends simple preparation so the roe remains the main highlight."], ["Best Ways to Enjoy Yellow Roe Crab", "At Crab Talk, we recommend only two premium styles for Yellow Roe Crab: Cold Yellow Roe Crab and Grilled Yellow Roe Crab. These methods preserve the natural sweetness and rich roe flavour."], ["How to Reserve", "Availability changes daily. WhatsApp Crab Talk before visiting to check today’s stock, crab sizes, pricing and reservation options."]], "zh": [["在新加坡哪里买黄膏蟹", "Crab Talk 位于 Commonwealth Crescent Market，供应视每日到货而定的斯里兰卡黄膏蟹。顾客可到店从水缸现选，也可先 WhatsApp 查询合适规格。"], ["为什么黄膏蟹受欢迎", "黄膏蟹以金黄色蟹膏、浓郁口感和鲜甜蟹肉闻名。对于高级膏蟹，Crab Talk 建议使用简单料理方式，让蟹膏成为主角。"], ["黄膏蟹最佳吃法", "Crab Talk 只推荐两种高级吃法：冷黄膏蟹和烤黄膏蟹。这两种做法最能保留天然鲜甜和浓郁蟹膏风味。"], ["如何预订", "供应每天不同。建议到访前 WhatsApp Crab Talk 查询当天库存、规格、价格和预订安排。"]], "jp": [["シンガポールでイエロー Roe Crab を買う場所", "Crab Talk は Commonwealth Crescent Market にある活き海鮮店で、入荷状況によりスリランカ産イエロー Roe Crab を販売しています。店頭で水槽から選ぶか、来店前に WhatsApp でサイズを確認できます。"], ["イエロー Roe Crab が人気の理由", "イエロー Roe Crab は濃厚な黄金色の roe、クリーミーな食感、甘みのある身で人気です。Crab Talk では roe の味を引き立てるシンプルな調理をおすすめします。"], ["おすすめの食べ方", "Crab Talk では、冷製イエロー Roe Crab とグリルイエロー Roe Crab の2つをおすすめしています。自然な甘みと濃厚な roe の風味を楽しめます。"], ["予約方法", "在庫は毎日変わります。来店前に WhatsApp で本日の在庫、サイズ、価格、予約可否をご確認ください。"]], "cta": {"en": "Check Today’s Yellow Roe Crab Availability", "zh": "查询今日黄膏蟹供应", "jp": "本日の在庫を確認"}};
+  const languages = ["en","zh","jp"];
+
+  function getLang(){
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get("lang");
+    if(languages.includes(urlLang)) return urlLang;
+    try {
+      const saved = localStorage.getItem("crabtalk_lang");
+      if(languages.includes(saved)) return saved;
+    } catch(e) {}
+    return "en";
+  }
+
+  function setLang(lang){
+    if(!languages.includes(lang)) lang = "en";
+    try { localStorage.setItem("crabtalk_lang", lang); } catch(e) {}
+    render(lang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", url.toString());
+  }
+
+  function render(lang){
+    document.documentElement.setAttribute("lang", lang === "jp" ? "ja-SG" : lang === "zh" ? "zh-SG" : "en-SG");
+    document.title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+
+    const title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+    const sections = PAGE_DATA[lang] || PAGE_DATA.en;
+    const cta = PAGE_DATA.cta[lang] || PAGE_DATA.cta.en;
+
+    const cards = sections.map(([h, p]) => `
+      <div class="seo-localized-card">
+        <h2>${h}</h2>
+        <p>${p}</p>
+      </div>
+    `).join("");
+
+    const root = document.querySelector(".container");
+    if(!root) return;
+
+    root.innerHTML = `
+      <div class="seo-lang-bar">
+        <button data-seo-lang="en">EN</button>
+        <button data-seo-lang="zh">中文</button>
+        <button data-seo-lang="jp">日本語</button>
+      </div>
+
+      <a class="back-link" href="/?lang=${lang}">← Back to Crab Talk Homepage</a>
+
+      <h1>${title}</h1>
+
+      <figure class="hero-photo">
+        <img src="${PAGE_DATA.image}" alt="${PAGE_DATA.alt}" />
+        <figcaption>${title} · Crab Talk Singapore</figcaption>
+      </figure>
+
+      ${cards}
+
+      <p class="center-cta">
+        <a class="cta" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F">${cta}</a>
+      </p>
+
+      <div class="highlight">
+        <h2>${lang === "zh" ? "探索更多 Crab Talk 海鲜" : lang === "jp" ? "Crab Talk の他の海鮮を見る" : "Explore More from Crab Talk"}</h2>
+        <p>${lang === "zh" ? "继续浏览 Crab Talk 的其他海鲜页面。" : lang === "jp" ? "Crab Talk の他の海鮮ページもご覧ください。" : "Continue browsing Crab Talk’s other seafood pages."}</p>
+        <p class="seo-localized-links">
+          <a href="/yellow-roe-crab-singapore?lang=${lang}">Yellow Roe Crab</a>
+          <a href="/live-mud-crab-singapore?lang=${lang}">Live Mud Crab</a>
+          <a href="/live-lobster-singapore?lang=${lang}">Live Lobster</a>
+          <a href="/alaska-king-crab-singapore?lang=${lang}">Alaska King Crab</a>
+          <a href="/?lang=${lang}">Homepage</a>
+        </p>
+      </div>
+    `;
+
+    document.querySelectorAll("[data-seo-lang]").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.seoLang === lang);
+      btn.addEventListener("click", () => setLang(btn.dataset.seoLang));
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => render(getLang()));
+})();
+</script>
+
 </body>
 </html>

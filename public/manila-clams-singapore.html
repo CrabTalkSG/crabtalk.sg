@@ -216,5 +216,103 @@
     <a class="cta" href="https://www.crabtalk.sg/">Return to Crab Talk Homepage</a>
   </div>
 </div>
+
+<style>
+.seo-lang-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;margin:0 0 18px}
+.seo-lang-bar button{border:1px solid #dce9e6;background:#fff;color:#0f5b52;border-radius:999px;padding:8px 13px;font-weight:800;cursor:pointer}
+.seo-lang-bar button.active{background:#0f5b52;color:#fff}
+.seo-localized-card{background:#fff;border:1px solid rgba(16,32,58,.08);border-radius:22px;padding:28px;margin:28px 0;box-shadow:0 8px 24px rgba(16,32,58,.06)}
+.seo-localized-card h2{margin-top:0}
+.seo-localized-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.seo-localized-links a{display:inline-flex;padding:11px 16px;border-radius:999px;background:#f0faf8;color:#0f5b52;font-weight:800;text-decoration:none}
+</style>
+<script>
+(function(){
+  const PAGE_DATA = {"en_title": "Manila Clams in Singapore", "zh_title": "新加坡马尼拉蛤", "jp_title": "シンガポールのマニラクラム", "image": "/images/product-manila-clams-new.jpg", "alt": "Manila Clams Singapore", "en": [["Fresh Manila Clams", "Crab Talk carries Manila clams depending on daily arrivals. They are popular for simple home cooking and hawker-style seafood dishes."], ["Cooking Ideas", "Good for steaming, chilli clams, black bean clams, ginger onion clams and soup dishes."], ["Why Check Availability", "Clam supply changes daily, so WhatsApp before visiting if you need a specific quantity."], ["Reserve Before Visiting", "WhatsApp Crab Talk to check today’s clam availability and collection options."]], "zh": [["新鲜马尼拉蛤", "Crab Talk 视每日到货供应马尼拉蛤，适合家庭料理和本地熟食风味。"], ["料理建议", "适合清蒸、辣椒蛤、豆豉蛤、姜葱蛤和汤类料理。"], ["为什么先查询", "蛤蜊供应每天不同，如需特定数量，建议先 WhatsApp 查询。"], ["到访前预订", "WhatsApp Crab Talk 查询今日马尼拉蛤供应和领取安排。"]], "jp": [["新鮮なマニラクラム", "Crab Talk では入荷状況によりマニラクラムを販売しています。家庭料理やローカル海鮮料理に人気です。"], ["調理アイデア", "蒸し、チリクラム、ブラックビーン、ジンジャーオニオン、スープにおすすめです。"], ["在庫確認がおすすめ", "クラムの在庫は毎日変わります。必要な量がある場合は来店前に確認してください。"], ["予約方法", "WhatsApp で本日の在庫と受け取り可否をご確認ください。"]], "cta": {"en": "Check Today’s Clam Availability", "zh": "查询今日马尼拉蛤供应", "jp": "本日のクラムを確認"}};
+  const languages = ["en","zh","jp"];
+
+  function getLang(){
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get("lang");
+    if(languages.includes(urlLang)) return urlLang;
+    try {
+      const saved = localStorage.getItem("crabtalk_lang");
+      if(languages.includes(saved)) return saved;
+    } catch(e) {}
+    return "en";
+  }
+
+  function setLang(lang){
+    if(!languages.includes(lang)) lang = "en";
+    try { localStorage.setItem("crabtalk_lang", lang); } catch(e) {}
+    render(lang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", url.toString());
+  }
+
+  function render(lang){
+    document.documentElement.setAttribute("lang", lang === "jp" ? "ja-SG" : lang === "zh" ? "zh-SG" : "en-SG");
+    document.title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+
+    const title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+    const sections = PAGE_DATA[lang] || PAGE_DATA.en;
+    const cta = PAGE_DATA.cta[lang] || PAGE_DATA.cta.en;
+
+    const cards = sections.map(([h, p]) => `
+      <div class="seo-localized-card">
+        <h2>${h}</h2>
+        <p>${p}</p>
+      </div>
+    `).join("");
+
+    const root = document.querySelector(".container");
+    if(!root) return;
+
+    root.innerHTML = `
+      <div class="seo-lang-bar">
+        <button data-seo-lang="en">EN</button>
+        <button data-seo-lang="zh">中文</button>
+        <button data-seo-lang="jp">日本語</button>
+      </div>
+
+      <a class="back-link" href="/?lang=${lang}">← Back to Crab Talk Homepage</a>
+
+      <h1>${title}</h1>
+
+      <figure class="hero-photo">
+        <img src="${PAGE_DATA.image}" alt="${PAGE_DATA.alt}" />
+        <figcaption>${title} · Crab Talk Singapore</figcaption>
+      </figure>
+
+      ${cards}
+
+      <p class="center-cta">
+        <a class="cta" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F">${cta}</a>
+      </p>
+
+      <div class="highlight">
+        <h2>${lang === "zh" ? "探索更多 Crab Talk 海鲜" : lang === "jp" ? "Crab Talk の他の海鮮を見る" : "Explore More from Crab Talk"}</h2>
+        <p>${lang === "zh" ? "继续浏览 Crab Talk 的其他海鲜页面。" : lang === "jp" ? "Crab Talk の他の海鮮ページもご覧ください。" : "Continue browsing Crab Talk’s other seafood pages."}</p>
+        <p class="seo-localized-links">
+          <a href="/yellow-roe-crab-singapore?lang=${lang}">Yellow Roe Crab</a>
+          <a href="/live-mud-crab-singapore?lang=${lang}">Live Mud Crab</a>
+          <a href="/live-lobster-singapore?lang=${lang}">Live Lobster</a>
+          <a href="/alaska-king-crab-singapore?lang=${lang}">Alaska King Crab</a>
+          <a href="/?lang=${lang}">Homepage</a>
+        </p>
+      </div>
+    `;
+
+    document.querySelectorAll("[data-seo-lang]").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.seoLang === lang);
+      btn.addEventListener("click", () => setLang(btn.dataset.seoLang));
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => render(getLang()));
+})();
+</script>
+
 </body>
 </html>

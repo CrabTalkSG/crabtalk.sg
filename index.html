@@ -906,5 +906,37 @@ body.jp section[data-lang="jp"] {
 })();
 </script>
 
+
+<script>
+(function(){
+  function currentLang(){
+    if(document.body.classList.contains("zh")) return "zh";
+    if(document.body.classList.contains("jp")) return "jp";
+    try {
+      const saved = localStorage.getItem("crabtalk_lang");
+      if(["en","zh","jp"].includes(saved)) return saved;
+    } catch(e) {}
+    return "en";
+  }
+  document.addEventListener("click", function(e){
+    const a = e.target.closest("a");
+    if(!a) return;
+    const href = a.getAttribute("href") || "";
+    const seoPaths = [
+      "/yellow-roe-crab-singapore",
+      "/live-mud-crab-singapore",
+      "/live-lobster-singapore",
+      "/manila-clams-singapore",
+      "/soon-hock-fish-singapore",
+      "/alaska-king-crab-singapore"
+    ];
+    if(seoPaths.some(p => href === p || href === p + ".html")){
+      e.preventDefault();
+      window.location.href = href.replace(".html","") + "?lang=" + currentLang();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>

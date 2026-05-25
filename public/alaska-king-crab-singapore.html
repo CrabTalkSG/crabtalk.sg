@@ -266,5 +266,103 @@
     <a class="cta" href="https://www.crabtalk.sg/">Return to Crab Talk Homepage</a>
   </div>
 </div>
+
+<style>
+.seo-lang-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;margin:0 0 18px}
+.seo-lang-bar button{border:1px solid #dce9e6;background:#fff;color:#0f5b52;border-radius:999px;padding:8px 13px;font-weight:800;cursor:pointer}
+.seo-lang-bar button.active{background:#0f5b52;color:#fff}
+.seo-localized-card{background:#fff;border:1px solid rgba(16,32,58,.08);border-radius:22px;padding:28px;margin:28px 0;box-shadow:0 8px 24px rgba(16,32,58,.06)}
+.seo-localized-card h2{margin-top:0}
+.seo-localized-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.seo-localized-links a{display:inline-flex;padding:11px 16px;border-radius:999px;background:#f0faf8;color:#0f5b52;font-weight:800;text-decoration:none}
+</style>
+<script>
+(function(){
+  const PAGE_DATA = {"en_title": "Alaska King Crab in Singapore", "zh_title": "新加坡阿拉斯加帝王蟹", "jp_title": "シンガポールのアラスカ産キングクラブ", "image": "/images/Alaska%20King%20Crab.jpeg", "alt": "Alaska King Crab Singapore", "en": [["Premium Alaska King Crab", "Alaska King Crab is a premium seafood option known for large legs, sweet meat and impressive presentation."], ["How to Enjoy King Crab", "Best enjoyed steamed, grilled with garlic butter, in hotpot or as a premium sharing seafood dish."], ["Availability", "King Crab availability may be seasonal or pre-order based. WhatsApp Crab Talk before visiting."], ["Compare More Seafood", "If King Crab is unavailable, consider live lobster, live mud crab or Sri Lanka Yellow Roe Crab."]], "zh": [["高级阿拉斯加帝王蟹", "阿拉斯加帝王蟹以粗大蟹脚、鲜甜蟹肉和高级摆盘效果闻名。"], ["帝王蟹吃法", "适合清蒸、蒜香牛油烤、火锅或多人分享的高级海鲜料理。"], ["供应情况", "帝王蟹可能视季节或预订供应。建议到访前 WhatsApp Crab Talk 查询。"], ["更多海鲜选择", "若帝王蟹暂时无货，可考虑活龙虾、活泥蟹或斯里兰卡黄膏蟹。"]], "jp": [["プレミアムなアラスカ産キングクラブ", "アラスカ産キングクラブは大きな脚、甘い身、豪華な見た目で知られるプレミアム海鮮です。"], ["おすすめの食べ方", "蒸し、ガーリックバター焼き、鍋、シェア用の豪華な海鮮料理におすすめです。"], ["在庫について", "キングクラブは季節や予約状況により異なります。来店前に WhatsApp でご確認ください。"], ["他の海鮮も比較", "在庫がない場合は、活ロブスター、活マッドクラブ、スリランカ産イエロー Roe Crab もおすすめです。"]], "cta": {"en": "Check King Crab Availability", "zh": "查询帝王蟹供应", "jp": "キングクラブを確認"}};
+  const languages = ["en","zh","jp"];
+
+  function getLang(){
+    const params = new URLSearchParams(window.location.search);
+    const urlLang = params.get("lang");
+    if(languages.includes(urlLang)) return urlLang;
+    try {
+      const saved = localStorage.getItem("crabtalk_lang");
+      if(languages.includes(saved)) return saved;
+    } catch(e) {}
+    return "en";
+  }
+
+  function setLang(lang){
+    if(!languages.includes(lang)) lang = "en";
+    try { localStorage.setItem("crabtalk_lang", lang); } catch(e) {}
+    render(lang);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.history.replaceState({}, "", url.toString());
+  }
+
+  function render(lang){
+    document.documentElement.setAttribute("lang", lang === "jp" ? "ja-SG" : lang === "zh" ? "zh-SG" : "en-SG");
+    document.title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+
+    const title = PAGE_DATA[lang + "_title"] || PAGE_DATA.en_title;
+    const sections = PAGE_DATA[lang] || PAGE_DATA.en;
+    const cta = PAGE_DATA.cta[lang] || PAGE_DATA.cta.en;
+
+    const cards = sections.map(([h, p]) => `
+      <div class="seo-localized-card">
+        <h2>${h}</h2>
+        <p>${p}</p>
+      </div>
+    `).join("");
+
+    const root = document.querySelector(".container");
+    if(!root) return;
+
+    root.innerHTML = `
+      <div class="seo-lang-bar">
+        <button data-seo-lang="en">EN</button>
+        <button data-seo-lang="zh">中文</button>
+        <button data-seo-lang="jp">日本語</button>
+      </div>
+
+      <a class="back-link" href="/?lang=${lang}">← Back to Crab Talk Homepage</a>
+
+      <h1>${title}</h1>
+
+      <figure class="hero-photo">
+        <img src="${PAGE_DATA.image}" alt="${PAGE_DATA.alt}" />
+        <figcaption>${title} · Crab Talk Singapore</figcaption>
+      </figure>
+
+      ${cards}
+
+      <p class="center-cta">
+        <a class="cta" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F">${cta}</a>
+      </p>
+
+      <div class="highlight">
+        <h2>${lang === "zh" ? "探索更多 Crab Talk 海鲜" : lang === "jp" ? "Crab Talk の他の海鮮を見る" : "Explore More from Crab Talk"}</h2>
+        <p>${lang === "zh" ? "继续浏览 Crab Talk 的其他海鲜页面。" : lang === "jp" ? "Crab Talk の他の海鮮ページもご覧ください。" : "Continue browsing Crab Talk’s other seafood pages."}</p>
+        <p class="seo-localized-links">
+          <a href="/yellow-roe-crab-singapore?lang=${lang}">Yellow Roe Crab</a>
+          <a href="/live-mud-crab-singapore?lang=${lang}">Live Mud Crab</a>
+          <a href="/live-lobster-singapore?lang=${lang}">Live Lobster</a>
+          <a href="/alaska-king-crab-singapore?lang=${lang}">Alaska King Crab</a>
+          <a href="/?lang=${lang}">Homepage</a>
+        </p>
+      </div>
+    `;
+
+    document.querySelectorAll("[data-seo-lang]").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.seoLang === lang);
+      btn.addEventListener("click", () => setLang(btn.dataset.seoLang));
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => render(getLang()));
+})();
+</script>
+
 </body>
 </html>
