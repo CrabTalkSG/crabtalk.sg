@@ -1,1 +1,0 @@
-This package keeps all blog pages and adds real /zh/ and /ja/ pages, hreflang tags, sitemap entries, and Vercel rewrites. Upload unzipped files to GitHub, push, deploy, then resubmit sitemap.xml.
