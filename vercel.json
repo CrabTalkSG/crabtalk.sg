@@ -90,38 +90,6 @@
     {
       "source": "/alaska-king-crab-singapore",
       "destination": "/alaska-king-crab-singapore.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog/index.html"
-    },
-    {
-      "source": "/blog/",
-      "destination": "/blog/index.html"
-    },
-    {
-      "source": "/blog/why-yellow-roe-crab-is-expensive",
-      "destination": "/blog/why-yellow-roe-crab-is-expensive/index.html"
-    },
-    {
-      "source": "/blog/best-way-to-eat-yellow-roe-crab-singapore",
-      "destination": "/blog/best-way-to-eat-yellow-roe-crab-singapore/index.html"
-    },
-    {
-      "source": "/blog/yellow-roe-crab-vs-red-roe-crab",
-      "destination": "/blog/yellow-roe-crab-vs-red-roe-crab/index.html"
-    },
-    {
-      "source": "/blog/how-to-choose-live-mud-crab-singapore",
-      "destination": "/blog/how-to-choose-live-mud-crab-singapore/index.html"
-    },
-    {
-      "source": "/blog/best-lobster-cooking-styles-singapore",
-      "destination": "/blog/best-lobster-cooking-styles-singapore/index.html"
-    },
-    {
-      "source": "/blog/commonwealth-crescent-seafood-guide",
-      "destination": "/blog/commonwealth-crescent-seafood-guide/index.html"
     }
   ]
 }
