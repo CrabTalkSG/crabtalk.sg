@@ -90,6 +90,86 @@
     {
       "source": "/alaska-king-crab-singapore",
       "destination": "/alaska-king-crab-singapore.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/why-yellow-roe-crab-is-expensive",
+      "destination": "/blog/why-yellow-roe-crab-is-expensive/index.html"
+    },
+    {
+      "source": "/blog/best-way-to-eat-yellow-roe-crab-singapore",
+      "destination": "/blog/best-way-to-eat-yellow-roe-crab-singapore/index.html"
+    },
+    {
+      "source": "/blog/yellow-roe-crab-vs-red-roe-crab",
+      "destination": "/blog/yellow-roe-crab-vs-red-roe-crab/index.html"
+    },
+    {
+      "source": "/blog/how-to-choose-live-mud-crab-singapore",
+      "destination": "/blog/how-to-choose-live-mud-crab-singapore/index.html"
+    },
+    {
+      "source": "/blog/best-lobster-cooking-styles-singapore",
+      "destination": "/blog/best-lobster-cooking-styles-singapore/index.html"
+    },
+    {
+      "source": "/blog/commonwealth-crescent-seafood-guide",
+      "destination": "/blog/commonwealth-crescent-seafood-guide/index.html"
+    },
+    {
+      "source": "/zh",
+      "destination": "/zh/index.html"
+    },
+    {
+      "source": "/zh/",
+      "destination": "/zh/index.html"
+    },
+    {
+      "source": "/zh/yellow-roe-crab-singapore",
+      "destination": "/zh/yellow-roe-crab-singapore/index.html"
+    },
+    {
+      "source": "/zh/live-mud-crab-singapore",
+      "destination": "/zh/live-mud-crab-singapore/index.html"
+    },
+    {
+      "source": "/zh/live-lobster-singapore",
+      "destination": "/zh/live-lobster-singapore/index.html"
+    },
+    {
+      "source": "/zh/alaska-king-crab-singapore",
+      "destination": "/zh/alaska-king-crab-singapore/index.html"
+    },
+    {
+      "source": "/ja",
+      "destination": "/ja/index.html"
+    },
+    {
+      "source": "/ja/",
+      "destination": "/ja/index.html"
+    },
+    {
+      "source": "/ja/yellow-roe-crab-singapore",
+      "destination": "/ja/yellow-roe-crab-singapore/index.html"
+    },
+    {
+      "source": "/ja/live-mud-crab-singapore",
+      "destination": "/ja/live-mud-crab-singapore/index.html"
+    },
+    {
+      "source": "/ja/live-lobster-singapore",
+      "destination": "/ja/live-lobster-singapore/index.html"
+    },
+    {
+      "source": "/ja/alaska-king-crab-singapore",
+      "destination": "/ja/alaska-king-crab-singapore/index.html"
     }
   ]
 }
