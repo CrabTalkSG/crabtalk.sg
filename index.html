@@ -506,6 +506,18 @@ body.jp section[data-lang="jp"] {
   ]
 }
   </script>
+
+<style>
+.blog-preview{padding:70px 0;background:linear-gradient(135deg,#f7fbfa 0%,#eef8f6 100%)}
+.blog-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.blog-preview-card{overflow:hidden;border-radius:24px;background:#fff;border:1px solid rgba(226,232,240,.95);box-shadow:0 14px 38px rgba(15,23,42,.06);text-decoration:none;color:inherit}
+.blog-preview-card img{width:100%;height:210px;object-fit:cover;display:block;background:#e2e8f0}
+.blog-preview-card div{padding:20px}.blog-preview-card span{display:inline-flex;margin-bottom:10px;border-radius:999px;background:#fff3c4;color:#7a5200;font-weight:900;font-size:.72rem;padding:5px 10px;text-transform:uppercase;letter-spacing:.06em}
+.blog-preview-card h3{margin:0 0 8px;color:#061b2a;font-size:1.22rem;line-height:1.16}.blog-preview-card p{margin:0;color:#64748b;font-size:.94rem;line-height:1.6}
+.blog-preview-cta{display:flex;justify-content:center;margin-top:24px}
+@media(max-width:920px){.blog-preview-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.blog-preview-grid{grid-template-columns:1fr}.blog-preview-card img{height:220px}}
+</style>
+
 </head>
 <body class="en">
 <header class="topbar">
@@ -676,6 +688,49 @@ body.jp section[data-lang="jp"] {
 </div>
 </section>
 
+
+<section class="blog-preview" id="blog-guides">
+  <div class="container">
+    <div class="section-head">
+      <h2><span data-lang="en">Seafood Food Guides</span><span data-lang="zh">海鲜美食指南</span><span data-lang="jp">海鮮フードガイド</span></h2>
+      <p><span data-lang="en">Practical Crab Talk guides on roe crabs, live mud crabs, lobster cooking styles and seafood buying tips in Singapore.</span><span data-lang="zh">Crab Talk 实用指南：膏蟹、活泥蟹、龙虾料理和新加坡海鲜选购技巧。</span><span data-lang="jp">Crab Talkによる roe crab、活マッドクラブ、ロブスター調理、シンガポール海鮮購入ガイド。</span></p>
+    </div>
+
+    <div class="blog-preview-grid">
+      <a class="blog-preview-card" href="/blog/why-yellow-roe-crab-is-expensive">
+        <img src="/images/Yellow%20Roe%20Crab_Photo4.jpg" alt="Why Yellow Roe Crab is expensive in Singapore">
+        <div>
+          <span>Roe Crab Guide</span>
+          <h3>Why Yellow Roe Crab Is Expensive</h3>
+          <p>Understand roe quality, live handling and why weight alone does not decide crab value.</p>
+        </div>
+      </a>
+
+      <a class="blog-preview-card" href="/blog/best-way-to-eat-yellow-roe-crab-singapore">
+        <img src="/images/yellow-roe-crab-cold.jpg" alt="Best way to eat Yellow Roe Crab Singapore">
+        <div>
+          <span>Cooking Guide</span>
+          <h3>Best Way To Eat Yellow Roe Crab</h3>
+          <p>Why Cold Crab and Grilled Crab are the two best ways to enjoy premium yellow roe.</p>
+        </div>
+      </a>
+
+      <a class="blog-preview-card" href="/blog/how-to-choose-live-mud-crab-singapore">
+        <img src="/images/product-live-crab-premium.jpg" alt="How to choose live mud crab Singapore">
+        <div>
+          <span>Live Crab Guide</span>
+          <h3>How To Choose Live Mud Crab</h3>
+          <p>Learn what to consider beyond weight when choosing live mud crabs.</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="blog-preview-cta">
+      <a class="pill pill-primary" href="/blog/">View All Seafood Guides</a>
+    </div>
+  </div>
+</section>
+
 <section id="reviews">
 <div class="container reviews-wrap">
 <aside class="rating-panel">
@@ -798,7 +853,6 @@ body.jp section[data-lang="jp"] {
 </div>
 </div>
 </section>
-<section class="seo-rich" id="blog-guides"><div class="section-inner"><h2>Crab Talk Food Blog</h2><p>Read seafood buying guides, roe crab tips and lobster cooking ideas.</p><div class="seo-keywords"><a class="seo-keyword-link" href="/blog/why-yellow-roe-crab-is-expensive">Why Yellow Roe Crab Is Expensive</a><a class="seo-keyword-link" href="/blog/best-way-to-eat-yellow-roe-crab-singapore">Best Way To Eat Yellow Roe Crab</a><a class="seo-keyword-link" href="/blog/how-to-choose-live-mud-crab-singapore">How To Choose Live Mud Crab</a><a class="seo-keyword-link" href="/blog/">View All Food Guides</a></div></div></section>
 </main>
 <footer>
 <div class="container footer-grid">
