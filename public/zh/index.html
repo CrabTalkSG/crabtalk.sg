@@ -3,22 +3,22 @@
 <html lang="zh-SG">
 <head>
 <!-- Crab Talk SEO Snippet -->
-<title>新加坡活螃蟹与活海鲜 | Crab Talk 活海鲜供应</title>
-<meta content="在 Commonwealth Crescent Market 的 Crab Talk 亲自挑选活螃蟹、黄膏蟹、龙虾、生蚝、蛤蜊和新鲜活海鲜。" name="description"/>
+<title>Crab Talk 活海鲜供应 | 新加坡活蟹、黄膏蟹与龙虾</title>
+<meta content="在 Commonwealth Crescent Market 的 Crab Talk 从水缸亲自挑选活蟹、黄膏蟹、龙虾和高级海鲜。可 WhatsApp 查询今日到货。" name="description"/>
 <meta content="live seafood Singapore, live crab Singapore, roe crab Singapore, lobster Singapore, Commonwealth Crescent Market seafood, Crab Talk Singapore" name="keywords"/>
 <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
 <meta content="Live Seafood Supply @ Crab Talk" name="author"/>
 
 <meta content="website" property="og:type"/>
 <meta content="Live Seafood Supply @ Crab Talk" property="og:site_name"/>
-<meta content="新加坡活螃蟹与活海鲜 | Crab Talk 活海鲜供应" property="og:title"/>
-<meta content="在 Commonwealth Crescent Market 的 Crab Talk 亲自挑选活螃蟹、黄膏蟹、龙虾、生蚝、蛤蜊和新鲜活海鲜。" property="og:description"/>
+<meta content="Crab Talk 活海鲜供应 | 新加坡活蟹、黄膏蟹与龙虾" property="og:title"/>
+<meta content="在 Commonwealth Crescent Market 的 Crab Talk 从水缸亲自挑选活蟹、黄膏蟹、龙虾和高级海鲜。可 WhatsApp 查询今日到货。" property="og:description"/>
 <meta content="https://www.crabtalk.sg/zh/" property="og:url"/>
 <meta content="https://www.crabtalk.sg/images/stall-crab-talk-live-tanks.jpg" property="og:image"/>
 <meta content="Live seafood tanks at Crab Talk Singapore" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Live Seafood Supply @ Crab Talk" name="twitter:title"/>
-<meta content="Pick live seafood directly from our tanks at Commonwealth Crescent Market Singapore." name="twitter:description"/>
+<meta content="Crab Talk 活海鲜供应 | 新加坡活蟹、黄膏蟹与龙虾" name="twitter:title"/>
+<meta content="在 Commonwealth Crescent Market 的 Crab Talk 从水缸亲自挑选活蟹、黄膏蟹、龙虾和高级海鲜。可 WhatsApp 查询今日到货。" name="twitter:description"/>
 <meta content="https://www.crabtalk.sg/images/stall-crab-talk-live-tanks.jpg" name="twitter:image"/>
 
 
@@ -551,8 +551,8 @@ body.jp section[data-lang="jp"] {
 </nav>
 <div class="top-actions">
 <div aria-label="Choose website language" class="language-picker" role="group">
-<a class="lang-option" href="/">EN</a>
-<a class="active lang-option" href="/zh/">中文</a>
+<a class="lang-option active" href="/">EN</a>
+<a class="lang-option" href="/zh/">中文</a>
 <a class="lang-option" href="/ja/">日本語</a>
 </div>
 <a class="pill pill-telegram" href="https://t.me/CrabTalkSG" onclick="trackClick('telegram_header')" rel="noopener" target="_blank"><span>加入 Telegram</span></a>
@@ -871,99 +871,8 @@ body.jp section[data-lang="jp"] {
 </div>
 </footer>
 <a class="float-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F" onclick="trackClick('floating_whatsapp')"><span>查询今日到货</span></a>
-<script>
-    const RAW_BASE = 'https://raw.githubusercontent.com/CrabTalkSG/crabtalk.sg/main/public/images/';
 
-    function encodeImageFile(file) {
-      return String(file).split('/').map(encodeURIComponent).join('/');
-    }
 
-    // Load local existing images first. If Vercel does not expose /images correctly, auto-fallback to GitHub raw image files.
-    document.querySelectorAll('.js-img').forEach((img) => {
-      const file = img.dataset.file;
-      if (!file) return;
-      img.onerror = function () {
-        if (!this.dataset.fallbackTried) {
-          this.dataset.fallbackTried = '1';
-          this.src = RAW_BASE + encodeImageFile(file);
-          return;
-        }
-        const alt = this.getAttribute('alt') || 'Crab Talk photo';
-        const div = document.createElement('div');
-        div.className = (this.className || '').replace('js-img','') + ' missing-image';
-        div.textContent = alt;
-        this.replaceWith(div);
-      };
-    });
-
-    const languages = ['en', 'zh', 'jp'];
-    function setLang(lang) {
-      if (!languages.includes(lang)) lang = 'en';
-      document.body.classList.remove('en', 'zh', 'jp');
-      document.body.classList.add(lang);
-      document.documentElement.setAttribute('lang', lang === 'jp' ? 'ja' : lang);
-      document.querySelectorAll('[data-lang-option]').forEach((btn) => {
-        const active = btn.dataset.langOption === lang;
-        btn.classList.toggle('active', active);
-        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-      });
-      try { localStorage.setItem('crabtalk_lang', lang); } catch (e) {}
-    }
-    document.querySelectorAll('[data-lang-option]').forEach((btn) => {
-      btn.addEventListener('click', () => setLang(btn.dataset.langOption));
-    });
-    let savedLanguage = 'en';
-    try { savedLanguage = localStorage.getItem('crabtalk_lang') || 'en'; } catch (e) {}
-    const urlLang = new URLSearchParams(window.location.search).get('lang');
-    setLang(languages.includes(urlLang) ? urlLang : savedLanguage);
-
-    function trackClick(label) {
-      if (typeof gtag === 'function') {
-        gtag('event', 'click', { event_category: 'engagement', event_label: label });
-      }
-    }
-  </script>
-<script>
-(function () {
-  const languages = ["en", "zh", "jp"];
-
-  function setLanguage(lang) {
-    if (!languages.includes(lang)) lang = "en";
-
-    document.body.classList.remove("en", "zh", "jp");
-    document.body.classList.add(lang);
-    document.documentElement.setAttribute("lang", lang === "jp" ? "ja-SG" : lang === "zh" ? "zh-SG" : "en-SG");
-
-    document.querySelectorAll("[data-lang-option]").forEach((btn) => {
-      const active = btn.dataset.langOption === lang;
-      btn.classList.toggle("active", active);
-      btn.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-
-    try {
-      localStorage.setItem("crabtalk_lang", lang);
-    } catch (e) {}
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("[data-lang-option]").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        setLanguage(btn.dataset.langOption);
-      });
-    });
-
-    let savedLanguage = "en";
-    try {
-      savedLanguage = localStorage.getItem("crabtalk_lang") || "en";
-    } catch (e) {}
-
-    const urlLang = new URLSearchParams(window.location.search).get("lang");
-    setLanguage(languages.includes(urlLang) ? urlLang : savedLanguage);
-  });
-
-  window.setCrabTalkLanguage = setLanguage;
-})();
-</script>
 
 </body>
 </html>

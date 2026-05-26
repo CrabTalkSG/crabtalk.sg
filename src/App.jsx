@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 const GOOGLE_TAG_ID = "G-V94NDT5ZCR";
+const GOOGLE_ADS_ID = "AW-799808799";
 
 const LINKS = {
   whatsapp:
@@ -588,7 +589,8 @@ function getTodayHours() {
 }
 
 function App() {
-  const [lang, setLang] = useState("en");
+  const lang = "en";
+  const setLang = () => {};
   const t = languages[lang];
   const today = useMemo(() => getTodayHours(), []);
 
@@ -614,6 +616,7 @@ function App() {
     window.gtag = gtag;
     gtag("js", new Date());
     gtag("config", GOOGLE_TAG_ID);
+    if (typeof GOOGLE_ADS_ID !== "undefined") gtag("config", GOOGLE_ADS_ID);
   }, []);
 
   return (
@@ -637,7 +640,7 @@ function App() {
               <select
                 className="languageSelect"
                 value={lang}
-                onChange={(event) => setLang(event.target.value)}
+                onChange={(event) => { window.location.href = event.target.value === "zh" ? "/zh/" : event.target.value === "ja" ? "/ja/" : "/"; }}
                 aria-label="Select language"
               >
                 <option value="en">EN</option>
