@@ -74,6 +74,167 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260526">
 <meta name="theme-color" content="#073b3a">
 
+<style>
+/* Crab Talk premium flow upgrade — keeps existing images, improves spacing and hierarchy */
+:root{
+  --ct-ink:#10203a;
+  --ct-teal:#073b3a;
+  --ct-muted:#60706d;
+  --ct-soft:#f4fbf9;
+  --ct-line:rgba(7,59,58,.12);
+  --ct-shadow:0 18px 55px rgba(15,23,42,.07);
+}
+.seo-upgrade-internal-links{
+  padding:70px 0 88px !important;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(74,170,158,.12), transparent 34%),
+    linear-gradient(180deg,#f7fbfa 0%,#eef8f6 100%) !important;
+}
+.seo-upgrade-internal-links .container > div{
+  border:1px solid var(--ct-line) !important;
+  border-radius:34px !important;
+  background:rgba(255,255,255,.94) !important;
+  padding:34px !important;
+  box-shadow:var(--ct-shadow) !important;
+}
+.seo-upgrade-internal-links p{
+  margin:0 0 16px !important;
+  color:var(--ct-teal) !important;
+  font-weight:950 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  font-size:13px !important;
+}
+.seo-upgrade-internal-links div[style*="display:flex"]{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  margin-bottom:26px !important;
+}
+.seo-upgrade-internal-links a{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  min-height:62px !important;
+  padding:16px 18px !important;
+  border-radius:22px !important;
+  background:linear-gradient(180deg,#ffffff 0%,#f5fbfa 100%) !important;
+  color:var(--ct-teal) !important;
+  border:1px solid rgba(7,59,58,.10) !important;
+  text-decoration:none !important;
+  font-weight:900 !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  box-shadow:0 10px 28px rgba(15,23,42,.045) !important;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+.seo-upgrade-internal-links a:hover{
+  transform:translateY(-2px) !important;
+  background:#fff !important;
+  color:var(--ct-teal) !important;
+  border-color:rgba(7,59,58,.28) !important;
+  box-shadow:0 18px 38px rgba(15,23,42,.09) !important;
+}
+.ct-final-cta{
+  padding:0 0 86px;
+  background:linear-gradient(180deg,#eef8f6 0%,#f7fbfa 100%);
+}
+.ct-final-cta .ct-final-cta-card{
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto;
+  border-radius:36px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#073b3a 0%,#0b5964 100%);
+  color:#fff;
+  padding:42px;
+  box-shadow:0 24px 70px rgba(7,59,58,.22);
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:28px;
+  align-items:center;
+}
+.ct-final-cta .eyebrow{
+  display:inline-flex;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.20);
+  padding:8px 13px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.ct-final-cta h2{
+  color:#fff !important;
+  font-size:clamp(30px,4.2vw,54px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+  margin:0 0 14px !important;
+}
+.ct-final-cta p{
+  color:rgba(255,255,255,.84) !important;
+  font-size:18px !important;
+  margin:0 !important;
+}
+.ct-final-cta .ct-final-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.ct-final-cta .ct-final-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  border-radius:999px;
+  padding:0 22px;
+  text-decoration:none;
+  font-weight:950;
+  background:#fff;
+  color:#073b3a;
+}
+.ct-final-cta .ct-final-actions a:first-child{
+  background:#25d366;
+  color:#fff;
+}
+.ct-final-cta .ct-final-actions a:last-child{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+}
+footer{
+  border-top:1px solid rgba(7,59,58,.10);
+}
+body .sticky-wa,
+body a[href*="wa.me"][style*="position: fixed"]{
+  box-shadow:0 16px 42px rgba(37,211,102,.26) !important;
+}
+@media(max-width:920px){
+  .seo-upgrade-internal-links{padding:48px 0 64px !important;}
+  .seo-upgrade-internal-links .container > div{padding:24px !important;border-radius:28px !important;}
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+}
+@media(max-width:560px){
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:1fr !important;
+  }
+  .seo-upgrade-internal-links a{
+    min-height:54px !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    width:min(100% - 24px,1180px);
+    border-radius:28px;
+    padding:26px 22px;
+  }
+}
+</style>
 </head><body><header class="topbar"><div class="container nav"><a class="brand" href="/"><img src="/images/crabtalk-logo.png" alt="Crab Talk logo"><span>Crab Talk<br><small>Live Seafood Supply</small></span></a><nav class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/yellow-roe-crab-singapore">Yellow Roe Crab</a><a href="https://wa.me/6598398671">WhatsApp</a></nav></div></header><main><section class="hero"><div class="container heroCard"><div class="heroGrid"><div class="heroCopy"><span class="kicker">Chilli Crab Guide</span><h1>Best Crabs for Chilli Crab</h1><p class="intro">Learn which crabs are best for chilli crab, why mud crab is popular and when roe crab may not be the best choice.</p><div class="meta"><span>4 min read</span><span>Updated May 2026</span><span>Crab Talk Guide</span></div><div class="actions"><a class="btn primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F">Check Today’s Availability</a><a class="btn soft" href="/blog/">View All Guides</a></div></div><div class="heroImage"><img src="/images/stall-crab-talk-live-tanks.jpg" alt="Best Crabs for Chilli Crab"></div></div></div></section><div class="container contentGrid"><article class="mainFlow"><section class="panel"><h2>Quick Takeaways</h2><div class="takeaways"><div class="takeaway"><b>✓</b><span>Live mud crab is a strong choice for chilli crab.</span></div><div class="takeaway"><b>✓</b><span>Meat quality matters because chilli crab is a sauce-heavy dish.</span></div><div class="takeaway"><b>✓</b><span>Premium Yellow Roe Crab is usually better cold or grilled.</span></div></div></section><section class="panel" id="why-mud-crab-is-popular-for-chilli-crab"><h2>Why mud crab is popular for chilli crab</h2><p>Mud crab has strong shell presence, satisfying meat and good sauce compatibility. It works well with thick chilli crab sauce.</p></section><section class="panel" id="meat-crab-vs-roe-crab"><h2>Meat crab vs roe crab</h2><p>For chilli crab, meat crab is often more suitable because the sauce focuses on meat and shell flavour. Premium Yellow Roe Crab may be better enjoyed cold or grilled.</p></section><section class="panel" id="size-matters"><h2>Size matters</h2><p>The best size depends on diners and budget. Larger crabs can look impressive, while smaller pieces may be easier to share.</p></section><section class="panel" id="freshness-affects-the-dish"><h2>Freshness affects the dish</h2><p>Fresh crab gives the sauce better sweetness and reduces muddy or stale flavours.</p></section><section class="panel" id="ask-before-buying"><h2>Ask before buying</h2><p>Tell Crab Talk you are cooking chilli crab so the stall can recommend a suitable crab based on today’s stock.</p></section><section class="panel cta"><h2>Check Today’s Live Seafood Availability</h2><p>Live seafood stock changes daily. WhatsApp Crab Talk before visiting to check arrivals, sizes and reservation options.</p><a class="btn" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F">WhatsApp Crab Talk</a></section><section class="panel faq"><h2>Frequently Asked Questions</h2><details><summary>What crab is best for chilli crab?</summary><p>Live mud crab or meat crab is usually a good choice for chilli crab.</p></details><details><summary>Is Yellow Roe Crab good for chilli crab?</summary><p>It can be cooked that way, but Crab Talk recommends Cold Crab or Grilled Crab for premium Yellow Roe Crab.</p></details><details><summary>How many crabs do I need?</summary><p>It depends on diners, crab size and other dishes. Ask Crab Talk for recommendations.</p></details></section><section class="panel"><h2>Explore More From Crab Talk</h2><p>Continue browsing our seafood guides and live seafood pages.</p><div class="bottomLinks"><a href="/yellow-roe-crab-singapore">Yellow Roe Crab</a><a href="/live-mud-crab-singapore">Live Mud Crab</a><a href="/live-lobster-singapore">Live Lobster</a><a href="/alaska-king-crab-singapore">Alaska King Crab</a><a href="/">Homepage</a></div></section></article><aside class="side"><div class="sideBox"><h3>On this page</h3><div class="toc"><a href="#why-mud-crab-is-popular-for-chilli-crab">Why mud crab is popular for chilli crab</a><a href="#meat-crab-vs-roe-crab">Meat crab vs roe crab</a><a href="#size-matters">Size matters</a><a href="#freshness-affects-the-dish">Freshness affects the dish</a><a href="#ask-before-buying">Ask before buying</a></div></div><div class="sideBox"><h3>Crab Talk</h3><p style="font-size:15px">Live seafood at Commonwealth Crescent Market. WhatsApp before visiting for today’s arrivals.</p><a class="btn primary" style="margin-top:14px;width:100%" href="https://wa.me/6598398671">WhatsApp</a></div><div class="sideBox"><h3>Related Guides</h3><div class="relatedLinks"><a href="/blog/why-yellow-roe-crab-is-expensive">Why Roe Crab Costs More</a><a href="/blog/how-to-choose-live-mud-crab-singapore">Choose Live Mud Crab</a><a href="/blog/best-lobster-cooking-styles-singapore">Lobster Cooking Styles</a></div></div></aside></div></main>
 <section class="seo-upgrade-internal-links" style="padding:34px 0;background:#f7fbfa;">
   <div class="container">

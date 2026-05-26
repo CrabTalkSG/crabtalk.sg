@@ -24,4 +24,165 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260526">
 <meta name="theme-color" content="#073b3a">
 
+<style>
+/* Crab Talk premium flow upgrade — keeps existing images, improves spacing and hierarchy */
+:root{
+  --ct-ink:#10203a;
+  --ct-teal:#073b3a;
+  --ct-muted:#60706d;
+  --ct-soft:#f4fbf9;
+  --ct-line:rgba(7,59,58,.12);
+  --ct-shadow:0 18px 55px rgba(15,23,42,.07);
+}
+.seo-upgrade-internal-links{
+  padding:70px 0 88px !important;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(74,170,158,.12), transparent 34%),
+    linear-gradient(180deg,#f7fbfa 0%,#eef8f6 100%) !important;
+}
+.seo-upgrade-internal-links .container > div{
+  border:1px solid var(--ct-line) !important;
+  border-radius:34px !important;
+  background:rgba(255,255,255,.94) !important;
+  padding:34px !important;
+  box-shadow:var(--ct-shadow) !important;
+}
+.seo-upgrade-internal-links p{
+  margin:0 0 16px !important;
+  color:var(--ct-teal) !important;
+  font-weight:950 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  font-size:13px !important;
+}
+.seo-upgrade-internal-links div[style*="display:flex"]{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  margin-bottom:26px !important;
+}
+.seo-upgrade-internal-links a{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  min-height:62px !important;
+  padding:16px 18px !important;
+  border-radius:22px !important;
+  background:linear-gradient(180deg,#ffffff 0%,#f5fbfa 100%) !important;
+  color:var(--ct-teal) !important;
+  border:1px solid rgba(7,59,58,.10) !important;
+  text-decoration:none !important;
+  font-weight:900 !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  box-shadow:0 10px 28px rgba(15,23,42,.045) !important;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+.seo-upgrade-internal-links a:hover{
+  transform:translateY(-2px) !important;
+  background:#fff !important;
+  color:var(--ct-teal) !important;
+  border-color:rgba(7,59,58,.28) !important;
+  box-shadow:0 18px 38px rgba(15,23,42,.09) !important;
+}
+.ct-final-cta{
+  padding:0 0 86px;
+  background:linear-gradient(180deg,#eef8f6 0%,#f7fbfa 100%);
+}
+.ct-final-cta .ct-final-cta-card{
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto;
+  border-radius:36px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#073b3a 0%,#0b5964 100%);
+  color:#fff;
+  padding:42px;
+  box-shadow:0 24px 70px rgba(7,59,58,.22);
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:28px;
+  align-items:center;
+}
+.ct-final-cta .eyebrow{
+  display:inline-flex;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.20);
+  padding:8px 13px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.ct-final-cta h2{
+  color:#fff !important;
+  font-size:clamp(30px,4.2vw,54px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+  margin:0 0 14px !important;
+}
+.ct-final-cta p{
+  color:rgba(255,255,255,.84) !important;
+  font-size:18px !important;
+  margin:0 !important;
+}
+.ct-final-cta .ct-final-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.ct-final-cta .ct-final-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  border-radius:999px;
+  padding:0 22px;
+  text-decoration:none;
+  font-weight:950;
+  background:#fff;
+  color:#073b3a;
+}
+.ct-final-cta .ct-final-actions a:first-child{
+  background:#25d366;
+  color:#fff;
+}
+.ct-final-cta .ct-final-actions a:last-child{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+}
+footer{
+  border-top:1px solid rgba(7,59,58,.10);
+}
+body .sticky-wa,
+body a[href*="wa.me"][style*="position: fixed"]{
+  box-shadow:0 16px 42px rgba(37,211,102,.26) !important;
+}
+@media(max-width:920px){
+  .seo-upgrade-internal-links{padding:48px 0 64px !important;}
+  .seo-upgrade-internal-links .container > div{padding:24px !important;border-radius:28px !important;}
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+}
+@media(max-width:560px){
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:1fr !important;
+  }
+  .seo-upgrade-internal-links a{
+    min-height:54px !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    width:min(100% - 24px,1180px);
+    border-radius:28px;
+    padding:26px 22px;
+  }
+}
+</style>
 </head><body><header><div class="nav"><a class="brand" href="/ja/"><img src="/images/crabtalk-logo.png" alt="Crab Talk"><span>Crab Talk</span></a><div class="langs"><a href="/live-mud-crab-singapore">EN</a><a class="" href="/zh/live-mud-crab-singapore">中文</a><a class="active" href="/ja/live-mud-crab-singapore">日本語</a></div></div></header><main class="container"><article class="hero"><img src="/images/product-live-crab-premium.jpg" alt="シンガポールの活マッドクラブ"><div class="hero-body"><span class="kicker">日本語</span><h1>シンガポールの活マッドクラブ</h1><p>Crab Talk では水槽から活マッドクラブを直接選べます。</p></div></article><section class="card"><h2>水槽から選べます</h2><p>Crab Talk では水槽から活マッドクラブを直接選べます。</p></section><section class="card"><h2>人気の調理方法</h2><p>チリクラブ、ブラックペッパークラブ、蒸しガニ、クラブビーフンに適しています。</p></section><section class="card"><h2>予約方法</h2><p>来店前に WhatsApp で本日のサイズ、在庫、予約可否をご確認ください。</p></section><section class="card cta"><h2>本日の在庫を確認</h2><p>在庫は毎日変わります。来店前にWhatsAppでご確認ください。</p><a class="btn" href="https://wa.me/6598398671">WhatsApp Crab Talk</a></section><section class="card"><h2>他の海鮮を見る</h2><div class="links"><a href="/ja/yellow-roe-crab-singapore">Yellow Roe Crab</a><a href="/ja/live-mud-crab-singapore">Live Mud Crab</a><a href="/ja/live-lobster-singapore">Live Lobster</a><a href="/ja/alaska-king-crab-singapore">Alaska King Crab</a><a href="/blog/">Blog</a></div></section></main></body></html>

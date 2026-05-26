@@ -74,6 +74,167 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20260526">
 <meta name="theme-color" content="#073b3a">
 
+<style>
+/* Crab Talk premium flow upgrade — keeps existing images, improves spacing and hierarchy */
+:root{
+  --ct-ink:#10203a;
+  --ct-teal:#073b3a;
+  --ct-muted:#60706d;
+  --ct-soft:#f4fbf9;
+  --ct-line:rgba(7,59,58,.12);
+  --ct-shadow:0 18px 55px rgba(15,23,42,.07);
+}
+.seo-upgrade-internal-links{
+  padding:70px 0 88px !important;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(74,170,158,.12), transparent 34%),
+    linear-gradient(180deg,#f7fbfa 0%,#eef8f6 100%) !important;
+}
+.seo-upgrade-internal-links .container > div{
+  border:1px solid var(--ct-line) !important;
+  border-radius:34px !important;
+  background:rgba(255,255,255,.94) !important;
+  padding:34px !important;
+  box-shadow:var(--ct-shadow) !important;
+}
+.seo-upgrade-internal-links p{
+  margin:0 0 16px !important;
+  color:var(--ct-teal) !important;
+  font-weight:950 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  font-size:13px !important;
+}
+.seo-upgrade-internal-links div[style*="display:flex"]{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  margin-bottom:26px !important;
+}
+.seo-upgrade-internal-links a{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  min-height:62px !important;
+  padding:16px 18px !important;
+  border-radius:22px !important;
+  background:linear-gradient(180deg,#ffffff 0%,#f5fbfa 100%) !important;
+  color:var(--ct-teal) !important;
+  border:1px solid rgba(7,59,58,.10) !important;
+  text-decoration:none !important;
+  font-weight:900 !important;
+  font-size:15px !important;
+  line-height:1.2 !important;
+  box-shadow:0 10px 28px rgba(15,23,42,.045) !important;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+.seo-upgrade-internal-links a:hover{
+  transform:translateY(-2px) !important;
+  background:#fff !important;
+  color:var(--ct-teal) !important;
+  border-color:rgba(7,59,58,.28) !important;
+  box-shadow:0 18px 38px rgba(15,23,42,.09) !important;
+}
+.ct-final-cta{
+  padding:0 0 86px;
+  background:linear-gradient(180deg,#eef8f6 0%,#f7fbfa 100%);
+}
+.ct-final-cta .ct-final-cta-card{
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto;
+  border-radius:36px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#073b3a 0%,#0b5964 100%);
+  color:#fff;
+  padding:42px;
+  box-shadow:0 24px 70px rgba(7,59,58,.22);
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:28px;
+  align-items:center;
+}
+.ct-final-cta .eyebrow{
+  display:inline-flex;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.20);
+  padding:8px 13px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.ct-final-cta h2{
+  color:#fff !important;
+  font-size:clamp(30px,4.2vw,54px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.04em !important;
+  margin:0 0 14px !important;
+}
+.ct-final-cta p{
+  color:rgba(255,255,255,.84) !important;
+  font-size:18px !important;
+  margin:0 !important;
+}
+.ct-final-cta .ct-final-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.ct-final-cta .ct-final-actions a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  border-radius:999px;
+  padding:0 22px;
+  text-decoration:none;
+  font-weight:950;
+  background:#fff;
+  color:#073b3a;
+}
+.ct-final-cta .ct-final-actions a:first-child{
+  background:#25d366;
+  color:#fff;
+}
+.ct-final-cta .ct-final-actions a:last-child{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+}
+footer{
+  border-top:1px solid rgba(7,59,58,.10);
+}
+body .sticky-wa,
+body a[href*="wa.me"][style*="position: fixed"]{
+  box-shadow:0 16px 42px rgba(37,211,102,.26) !important;
+}
+@media(max-width:920px){
+  .seo-upgrade-internal-links{padding:48px 0 64px !important;}
+  .seo-upgrade-internal-links .container > div{padding:24px !important;border-radius:28px !important;}
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    grid-template-columns:1fr;
+    padding:30px;
+  }
+}
+@media(max-width:560px){
+  .seo-upgrade-internal-links div[style*="display:flex"]{
+    grid-template-columns:1fr !important;
+  }
+  .seo-upgrade-internal-links a{
+    min-height:54px !important;
+  }
+  .ct-final-cta .ct-final-cta-card{
+    width:min(100% - 24px,1180px);
+    border-radius:28px;
+    padding:26px 22px;
+  }
+}
+</style>
 </head><body><header class="topbar"><div class="container nav"><a class="brand" href="/"><img src="/images/crabtalk-logo.png" alt="Crab Talk logo"><span>Crab Talk<br><small>Live Seafood Supply</small></span></a><nav class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/yellow-roe-crab-singapore">Yellow Roe Crab</a><a href="https://wa.me/6598398671">WhatsApp</a></nav></div></header><main><section class="hero"><div class="container heroCard"><div class="heroGrid"><div class="heroCopy"><span class="kicker">Roe Crab Guide</span><h1>How to Choose Female Roe Crab</h1><p class="intro">Learn how to choose female roe crab by understanding roe quality, shell condition, freshness and why daily batch selection matters.</p><div class="meta"><span>5 min read</span><span>Updated May 2026</span><span>Crab Talk Guide</span></div><div class="actions"><a class="btn primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F">Check Today’s Availability</a><a class="btn soft" href="/blog/">View All Guides</a></div></div><div class="heroImage"><img src="/images/Yellow%20Roe%20Crab_Photo4.jpg" alt="How to Choose Female Roe Crab"></div></div></div></section><div class="container contentGrid"><article class="mainFlow"><section class="panel"><h2>Quick Takeaways</h2><div class="takeaways"><div class="takeaway"><b>✓</b><span>Female roe crab is valued for roe quality, not weight alone.</span></div><div class="takeaway"><b>✓</b><span>Good roe should taste rich, clean and creamy.</span></div><div class="takeaway"><b>✓</b><span>Daily batch quality varies, so ask before buying.</span></div></div></section><section class="panel" id="what-is-female-roe-crab"><h2>What is female roe crab?</h2><p>Female roe crab is prized for the roe inside the crab. For many seafood lovers, the roe is the premium part because it adds richness, creaminess and depth of flavour.</p></section><section class="panel" id="look-for-roe-quality-not-only-size"><h2>Look for roe quality, not only size</h2><p>A bigger crab is not always the better roe crab. Roe quality depends on fullness, texture, freshness and how the crab has been handled.</p></section><section class="panel" id="shell-condition-matters"><h2>Shell condition matters</h2><p>Good shell condition can affect the eating experience. Weak or overly soft shells may not deliver the same premium texture customers expect from roe crabs.</p></section><section class="panel" id="best-cooking-styles-for-roe-crab"><h2>Best cooking styles for roe crab</h2><p>For premium Yellow Roe Crab, simple cooking is usually best. Cold Crab and Grilled Crab allow the roe flavour to remain the main highlight.</p></section><section class="panel" id="why-asking-the-stall-helps"><h2>Why asking the stall helps</h2><p>Roe crab quality changes with each batch. At Crab Talk, customers can ask for recommendations based on the current arrival and preferred eating style.</p></section><section class="panel cta"><h2>Check Today’s Live Seafood Availability</h2><p>Live seafood stock changes daily. WhatsApp Crab Talk before visiting to check arrivals, sizes and reservation options.</p><a class="btn" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F">WhatsApp Crab Talk</a></section><section class="panel faq"><h2>Frequently Asked Questions</h2><details><summary>Is female crab better than male crab?</summary><p>It depends on preference. Female roe crab is preferred by customers who enjoy rich roe, while male crabs may be chosen for meatiness.</p></details><details><summary>How do I know if roe crab is good?</summary><p>Ask about roe quality, freshness, shell condition and batch quality. Seeing the crab physically also helps.</p></details><details><summary>What is the best way to eat female roe crab?</summary><p>Cold Crab and Grilled Crab are good choices for premium Yellow Roe Crab.</p></details></section><section class="panel"><h2>Explore More From Crab Talk</h2><p>Continue browsing our seafood guides and live seafood pages.</p><div class="bottomLinks"><a href="/yellow-roe-crab-singapore">Yellow Roe Crab</a><a href="/live-mud-crab-singapore">Live Mud Crab</a><a href="/live-lobster-singapore">Live Lobster</a><a href="/alaska-king-crab-singapore">Alaska King Crab</a><a href="/">Homepage</a></div></section></article><aside class="side"><div class="sideBox"><h3>On this page</h3><div class="toc"><a href="#what-is-female-roe-crab">What is female roe crab?</a><a href="#look-for-roe-quality-not-only-size">Look for roe quality, not only size</a><a href="#shell-condition-matters">Shell condition matters</a><a href="#best-cooking-styles-for-roe-crab">Best cooking styles for roe crab</a><a href="#why-asking-the-stall-helps">Why asking the stall helps</a></div></div><div class="sideBox"><h3>Crab Talk</h3><p style="font-size:15px">Live seafood at Commonwealth Crescent Market. WhatsApp before visiting for today’s arrivals.</p><a class="btn primary" style="margin-top:14px;width:100%" href="https://wa.me/6598398671">WhatsApp</a></div><div class="sideBox"><h3>Related Guides</h3><div class="relatedLinks"><a href="/blog/why-yellow-roe-crab-is-expensive">Why Roe Crab Costs More</a><a href="/blog/how-to-choose-live-mud-crab-singapore">Choose Live Mud Crab</a><a href="/blog/best-lobster-cooking-styles-singapore">Lobster Cooking Styles</a></div></div></aside></div></main>
 <section class="seo-upgrade-internal-links" style="padding:34px 0;background:#f7fbfa;">
   <div class="container">
