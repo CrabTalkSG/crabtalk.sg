@@ -123,7 +123,15 @@
       .hero-photo img { height: 180px; }
       .content-photo img { height: 145px; }
     }
-  </style>
+  
+/* Preserve design; show only selected language */
+body.en .zh, body.en .jp, body.en [data-lang="zh"], body.en [data-lang="jp"]{display:none!important}
+body.zh .en, body.zh .jp, body.zh [data-lang="en"], body.zh [data-lang="jp"]{display:none!important}
+body.jp .en, body.jp .zh, body.jp [data-lang="en"], body.jp [data-lang="zh"]{display:none!important}
+body:not(.zh):not(.jp) .zh, body:not(.zh):not(.jp) .jp,
+body:not(.zh):not(.jp) [data-lang="zh"], body:not(.zh):not(.jp) [data-lang="jp"]{display:none!important}
+
+</style>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -333,6 +341,35 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => render(getLang()));
+})();
+</script>
+
+
+<script>
+(function(){
+  var valid=["en","zh","jp"];
+  function pathLang(){
+    var p=location.pathname;
+    if(p==="/zh"||p.indexOf("/zh/")===0)return"zh";
+    if(p==="/ja"||p.indexOf("/ja/")===0)return"jp";
+    return"en";
+  }
+  function setLang(l){
+    if(valid.indexOf(l)<0)l="en";
+    document.body.classList.remove("en","zh","jp");
+    document.body.classList.add(l);
+    document.documentElement.setAttribute("lang",l==="jp"?"ja-SG":l==="zh"?"zh-SG":"en-SG");
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    var q=new URLSearchParams(location.search).get("lang");
+    setLang(valid.indexOf(q)>=0?q:pathLang());
+    document.querySelectorAll("[data-lang-option]").forEach(function(b){
+      b.addEventListener("click",function(){
+        var l=b.getAttribute("data-lang-option")||"en";
+        location.href=l==="zh"?"/zh/":l==="jp"?"/ja/":"/";
+      });
+    });
+  });
 })();
 </script>
 

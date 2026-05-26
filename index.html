@@ -330,7 +330,15 @@ body.jp section[data-lang="jp"] {
   display: block !important;
 }
 
-  </style>
+  
+/* Preserve design; show only selected language */
+body.en .zh, body.en .jp, body.en [data-lang="zh"], body.en [data-lang="jp"]{display:none!important}
+body.zh .en, body.zh .jp, body.zh [data-lang="en"], body.zh [data-lang="jp"]{display:none!important}
+body.jp .en, body.jp .zh, body.jp [data-lang="en"], body.jp [data-lang="zh"]{display:none!important}
+body:not(.zh):not(.jp) .zh, body:not(.zh):not(.jp) .jp,
+body:not(.zh):not(.jp) [data-lang="zh"], body:not(.zh):not(.jp) [data-lang="jp"]{display:none!important}
+
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -637,8 +645,8 @@ body.jp section[data-lang="jp"] {
 <p><span data-lang="en">These are regular Crab Talk favourites. Availability changes daily, so WhatsApp before coming down if you are looking for a specific item or size.</span><span data-lang="zh">以下是 Crab Talk 常见热门海鲜。供应每天不同，如需特定品项或规格，请到访前先 WhatsApp 查询。</span><span data-lang="jp">Crab Talkの定番人気商品です。在庫は毎日変わりますので、特定の商品やサイズをご希望の場合は来店前にWhatsAppでご確認ください。</span></p>
 </div>
 <div class="grid grid-4">
-<article class="card"><img alt="Sri Lanka yellow roe crab" class="photo js-img" data-file="Yellow Roe Crab_Photo4.jpg" src="/images/Yellow%20Roe%20Crab_Photo4.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Roe Crab</span><span data-lang="zh">膏蟹</span><span data-lang="jp">膏入りカニ</span></span><h3><span data-lang="en">Sri Lanka Yellow Roe Crab</span><span data-lang="zh">斯里兰卡黄膏蟹</span><span data-lang="jp">スリランカ産イエロー roe crab</span></h3><p><span data-lang="en">Popular for roe lovers. Best enjoyed steamed or cooked simply to appreciate the crab quality.</span><span data-lang="zh">蟹膏爱好者的热门选择。建议清蒸或简单料理，更能品尝蟹的品质。</span><span data-lang="jp">蟹みそ好きに人気。蒸し料理やシンプルな調理で、カニ本来の品質を味わえます。</span></p></div></article>
-<article class="card"><img alt="Red roe crab" class="photo js-img" data-file="product-red-roe-crab-01.jpg" src="/images/Yellow%20Roe%20Crab_Photo4.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Premium Crab</span><span data-lang="zh">优质螃蟹</span><span data-lang="jp">プレミアムクラブ</span></span><h3><span data-lang="en">Red Roe / Live Mud Crabs</span><span data-lang="zh">红膏蟹 / 活泥蟹</span><span data-lang="jp">レッドロー / 活マッドクラブ</span></h3><p><span data-lang="en">Meaty crabs selected from our tanks. Ask Jeremy or Lam for size recommendations.</span><span data-lang="zh">从水缸精选多肉螃蟹。可向 Jeremy 或 Lam 询问合适规格。</span><span data-lang="jp">水槽から選ぶ身入りの良いカニ。サイズのおすすめはJeremyまたはLamにご相談ください。</span></p></div></article>
+<article class="card"><img alt="Sri Lanka yellow roe crab" class="photo js-img" data-file="Yellow Roe Crab_Photo4.jpg" src="/images/Yellow%20Roe%20Crab_Photo4.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Roe Crab</span><span data-lang="zh">膏蟹</span><span data-lang="jp">膏入りカニ</span></span><h3><span data-lang="en">Sri Lanka Yellow Roe Crab</span><span data-lang="zh">斯里兰卡黄膏蟹</span><span data-lang="jp">スリランカ産イエロー roe crab</span></h3><p><span data-lang="en">Popular for roe lovers. Best enjoyed cold or grilled so the rich yellow roe remains the highlight.</span><span data-lang="zh">蟹膏爱好者的热门选择。建议冷蟹或烧烤，更能突出浓郁黄膏和鲜甜蟹肉。</span><span data-lang="jp">蟹みそ好きに人気。冷製またはグリルで、濃厚な黄膏と甘みを味わうのがおすすめです。</span></p></div></article>
+<article class="card"><img alt="Sri Lanka Yellow Roe Crab at Crab Talk" class="photo js-img" data-file="product-red-roe-crab-01.jpg" src="/images/Yellow%20Roe%20Crab_Photo4.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Premium Crab</span><span data-lang="zh">优质螃蟹</span><span data-lang="jp">プレミアムクラブ</span></span><h3><span data-lang="en">Red Roe / Live Mud Crabs</span><span data-lang="zh">红膏蟹 / 活泥蟹</span><span data-lang="jp">レッドロー / 活マッドクラブ</span></h3><p><span data-lang="en">Meaty crabs selected from our tanks. Ask Jeremy or Lam for size recommendations.</span><span data-lang="zh">从水缸精选多肉螃蟹。可向 Jeremy 或 Lam 询问合适规格。</span><span data-lang="jp">水槽から選ぶ身入りの良いカニ。サイズのおすすめはJeremyまたはLamにご相談ください。</span></p></div></article>
 <article class="card"><img alt="Australian Rock Lobster" class="photo js-img" data-file="product-live-lobster-new.jpg" src="/images/product-live-lobster-new.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Lobster</span><span data-lang="zh">龙虾</span><span data-lang="jp">ロブスター</span></span><h3><span data-lang="en">Australian Rock Lobster</span><span data-lang="zh">澳洲岩龙虾</span><span data-lang="jp">オーストラリア産ロックロブスター</span></h3><p><span data-lang="en">Premium Australian Rock Lobster with firm, sweet meat. Suitable for steaming, grilling or lobster bee hoon / yee mee arrangements when available.</span><span data-lang="zh">高级澳洲岩龙虾，肉质结实鲜甜。适合清蒸、烧烤；供应合适时也可安排龙虾米粉或伊面。</span><span data-lang="jp">身が引き締まり甘みのある高級オーストラリア産ロックロブスター。蒸し、グリル、在庫状況によりロブスタービーフンやイーミーにもおすすめです。</span></p></div></article>
 <article class="card"><img alt="Green lobster" class="photo js-img" data-file="product-live-green-lobster-01.jpg" src="/images/product-live-green-lobster-01.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Live Lobster</span><span data-lang="zh">活龙虾</span><span data-lang="jp">活ロブスター</span></span><h3><span data-lang="en">Green Lobster</span><span data-lang="zh">青龙虾</span><span data-lang="jp">グリーンロブスター</span></h3><p><span data-lang="en">A premium live seafood option, subject to daily arrival and reservation.</span><span data-lang="zh">优质活海鲜选择，视每日到货和预订情况而定。</span><span data-lang="jp">プレミアムな活き海鮮。毎日の入荷と予約状況によりご用意します。</span></p></div></article>
 <article class="card"><img alt="Oysters at Crab Talk" class="photo js-img" data-file="product-oysters-new.jpg" src="/images/product-oysters-new.jpg"/><div class="card-body"><span class="tag"><span data-lang="en">Oysters</span><span data-lang="zh">生蚝</span><span data-lang="jp">オイスター</span></span><h3><span data-lang="en">Fresh Oysters</span><span data-lang="zh">新鲜生蚝</span><span data-lang="jp">新鮮なオイスター</span></h3><p><span data-lang="en">Ask what is available today, including occasional premium oyster arrivals.</span><span data-lang="zh">欢迎查询当天供应，包括不定期到货的高级生蚝。</span><span data-lang="jp">本日の入荷状況をご確認ください。不定期でプレミアムオイスターも入荷します。</span></p></div></article>
@@ -1016,6 +1024,35 @@ body.jp section[data-lang="jp"] {
       e.preventDefault();
       window.location.href = href.replace(".html","") + "?lang=" + currentLang();
     }
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  var valid=["en","zh","jp"];
+  function pathLang(){
+    var p=location.pathname;
+    if(p==="/zh"||p.indexOf("/zh/")===0)return"zh";
+    if(p==="/ja"||p.indexOf("/ja/")===0)return"jp";
+    return"en";
+  }
+  function setLang(l){
+    if(valid.indexOf(l)<0)l="en";
+    document.body.classList.remove("en","zh","jp");
+    document.body.classList.add(l);
+    document.documentElement.setAttribute("lang",l==="jp"?"ja-SG":l==="zh"?"zh-SG":"en-SG");
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    var q=new URLSearchParams(location.search).get("lang");
+    setLang(valid.indexOf(q)>=0?q:pathLang());
+    document.querySelectorAll("[data-lang-option]").forEach(function(b){
+      b.addEventListener("click",function(){
+        var l=b.getAttribute("data-lang-option")||"en";
+        location.href=l==="zh"?"/zh/":l==="jp"?"/ja/":"/";
+      });
+    });
   });
 })();
 </script>
