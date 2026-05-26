@@ -36,6 +36,110 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/blog/yellow-roe-crab-vs-red-roe-crab/",
+      "destination": "/blog/yellow-roe-crab-vs-red-roe-crab/index.html"
+    },
+    {
+      "source": "/blog/yellow-roe-crab-vs-meat-crab/",
+      "destination": "/blog/yellow-roe-crab-vs-meat-crab/index.html"
+    },
+    {
+      "source": "/blog/why-yellow-roe-crab-is-expensive/",
+      "destination": "/blog/why-yellow-roe-crab-is-expensive/index.html"
+    },
+    {
+      "source": "/blog/why-crab-prices-change-daily/",
+      "destination": "/blog/why-crab-prices-change-daily/index.html"
+    },
+    {
+      "source": "/blog/live-lobster-vs-frozen-lobster/",
+      "destination": "/blog/live-lobster-vs-frozen-lobster/index.html"
+    },
+    {
+      "source": "/blog/how-to-store-live-seafood-before-cooking/",
+      "destination": "/blog/how-to-store-live-seafood-before-cooking/index.html"
+    },
+    {
+      "source": "/blog/how-to-choose-live-mud-crab-singapore/",
+      "destination": "/blog/how-to-choose-live-mud-crab-singapore/index.html"
+    },
+    {
+      "source": "/blog/how-to-choose-female-roe-crab/",
+      "destination": "/blog/how-to-choose-female-roe-crab/index.html"
+    },
+    {
+      "source": "/blog/crab-bee-hoon-guide-singapore/",
+      "destination": "/blog/crab-bee-hoon-guide-singapore/index.html"
+    },
+    {
+      "source": "/blog/commonwealth-crescent-seafood-guide/",
+      "destination": "/blog/commonwealth-crescent-seafood-guide/index.html"
+    },
+    {
+      "source": "/blog/commonwealth-crescent-food-guide/",
+      "destination": "/blog/commonwealth-crescent-food-guide/index.html"
+    },
+    {
+      "source": "/blog/best-way-to-eat-yellow-roe-crab-singapore/",
+      "destination": "/blog/best-way-to-eat-yellow-roe-crab-singapore/index.html"
+    },
+    {
+      "source": "/blog/best-seafood-for-home-cooking-singapore/",
+      "destination": "/blog/best-seafood-for-home-cooking-singapore/index.html"
+    },
+    {
+      "source": "/blog/best-place-to-buy-live-crab-singapore/",
+      "destination": "/blog/best-place-to-buy-live-crab-singapore/index.html"
+    },
+    {
+      "source": "/blog/best-lobster-cooking-styles-singapore/",
+      "destination": "/blog/best-lobster-cooking-styles-singapore/index.html"
+    },
+    {
+      "source": "/blog/best-crabs-for-chilli-crab/",
+      "destination": "/blog/best-crabs-for-chilli-crab/index.html"
+    },
+    {
+      "source": "/public/apple-touch-icon.png",
+      "destination": "/apple-touch-icon.png"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/apple-touch-icon.png"
+    },
+    {
+      "source": "/public/favicon-192x192.png",
+      "destination": "/favicon-192x192.png"
+    },
+    {
+      "source": "/favicon-192x192.png",
+      "destination": "/favicon-192x192.png"
+    },
+    {
+      "source": "/public/favicon-32x32.png",
+      "destination": "/favicon-32x32.png"
+    },
+    {
+      "source": "/favicon-32x32.png",
+      "destination": "/favicon-32x32.png"
+    },
+    {
+      "source": "/public/favicon-16x16.png",
+      "destination": "/favicon-16x16.png"
+    },
+    {
+      "source": "/favicon-16x16.png",
+      "destination": "/favicon-16x16.png"
+    },
+    {
+      "source": "/public/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.ico"
+    },
+    {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
     },
