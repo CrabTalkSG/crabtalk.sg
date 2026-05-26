@@ -22,16 +22,22 @@
     <loc>https://www.crabtalk.sg/yellow-roe-crab-singapore</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/live-mud-crab-singapore</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/live-lobster-singapore</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.crabtalk.sg/alaska-king-crab-singapore</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -49,15 +55,9 @@
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.crabtalk.sg/alaska-king-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
     <loc>https://www.crabtalk.sg/blog/</loc>
     <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
@@ -88,7 +88,7 @@
     <loc>https://www.crabtalk.sg/blog/best-way-to-eat-yellow-roe-crab-singapore</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/blog/commonwealth-crescent-food-guide</loc>
@@ -118,7 +118,7 @@
     <loc>https://www.crabtalk.sg/blog/how-to-choose-live-mud-crab-singapore</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/blog/how-to-store-live-seafood-before-cooking</loc>
@@ -130,7 +130,7 @@
     <loc>https://www.crabtalk.sg/blog/live-lobster-vs-frozen-lobster</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/blog/why-crab-prices-change-daily</loc>
@@ -142,66 +142,18 @@
     <loc>https://www.crabtalk.sg/blog/why-yellow-roe-crab-is-expensive</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/blog/yellow-roe-crab-vs-meat-crab</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.crabtalk.sg/blog/yellow-roe-crab-vs-red-roe-crab</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/zh/alaska-king-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/zh/live-lobster-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/zh/live-mud-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/zh/yellow-roe-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/ja/alaska-king-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/ja/live-lobster-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/ja/live-mud-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.crabtalk.sg/ja/yellow-roe-crab-singapore</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
 </urlset>

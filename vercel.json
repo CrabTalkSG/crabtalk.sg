@@ -210,6 +210,30 @@
     {
       "source": "/blog/how-to-store-live-seafood-before-cooking",
       "destination": "/blog/how-to-store-live-seafood-before-cooking/index.html"
+    },
+    {
+      "source": "/yellow-roe-crab-singapore/",
+      "destination": "/yellow-roe-crab-singapore.html"
+    },
+    {
+      "source": "/live-mud-crab-singapore/",
+      "destination": "/live-mud-crab-singapore.html"
+    },
+    {
+      "source": "/live-lobster-singapore/",
+      "destination": "/live-lobster-singapore.html"
+    },
+    {
+      "source": "/alaska-king-crab-singapore/",
+      "destination": "/alaska-king-crab-singapore.html"
+    },
+    {
+      "source": "/manila-clams-singapore/",
+      "destination": "/manila-clams-singapore.html"
+    },
+    {
+      "source": "/soon-hock-fish-singapore/",
+      "destination": "/soon-hock-fish-singapore.html"
     }
   ]
 }
