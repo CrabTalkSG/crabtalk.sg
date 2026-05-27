@@ -1,0 +1,1 @@
+Adds /blog plus 6 SEO food blog pages. Upload unzipped files to GitHub, commit, push, and submit sitemap in Google Search Console.
