@@ -339,5 +339,7 @@
       "source": "/soon-hock-fish-singapore/",
       "destination": "/soon-hock-fish-singapore.html"
     }
-  ]
+  ],
+  "installCommand": "npm install --registry=https://registry.npmjs.org/ --no-audit --no-fund --prefer-online",
+  "buildCommand": "npm run build"
 }
