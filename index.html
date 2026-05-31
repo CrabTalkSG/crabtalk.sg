@@ -535,7 +535,7 @@ body.jp section[data-lang="jp"] {
 
 
 
-<link href="https://www.crabtalk.sg/" rel="canonical"/><link href="https://www.crabtalk.sg/" hreflang="en-SG" rel="alternate"/><link href="https://www.crabtalk.sg/zh/" hreflang="zh-SG" rel="alternate"/><link href="https://www.crabtalk.sg/ja/" hreflang="ja-SG" rel="alternate"/><link href="https://www.crabtalk.sg/" hreflang="x-default" rel="alternate"/><meta name="description" content="Buy live crab, Yellow Roe Crab, live mud crab, lobster, clams and premium seafood from Crab Talk at Commonwealth Crescent Market Singapore. WhatsApp to check today&#x27;s arrivals.">
+<link href="https://www.crabtalk.sg/" rel="canonical"/><link href="https://www.crabtalk.sg/" hreflang="en-SG" rel="alternate"/><link href="https://www.crabtalk.sg/zh/" hreflang="zh-SG" rel="alternate"/><link href="https://www.crabtalk.sg/ja/" hreflang="ja-SG" rel="alternate"/><link href="https://www.crabtalk.sg/" hreflang="x-default" rel="alternate"/><meta name="description" content="Premium live seafood at Commonwealth Crescent Market. Choose live crabs, roe crabs, lobsters, oysters, clams and fish from Crab Talk tanks. WhatsApp for today's arrivals.">
 <meta name="keywords" content="live crab Singapore, live seafood Singapore, yellow roe crab Singapore, live mud crab Singapore, lobster Singapore, seafood market Singapore, Commonwealth Crescent seafood">
 <meta property="og:title" content="Live Crab Singapore | Live Seafood Supply @ Crab Talk">
 <meta property="og:description" content="Buy live crab, Yellow Roe Crab, live mud crab, lobster, clams and premium seafood from Crab Talk at Commonwealth Crescent Market Singapore. WhatsApp to check today&#x27;s arrivals.">
@@ -788,6 +788,23 @@ body a[href*="wa.me"][style*="position: fixed"]{
 @media(max-width:760px){.ct-social-inner{grid-template-columns:1fr}.ct-social-links{grid-template-columns:1fr 1fr}.ct-social-strip{padding:38px 16px}}
 </style>
 
+
+<style>
+.ct-quick-availability{padding:24px 16px;background:#073b3a;color:#fff}
+.ct-quick-availability__inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.35fr .65fr;gap:18px;align-items:center}
+.ct-quick-availability h2{margin:0 0 6px;font-size:clamp(22px,3vw,32px);line-height:1.12;color:#fff;letter-spacing:-.025em}
+.ct-quick-availability p{margin:0;color:rgba(255,255,255,.84);line-height:1.55;font-size:16px}
+.ct-quick-availability a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:14px 20px;background:#f2b84b;color:#102524;font-weight:950;box-shadow:0 10px 24px rgba(0,0,0,.16)}
+.ct-clean-guide-links{padding:42px 16px;background:#fffaf0;border-top:1px solid rgba(7,59,58,.1)}
+.ct-clean-guide-links__inner{max-width:1180px;margin:0 auto}
+.ct-clean-guide-links h2{margin:0 0 8px;color:#073b3a;font-size:clamp(26px,4vw,40px);letter-spacing:-.035em}
+.ct-clean-guide-links p{margin:0 0 18px;color:#60706e;line-height:1.65}
+.ct-clean-guide-links__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ct-clean-guide-links__grid a{display:block;background:#fff;border:1px solid rgba(7,59,58,.12);border-radius:18px;padding:16px 18px;text-decoration:none;color:#073b3a;font-weight:900;box-shadow:0 10px 26px rgba(15,23,42,.045)}
+.ct-clean-guide-links__grid span{display:block;margin-top:4px;color:#60706e;font-size:13px;font-weight:700;line-height:1.35}
+@media(max-width:760px){.ct-quick-availability__inner{grid-template-columns:1fr}.ct-quick-availability a{width:100%}.ct-clean-guide-links__grid{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body class="en">
 <header class="topbar">
@@ -851,6 +868,17 @@ body a[href*="wa.me"][style*="position: fixed"]{
 </div>
 </div>
 </section>
+
+<section class="ct-quick-availability" aria-label="Check today's Crab Talk live seafood availability">
+  <div class="ct-quick-availability__inner">
+    <div>
+      <h2>Check today’s live seafood before visiting</h2>
+      <p>Crab sizes, roe crabs, lobsters, oysters and premium fish change daily. WhatsApp us for the latest arrivals.</p>
+    </div>
+    <a href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.">WhatsApp Today's Availability</a>
+  </div>
+</section>
+
 <section class="seo-rich" id="today-arrivals">
 <div class="section-inner">
 <h2>
@@ -1216,5 +1244,50 @@ body a[href*="wa.me"][style*="position: fixed"]{
 
 
 
+<script>
+(function () {
+  var CRABTALK_WHATSAPP_CONVERSION = 'AW-799808799/VS8rCKrimLYcEJ-6sP0C';
+
+  function isWhatsAppLink(link) {
+    if (!link || !link.href) return false;
+    return link.href.indexOf('wa.me') !== -1 || link.href.indexOf('api.whatsapp.com') !== -1;
+  }
+
+  function openWhatsApp(link) {
+    var target = link.getAttribute('target');
+    if (target === '_blank') {
+      window.open(link.href, '_blank', 'noopener');
+    } else {
+      window.location.href = link.href;
+    }
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest ? event.target.closest('a') : null;
+    if (!isWhatsAppLink(link)) return;
+
+    if (link.dataset.conversionSent === 'true') return;
+    link.dataset.conversionSent = 'true';
+    event.preventDefault();
+
+    var opened = false;
+    var continueToWhatsApp = function () {
+      if (opened) return;
+      opened = true;
+      openWhatsApp(link);
+    };
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: CRABTALK_WHATSAPP_CONVERSION,
+        event_callback: continueToWhatsApp
+      });
+      setTimeout(continueToWhatsApp, 800);
+    } else {
+      continueToWhatsApp();
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
