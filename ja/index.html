@@ -726,6 +726,7 @@ body a[href*="wa.me"][style*="position: fixed"]{
 <a class="lang-option" href="/zh/">中文</a>
 <a class="lang-option" href="/ja/">日本語</a>
 </div>
+<a href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener noreferrer">TikTok</a>
 <a class="pill pill-telegram" href="https://t.me/CrabTalkSG" onclick="trackClick('telegram_header')" rel="noopener" target="_blank"><span>Telegramに参加</span></a>
 <a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_header')"><span>WhatsAppで確認</span></a>
 </div>
@@ -1090,53 +1091,6 @@ body a[href*="wa.me"][style*="position: fixed"]{
 <a class="float-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F" onclick="trackClick('floating_whatsapp')"><span>本日の在庫を確認</span></a>
 
 
-
-
-<script>
-(function () {
-  var CRABTALK_WHATSAPP_CONVERSION = 'AW-799808799/VS8rCKrimLYcEJ-6sP0C';
-
-  function isWhatsAppLink(link) {
-    if (!link || !link.href) return false;
-    return link.href.indexOf('wa.me') !== -1 || link.href.indexOf('api.whatsapp.com') !== -1;
-  }
-
-  function openWhatsApp(link) {
-    var target = link.getAttribute('target');
-    if (target === '_blank') {
-      window.open(link.href, '_blank', 'noopener');
-    } else {
-      window.location.href = link.href;
-    }
-  }
-
-  document.addEventListener('click', function (event) {
-    var link = event.target.closest ? event.target.closest('a') : null;
-    if (!isWhatsAppLink(link)) return;
-
-    if (link.dataset.conversionSent === 'true') return;
-    link.dataset.conversionSent = 'true';
-    event.preventDefault();
-
-    var opened = false;
-    var continueToWhatsApp = function () {
-      if (opened) return;
-      opened = true;
-      openWhatsApp(link);
-    };
-
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        send_to: CRABTALK_WHATSAPP_CONVERSION,
-        event_callback: continueToWhatsApp
-      });
-      setTimeout(continueToWhatsApp, 800);
-    } else {
-      continueToWhatsApp();
-    }
-  }, true);
-})();
-</script>
 
 </body>
 </html>

@@ -775,278 +775,446 @@ body a[href*="wa.me"][style*="position: fixed"]{
   }
 }
 </style>
-</head>
 
 <style>
-:root{--deep:#073b3a;--teal:#0f766e;--gold:#f2b84b;--cream:#fffaf0;--ink:#102524;--muted:#60706e;--line:rgba(7,59,58,.12)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fbf8ef;color:var(--ink)}
-img{max-width:100%;display:block}a{color:inherit}.container{width:min(1180px,calc(100% - 32px));margin:0 auto}
-.topbar{position:sticky;top:0;z-index:30;background:rgba(255,250,240,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand-logo{width:52px;height:52px;object-fit:contain}.brand-text strong{display:block;color:var(--deep);font-size:18px}.brand-text span{display:block;color:var(--muted);font-size:12px;font-weight:700}
-.nav-links{display:flex;gap:18px;font-size:14px;font-weight:800;color:#25413f}.nav-links a{text-decoration:none}.nav-links a:hover{color:var(--teal)}
-.top-actions{display:flex;align-items:center;gap:10px}.language-picker{display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:4px;background:#fff}.lang-option{font-size:12px;font-weight:900;text-decoration:none;padding:7px 9px;border-radius:999px}.lang-option.active{background:var(--deep);color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 20px;font-weight:950;text-decoration:none;border:1px solid transparent;box-shadow:0 12px 28px rgba(7,59,58,.12)}.btn-primary{background:var(--deep);color:#fff}.btn-primary:hover{background:#062f2e}.btn-gold{background:var(--gold);color:#102524}.btn-outline{background:#fff;color:var(--deep);border-color:var(--line)}
-.hero{position:relative;min-height:720px;display:grid;align-items:center;overflow:hidden;background:#062f2e}.hero-bg{position:absolute;inset:0}.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.58)}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,47,46,.88),rgba(6,47,46,.44),rgba(6,47,46,.2))}
-.hero-content{position:relative;z-index:2;padding:86px 0;color:#fff;max-width:780px}.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:950;color:var(--gold);margin:0 0 16px}
-.hero h1{font-size:clamp(44px,7vw,86px);line-height:.96;letter-spacing:-.065em;margin:0 0 18px}.hero p{font-size:clamp(18px,2vw,24px);line-height:1.55;color:rgba(255,255,255,.88);max-width:680px;margin:0 0 28px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.badge{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.12);border-radius:999px;padding:10px 14px;font-size:13px;font-weight:900}
-.section{padding:78px 0}.section.alt{background:#fff}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px}.section-head h2{font-size:clamp(32px,4.5vw,56px);line-height:1;letter-spacing:-.055em;color:var(--deep);margin:0}.section-head p{max-width:520px;color:var(--muted);line-height:1.7;margin:0;font-size:16px}
-.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product-card{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(15,23,42,.07);text-decoration:none}.product-card img{width:100%;height:250px;object-fit:cover}.product-card div{padding:20px}.product-card span{display:inline-block;color:var(--teal);font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}.product-card h3{font-size:22px;line-height:1.14;margin:0 0 8px;color:var(--deep)}.product-card p{margin:0;color:var(--muted);line-height:1.55}
-.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature-card{border-radius:26px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 14px 38px rgba(15,23,42,.06);text-decoration:none}.feature-card img{height:210px;width:100%;object-fit:cover}.feature-card div{padding:20px}.feature-card h3{margin:0 0 8px;color:var(--deep);font-size:20px}.feature-card p{margin:0;color:var(--muted);line-height:1.55}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:0 14px 38px rgba(15,23,42,.05)}.step b{display:grid;place-items:center;width:42px;height:42px;background:var(--deep);color:#fff;border-radius:50%;margin-bottom:14px}.step h3{margin:0 0 8px;color:var(--deep)}.step p{margin:0;color:var(--muted);line-height:1.55}
-.why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.why{background:#f7fbfa;border:1px solid var(--line);border-radius:22px;padding:20px;font-weight:900;color:var(--deep);text-align:center;min-height:110px;display:grid;place-items:center}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:0 14px 38px rgba(15,23,42,.05)}.stars{color:#f5a800;font-weight:950;margin-bottom:10px}.review p{color:#435855;line-height:1.65;margin:0 0 12px}.review strong{color:var(--deep)}
-.social-strip{background:linear-gradient(135deg,#062f2e,#0f766e);color:#fff;padding:58px 0}.social-inner{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}.social-inner h2{font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:-.05em;margin:0 0 12px}.social-inner p{color:rgba(255,255,255,.82);line-height:1.7;margin:0}.social-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.social-links a{display:grid;place-items:center;min-height:58px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;text-decoration:none;font-weight:950}.social-links a:hover{background:var(--gold);color:#062f2e}
-.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}.visit-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 14px 38px rgba(15,23,42,.05)}.visit-card h3{margin:0 0 12px;color:var(--deep);font-size:26px}.visit-card p,.visit-card li{color:var(--muted);line-height:1.7}.visit-card ul{padding-left:20px;margin:0}
-.footer{background:#061f1e;color:#fff;padding:34px 0}.footer .container{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer a{color:#fff;text-decoration:none;font-weight:800}.float-wa{position:fixed;right:18px;bottom:18px;z-index:50;background:#25d366;color:#082c1a;text-decoration:none;font-weight:950;padding:14px 18px;border-radius:999px;box-shadow:0 18px 38px rgba(0,0,0,.22)}
-@media(max-width:980px){.nav-links{display:none}.product-grid,.feature-grid,.review-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr 1fr}.visit,.social-inner{grid-template-columns:1fr}}
-@media(max-width:640px){.hero{min-height:640px}.product-grid,.feature-grid,.review-grid,.steps{grid-template-columns:1fr}.top-actions .btn{display:none}.hero-content{padding:64px 0}.section{padding:56px 0}.footer .container{display:block}.footer-links{margin-top:16px}.product-card img{height:230px}.why-grid{grid-template-columns:1fr}.social-links{grid-template-columns:1fr}}
+.ct-social-strip{padding:54px 20px;background:linear-gradient(135deg,#062f2e,#0b4f4b);color:#fff}
+.ct-social-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.ct-social-copy h2{margin:8px 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.04em;color:#fff}
+.ct-social-copy p{margin:0;color:rgba(255,255,255,.82);font-size:17px;line-height:1.65}
+.ct-social-copy .ct-kicker{color:#f6c76a;text-transform:uppercase;letter-spacing:.14em;font-weight:900;font-size:13px;margin:0}
+.ct-social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ct-social-links a{display:flex;align-items:center;justify-content:center;min-height:54px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-weight:900;letter-spacing:.01em;box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.ct-social-links a:hover{background:#f6c76a;color:#062f2e}
+@media(max-width:760px){.ct-social-inner{grid-template-columns:1fr}.ct-social-links{grid-template-columns:1fr 1fr}.ct-social-strip{padding:38px 16px}}
+</style>
+
+</head>
+<body class="en">
+<header class="topbar">
+<div class="container nav">
+<a aria-label="Crab Talk home" class="brand" href="#top">
+<img alt="Crab Talk logo" class="brand-logo js-img" data-file="crabtalk-logo.png" src="/images/crabtalk-logo.png"/>
+<span class="brand-text"><strong>Crab Talk</strong><span>Live Seafood Supply</span></span>
+</a>
+<nav aria-label="Main navigation" class="nav-links">
+<a href="#seafood"><span>Fresh Selection</span></a>
+<a href="#how"><span>How It Works</span></a>
+<a href="#hours"><span>Hours</span></a>
+<a href="#featured"><span>Featured Locally</span></a>
+<a href="#reviews"><span>Reviews</span></a>
+<a href="#find"><span>Find Us</span></a>
+</nav>
+<div class="top-actions">
+<div aria-label="Choose website language" class="language-picker" role="group">
+<a class="lang-option active" href="/">EN</a>
+<a class="lang-option" href="/zh/">中文</a>
+<a class="lang-option" href="/ja/">日本語</a>
+</div>
+<a class="pill pill-telegram" href="https://t.me/CrabTalkSG" onclick="trackClick('telegram_header')" rel="noopener" target="_blank"><span>Join Telegram</span></a>
+<a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_header')"><span>WhatsApp</span></a>
+</div>
+</div>
+</header>
+<main id="top">
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-copy">
+<div class="status-row">
+<span class="eyebrow"><span>Live seafood stall</span></span>
+<span class="eyebrow"><span>Commonwealth Crescent Market</span></span>
+<span class="eyebrow"><span>Hours vary by day</span></span>
+</div>
+<h1>Premium Live Seafood, Fresh From The Tanks</h1>
+
+
+<p class="lead">Visit Crab Talk at Commonwealth Crescent Market for live crabs, roe crabs, lobsters, oysters, Manila clams, Soon Hock and more. WhatsApp us to check today’s arrivals and reserve before coming down.</p>
+
+
+<div class="hero-actions">
+<a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20live%20seafood%20availability%3F" onclick="trackClick('whatsapp_hero')"><span>Reserve Today’s Live Seafood</span></a>
+<a class="pill pill-soft" href="#reviews"><span>Read Real Google Reviews</span></a>
+<a class="pill pill-soft" href="https://g.page/r/CSHPT3CVB1CjEAE/review" onclick="trackClick('google_review_request')" rel="noopener" target="_blank"><span>Leave a Google Review</span></a>
+</div>
+<div class="note-box"><span>🦀</span><div><strong><span>Important:</span></strong> <span>Crab Talk is not an online seafood shop. WhatsApp is mainly for checking today’s arrival, availability and reservation enquiries.</span></div></div>
+<div aria-label="Crab Talk highlights" class="quick-stats">
+<div class="stat"><strong>5.0★</strong><span><span>Google rating shown by Business Profile</span></span></div>
+<div class="stat"><strong>56+</strong><span><span>Google reviews from customers</span></span></div>
+<div class="stat"><strong>#01-41/42/43</strong><span><span>Commonwealth Crescent</span></span></div>
+</div>
+</div>
+<div aria-label="Crab Talk photos" class="hero-card">
+<img alt="Live seafood tanks at Crab Talk" class="js-img" data-file="stall-crab-talk-live-tanks.jpg" src="/images/stall-crab-talk-live-tanks.jpg"/>
+<div class="hero-mini">
+<img alt="Crab Talk live seafood stall front" class="js-img" data-file="stall-crab-talk-front-01.jpg" src="/images/stall-crab-talk-front-01.jpg"/>
+<img alt="Live mud crab close up" class="js-img" data-file="hero-live-mud-crab-closeup.jpg" src="/images/product-yellow-roe-crab-05.jpg"/>
+</div>
+</div>
+</div>
+</section>
+<section class="seo-rich" id="today-arrivals">
+<div class="section-inner">
+<h2>
+<span>Today’s Live Arrivals</span>
+
+
+</h2>
+<p>
+<span>Availability changes daily. Popular weekend items may sell out early, so WhatsApp Crab Talk before visiting to check today’s live crabs, roe crabs, lobsters, clams and fish.</span>
+
+
+</p>
+<div class="seo-keywords">
+<a class="seo-keyword-link" href="/yellow-roe-crab-singapore"><span>Sri Lanka Yellow Roe Crabs</span></a>
+<a class="seo-keyword-link" href="/live-mud-crab-singapore"><span>Live Mud Crabs</span></a>
+<a class="seo-keyword-link" href="/live-lobster-singapore"><span>Live Lobsters</span></a>
+<a class="seo-keyword-link" href="/manila-clams-singapore"><span>Manila Clams</span></a>
+<a class="seo-keyword-link" href="/soon-hock-fish-singapore"><span>Soon Hock Fish</span></a>
+<a class="seo-keyword-link" href="/alaska-king-crab-singapore"><span>Alaska King Crab</span></a>
+</div>
+</div>
+</section>
+<section id="seafood">
+<div class="container">
+<div class="section-head">
+<h2><span>Fresh Selection</span></h2>
+<p><span>These are regular Crab Talk favourites. Availability changes daily, so WhatsApp before coming down if you are looking for a specific item or size.</span></p>
+</div>
+<div class="grid grid-4">
+<article class="card"><img alt="Sri Lanka yellow roe crab" class="photo js-img" data-file="Yellow Roe Crab_Photo4.jpg" src="/images/product-yellow-roe-crab-05.jpg"/><div class="card-body"><span class="tag"><span>Roe Crab</span></span><h3><span>Sri Lanka Yellow Roe Crab</span></h3><p><span>Popular for roe lovers. Best enjoyed cold or grilled so the rich yellow roe remains the highlight.</span></p></div></article>
+<article class="card"><img alt="Sri Lanka Yellow Roe Crab at Crab Talk" class="photo js-img" data-file="product-red-roe-crab-01.jpg" src="/images/product-live-crab-closeup-02.jpg"/><div class="card-body"><span class="tag"><span>Premium Crab</span></span><h3><span>Red Roe / Live Mud Crabs</span></h3><p><span>Meaty crabs selected from our tanks. Ask Jeremy or Lam for size recommendations.</span></p></div></article>
+<article class="card"><img alt="Australian Rock Lobster" class="photo js-img" data-file="product-live-lobster-new.jpg" src="/images/product-live-lobster-new.jpg"/><div class="card-body"><span class="tag"><span>Lobster</span></span><h3><span>Australian Rock Lobster</span></h3><p><span>Premium Australian Rock Lobster with firm, sweet meat. Suitable for steaming, grilling or lobster bee hoon / yee mee arrangements when available.</span></p></div></article>
+<article class="card"><img alt="Green lobster" class="photo js-img" data-file="product-live-green-lobster-01.jpg" src="/images/product-live-green-lobster-01.jpg"/><div class="card-body"><span class="tag"><span>Live Lobster</span></span><h3><span>Green Lobster</span></h3><p><span>A premium live seafood option, subject to daily arrival and reservation.</span></p></div></article>
+<article class="card"><img alt="Oysters at Crab Talk" class="photo js-img" data-file="product-oysters-new.jpg" src="/images/product-oysters-new.jpg"/><div class="card-body"><span class="tag"><span>Oysters</span></span><h3><span>Fresh Oysters</span></h3><p><span>Ask what is available today, including occasional premium oyster arrivals.</span></p></div></article>
+<article class="card"><img alt="Manila clams" class="photo js-img" data-file="product-manila-clams-new.jpg" src="/images/product-manila-clams-new.jpg"/><div class="card-body"><span class="tag"><span>Shellfish</span></span><h3><span>Canadian Manila Clams</span></h3><p><span>Good for steaming, chilli, black bean or ginger onion style cooking.</span></p></div></article>
+<article class="card"><img alt="Live Soon Hock" class="photo js-img" data-file="product-live-soon-hock-premium-fish.jpg" src="/images/product-live-soon-hock-premium-fish.jpg"/><div class="card-body"><span class="tag"><span>Live Fish</span></span><h3><span>Soon Hock</span></h3><p><span>A favourite for Hong Kong style steaming when good sizes are available.</span></p></div></article>
+<article class="card"><img alt="Alaskan King Crab" class="photo js-img" data-file="Alaska King Crab.jpeg" src="/images/Alaska%20King%20Crab.jpeg"/><div class="card-body"><span class="tag"><span>Premium</span></span><h3><span>Alaskan King Crab</span></h3><p><span>Premium seafood option. Pre-order or WhatsApp to check before visiting.</span></p></div></article>
+</div>
+</div>
+</section>
+<section class="dark" id="how">
+<div class="container">
+<div class="section-head">
+<h2><span>How It Works</span></h2>
+<p><span>Simple market-style seafood buying. Choose the seafood directly, then decide whether to cook at home or arrange cooking nearby where available.</span></p>
+</div>
+<div class="grid grid-3 steps">
+<div class="card step"><h3><span>Choose from the tanks</span></h3><p><span>Visit the stall and pick live seafood based on today’s stock, size and your budget.</span></p></div>
+<div class="card step"><h3><span>Ask for recommendation</span></h3><p><span>Jeremy or Lam can advise which crab, lobster, fish or clam option suits your meal.</span></p></div>
+<div class="card step"><h3><span>Home cook or nearby cooking</span></h3><p><span>Seafood can be cleaned and packed for home cooking. Cooking nearby may be arranged depending on stall availability and cooking fee.</span></p></div>
+</div>
+<div class="grid grid-4" style="margin-top:22px">
+<article class="card"><img alt="Lobster yee mee" class="photo js-img" data-file="dish-lobster-yee-mee-fai-kee-hero.jpg" src="/images/dish-lobster-yee-mee-closeup-01.jpg"/><div class="card-body"><span class="tag"><span>Popular</span></span><h3><span>Lobster Yee Mee</span></h3><p><span>A popular cooked option when suitable lobster stock is available.</span></p></div></article>
+<article class="card"><img alt="Lobster bee hoon" class="photo js-img" data-file="dish-lobster-bee-hoon-fai-kee-01.jpg" src="/images/dish-lobster-bee-hoon-fai-kee-01.jpg"/><div class="card-body"><span class="tag"><span>Popular</span></span><h3><span>Lobster Bee Hoon</span></h3><p><span>Comfort-style seafood dish with live lobster selected from the stall.</span></p></div></article>
+<article class="card"><img alt="Chilli crab" class="photo js-img" data-file="dish-chilli-crab-rich-sauce.jpg" src="/images/dish-chilli-crab-premium.jpg"/><div class="card-body"><span class="tag"><span>Local Style</span></span><h3><span>Chilli Crab</span></h3><p><span>A familiar local style for crab lovers, subject to cooking arrangement.</span></p></div></article>
+<article class="card"><img alt="Steamed Soon Hock" class="photo js-img" data-file="dish-steamed-soon-hock-fai-kee.jpg" src="/images/dish-steamed-soon-hock-fai-kee.jpg"/><div class="card-body"><span class="tag"><span>Live Fish</span></span><h3><span>Steamed Soon Hock</span></h3><p><span>Best when the fish is fresh and the cooking is kept clean and simple.</span></p></div></article>
+</div>
+</div>
+</section>
+<section id="hours">
+<div class="container">
+<div class="section-head">
+<h2><span>Operating Hours</span></h2>
+<p><span>Displayed clearly by day. For live crabs, lobsters, oysters and special items, WhatsApp us first to check availability.</span></p>
+</div>
+<div class="card hours-card">
+<table aria-label="Crab Talk operating hours" class="hours-table">
+<thead>
+<tr>
+<th><span>Day</span></th>
+<th><span>Opening Hours</span></th>
+<th><span>Note</span></th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="day"><span>Monday</span></td><td class="time"><span>12PM – 5PM</span></td><td class="note"><span>Shorter operating day</span></td></tr>
+<tr><td class="day"><span>Tuesday</span></td><td class="time"><span>8AM – 7PM</span></td><td class="note"><span>Regular weekday hours</span></td></tr>
+<tr><td class="day"><span>Wednesday</span></td><td class="time"><span>8AM – 7PM</span></td><td class="note"><span>Regular weekday hours</span></td></tr>
+<tr><td class="day"><span>Thursday</span></td><td class="time"><span>8AM – 7PM</span></td><td class="note"><span>Regular weekday hours</span></td></tr>
+<tr><td class="day"><span>Friday</span></td><td class="time"><span>8AM – 8PM</span></td><td class="note"><span>Extended evening hours</span></td></tr>
+<tr><td class="day"><span>Saturday</span></td><td class="time"><span>8AM – 8PM</span></td><td class="note"><span>Extended evening hours</span></td></tr>
+<tr><td class="day"><span>Sunday</span></td><td class="time"><span>8AM – 5PM</span></td><td class="note"><span>Closes at 5PM</span></td></tr>
+</tbody>
+</table>
+<div class="hours-note">
+<span>For reservation and live seafood availability, please use the WhatsApp button.</span>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="featured">
+<div class="container">
+<div class="section-head">
+<h2><span>Featured Locally</span></h2>
+<p><span>Crab Talk’s market-style live seafood concept has been shared across local food media and social platforms.</span></p>
+</div>
+<div class="grid grid-4">
+<article class="card feature-card"><img alt="8 Days feature on Crab Talk and Fai Kee" class="photo js-img" data-file="8days-feature.jpg" src="/images/8days-feature.jpg"/><div class="card-body"><span class="tag"><span>8 Days</span></span><h3><span>Featured on 8 Days</span></h3><p><span>Coverage of the Commonwealth Crab Talk × Fai Kee live seafood hawker collaboration.</span></p><a class="pill pill-soft" href="https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541" onclick="trackClick('feature_8days')" rel="noopener" target="_blank"><span>Read Feature</span></a></div></article>
+<article class="card feature-card"><img alt="Botak Jazz TikTok feature" class="photo js-img" data-file="feature-botak-jazz-tiktok.jpg" src="/images/feature-botak-jazz-tiktok.jpg"/><div class="card-body"><span class="tag"><span>TikTok Feature</span></span><h3><span>Featured by Botak Jazz</span></h3><p><span>Local TikTok feature showing the live seafood and cooked crab experience.</span></p><a class="pill pill-soft" href="https://www.tiktok.com/@botakjazz/video/7602204733155364116" onclick="trackClick('feature_tiktok_botakjazz')" rel="noopener" target="_blank"><span>Watch TikTok</span></a></div></article>
+<article class="card feature-card"><img alt="Crab Talk Facebook" class="photo js-img" data-file="stall-crab-talk-live-tanks.jpg" src="/images/stall-crab-talk-live-tanks.jpg"/><div class="card-body"><span class="tag"><span>Facebook</span></span><h3><span>Find Us on Facebook</span></h3><p><span>Connect with Crab Talk and share our page with friends looking for live seafood.</span></p><a class="pill pill-soft" href="https://www.facebook.com/61575561066703/" onclick="trackClick('facebook')" rel="noopener" target="_blank"><span>Open Facebook</span></a></div></article>
+<article class="card feature-card"><img alt="Crab Talk Instagram reel" class="photo js-img" data-file="AI-feature.jpeg" src="/images/AI-feature.jpeg"/><div class="card-body"><span class="tag"><span>Instagram Reel</span></span><h3><span>Featured on Instagram</span></h3><p><span>Watch the Instagram reel featuring Crab Talk’s live seafood market experience.</span></p><a class="pill pill-soft" href="https://www.instagram.com/reel/DN-RW_DkYMO/?igsh=MXQ3c25rOTdpbjlqZA==" onclick="trackClick('feature_instagram_reel')" rel="noopener" target="_blank"><span>Watch Instagram</span></a></div></article>
+</div>
+</div>
+</section>
+<section class="blog-preview" id="blog-guides">
+<div class="container">
+<div class="section-head">
+<h2><span>Seafood Food Guides</span></h2>
+<p><span>Practical Crab Talk guides on roe crabs, live mud crabs, lobster cooking styles and seafood buying tips in Singapore.</span></p>
+</div>
+<div class="blog-preview-grid">
+<a class="blog-preview-card" href="/blog/why-yellow-roe-crab-is-expensive">
+<img alt="Why Yellow Roe Crab is expensive in Singapore" src="/images/product-yellow-roe-crab-05.jpg"/>
+<div>
+<span>Roe Crab Guide</span>
+<h3>Why Yellow Roe Crab Is Expensive</h3>
+<p>Understand roe quality, live handling and why weight alone does not decide crab value.</p>
+</div>
+</a>
+<a class="blog-preview-card" href="/blog/best-way-to-eat-yellow-roe-crab-singapore">
+<img alt="Best way to eat Yellow Roe Crab Singapore" src="/images/yellow-roe-crab-cold.jpg"/>
+<div>
+<span>Cooking Guide</span>
+<h3>Best Way To Eat Yellow Roe Crab</h3>
+<p>Why Cold Crab and Grilled Crab are the two best ways to enjoy premium yellow roe.</p>
+</div>
+</a>
+<a class="blog-preview-card" href="/blog/how-to-choose-live-mud-crab-singapore">
+<img alt="How to choose live mud crab Singapore" src="/images/hero-live-mud-crab-closeup.jpg"/>
+<div>
+<span>Live Crab Guide</span>
+<h3>How To Choose Live Mud Crab</h3>
+<p>Learn what to consider beyond weight when choosing live mud crabs.</p>
+</div>
+</a>
+</div>
+<div class="blog-preview-cta">
+<a class="pill pill-primary" href="/blog/">View All Seafood Guides</a>
+</div>
+</div>
+</section>
+<section id="reviews">
+<div class="container reviews-wrap">
+<aside class="rating-panel">
+<div class="rating-score">5.0</div>
+<div aria-label="5 stars" class="stars">★★★★★</div>
+<p style="margin:8px 0 0;color:#64748b"><strong><span>56 Google reviews</span></strong><br/><span>Real customer feedback shown from Crab Talk’s Google Business Profile.</span></p>
+<div class="review-link">
+<a class="pill pill-primary" href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.30703,103.7979725,17z/data=!4m8!3m7!1s0x31da1bae3062124f:0xa3500795704fcf21!8m2!3d1.3070246!4d103.8005474!9m1!1b1!16s%2Fg%2F11m62rxn5z?entry=ttu&amp;g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" onclick="trackClick('google_maps_reviews')" rel="noopener" target="_blank"><span>Read All Google Reviews</span></a>
+<a class="pill pill-soft" href="https://g.page/r/CSHPT3CVB1CjEAE/review" onclick="trackClick('leave_google_review')" rel="noopener" target="_blank"><span>Leave a Google Review</span></a>
+</div>
+</aside>
+<div>
+<div class="section-head" style="margin-bottom:18px"><h2><span>Real Google Reviews</span></h2></div>
+<div class="grid">
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>Christina Wong</span></span><span class="review-time"><span>4 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>Had a super pleasant experience at this stall. Totally no experience in buying crab or lobster. Trusted the owner to recommend. Turned out awesome. To us price is very reasonable for the quality of crab and lobster. Crabs were sweet and meaty. Lobsters were just as awesome. Paid $168 for 2 huge crab and 2 lobsters. Will definitely be back again!</span></p>
+</article>
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>Daphne Tan</span></span><span class="review-time"><span>7 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>Was around the corner and came across crabtalk on google. Upon reading all the good reviews, I told hubby let’s go check this place out! It is located within the market area! Just fyi. Saw the live crabs and was amazed with the range of sizes that they have! Also the prices were reasonable! We decided to buy 2 super big crabs and Lam who was serving us was very friendly and not pushy at all to sell us anything which was greatly appreciated! He also helped us to cut up the crab and taught us how to cook it when we return home. The freshness of the crab and clams after cooking was so good!!!!! Really you have to try it for yourself to believe! If there’s a chance if I am around the area, I will drop by again… but then I remember oh they have online services as well! Too convenient! Everyone who is craving for crabs or seafood should check out crab talk! 🙏🏼🙏🏼🙏🏼</span></p>
+</article>
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>Damien Yap</span></span><span class="review-time"><span>7 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>I came across Crab Talk while searching online for good crabs 2 weeks ago and decided to give it a try today. I’m really glad I did! I was assisted by Jeremy, the boss himself, who was incredibly patient and knowledgeable. He took the time to explain the different category of crabs and recommended which dishes they would be best suited for.</span><br/><br/><span>What stood out most was his kindness and attentiveness—not just to me, but also to my elderly parents. He even recommended a good zi char stall for us to have the crabs cooked, which turned out to be an excellent suggestion.</span><br/><br/><span>Jeremy also came by to check on us after the crabs were served, which made the whole experience feel very thoughtful and personal.</span><br/><br/><span>Overall, a very pleasant experience. I’ll definitely look for Jeremy again the next time my family is craving crabs!</span></p>
+</article>
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>CY</span></span><span class="review-time"><span>10 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>The freshness, amazing quality, and incredible roe are just so good. It's the best place for live seafood, always impressive. The service is great too, and the owners even share awesome cooking tips. If you don't feel like cooking yourself, they have a fantastic collaboration with the tze char stall upstairs at the hawker, which is also my favorite! A match made in heaven! Not to forget mentioning, prices are great!</span></p>
+</article>
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>byron teo</span></span><span class="review-time"><span>10 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>Absolutely gem find hidden amidst the most unexpected place! The good crab is superb with rich thick Roe. You can buy and have them cook upstairs and it was heaven. Jeremy was most helpful and it is a treating dining experience.</span></p>
+</article>
+<article class="card review-card">
+<div class="review-meta"><span class="review-name"><span>Linda Cheah</span></span><span class="review-time"><span>18 weeks ago</span></span></div>
+<div class="stars">★★★★★</div>
+<p><span>Hi Jeremy, just wanted to say thank you! Really appreciate the extra effort you took to send the crabs to another stall for cooking — super convenient and truly a one-stop service. The crabs were very fresh and your recommendation on how to cook them turned out great. Very happy with the quality and overall experience. I’ll definitely be back again. Thanks once more!</span></p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="seo-rich" id="why-crab-talk">
+<div class="section-inner">
+<h2>
+<span>Why Customers Visit Crab Talk</span>
+
+
+</h2>
+<p>
+<span>Crab Talk is built around the live seafood market experience: see the tanks, choose the seafood, ask for honest recommendations, and reserve before coming down.</span>
+
+
+</p>
+<div class="seo-keywords">
+<span><span>Choose directly from live tanks</span></span>
+<span><span>Premium roe crab selection</span></span>
+<span><span>Fresh daily seafood arrivals</span></span>
+<span><span>Nearby hawker cooking options</span></span>
+<span><span>Featured by 8 Days</span></span>
+<span><span>Commonwealth Crescent Market</span></span>
+</div>
+</div>
+</section>
+<section class="faq-section" id="faq">
+<div class="section-inner">
+<h2>
+<span>Common Questions</span>
+
+
+</h2>
+<div class="faq-grid">
+<article class="faq-card">
+<h3><span>Where can I buy live crabs in Singapore?</span></h3>
+<p><span>Visit Crab Talk at Commonwealth Crescent Market to choose live crabs directly from our tanks.</span></p>
+</article>
+<article class="faq-card">
+<h3><span>Can I reserve seafood before visiting?</span></h3>
+<p><span>Yes. WhatsApp Crab Talk to check arrivals, availability and reservation options before heading down.</span></p>
+</article>
+<article class="faq-card">
+<h3><span>What seafood is available?</span></h3>
+<p><span>Selection varies by day, including live mud crabs, roe crabs, Australian rock lobster, oysters, clams and Soon Hock.</span></p>
+</article>
+<article class="faq-card">
+<h3><span>Is Crab Talk an online shop?</span></h3>
+<p><span>No. Crab Talk is a physical live seafood stall. WhatsApp is mainly for availability checks and reservation enquiries.</span></p>
+</article>
+</div>
+</div>
+</section>
+<section class="cta">
+<div class="container cta-box">
+<div><h2><span>Want today’s fresh arrivals?</span></h2><p><span>WhatsApp us before coming down to check live crab, lobster, oyster, clam and fish availability.</span></p></div>
+<a class="pill pill-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20fresh%20arrivals%3F" onclick="trackClick('whatsapp_cta')"><span>WhatsApp Crab Talk</span></a>
+</div>
+</section>
+<section id="find">
+<div class="container">
+<div class="section-head"><h2><span>Find Us</span></h2><p><span>Visit our physical live seafood stall at Commonwealth Crescent Market, near Queenstown and Commonwealth MRT.</span></p></div>
+<div class="find-grid">
+<div class="info-list">
+<div class="info-row"><strong><span>Address</span></strong><span>31 Commonwealth Cres, #01-41/42/43, Singapore 149644</span></div>
+<div class="info-row"><strong><span>WhatsApp</span></strong><a href="https://wa.me/6598398671" onclick="trackClick('whatsapp_find')"><span>Message Crab Talk on WhatsApp</span></a></div>
+<div class="info-row"><strong><span>Operation Hours</span></strong><span>Mon 12:00pm–5:00pm · Tue–Thu 8:00am–7:00pm · Fri–Sat 8:00am–8:00pm · Sun 8:00am–5:00pm</span></div>
+<div class="info-row"><strong><span>Telegram</span></strong><a href="https://t.me/CrabTalkSG" onclick="trackClick('telegram_find')" rel="noopener" target="_blank"><span>Join Crab Talk on Telegram</span></a></div>
+<div class="info-row"><strong><span>Google Reviews</span></strong><a href="https://www.google.com/maps/place/Live+Seafood+Supply+@Crab+Talk/@1.30703,103.7979725,17z/data=!4m8!3m7!1s0x31da1bae3062124f:0xa3500795704fcf21!8m2!3d1.3070246!4d103.8005474!9m1!1b1!16s%2Fg%2F11m62rxn5z?entry=ttu&amp;g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" onclick="trackClick('google_maps_find')" rel="noopener" target="_blank"><span>Open Crab Talk on Google Maps</span></a></div>
+<div class="info-row"><strong><span>Review Link</span></strong><a href="https://g.page/r/CSHPT3CVB1CjEAE/review" onclick="trackClick('review_link_find')" rel="noopener" target="_blank"><span>Ask customers to leave a Google review</span></a></div>
+</div>
+<iframe allowfullscreen="" class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Live%20Seafood%20Supply%20%40Crab%20Talk%2C%2031%20Commonwealth%20Cres%2C%20Singapore%20149644&amp;output=embed" title="Map to Live Seafood Supply @ Crab Talk"></iframe>
+</div>
+</div>
+<div class="seo-keywords"><a class="seo-keyword-link" href="/blog/best-place-to-buy-live-crab-singapore">Best Place to Buy Live Crab</a><a class="seo-keyword-link" href="/blog/yellow-roe-crab-vs-meat-crab">Yellow Roe Crab vs Meat Crab</a><a class="seo-keyword-link" href="/blog/why-crab-prices-change-daily">Why Crab Prices Change Daily</a></div></section>
+
+<section class="section" id="popular-seafood-guides">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">SEO Seafood Guides</span>
+        <h2>Popular Live Seafood Guides</h2>
+      </div>
+      <p>Explore Crab Talk’s most important guides for live crabs, roe crabs, live lobsters, Alaska King Crab, Manila clams and Soon Hock fish in Singapore.</p>
+    </div>
+    <div class="grid-3">
+      <article class="info-card"><h3><a href="/live-mud-crab-singapore">Live Mud Crab Singapore</a></h3><p>Learn how to choose live mud crabs by size, firmness, activity and cooking style.</p></article>
+      <article class="info-card"><h3><a href="/yellow-roe-crab-singapore">Sri Lanka Yellow Roe Crab Singapore</a></h3><p>Understand why yellow roe crabs are prized and how to enjoy them cold, steamed or grilled.</p></article>
+      <article class="info-card"><h3><a href="/live-lobster-singapore">Live Lobster Singapore</a></h3><p>Compare live lobster options for home cooking, lobster yee mee and lobster bee hoon.</p></article>
+      <article class="info-card"><h3><a href="/alaska-king-crab-singapore">Alaska King Crab Singapore</a></h3><p>Explore premium king crab options, serving ideas and availability at Crab Talk.</p></article>
+      <article class="info-card"><h3><a href="/manila-clams-singapore">Manila Clams Singapore</a></h3><p>See why Manila clams are popular for steaming, soup, pasta and home seafood meals.</p></article>
+      <article class="info-card"><h3><a href="/soon-hock-fish-singapore">Soon Hock Fish Singapore</a></h3><p>Learn about live Soon Hock fish, ideal weights and Hong Kong-style steaming.</p></article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="seo-featured-guides" style="padding:56px 0;background:#f7fbfa;"><div class="container" style="max-width:1180px;margin:auto;"><h2 style="color:#073b3a;font-size:clamp(30px,4vw,48px);letter-spacing:-.04em;margin:0 0 18px;">Popular Live Crab Guides</h2><p style="color:#536763;font-size:18px;max-width:760px;margin:0 0 24px;">Learn how to choose better crabs, compare roe crabs with meat crabs, and understand where to buy live crab in Singapore.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;"><a href="/blog/best-place-to-buy-live-crab-singapore" style="display:block;padding:22px;border-radius:22px;background:white;border:1px solid rgba(7,59,58,.12);text-decoration:none;color:#073b3a;font-weight:900;">Best Place To Buy Live Crab In Singapore</a><a href="/blog/yellow-roe-crab-vs-meat-crab" style="display:block;padding:22px;border-radius:22px;background:white;border:1px solid rgba(7,59,58,.12);text-decoration:none;color:#073b3a;font-weight:900;">Yellow Roe Crab vs Meat Crab</a><a href="/blog/how-to-choose-live-mud-crab-singapore" style="display:block;padding:22px;border-radius:22px;background:white;border:1px solid rgba(7,59,58,.12);text-decoration:none;color:#073b3a;font-weight:900;">How To Choose Live Mud Crab</a></div></div></section>
+
+<section class="seo-upgrade-internal-links" aria-label="Crab Talk internal seafood guides">
+  <div class="container">
+    <div class="seo-link-panel">
+      <div class="seo-link-intro">
+        <p class="seo-link-kicker">Crab Talk Seafood Guide Network</p>
+        <h2>Explore More Live Seafood Guides</h2>
+        <p>Use these guides to compare live crabs, roe crabs, lobsters, clams and premium fish before visiting Crab Talk at Commonwealth Crescent Market.</p>
+      </div>
+      <div class="seo-link-grid">
+        <div>
+          <h3>Live Seafood Product Pages</h3>
+          <div class="seo-link-list"><a href="/live-mud-crab-singapore">Live Mud Crab Singapore</a><a href="/yellow-roe-crab-singapore">Sri Lanka Yellow Roe Crab Singapore</a><a href="/live-lobster-singapore">Live Lobster Singapore</a><a href="/alaska-king-crab-singapore">Alaska King Crab Singapore</a><a href="/manila-clams-singapore">Manila Clams Singapore</a><a href="/soon-hock-fish-singapore">Soon Hock Fish Singapore</a></div>
+        </div>
+        <div>
+          <h3>Crab Buying Guides</h3>
+          <div class="seo-link-list"><a href="/blog/best-place-to-buy-live-crab-singapore">Best Place to Buy Live Crab in Singapore</a><a href="/blog/how-to-choose-live-mud-crab-singapore">How to Choose Live Mud Crab</a><a href="/blog/how-to-choose-female-roe-crab">How to Choose Female Roe Crab</a><a href="/blog/yellow-roe-crab-vs-meat-crab">Yellow Roe Crab vs Meat Crab</a><a href="/blog/yellow-roe-crab-vs-red-roe-crab">Yellow Roe Crab vs Red Roe Crab</a><a href="/blog/why-yellow-roe-crab-is-expensive">Why Yellow Roe Crab Is Expensive</a><a href="/blog/why-crab-prices-change-daily">Why Crab Prices Change Daily</a></div>
+        </div>
+        <div>
+          <h3>Cooking & Home Seafood Guides</h3>
+          <div class="seo-link-list"><a href="/blog/best-crabs-for-chilli-crab">Best Crabs for Chilli Crab</a><a href="/blog/crab-bee-hoon-guide-singapore">Crab Bee Hoon Guide Singapore</a><a href="/blog/best-lobster-cooking-styles-singapore">Best Lobster Cooking Styles</a><a href="/blog/live-lobster-vs-frozen-lobster">Live Lobster vs Frozen Lobster</a><a href="/blog/best-seafood-for-home-cooking-singapore">Best Seafood for Home Cooking</a><a href="/blog/how-to-store-live-seafood-before-cooking">How to Store Live Seafood</a></div>
+        </div>
+        <div>
+          <h3>Crab Talk & Commonwealth Market</h3>
+          <div class="seo-link-list"><a href="/">Crab Talk Homepage</a><a href="/blog/">Seafood Guides Blog</a><a href="/blog/commonwealth-crescent-seafood-guide">Commonwealth Crescent Seafood Guide</a><a href="/blog/commonwealth-crescent-food-guide">Commonwealth Crescent Food Guide</a><a href="/live-seafood-singapore">Live Seafood Singapore Guide</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.seo-upgrade-internal-links{padding:48px 0 60px;background:#f7fbfa}
+.seo-upgrade-internal-links .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
+.seo-link-panel{border:1px solid rgba(12,77,77,.12);border-radius:30px;background:#fff;padding:28px;box-shadow:0 18px 50px rgba(15,23,42,.07)}
+.seo-link-kicker{margin:0 0 8px;font-weight:900;color:#0f766e;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.seo-link-intro h2{margin:0;color:#073b3a;font-size:clamp(26px,3vw,38px);letter-spacing:-.035em}
+.seo-link-intro p{max-width:820px;color:#536763;margin:10px 0 0;font-size:16px}
+.seo-link-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:24px}
+.seo-link-grid h3{margin:0 0 12px;color:#073b3a;font-size:15px;letter-spacing:-.01em}
+.seo-link-list{display:flex;flex-direction:column;gap:9px}
+.seo-link-list a{display:block;padding:10px 12px;border-radius:14px;background:#eef8f6;color:#073b3a;text-decoration:none;font-weight:800;font-size:14px;line-height:1.25;border:1px solid rgba(7,59,58,.06)}
+.seo-link-list a:hover{background:#073b3a;color:white}
+@media(max-width:920px){.seo-link-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.seo-link-grid{grid-template-columns:1fr}.seo-link-panel{padding:22px;border-radius:24px}}
 </style>
 
 
-<body class="en">
-<header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="/" aria-label="Crab Talk home">
-      <img class="brand-logo" src="/images/crabtalk-logo.png" alt="Crab Talk logo">
-      <span class="brand-text"><strong>Crab Talk</strong><span>Live Seafood Supply</span></span>
-    </a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#products">Selection</a>
-      <a href="#how">How It Works</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#social">Socials</a>
-      <a href="#visit">Visit</a>
-    </nav>
-    <div class="top-actions">
-      <div class="language-picker" role="group" aria-label="Choose website language">
-        <a class="lang-option active" href="/">EN</a>
-        <a class="lang-option" href="/zh/">中文</a>
-        <a class="lang-option" href="/ja/">日本語</a>
-      </div>
-      <a class="btn btn-primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.">WhatsApp</a>
+<section class="ct-social-strip" aria-label="Crab Talk social media links">
+  <div class="ct-social-inner">
+    <div class="ct-social-copy">
+      <p class="ct-kicker">Follow Crab Talk</p>
+      <h2>Fresh live seafood updates, daily arrivals & videos</h2>
+      <p>Follow our social channels for live crab arrivals, roe crab updates, lobster drops, oysters, market videos and seafood cooking ideas.</p>
+    </div>
+    <div class="ct-social-links">
+      <a href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk TikTok">TikTok</a>
+      <a href="https://www.instagram.com/liveseafoodsupply_crabtalksg/" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Instagram">Instagram</a>
+      <a href="https://www.facebook.com/p/Crab-Talk-61575561066703/" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Facebook">Facebook</a>
+      <a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Telegram">Telegram</a>
+      <a href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability." target="_blank" rel="noopener noreferrer" aria-label="Crab Talk WhatsApp">WhatsApp</a>
     </div>
   </div>
-</header>
+</section>
 
-<main id="top">
-  <section class="hero">
-    <div class="hero-bg"><img src="/images/stall-crab-talk-live-tanks.jpg" alt="Live seafood tanks at Crab Talk Commonwealth Crescent Market"></div>
-    <div class="container hero-content">
-      <p class="kicker">Commonwealth Crescent Market · Live seafood tanks</p>
-      <h1>Premium Live Seafood, Fresh From Our Tanks</h1>
-      <p>Choose live crabs, roe crabs, lobsters, oysters, clams and premium fish directly from our tanks. Cleaned, packed and ready for home cooking or nearby hawker-style cooking.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability.">Check Today’s Live Arrivals</a>
-        <a class="btn btn-outline" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener">Read Google Reviews</a>
-      </div>
-      <div class="hero-badges">
-        <span class="badge">5.0★ Google Reviews</span>
-        <span class="badge">Featured by 8 Days</span>
-        <span class="badge">Live crabs from $10/pc</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="products">
-    <div class="container">
-      <div class="section-head">
-        <h2>Today’s Best Sellers</h2>
-        <p>Availability changes daily. WhatsApp before visiting if you are looking for a specific crab size, lobster or premium seafood item.</p>
-      </div>
-      <div class="product-grid">
-        <a class="product-card" href="/live-mud-crab-singapore">
-          <img src="/images/product-live-crab-tank-01.jpg" alt="Live mud crabs from Crab Talk tanks">
-          <div><span>Live Crabs</span><h3>Live Mud Crabs</h3><p>From $10/pc. Sizes from small family portions to premium 1kg+ crabs.</p></div>
-        </a>
-        <a class="product-card" href="/yellow-roe-crab-singapore">
-          <img src="/images/product-yellow-roe-crab-05.jpg" alt="Sri Lanka Yellow Roe Crab at Crab Talk">
-          <div><span>Signature Roe Crab</span><h3>Sri Lanka Yellow Roe Crabs</h3><p>From $93/kg. Rich roe, sweet crab meat and premium seafood flavour.</p></div>
-        </a>
-        <a class="product-card" href="/live-lobster-singapore">
-          <img src="/images/product-live-lobster-new.jpg" alt="Live lobster available at Crab Talk">
-          <div><span>Live Lobsters</span><h3>Boston & Green Lobsters</h3><p>From $48/pc for Boston Lobster and from $88/kg for Green Lobster.</p></div>
-        </a>
-        <a class="product-card" href="/alaska-king-crab-singapore">
-          <img src="/images/Alaska King Crab.jpeg" alt="Alaska King Crab Singapore">
-          <div><span>Premium Crab</span><h3>Alaska King Crab</h3><p>From $188/kg. Meaty legs, sweet flavour and luxury seafood presence.</p></div>
-        </a>
-        <a class="product-card" href="/soon-hock-fish-singapore">
-          <img src="/images/product-live-soon-hock-01.jpg" alt="Live Soon Hock fish at Crab Talk">
-          <div><span>Premium Fish</span><h3>Live Soon Hock</h3><p>From $68/kg. Popular for Hong Kong-style steaming and family meals.</p></div>
-        </a>
-        <a class="product-card" href="/manila-clams-singapore">
-          <img src="/images/product-manila-clams-01.jpg" alt="Live Manila Clams at Crab Talk">
-          <div><span>Shellfish</span><h3>Manila Clams & Oysters</h3><p>Manila Clams from $38/kg. XXL Giant Oysters from $15/pc.</p></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="featured">
-    <div class="container">
-      <div class="section-head">
-        <h2>Featured Locally</h2>
-        <p>Crab Talk has been featured for our live seafood market concept and hawker-style cooking collaboration.</p>
-      </div>
-      <div class="feature-grid">
-        <a class="feature-card" href="https://www.8days.sg/eatanddrink/hawkerfood/commonwealth-crab-talk-fai-kee-live-seafood-hawker-collab-856541" target="_blank" rel="noopener">
-          <img src="/images/feature-8days-crab-talk-fai-kee.jpg" alt="Crab Talk featured by 8 Days">
-          <div><h3>Featured by 8 Days</h3><p>Live seafood market experience with Fai Kee cooking collaboration.</p></div>
-        </a>
-        <a class="feature-card" href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener">
-          <img src="/images/feature-botak-jazz-tiktok.jpg" alt="Crab Talk TikTok videos">
-          <div><h3>Follow our TikTok</h3><p>Daily live seafood arrivals, crab videos and market updates.</p></div>
-        </a>
-        <a class="feature-card" href="/blog/commonwealth-crescent-food-guide">
-          <img src="/images/Commonwealth.JPG" alt="Commonwealth Crescent Market food guide">
-          <div><h3>Commonwealth Food Guide</h3><p>Explore the market stalls around Crab Talk and Fai Kee.</p></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section-head">
-        <h2>How It Works</h2>
-        <p>A simple wet market seafood experience for customers who want freshness and flexibility.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><b>1</b><h3>Choose</h3><p>Select live seafood directly from our tanks.</p></div>
-        <div class="step"><b>2</b><h3>Prepare</h3><p>Ask us about cleaning and packing options.</p></div>
-        <div class="step"><b>3</b><h3>Cook</h3><p>Bring home or ask about nearby cooking options.</p></div>
-        <div class="step"><b>4</b><h3>Enjoy</h3><p>Fresh seafood for family meals, gatherings and celebrations.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <div class="section-head"><h2>Why Crab Talk?</h2><p>Premium seafood should be seen, selected and trusted before purchase.</p></div>
-      <div class="why-grid">
-        <div class="why">Live tanks</div>
-        <div class="why">Daily arrivals</div>
-        <div class="why">5.0★ reviews</div>
-        <div class="why">Featured by 8 Days</div>
-        <div class="why">WhatsApp before visiting</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="section-head">
-        <h2>Customer Trust</h2>
-        <p>Real customers visit Crab Talk for live crabs, roe crabs, lobsters and premium seafood at Commonwealth Crescent Market.</p>
-      </div>
-      <div class="review-grid">
-        <div class="review"><div class="stars">★★★★★</div><p>Fresh live seafood, honest recommendations and a unique market experience.</p><strong>Google Review</strong></div>
-        <div class="review"><div class="stars">★★★★★</div><p>Great place to choose crabs and seafood directly from the tanks.</p><strong>Google Review</strong></div>
-        <div class="review"><div class="stars">★★★★★</div><p>Convenient location with live seafood and nearby cooking options.</p><strong>Google Review</strong></div>
-      </div>
-      <div style="margin-top:24px"><a class="btn btn-primary" href="https://g.page/r/CSHPT3CVB1CjEAE/review" target="_blank" rel="noopener">Read All Google Reviews</a></div>
-    </div>
-  </section>
-
-  <section class="social-strip" id="social">
-    <div class="container social-inner">
-      <div>
-        <p class="kicker">Follow Crab Talk</p>
-        <h2>Fresh arrivals, daily videos & seafood drops</h2>
-        <p>Follow us for live crab arrivals, roe crab updates, lobster drops, oysters, TikTok videos, Telegram alerts and WhatsApp availability checks.</p>
-      </div>
-      <div class="social-links">
-        <a href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://www.instagram.com/liveseafoodsupply_crabtalksg/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/p/Crab-Talk-61575561066703/" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener">Telegram</a>
-        <a href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability." target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="visit">
-    <div class="container">
-      <div class="section-head"><h2>Visit Crab Talk</h2><p>Located inside Commonwealth Crescent Market. WhatsApp before coming down to check today’s live seafood availability.</p></div>
-      <div class="visit">
-        <div class="visit-card">
-          <h3>Address</h3>
-          <p><strong>Live Seafood Supply @ Crab Talk</strong><br>31 Commonwealth Crescent Market<br>#01-41 / 42 / 43<br>Singapore 149644</p>
-          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=31%20Commonwealth%20Crescent%20Singapore%20149644" target="_blank" rel="noopener">Get Directions</a>
-        </div>
-        <div class="visit-card">
-          <h3>Popular Guides</h3>
-          <ul>
-            <li><a href="/live-mud-crab-singapore">Live Mud Crab Singapore</a></li>
-            <li><a href="/yellow-roe-crab-singapore">Sri Lanka Yellow Roe Crab Singapore</a></li>
-            <li><a href="/live-lobster-singapore">Live Lobster Singapore</a></li>
-            <li><a href="/live-seafood-singapore">Live Seafood Singapore Guide</a></li>
-            <li><a href="/blog/">Seafood Blog</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div><strong>Crab Talk SG</strong><br><span>Live Seafood Supply @ Commonwealth Crescent Market</span></div>
-    <div class="footer-links">
-      <a href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener">TikTok</a>
-      <a href="https://www.instagram.com/liveseafoodsupply_crabtalksg/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/p/Crab-Talk-61575561066703/" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener">Telegram</a>
-    </div>
-  </div>
+<footer>
+<div class="container footer-grid">
+<div><strong><span>Crab Talk SG</span></strong><br/><span>Live Seafood Supply @ Commonwealth Crescent Market</span></div>
+<div class="footer-links">
+<a href="https://www.tiktok.com/@liveseafood_crabtalksg" onclick="trackClick('footer_tiktok')" rel="noopener" target="_blank"><span>TikTok</span></a>
+<a href="https://www.facebook.com/61575561066703/" onclick="trackClick('footer_facebook')" rel="noopener" target="_blank"><span>Facebook</span></a>
+<a href="https://t.me/CrabTalkSG" onclick="trackClick('footer_telegram')" rel="noopener" target="_blank"><span>Telegram</span></a>
+<a href="https://g.page/r/CSHPT3CVB1CjEAE/review" onclick="trackClick('footer_review')" rel="noopener" target="_blank"><span>Review Us</span></a>
+</div>
+</div>
 </footer>
+<a class="float-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F" onclick="trackClick('floating_whatsapp')"><span>Check Today’s Availability</span></a>
 
-<a class="float-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F">Check Today’s Availability</a>
 
-<script>
-(function () {
-  var CRABTALK_WHATSAPP_CONVERSION = 'AW-799808799/VS8rCKrimLYcEJ-6sP0C';
 
-  function isWhatsAppLink(link) {
-    if (!link || !link.href) return false;
-    return link.href.indexOf('wa.me') !== -1 || link.href.indexOf('api.whatsapp.com') !== -1;
-  }
-
-  function openWhatsApp(link) {
-    var target = link.getAttribute('target');
-    if (target === '_blank') {
-      window.open(link.href, '_blank', 'noopener');
-    } else {
-      window.location.href = link.href;
-    }
-  }
-
-  document.addEventListener('click', function (event) {
-    var link = event.target.closest ? event.target.closest('a') : null;
-    if (!isWhatsAppLink(link)) return;
-
-    if (link.dataset.conversionSent === 'true') return;
-    link.dataset.conversionSent = 'true';
-    event.preventDefault();
-
-    var opened = false;
-    var continueToWhatsApp = function () {
-      if (opened) return;
-      opened = true;
-      openWhatsApp(link);
-    };
-
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        send_to: CRABTALK_WHATSAPP_CONVERSION,
-        event_callback: continueToWhatsApp
-      });
-      setTimeout(continueToWhatsApp, 800);
-    } else {
-      continueToWhatsApp();
-    }
-  }, true);
-})();
-</script>
 </body>
 </html>
