@@ -775,6 +775,19 @@ body a[href*="wa.me"][style*="position: fixed"]{
   }
 }
 </style>
+
+<style>
+.ct-social-strip{padding:54px 20px;background:linear-gradient(135deg,#062f2e,#0b4f4b);color:#fff}
+.ct-social-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.ct-social-copy h2{margin:8px 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.04em;color:#fff}
+.ct-social-copy p{margin:0;color:rgba(255,255,255,.82);font-size:17px;line-height:1.65}
+.ct-social-copy .ct-kicker{color:#f6c76a;text-transform:uppercase;letter-spacing:.14em;font-weight:900;font-size:13px;margin:0}
+.ct-social-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ct-social-links a{display:flex;align-items:center;justify-content:center;min-height:54px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-weight:900;letter-spacing:.01em;box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.ct-social-links a:hover{background:#f6c76a;color:#062f2e}
+@media(max-width:760px){.ct-social-inner{grid-template-columns:1fr}.ct-social-links{grid-template-columns:1fr 1fr}.ct-social-strip{padding:38px 16px}}
+</style>
+
 </head>
 <body class="en">
 <header class="topbar">
@@ -1170,6 +1183,24 @@ body a[href*="wa.me"][style*="position: fixed"]{
 @media(max-width:620px){.seo-link-grid{grid-template-columns:1fr}.seo-link-panel{padding:22px;border-radius:24px}}
 </style>
 
+
+<section class="ct-social-strip" aria-label="Crab Talk social media links">
+  <div class="ct-social-inner">
+    <div class="ct-social-copy">
+      <p class="ct-kicker">Follow Crab Talk</p>
+      <h2>Fresh live seafood updates, daily arrivals & videos</h2>
+      <p>Follow our social channels for live crab arrivals, roe crab updates, lobster drops, oysters, market videos and seafood cooking ideas.</p>
+    </div>
+    <div class="ct-social-links">
+      <a href="https://www.tiktok.com/@liveseafood_crabtalksg?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk TikTok">TikTok</a>
+      <a href="https://www.instagram.com/liveseafoodsupply_crabtalksg/" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Instagram">Instagram</a>
+      <a href="https://www.facebook.com/p/Crab-Talk-61575561066703/" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Facebook">Facebook</a>
+      <a href="https://t.me/CrabTalkSG" target="_blank" rel="noopener noreferrer" aria-label="Crab Talk Telegram">Telegram</a>
+      <a href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20would%20like%20to%20check%20today%27s%20live%20seafood%20availability." target="_blank" rel="noopener noreferrer" aria-label="Crab Talk WhatsApp">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <footer>
 <div class="container footer-grid">
 <div><strong><span>Crab Talk SG</span></strong><br/><span>Live Seafood Supply @ Commonwealth Crescent Market</span></div>
@@ -1184,53 +1215,6 @@ body a[href*="wa.me"][style*="position: fixed"]{
 <a class="float-wa" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20can%20I%20check%20today%27s%20availability%3F" onclick="trackClick('floating_whatsapp')"><span>Check Today’s Availability</span></a>
 
 
-
-
-<script>
-(function () {
-  var CRABTALK_WHATSAPP_CONVERSION = 'AW-799808799/VS8rCKrimLYcEJ-6sP0C';
-
-  function isWhatsAppLink(link) {
-    if (!link || !link.href) return false;
-    return link.href.indexOf('wa.me') !== -1 || link.href.indexOf('api.whatsapp.com') !== -1;
-  }
-
-  function openWhatsApp(link) {
-    var target = link.getAttribute('target');
-    if (target === '_blank') {
-      window.open(link.href, '_blank', 'noopener');
-    } else {
-      window.location.href = link.href;
-    }
-  }
-
-  document.addEventListener('click', function (event) {
-    var link = event.target.closest ? event.target.closest('a') : null;
-    if (!isWhatsAppLink(link)) return;
-
-    if (link.dataset.conversionSent === 'true') return;
-    link.dataset.conversionSent = 'true';
-    event.preventDefault();
-
-    var opened = false;
-    var continueToWhatsApp = function () {
-      if (opened) return;
-      opened = true;
-      openWhatsApp(link);
-    };
-
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'conversion', {
-        send_to: CRABTALK_WHATSAPP_CONVERSION,
-        event_callback: continueToWhatsApp
-      });
-      setTimeout(continueToWhatsApp, 800);
-    } else {
-      continueToWhatsApp();
-    }
-  }, true);
-})();
-</script>
 
 </body>
 </html>
