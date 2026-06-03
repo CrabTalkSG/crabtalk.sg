@@ -68,6 +68,46 @@
       "source": "/crab-supplier-singapore.html",
       "destination": "/crab-supplier-singapore",
       "permanent": true
+    },
+    {
+      "source": "/alaska-king-crab-singapore.html",
+      "destination": "/alaska-king-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-lobster-singapore.html",
+      "destination": "/live-lobster-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-mud-crab-singapore.html",
+      "destination": "/live-mud-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-seafood-singapore.html",
+      "destination": "/live-seafood-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/manila-clams-singapore.html",
+      "destination": "/manila-clams-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/soon-hock-fish-singapore.html",
+      "destination": "/soon-hock-fish-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zh/",
+      "destination": "/zh",
+      "permanent": true
+    },
+    {
+      "source": "/ja/",
+      "destination": "/ja",
+      "permanent": true
     }
   ]
 }
