@@ -1,0 +1,8 @@
+Crab Talk website cleanup completed on 2026-06-04.
+
+Changes made:
+- Homepage simplified: removed duplicate hidden blog guide section, removed extra large SEO directory section, reduced review cards on homepage, and clarified buyer path.
+- Homepage content focused on live crab, yellow roe crab, live seafood Singapore, Commonwealth Crescent Market and WhatsApp stock checks.
+- Added buyer-focused SEO content to live crab, yellow roe crab, live lobster, live seafood, Alaska king crab, Manila clams and Soon Hock pages.
+- Updated sitemap lastmod dates.
+- No image files were edited or replaced. Existing /images assets were preserved.
