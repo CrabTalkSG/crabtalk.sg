@@ -95,6 +95,11 @@
       "permanent": true
     },
     {
+      "source": "/fresh-oysters-singapore.html",
+      "destination": "/fresh-oysters-singapore",
+      "permanent": true
+    },
+    {
       "source": "/manila-clams-singapore.html",
       "destination": "/manila-clams-singapore",
       "permanent": true
