@@ -45,6 +45,11 @@
       "permanent": true
     },
     {
+      "source": "/mod-keaw-live-crab.html",
+      "destination": "/mod-keaw-live-crab",
+      "permanent": true
+    },
+    {
       "source": "/yellow-roe-crab-singapore.html",
       "destination": "/yellow-roe-crab-singapore",
       "permanent": true

@@ -1,0 +1,19 @@
+Crab Talk x Mod Keaw collaboration update - 2026-06-08
+
+Files changed:
+- index.html: added homepage add-on dine-in collaboration section and nav link.
+- mod-keaw-live-crab.html: new dedicated collaboration page.
+- sitemap.xml: added /mod-keaw-live-crab and updated homepage lastmod.
+- vercel.json: added clean URL redirect for /mod-keaw-live-crab.html.
+
+Important positioning:
+- Mod Keaw is presented as an added dine-in option at 243 Cantonment Road.
+- Page states clearly this does not replace Fai Kee or home-cooking customers.
+- Crab Talk remains positioned as the live seafood stall at Commonwealth Crescent Market.
+
+Promotion included:
+- 2 live crabs (about 450g each) - $68
+- 1 big 800g crab - $78
+- 2 big 800g crabs - $138
+- CTMK / show promo video for free mantou
+- Reservation: 80886243
