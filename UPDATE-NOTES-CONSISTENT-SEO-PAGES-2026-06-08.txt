@@ -1,0 +1,29 @@
+Crab Talk consistency update - 2026-06-08
+
+Scope:
+- Standardised the English SEO page layout and visual format across the main product and buying-intent pages.
+- Kept existing image files and image paths unchanged. No image assets were replaced, renamed or deleted.
+- Used the same premium page structure for hero, CTA, buying guide, checklist, planning copy, trust panel, FAQs and related guides.
+- Added stronger internal links across the live seafood cluster.
+- Kept Crab Talk x Mod Keaw clearly positioned as an additional dine-in option, not a replacement for the Commonwealth Crescent stall.
+
+Updated pages:
+- /live-seafood-singapore
+- /live-crab-singapore
+- /yellow-roe-crab-singapore
+- /live-lobster-singapore
+- /fresh-oysters-singapore
+- /manila-clams-singapore
+- /soon-hock-fish-singapore
+- /alaska-king-crab-singapore
+- /live-mud-crab-singapore
+- /fresh-crab-singapore
+- /buy-live-crab-singapore
+- /crab-supplier-singapore
+- /mod-keaw-live-crab
+
+After deployment:
+- Check the pages above on desktop and mobile.
+- Confirm the hero images still appear correctly.
+- Inspect /live-lobster-singapore, /fresh-oysters-singapore and /mod-keaw-live-crab first.
+- Request indexing for the updated high-priority pages in Google Search Console.
