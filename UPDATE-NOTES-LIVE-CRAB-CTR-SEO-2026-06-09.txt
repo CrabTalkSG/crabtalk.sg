@@ -1,0 +1,15 @@
+Crab Talk live crab SEO update - 2026-06-09
+
+Updated file:
+- live-crab-singapore.html
+
+Changes made:
+- Improved title tag and meta description for better click-through from Google Search.
+- Strengthened hero copy for “Live Crab Singapore”, “fresh live crabs from tanks”, and Commonwealth Crescent Market intent.
+- Added clearer local-intent content: where to buy, how to reserve, how to choose live crab by cooking style.
+- Added stronger internal links to yellow roe crab, live lobster, Manila clams, Soon Hock, live seafood, buy live crab and crab supplier pages.
+- Expanded FAQ content and matching FAQPage structured data.
+- Updated LocalBusiness description to support live crab / live tank relevance.
+- Updated sitemap lastmod for /live-crab-singapore to 2026-06-09.
+
+Images were not changed, renamed, deleted or replaced.
