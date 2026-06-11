@@ -1,0 +1,25 @@
+Crab Talk Soon Hock SEO Update - 2026-06-11
+
+Files updated:
+- soon-hock-fish-singapore.html
+- sitemap.xml
+
+Purpose:
+Improve CTR and relevance for Search Console queries around Soon Hock fish, Soon Hock price per kg, why Soon Hock is expensive, Soon Hock Chinese name, and live Soon Hock Singapore.
+
+Main changes:
+- Updated title to: Live Soon Hock Fish Singapore | Marble Goby Price & Availability | Crab Talk
+- Updated meta description and Open Graph description.
+- Strengthened hero copy around live Soon Hock, marble goby and 笋壳鱼.
+- Added explanations for what Soon Hock is, why it is expensive, and why price per kg changes.
+- Added FAQ content and FAQ schema for:
+  - What is Soon Hock fish?
+  - What is Soon Hock fish in Chinese?
+  - Why is Soon Hock so expensive?
+  - How much is Soon Hock fish per kg in Singapore?
+  - Where can I buy live Soon Hock in Singapore?
+  - Best way to cook Soon Hock.
+- Added stronger WhatsApp CTA for price and availability.
+- Updated sitemap lastmod for /soon-hock-fish-singapore to 2026-06-11.
+
+Images unchanged. Existing page design and structure preserved.
