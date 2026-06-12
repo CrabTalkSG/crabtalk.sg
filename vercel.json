@@ -60,6 +60,31 @@
       "permanent": true
     },
     {
+      "source": "/blog/best-lobster-cooking-styles-singapore/",
+      "destination": "/blog/best-lobster-cooking-styles-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/blog/best-way-to-eat-yellow-roe-crab-singapore/",
+      "destination": "/blog/best-way-to-eat-yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-yellow-roe-crab-is-expensive/",
+      "destination": "/blog/why-yellow-roe-crab-is-expensive",
+      "permanent": true
+    },
+    {
+      "source": "/zh/yellow-roe-crab-singapore/",
+      "destination": "/zh/yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/ja/yellow-roe-crab-singapore/",
+      "destination": "/ja/yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
       "source": "/live-crab-singapore.html",
       "destination": "/live-crab-singapore",
       "permanent": true
