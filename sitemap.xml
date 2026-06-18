@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://www.crabtalk.sg/soon-hock-fish-singapore</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -249,6 +249,12 @@
   <url>
     <loc>https://www.crabtalk.sg/blog/yellow-roe-crab-vs-red-roe-crab</loc>
     <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.crabtalk.sg/blog/soon-hock-fish-english-chinese-marble-goby</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
