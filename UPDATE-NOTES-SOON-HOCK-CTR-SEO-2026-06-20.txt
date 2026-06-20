@@ -1,0 +1,20 @@
+Soon Hock page SEO CTR update - 2026-06-20
+
+Updated only: soon-hock-fish-singapore.html and sitemap.xml.
+
+Reason:
+Search Console showed 491 impressions / 4 clicks for Soon Hock page with strong informational queries:
+- soon hock fish
+- marble goby in chinese
+- soon hock fish in english
+- what is soon hock fish in english
+- soon hock fish in chinese
+
+Changes made:
+- Updated SEO title and meta description to answer English/Chinese name queries more clearly.
+- Made hero copy more human and direct.
+- Added a prominent Quick Answer section: Soon Hock = marble goby = 笋壳鱼.
+- Added visible FAQ answers for English name, Chinese name, and whether Soon Hock is marble goby.
+- Expanded FAQ schema to include exact query wording.
+- Kept page design and existing image intact.
+- Updated sitemap lastmod for /soon-hock-fish-singapore to 2026-06-20.
