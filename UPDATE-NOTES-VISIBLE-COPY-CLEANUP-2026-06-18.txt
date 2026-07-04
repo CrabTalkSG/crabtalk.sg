@@ -1,6 +1,0 @@
-Visible copy cleanup on 2026-06-18
-
-- Removed customer-visible internal SEO wording from live-crab-singapore.html.
-- Replaced internal-link phrasing with customer-facing wording.
-- Removed duplicated longform article blocks from three blog pages that were showing repeated H1/content.
-- Kept meta descriptions, FAQ schema, sitemap, design, images and core SEO structure intact.
