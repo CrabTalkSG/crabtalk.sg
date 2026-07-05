@@ -40,6 +40,46 @@
   ],
   "redirects": [
     {
+      "source": "/jayellow-roe-crab-singapore",
+      "destination": "/ja/yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zhyellow-roe-crab-singapore",
+      "destination": "/zh/yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/jaalaska-king-crab-singapore",
+      "destination": "/ja/alaska-king-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zhalaska-king-crab-singapore",
+      "destination": "/zh/alaska-king-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/jalive-lobster-singapore",
+      "destination": "/ja/live-lobster-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zhlive-lobster-singapore",
+      "destination": "/zh/live-lobster-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/jalive-mud-crab-singapore",
+      "destination": "/ja/live-mud-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zhlive-mud-crab-singapore",
+      "destination": "/zh/live-mud-crab-singapore",
+      "permanent": true
+    },
+    {
       "source": "/featured-crab-talk-singapore.html",
       "destination": "/featured-crab-talk-singapore",
       "permanent": true
