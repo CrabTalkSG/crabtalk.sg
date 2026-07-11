@@ -155,6 +155,11 @@
       "permanent": true
     },
     {
+      "source": "/kelong-sotong-singapore.html",
+      "destination": "/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
       "source": "/zh/",
       "destination": "/zh",
       "permanent": true
@@ -162,6 +167,26 @@
     {
       "source": "/ja/",
       "destination": "/ja",
+      "permanent": true
+    },
+    {
+      "source": "/zhkelong-sotong-singapore",
+      "destination": "/zh/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/jakelong-sotong-singapore",
+      "destination": "/ja/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zh/kelong-sotong-singapore.html",
+      "destination": "/zh/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/ja/kelong-sotong-singapore.html",
+      "destination": "/ja/kelong-sotong-singapore",
       "permanent": true
     }
   ]

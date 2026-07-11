@@ -678,6 +678,11 @@ body.ct-use-small-guides .blog-preview#blog-guides{display:none!important}
 .ct-choice-note strong{display:block;margin-bottom:3px;color:var(--deep)}.ct-choice-note p{margin:0;color:#64748b;font-size:.88rem;line-height:1.5}
 @media(max-width:920px){.ct-deals{grid-template-columns:1fr 1fr}.ct-collab-thumbs{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.ct-collab-section{padding:26px 0}.ct-deals{grid-template-columns:1fr}.ct-collab-thumbs{grid-template-columns:1fr 1fr}.ct-collab-thumbs img{height:105px}.ct-collab-panel{padding:18px}.ct-collab-actions .pill{width:100%}}
+
+.ct-sotong-feature{padding:54px 0;background:linear-gradient(135deg,#eaf8ff 0%,#ffffff 48%,#fff7d9 100%);border-bottom:1px solid rgba(11,70,96,.10)}
+.ct-sotong-card{width:min(1180px,calc(100% - 32px));margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;background:#fff;border:1px solid rgba(11,70,96,.12);border-radius:34px;padding:26px;box-shadow:0 22px 60px rgba(11,70,96,.12)}
+.ct-sotong-copy .kicker{display:inline-flex;border-radius:999px;background:#fff3c4;color:#7a5200;padding:8px 13px;font-size:12px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.ct-sotong-copy h2{font-size:clamp(34px,5vw,62px);line-height:1.02;letter-spacing:-.055em;color:#0b4660;margin:0 0 14px}.ct-sotong-copy p{font-size:18px;color:#536763;margin:0 0 18px}.ct-sotong-price{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0}.ct-sotong-price div{background:#f0faff;border:1px solid rgba(11,70,96,.12);border-radius:18px;padding:14px;text-align:center;font-weight:900;color:#0b4660}.ct-sotong-price strong{display:block;font-size:24px;color:#0b4660}.ct-sotong-actions{display:flex;gap:12px;flex-wrap:wrap}.ct-sotong-actions a{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 20px;text-decoration:none;font-weight:950}.ct-sotong-actions .primary{background:#25d366;color:#063326}.ct-sotong-actions .soft{background:#e9f5f9;color:#0b4660}.ct-sotong-media{display:grid;grid-template-columns:.78fr 1.22fr;gap:14px;align-items:stretch}.ct-sotong-media img{width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:24px;border:1px solid rgba(11,70,96,.12);background:#fff}.ct-sotong-media img:first-child{object-fit:contain}.ct-sotong-note{font-size:13px!important;color:#6f8590!important;margin-top:14px!important}@media(max-width:900px){.ct-sotong-card,.ct-sotong-media{grid-template-columns:1fr}.ct-sotong-price{grid-template-columns:repeat(2,minmax(0,1fr))}.ct-sotong-media img{min-height:230px}}
 </style></head>
 <body class="en ct-use-small-guides">
 <header class="topbar">
@@ -734,12 +739,38 @@ body.ct-use-small-guides .blog-preview#blog-guides{display:none!important}
 </div>
 </div>
 </section>
+<section class="ct-sotong-feature" id="kelong-sotong-feature">
+  <div class="ct-sotong-card">
+    <div class="ct-sotong-copy">
+      <span class="kicker">New frozen seafood deal</span>
+      <h2>Kelong Sotong for Easy Home Cooking</h2>
+      <p>Freshly frozen squids direct from kelong. A practical freezer item for salt-water boil, sambal sotong, ginger spring onion stir-fry, grilling or simple weekday seafood meals.</p>
+      <div class="ct-sotong-price" aria-label="Kelong Sotong product highlights">
+        <div><strong>$12</strong>per box</div>
+        <div><strong>500g</strong>per box</div>
+        <div><strong>~10</strong>pieces</div>
+        <div><strong>~5”</strong>each</div>
+      </div>
+      <div class="ct-sotong-actions">
+        <a class="primary" href="https://wa.me/6598398671?text=Hi%20Crab%20Talk%2C%20I%20want%20to%20reserve%20kelong%20sotong%20%2F%20frozen%20squids." onclick="trackClick('home_kelong_sotong_whatsapp')">Reserve Kelong Sotong</a>
+        <a class="soft" href="/kelong-sotong-singapore" onclick="trackClick('home_kelong_sotong_page')">View Product Page</a>
+        <a class="soft" href="/blog/frozen-squid-singapore-sotong-from-kelong" onclick="trackClick('home_kelong_sotong_blog')">Read Cooking Guide</a>
+      </div>
+      <p class="ct-sotong-note">While stocks last. Keep frozen at -18°C or below. WhatsApp before visiting to avoid wasted trip.</p>
+    </div>
+    <div class="ct-sotong-media">
+      <img src="/images/kelong-sotong-frozen-squids-poster.png" alt="Freshly frozen squids direct from kelong poster">
+      <img src="/images/kelong-sotong-frozen-squids-tray.jpg" alt="Actual box of kelong sotong frozen squids">
+    </div>
+  </div>
+</section>
+
 <section class="seo-rich" id="today-arrivals">
 <div class="section-inner">
 <h2>
 <span>Looking for Live Crab in Singapore?</span>
 </h2>
-<p>Crab Talk is a live seafood stall at Commonwealth Crescent Market where customers can choose live crabs directly from our tanks. WhatsApp before visiting to check today’s live mud crab, yellow roe crab, lobster, Manila clam, Soon Hock and premium seafood availability.</p>
+<p>Crab Talk is a live seafood stall at Commonwealth Crescent Market where customers can choose live crabs directly from our tanks. WhatsApp before visiting to check today’s live mud crab, yellow roe crab, lobster, Manila clam, Soon Hock, kelong squids and premium seafood availability.</p>
 <div class="seo-keywords">
 <a class="seo-keyword-link" href="/yellow-roe-crab-singapore"><span>Sri Lanka Yellow Roe Crabs</span></a>
 <a class="seo-keyword-link" href="/live-crab-singapore"><span>Live Crab</span></a>
@@ -747,6 +778,7 @@ body.ct-use-small-guides .blog-preview#blog-guides{display:none!important}
 <a class="seo-keyword-link" href="/manila-clams-singapore"><span>Manila Clams</span></a>
 <a class="seo-keyword-link" href="/soon-hock-fish-singapore"><span>Soon Hock Fish</span></a>
 <a class="seo-keyword-link" href="/fresh-oysters-singapore"><span>Fresh Oysters</span></a>
+<a class="seo-keyword-link" href="/kelong-sotong-singapore"><span>Kelong Sotong / Frozen Squids</span></a>
 <a class="seo-keyword-link" href="/alaska-king-crab-singapore"><span>Alaska King Crab</span></a>
 </div>
 </div>
@@ -786,6 +818,7 @@ body.ct-use-small-guides .blog-preview#blog-guides{display:none!important}
 <article class="card"><img alt="Fresh oysters at Crab Talk" class="photo js-img" data-file="product-oysters-new.jpg" src="/images/product-oysters-new.jpg"/><div class="card-body"><span class="tag"><span>Oysters</span></span><h3><span>Fresh Oysters</span></h3><p>Ask what premium oysters are available today.</p><a class="pill pill-soft" href="/fresh-oysters-singapore" onclick="trackClick('home_fresh_oysters_card')"><span>Fresh Oysters Guide</span></a></div></article>
 <article class="card"><img alt="Manila clams" class="photo js-img" data-file="product-manila-clams-new.jpg" src="/images/product-manila-clams-new.jpg"/><div class="card-body"><span class="tag"><span>Shellfish</span></span><h3><span>Canadian Manila Clams</span></h3><p><span>Good for steaming, chilli, black bean or ginger onion style cooking.</span></p><a class="pill pill-soft" href="/manila-clams-singapore" onclick="trackClick('home_manila_clams_card')"><span>Manila Clams Guide</span></a></div></article>
 <article class="card"><img alt="Live Soon Hock" class="photo js-img" data-file="product-live-soon-hock-premium-fish.jpg" src="/images/product-live-soon-hock-premium-fish.jpg"/><div class="card-body"><span class="tag"><span>Live Fish</span></span><h3><span>Soon Hock</span></h3><p>Premium live fish, popular for Hong Kong-style steaming.</p><a class="pill pill-soft" href="/soon-hock-fish-singapore" onclick="trackClick('home_soon_hock_card')"><span>Soon Hock Guide</span></a></div></article>
+<article class="card"><img alt="Kelong Sotong / Frozen Squids" class="photo js-img" data-file="kelong-sotong-frozen-squids-tray.jpg" src="/images/kelong-sotong-frozen-squids-tray.jpg"/><div class="card-body"><span class="tag"><span>Frozen Seafood</span></span><h3><span>Kelong Sotong</span></h3><p>Freshly frozen squids, about 500g per box and great for home cooking.</p><a class="pill pill-soft" href="/kelong-sotong-singapore" onclick="trackClick('home_kelong_sotong_card')"><span>Kelong Sotong Guide</span></a></div></article>
 <article class="card"><img alt="Alaskan King Crab" class="photo js-img" data-file="Alaska King Crab.jpeg" src="/images/Alaska%20King%20Crab.jpeg"/><div class="card-body"><span class="tag"><span>Premium</span></span><h3><span>Alaskan King Crab</span></h3><p><span>Premium seafood option. Pre-order or WhatsApp to check before visiting.</span></p></div></article>
 </div>
 </div>
@@ -869,6 +902,7 @@ body.ct-use-small-guides .blog-preview#blog-guides{display:none!important}
       <a href="/yellow-roe-crab-singapore">Yellow Roe Crab Singapore<span>Sri Lanka roe crab availability and tips.</span></a>
       <a href="/live-lobster-singapore">Live Lobster Singapore<span>Live lobster options and cooking styles.</span></a>
       <a href="/soon-hock-fish-singapore">Soon Hock Fish Singapore<span>Live Marble Goby for steaming and family meals.</span></a>
+      <a href="/kelong-sotong-singapore">Kelong Sotong Singapore<span>Freshly frozen squids direct from kelong for easy home cooking.</span></a>
       <a href="/manila-clams-singapore">Manila Clams Singapore<span>Fresh clams for home cooking.</span></a>
       <a href="/fresh-oysters-singapore">Fresh Oysters Singapore<span>Premium oysters and seafood platter options.</span></a>
     </div>
