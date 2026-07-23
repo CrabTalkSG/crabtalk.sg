@@ -36,6 +36,15 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/media/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, stale-while-revalidate=86400"
+        }
+      ]
     }
   ],
   "redirects": [
@@ -187,6 +196,21 @@
     {
       "source": "/ja/kelong-sotong-singapore.html",
       "destination": "/ja/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-prawns-singapore.html",
+      "destination": "/live-prawns-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/zh/live-prawns-singapore.html",
+      "destination": "/zh/live-prawns-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/ja/live-prawns-singapore.html",
+      "destination": "/ja/live-prawns-singapore",
       "permanent": true
     }
   ]
