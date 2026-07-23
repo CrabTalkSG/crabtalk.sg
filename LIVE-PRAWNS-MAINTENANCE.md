@@ -1,51 +1,48 @@
 # Live Prawns Website Maintenance
 
-This site now has a dedicated live Vannamei prawn SEO cluster. Keep the product page live even when a batch sells out; update the availability and reservation message instead of deleting the page.
+The live-prawn pages are designed to stay evergreen. Do not add temporary stock quantities to page titles, descriptions, headings, structured data or permanent website copy.
 
-## Main files
+## Current core product details
 
-- `live-prawns-singapore.html` — primary English product and SEO landing page
-- `zh/live-prawns-singapore/index.html` — Chinese landing page
-- `ja/live-prawns-singapore/index.html` — Japanese landing page
-- `blog/live-vannamei-prawns-singapore/index.html` — evergreen supporting guide
-- `index.html` — homepage featured-product block
-- `live-seafood-singapore.html` — category page links and product coverage
-- `media/live-vannamei-prawns-singapore.mp4` — embedded product video
-- `sitemap.xml` — URLs submitted to search engines
+- Product: Live Vannamei prawns
+- Featured price: S$38/kg
+- Featured size: approximately 20 prawns per kg
+- Ordering: pre-orders welcome
+- Larger quantities: can be arranged with advance notice
 
-## When price, size or stock changes
+## Files to update when price or size changes
 
-Search the repository for the current values before deployment:
+- `live-prawns-singapore.html`
+- `zh/live-prawns-singapore/index.html`
+- `ja/live-prawns-singapore/index.html`
+- `blog/live-vannamei-prawns-singapore/index.html`
+- `index.html`
+- `live-seafood-singapore.html`
+
+Search before deployment:
 
 ```bash
-grep -RIn --exclude-dir=.git -E '\$38|20 (pieces|prawns)|20尾|20只|10kg|LimitedAvailability' .
+grep -RIn --exclude-dir=.git -E '\$38|20 (pieces|prawns)|20尾|20只|price.:.38' .
 ```
 
-Update visible copy and structured data together:
+## Photo policy
 
-1. Price: update `$38/kg` and the Product schema `offers.price`.
-2. Approximate count: update `20 per kg` everywhere if the size grade changes.
-3. Stock: update the current-batch quantity in English, Chinese and Japanese pages plus the homepage feature.
-4. Availability:
-   - Available but limited: `https://schema.org/LimitedAvailability`
-   - Sold out temporarily: `https://schema.org/OutOfStock`
-   - Regularly available: `https://schema.org/InStock`
-5. WhatsApp pre-filled messages: update the quoted price or product wording when needed.
+Use Crab Talk’s real product photos and real tank footage. The main assets are:
 
-Do not remove the page when stock is temporarily unavailable. Change the hero and call-to-action to “Join the next-batch list” or “WhatsApp for the next arrival” so the URL can continue ranking.
+- `images/live-vannamei-prawns-hero.webp`
+- `images/live-vannamei-prawns-size.webp`
+- `images/live-vannamei-prawns-tank.webp`
+- `images/live-vannamei-prawns-social.jpg`
+- `media/live-vannamei-prawns-singapore.mp4`
 
-## After deployment
+## Structured data
 
-1. Open these URLs and check desktop and mobile display:
-   - `/live-prawns-singapore`
-   - `/zh/live-prawns-singapore`
-   - `/ja/live-prawns-singapore`
-   - `/blog/live-vannamei-prawns-singapore`
-2. Test every WhatsApp button and confirm the `whatsapp_click` event in GA4 Realtime.
-3. In Google Search Console, inspect the four URLs and request indexing.
-4. Resubmit `https://www.crabtalk.sg/sitemap.xml`.
-5. Validate the English product page with Google's Rich Results Test after any schema edit.
+Keep the Product offer price aligned with the visible page price. If the item is temporarily unavailable and cannot be ordered, change `InStock` to `OutOfStock`. If advance orders remain available, keep the page wording focused on pre-ordering and supply arrangement rather than artificial scarcity.
 
-## Recommended content rhythm
+## Deployment checks
 
-Keep the commercial page stable. Add new arrival photos, customer cooking results and short updates to social channels, then link users back to `/live-prawns-singapore`. Create a new blog article only when it answers a different search intent, such as live prawns versus frozen prawns, prawn size grades, or how to keep live prawns before cooking.
+1. Open the English, Chinese and Japanese product pages on desktop and mobile.
+2. Confirm all WhatsApp buttons open the correct pre-order message.
+3. Confirm the video loads and the poster image is visible.
+4. Validate Product, FAQ, Breadcrumb and Video structured data.
+5. Submit the product page and sitemap in Google Search Console after material changes.
