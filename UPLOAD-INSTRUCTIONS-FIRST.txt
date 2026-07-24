@@ -1,0 +1,18 @@
+CRAB TALK WEBSITE — DEPLOY TO GITHUB ROOT
+
+IMPORTANT:
+1. Extract this ZIP.
+2. Open GitHub repository: CrabTalkSG/crabtalk.sg, branch main.
+3. Choose Add file > Upload files.
+4. Select ALL CONTENTS INSIDE the extracted folder — index.html, vercel.json, assets, images, blog, zh, ja, media, and all product pages.
+5. Do NOT upload another enclosing crabtalk.sg folder.
+6. Commit directly to main.
+7. In GitHub root, open index.html and confirm the heading reads:
+   A Focused Range of Seafood Worth Coming For
+8. Vercel should deploy automatically. Verify the latest production deployment uses the new commit.
+
+Correct hours in this package:
+Monday 12PM–5PM
+Tuesday–Thursday 8AM–7PM
+Friday–Saturday 8AM–8PM
+Sunday 8AM–5PM

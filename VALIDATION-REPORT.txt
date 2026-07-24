@@ -1,0 +1,40 @@
+Crab Talk Focused Website Validation
+Date: 2026-07-24
+
+Scope checked
+- 56 HTML pages
+- All JSON-LD blocks parse successfully
+- All internal links resolve to a file or configured redirect
+- All referenced images exist
+- All pages include a title, meta description, canonical URL and H1
+- Correct operating-hours schema is present throughout
+- No retired product terms remain in HTML content
+- Homepage and product directory contain the exact approved focus list
+
+Approved product focus
+- Mud Crab
+- Yellow Roe Crab
+- Red Roe Crab
+- Double Shell Crab
+- Alaskan King Crab
+- Live Vannamei Prawns
+- Green Lobster
+- Boston Lobster
+- Australian Rock Lobster
+- Fanny Bay Sunseeker Oysters
+- Coffin Bay Oysters
+- Seasonal Oysters
+- Manila Clams
+- Soon Hock
+- Patin
+- Turbot
+- Freshly Frozen Kelong Sotong
+- Brazil Angus Ribeye
+- Brazil Angus Striploin
+- Chilli Crab Sauce and Mantou when available
+
+Approved operating hours
+- Monday: 12PM–5PM
+- Tuesday–Thursday: 8AM–7PM
+- Friday–Saturday: 8AM–8PM
+- Sunday: 8AM–5PM

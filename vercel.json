@@ -16,6 +16,10 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
     },
@@ -58,6 +62,96 @@
   ],
   "redirects": [
     {
+      "source": "/live-prawns-singapore.html",
+      "destination": "/live-prawns-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/products.html",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/fresh-oysters-singapore.html",
+      "destination": "/fresh-oysters-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/buy-live-crab-singapore.html",
+      "destination": "/buy-live-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/featured-crab-talk-singapore.html",
+      "destination": "/featured-crab-talk-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/kelong-sotong-singapore.html",
+      "destination": "/kelong-sotong-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-crab-singapore.html",
+      "destination": "/live-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-mud-crab-singapore.html",
+      "destination": "/live-mud-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/manila-clams-singapore.html",
+      "destination": "/manila-clams-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/soon-hock-fish-singapore.html",
+      "destination": "/soon-hock-fish-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/alaska-king-crab-singapore.html",
+      "destination": "/alaska-king-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/crab-supplier-singapore.html",
+      "destination": "/crab-supplier-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/fresh-crab-singapore.html",
+      "destination": "/fresh-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/live-lobster-singapore.html",
+      "destination": "/live-lobster-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/premium-meat-singapore.html",
+      "destination": "/premium-meat-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/mod-keaw-live-crab.html",
+      "destination": "/mod-keaw-live-crab",
+      "permanent": true
+    },
+    {
+      "source": "/live-seafood-singapore.html",
+      "destination": "/live-seafood-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/yellow-roe-crab-singapore.html",
+      "destination": "/yellow-roe-crab-singapore",
+      "permanent": true
+    },
+    {
       "source": "/jayellow-roe-crab-singapore",
       "destination": "/ja/yellow-roe-crab-singapore",
       "permanent": true
@@ -98,128 +192,43 @@
       "permanent": true
     },
     {
-      "source": "/featured-crab-talk-singapore.html",
-      "destination": "/featured-crab-talk-singapore",
+      "source": "/live-abalone-singapore",
+      "destination": "/products",
       "permanent": true
     },
     {
-      "source": "/mod-keaw-live-crab.html",
-      "destination": "/mod-keaw-live-crab",
+      "source": "/live-abalone-singapore.html",
+      "destination": "/products",
       "permanent": true
     },
     {
-      "source": "/yellow-roe-crab-singapore.html",
-      "destination": "/yellow-roe-crab-singapore",
+      "source": "/grouper-turbot-singapore",
+      "destination": "/fish-singapore",
       "permanent": true
     },
     {
-      "source": "/blog/",
-      "destination": "/blog",
+      "source": "/grouper-turbot-singapore.html",
+      "destination": "/fish-singapore",
       "permanent": true
     },
     {
-      "source": "/live-crab-singapore.html",
-      "destination": "/live-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/fresh-crab-singapore.html",
-      "destination": "/fresh-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/buy-live-crab-singapore.html",
-      "destination": "/buy-live-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/crab-supplier-singapore.html",
-      "destination": "/crab-supplier-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/alaska-king-crab-singapore.html",
-      "destination": "/alaska-king-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/live-lobster-singapore.html",
-      "destination": "/live-lobster-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/live-mud-crab-singapore.html",
-      "destination": "/live-mud-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/live-seafood-singapore.html",
-      "destination": "/live-seafood-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/fresh-oysters-singapore.html",
-      "destination": "/fresh-oysters-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/manila-clams-singapore.html",
+      "source": "/live-shellfish-singapore",
       "destination": "/manila-clams-singapore",
       "permanent": true
     },
     {
-      "source": "/soon-hock-fish-singapore.html",
-      "destination": "/soon-hock-fish-singapore",
+      "source": "/live-shellfish-singapore.html",
+      "destination": "/manila-clams-singapore",
       "permanent": true
     },
     {
-      "source": "/kelong-sotong-singapore.html",
-      "destination": "/kelong-sotong-singapore",
+      "source": "/fish-singapore.html",
+      "destination": "/fish-singapore",
       "permanent": true
     },
     {
-      "source": "/zh/",
-      "destination": "/zh",
-      "permanent": true
-    },
-    {
-      "source": "/ja/",
-      "destination": "/ja",
-      "permanent": true
-    },
-    {
-      "source": "/zhkelong-sotong-singapore",
-      "destination": "/zh/kelong-sotong-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/jakelong-sotong-singapore",
-      "destination": "/ja/kelong-sotong-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/zh/kelong-sotong-singapore.html",
-      "destination": "/zh/kelong-sotong-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/ja/kelong-sotong-singapore.html",
-      "destination": "/ja/kelong-sotong-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/live-prawns-singapore.html",
-      "destination": "/live-prawns-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/zh/live-prawns-singapore.html",
-      "destination": "/zh/live-prawns-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/ja/live-prawns-singapore.html",
-      "destination": "/ja/live-prawns-singapore",
+      "source": "/chilli-crab-sauce-mantou.html",
+      "destination": "/chilli-crab-sauce-mantou",
       "permanent": true
     }
   ]
