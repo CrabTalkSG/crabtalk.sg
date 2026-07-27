@@ -227,3 +227,12 @@ button{font:inherit}
   .category-grid .product-card{flex:0 0 min(82vw,330px);scroll-snap-align:start}
   .category-grid .product-card img{height:205px}
 }
+
+/* 2026-07-27 product photography upgrade */
+.steak-cut-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.steak-cut-card{overflow:hidden;background:#f4f9fa;border:1px solid var(--line);border-radius:20px}
+.steak-cut-card img{display:block;width:100%;height:245px;object-fit:cover}
+.steak-cut-card .body{padding:17px 18px}
+.steak-cut-card h3{margin:0 0 6px}
+.steak-cut-card p{margin:0}
+@media(max-width:720px){.steak-cut-grid{grid-template-columns:1fr}.steak-cut-card img{height:230px}}
