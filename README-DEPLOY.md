@@ -1,35 +1,28 @@
-# Crab Talk deployment package — 27 July 2026
+# Crab Talk Website — Corrected Full Source
 
-This package was rebuilt from the user-approved `crabtalk.sg(1).zip` version.
+This package is the complete website source to deploy.
 
-## New product photography installed
+## What was corrected
 
-- Patin fish
-- Turbot fish
-- Brazil Angus Ribeye and Striploin overview
-- Individual Brazil Angus Ribeye image
-- Individual Brazil Angus Striploin image
-- Chilli crab sauce and mantou
+- Correct clawed Boston Lobster image is used.
+- The previous incorrect rock-lobster image for Boston Lobster was removed.
+- Duplicate legacy WhatsApp click handlers were removed.
+- Crab Talk WhatsApp clicks now record one GA4 `whatsapp_click` event and one Google Ads conversion.
+- Mod Keaw and other partner WhatsApp clicks are tracked separately and do not count as Crab Talk Google Ads conversions.
+- Correct operating hours are retained:
+  - Monday: 12PM–5PM
+  - Tuesday–Thursday: 8AM–7PM
+  - Friday–Saturday: 8AM–8PM
+  - Sunday: 8AM–5PM
+- No 10kg limited-stock wording is present.
 
-The previous graphic placeholders for these products were removed.
-
-## Deploy
+## Deployment
 
 1. Extract this ZIP.
-2. Upload **everything inside the extracted folder** to the root of the existing GitHub repository.
-3. Replace the existing files when prompted.
+2. Upload everything inside the extracted folder directly to the root of the GitHub repository.
+3. Replace the existing website files; do not merge with an older package.
 4. Commit to the production branch used by Vercel.
-5. Confirm a new Vercel production deployment completes.
-6. Hard-refresh the website with `Ctrl + Shift + R`.
+5. Wait for Vercel to finish deploying.
+6. Hard-refresh the website with Ctrl+Shift+R.
 
-Do not upload the ZIP as a single file and do not add an extra enclosing folder to the repository.
-
-## Validation
-
-- 57 HTML pages checked
-- 0 missing local images
-- 0 broken internal links
-- 0 invalid JSON-LD blocks
-- 0 empty image alt attributes, excluding decorative footer logos
-- Correct operating hours retained
-- No old product placeholder image paths remain
+The ZIP is flattened correctly: `index.html`, `assets`, `images`, `blog`, `zh`, `ja`, and the product pages are at the top level.
