@@ -1,0 +1,137 @@
+/* Crab Talk × Shopify storefront integration — 2026-08-05 */
+:root{
+  --store-blue:#0b4f73;
+  --store-blue-dark:#06283d;
+  --store-cyan:#10a5b5;
+  --store-gold:#f1c75b;
+}
+.btn-store{
+  background:linear-gradient(135deg,var(--store-blue-dark),var(--store-blue));
+  color:#fff;
+  border-color:rgba(255,255,255,.08);
+  box-shadow:0 13px 30px rgba(6,40,61,.24);
+}
+.btn-store:hover{background:linear-gradient(135deg,#041f31,#08718a);color:#fff}
+.btn-store svg{width:17px;height:17px;flex:0 0 auto}
+.nav-shop{background:#e9f5f6!important;color:#07565c!important}
+.mobile-panel nav .mobile-shop-link{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--store-blue-dark),var(--store-blue));
+  box-shadow:0 12px 30px rgba(6,40,61,.16);
+}
+.mobile-panel nav .mobile-whatsapp-link{background:#eafff1;color:#0a5a2d;border-color:#bfe9ce}
+.shop-integration{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(241,199,91,.22),transparent 29%),
+    radial-gradient(circle at 88% 90%,rgba(16,165,181,.20),transparent 30%),
+    linear-gradient(135deg,#06283d 0%,#0a526b 56%,#087b83 100%);
+  color:#fff;
+}
+.shop-integration-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:42px;align-items:center}
+.shop-integration .eyebrow{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#fff}
+.shop-integration h2{margin:14px 0 14px;color:#fff;font-size:clamp(2.25rem,4.6vw,4.25rem);line-height:1;letter-spacing:-.055em}
+.shop-integration .shop-lead{max-width:690px;margin:0;color:#d9edf1;font-size:1.08rem}
+.shop-integration .hero-actions{margin-bottom:22px}
+.shop-integration .btn-store{background:#fff;color:#06283d;box-shadow:0 15px 34px rgba(0,0,0,.20)}
+.shop-integration .btn-store:hover{background:#f5fbfc;color:#06283d}
+.shop-integration .btn-outline{color:#fff}
+.shop-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.shop-proof{padding:15px;border-radius:18px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16)}
+.shop-proof strong{display:block;color:#fff;font-size:.96rem}
+.shop-proof span{display:block;color:#cfe4e9;font-size:.8rem;margin-top:3px}
+.shop-preview-card{position:relative;background:#fff;border:1px solid rgba(255,255,255,.35);padding:12px;border-radius:30px;box-shadow:0 28px 70px rgba(0,0,0,.26)}
+.shop-preview-card img{width:100%;height:440px;object-fit:cover;border-radius:21px}
+.shop-preview-badge{position:absolute;left:28px;right:28px;bottom:28px;padding:16px 18px;border-radius:18px;background:rgba(6,40,61,.92);backdrop-filter:blur(10px);color:#fff;box-shadow:0 12px 34px rgba(0,0,0,.22)}
+.shop-preview-badge strong{display:block;font-size:1.02rem}
+.shop-preview-badge span{display:block;color:#d8e8ec;font-size:.83rem;margin-top:3px}
+.shop-strip{margin:24px 0 0;border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:18px 20px;background:rgba(255,255,255,.09);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.shop-strip strong{display:block;color:#fff;font-size:1.03rem}
+.shop-strip span{display:block;color:#d1e6ea;font-size:.86rem;margin-top:2px}
+.shop-actions-stack{display:grid;gap:10px}
+.shop-actions-stack .btn{width:100%}
+.floating-store{
+  position:fixed;
+  right:18px;
+  bottom:78px;
+  z-index:121;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-radius:999px;
+  padding:14px 18px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--store-blue-dark),var(--store-blue));
+  font-weight:1000;
+  box-shadow:0 14px 34px rgba(6,40,61,.30);
+}
+.floating-store:hover{color:#fff;transform:translateY(-1px)}
+.floating-store svg{width:17px;height:17px}
+.store-secure-note{display:flex;align-items:center;gap:8px;margin-top:10px;color:#637580;font-size:.78rem;font-weight:800}
+.store-secure-note svg{width:15px;height:15px;color:#087b83}
+/* Legacy pages receive an unobtrusive store link without changing their original layout. */
+.ct-legacy-shop-link{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:42px!important;
+  padding:0 17px!important;
+  border-radius:999px!important;
+  background:linear-gradient(135deg,#06283d,#0b617a)!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  font-weight:950!important;
+  border:0!important;
+  box-shadow:0 10px 24px rgba(6,40,61,.18)!important;
+}
+.ct-legacy-floating-store{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:999;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#06283d,#0b617a);
+  color:#fff!important;
+  text-decoration:none!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-size:14px;
+  font-weight:950;
+  box-shadow:0 16px 38px rgba(6,40,61,.30);
+}
+.ct-legacy-floating-store:hover{transform:translateY(-1px)}
+@media(max-width:1040px){
+  .shop-integration-grid{grid-template-columns:1fr}
+  .shop-preview-card{max-width:720px}
+}
+@media(max-width:720px){
+  .shop-proof-grid{grid-template-columns:1fr}
+  .shop-preview-card img{height:310px}
+  .shop-strip{align-items:stretch;flex-direction:column}
+  .shop-strip .btn{width:100%}
+  .floating-store{left:12px;right:12px;bottom:70px;text-align:center}
+  .floating-wa{bottom:12px!important}
+  .site-footer{padding-bottom:146px!important}
+  .ct-legacy-floating-store{left:12px;right:12px;bottom:12px}
+}
+[data-shop-link]{gap:8px}
+[data-shop-link] svg{width:17px;height:17px;flex:0 0 auto}
+.footer-links [data-shop-link]{display:inline-flex;align-items:center}
+.mobile-panel nav [data-shop-link]{display:flex;align-items:center}
+.page-hero .btn-store,.shop-strip .btn-store{background:#fff;color:#06283d;box-shadow:0 13px 30px rgba(0,0,0,.18)}
+.page-hero .btn-store:hover,.shop-strip .btn-store:hover{background:#f4fbfc;color:#06283d}
+@media(min-width:721px){
+  .floating-store{right:132px;bottom:18px}
+}
+@media(max-width:720px){
+  .floating-store{left:12px;right:calc(50% + 4px);bottom:12px;padding:13px 8px;font-size:12.5px}
+  .floating-wa{left:calc(50% + 4px)!important;right:12px!important;bottom:12px!important;padding:13px 8px!important;font-size:12.5px}
+  .site-footer{padding-bottom:92px!important}
+}

@@ -48,6 +48,16 @@
   ],
   "redirects": [
     {
+      "source": "/shop",
+      "destination": "https://crab-talk.myshopify.com/",
+      "permanent": false
+    },
+    {
+      "source": "/online-store",
+      "destination": "https://crab-talk.myshopify.com/",
+      "permanent": false
+    },
+    {
       "source": "/jayellow-roe-crab-singapore",
       "destination": "/ja/yellow-roe-crab-singapore",
       "permanent": true

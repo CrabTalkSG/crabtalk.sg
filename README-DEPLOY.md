@@ -26,3 +26,11 @@ This package is the complete website source to deploy.
 6. Hard-refresh the website with Ctrl+Shift+R.
 
 The ZIP is flattened correctly: `index.html`, `assets`, `images`, `blog`, `zh`, `ja`, and the product pages are at the top level.
+## Shopify online-store integration — 5 August 2026
+
+- `/shop` now redirects to the Crab Talk Shopify store.
+- Professional Order Online CTAs were added throughout the modern website and legacy SEO pages.
+- English, Chinese and Japanese homepages now include an online-ordering and stall-pickup section.
+- Shopify referral clicks are tracked with GA4 event `online_store_click` and UTM parameters.
+- See `SHOPIFY-INTEGRATION.md` for the recommended `shop.crabtalk.sg` setup.
+
