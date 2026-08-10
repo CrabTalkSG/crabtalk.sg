@@ -266,6 +266,11 @@
       "source": "/our-products",
       "destination": "/products",
       "permanent": true
+    },
+    {
+      "source": "/razor-clams-singapore.html",
+      "destination": "/razor-clams-singapore",
+      "permanent": true
     }
   ]
 }
