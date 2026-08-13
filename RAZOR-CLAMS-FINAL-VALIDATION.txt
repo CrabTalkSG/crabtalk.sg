@@ -1,0 +1,27 @@
+CRAB TALK — RAZOR CLAMS WEBSITE UPDATE FINAL VALIDATION
+Date: 2026-08-10
+
+RESULT: PASS
+
+HTML pages checked: 58
+JSON-LD blocks parsed: 202
+Local images checked: 247
+Internal links checked: 1971
+Local CSS/JS/icon references checked: 428
+Errors: 0
+Warnings: 0
+
+Razor Clams checks:
+- Separate SEO page present: /razor-clams-singapore.html
+- $38/kg price present
+- Ginger & scallion cooking recommendation present
+- Three optimized 1200x900 WebP photos present
+- Product, FAQ and breadcrumb structured data present
+- Added to product directory, English home page, live seafood page, Chinese home page and Japanese home page
+- Sitemap and Vercel clean-URL redirect updated
+
+Site-wide checks:
+- Local route/image/asset integrity checked
+- JSON-LD syntax checked across all HTML pages
+- Obvious repeated/template-style copy audited and rewritten on core product pages and recurring blog sections
+- Crab Talk sales CTAs route to the online store; Mod Keaw WhatsApp remains only for the separate Mod Keaw table reservation workflow

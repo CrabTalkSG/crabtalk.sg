@@ -1,0 +1,7 @@
+Crab Talk final image rebuild validation
+
+HTML files: 57
+Errors: 0
+Warnings: 0
+
+

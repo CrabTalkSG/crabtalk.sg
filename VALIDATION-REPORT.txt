@@ -1,0 +1,55 @@
+CRAB TALK WEBSITE VALIDATION REPORT
+Release date: 2026-07-25
+Source baseline: user-supplied crabtalk.sg(1).zip
+
+SCOPE
+- HTML pages checked: 57
+- Sitemap URLs checked: 57
+- Required focused-product destination pages: all present
+- English, Chinese and Japanese homepages: present
+
+VALIDATION RESULTS
+- Broken internal/static references: 0
+- Missing referenced images/posters: 0
+- JSON-LD parse errors: 0
+- Invalid HTML/body/H1/title/canonical checks: 0
+- Pages with duplicate element IDs: 0
+- Pages with incorrect LocalBusiness count: 0
+- Opening-hours schema errors: 0
+- Unsupported SeafoodMarket/FoodEstablishment schema types: 0
+- Pages missing central WhatsApp tracking script: 0
+- Sitemap URLs with no destination: 0
+- Missing required approved-product pages: 0
+
+PRODUCT CONTENT CHECKS
+- Homepage includes the full approved focused range: PASS
+- Product directory includes the full approved focused range: PASS
+- “10kg” or “10 kg” live-prawn limitation: 0 occurrences
+- South African live abalone: 0 occurrences
+- Pakistan lobster: 0 occurrences
+- Scottish Blue lobster: 0 occurrences
+- Ang Kar prawns: 0 occurrences
+- Hanwoo: 0 occurrences
+- Jeju Black Pork: 0 occurrences
+- African Butterfly clams: 0 occurrences
+- Tasmanian crab: 0 occurrences
+
+OPERATING HOURS USED THROUGHOUT STRUCTURED DATA
+- Monday: 12:00–17:00
+- Tuesday: 08:00–19:00
+- Wednesday: 08:00–19:00
+- Thursday: 08:00–19:00
+- Friday: 08:00–20:00
+- Saturday: 08:00–20:00
+- Sunday: 08:00–17:00
+
+TECHNICAL
+- vercel.json parses successfully
+- Vercel redirects configured: 42
+- Security and asset-cache headers configured
+- Central WhatsApp event: whatsapp_click
+- Existing Google Ads conversion destination retained
+- Unused source assets removed: approximately 39MB
+
+FINAL STATUS
+PASS — no critical validation errors found.

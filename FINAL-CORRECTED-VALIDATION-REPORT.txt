@@ -1,0 +1,19 @@
+CRAB TALK WEBSITE – FINAL CORRECTED VALIDATION REPORT
+Generated: 2026-07-27
+
+HTML pages checked: 57
+Known internal routes: 58
+Critical errors: 0
+Warnings: 0
+
+Confirmed fixes:
+- Correct clawed Boston Lobster image used
+- Old incorrect Boston Lobster image removed
+- Legacy inline WhatsApp tracking handlers removed
+- Crab Talk WhatsApp clicks generate one GA4 key event and one Google Ads conversion
+- Mod Keaw/partner WhatsApp clicks are tracked separately and are not counted as Crab Talk ad conversions
+- Correct opening hours retained
+- No 10kg scarcity wording
+- All referenced local assets exist
+- All internal links resolve
+- All JSON-LD blocks parse successfully

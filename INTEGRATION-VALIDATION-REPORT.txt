@@ -1,0 +1,26 @@
+CRAB TALK × SHOPIFY INTEGRATION VALIDATION
+Date: 5 August 2026
+
+RESULT: PASS
+
+Scope completed
+- 57 HTML pages load the shared Shopify integration assets.
+- 22 modern site-v2 pages contain server-rendered Order Online links.
+- 150 server-rendered Shopify entry points were added across modern pages.
+- Legacy SEO and guide pages receive a header/floating online-store entry point through the shared integration script.
+- English, Chinese and Japanese homepages include a dedicated online-ordering section.
+- Product pages include hero, store strip, sidebar, footer and floating online-store entry points.
+- /shop and /online-store redirect to https://crab-talk.myshopify.com/.
+- Store links receive UTM attribution and GA4 online_store_click tracking.
+
+Technical checks
+- assets/store-integration.js: JavaScript syntax PASS
+- assets/site-v2.js: JavaScript syntax PASS
+- vercel.json: valid JSON and Shopify redirects present
+- HTML documents parsed successfully
+- Shared integration CSS and JavaScript included once per page
+- Desktop and mobile layout rendering inspected locally
+- Legacy page dynamic store-link injection tested successfully
+
+Deployment note
+The Shopify storefront remains password-protected until the owner removes password protection. For the strongest branding, connect shop.crabtalk.sg to Shopify and then update the two redirect destinations in vercel.json.

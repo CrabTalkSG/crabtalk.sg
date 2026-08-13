@@ -112,11 +112,7 @@
       var row = document.createElement('div');
       row.className = 'info-row';
       row.innerHTML = '<strong>WhatsApp</strong>';
-<<<<<<< HEAD
       var wa = createWhatsAppLink('inline-whatsapp-link', copy.whatsappShort, 'location');
-=======
-      var wa = createWhatsAppLink('inline-whatsapp-link', '9839 8671', 'location');
->>>>>>> a2fb19350e7fe7a4e7242bab0ec4bba14bce3487
       row.appendChild(wa);
       infoList.appendChild(row);
     }
@@ -131,11 +127,7 @@
       if(!connectColumn && footerColumns.length >= 3) connectColumn = footerColumns[footerColumns.length - 1];
       var footerLinks = connectColumn ? connectColumn.querySelector('.footer-links') : null;
       if(footerLinks && !footerLinks.querySelector('[data-wa-source="footer"]')){
-<<<<<<< HEAD
         footerLinks.insertBefore(createWhatsAppLink('footer-whatsapp-link', copy.whatsappShort, 'footer'), footerLinks.firstChild);
-=======
-        footerLinks.insertBefore(createWhatsAppLink('footer-whatsapp-link', copy.whatsapp + ' · 9839 8671', 'footer'), footerLinks.firstChild);
->>>>>>> a2fb19350e7fe7a4e7242bab0ec4bba14bce3487
       }
     }
 
