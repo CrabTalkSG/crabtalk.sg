@@ -170,7 +170,11 @@
 }
 
 @media(min-width:721px){
+<<<<<<< HEAD
   body:has(.ct-legacy-floating-store) .ct-legacy-floating-store{right:190px;bottom:18px}
+=======
+  body:has(.ct-legacy-floating-store) .ct-legacy-floating-store{right:132px;bottom:18px}
+>>>>>>> a2fb19350e7fe7a4e7242bab0ec4bba14bce3487
   body:has(.ct-legacy-floating-store) .floating-wa{right:18px;bottom:18px}
 }
 @media(max-width:720px){
