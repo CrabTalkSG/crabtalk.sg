@@ -135,3 +135,58 @@
   .floating-wa{left:calc(50% + 4px)!important;right:12px!important;bottom:12px!important;padding:13px 8px!important;font-size:12.5px}
   .site-footer{padding-bottom:92px!important}
 }
+
+/* WhatsApp contact restoration — 2026-08-13 */
+.header-whatsapp svg,
+.mobile-whatsapp-link svg,
+.footer-whatsapp-link svg,
+.inline-whatsapp-link svg,
+.floating-wa svg,
+.ct-legacy-wa-link svg{width:17px;height:17px;flex:0 0 auto}
+.header-whatsapp{white-space:nowrap}
+.mobile-whatsapp-link{display:flex!important;align-items:center!important;gap:9px!important}
+.inline-whatsapp-link{display:inline-flex;align-items:center;gap:7px;color:#08733e;font-weight:950}
+.footer-whatsapp-link{display:flex!important;align-items:center!important;gap:7px!important;color:#c8f5d7!important}
+.footer-whatsapp-link:hover{color:#fff!important}
+.floating-wa{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;text-decoration:none!important}
+.ct-legacy-wa-link{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  min-height:42px!important;
+  padding:0 17px!important;
+  border-radius:999px!important;
+  background:#25d366!important;
+  color:#063326!important;
+  text-decoration:none!important;
+  font-weight:950!important;
+  border:0!important;
+  box-shadow:0 10px 24px rgba(37,211,102,.20)!important;
+}
+@media(max-width:1180px){.header-whatsapp{display:none!important}}
+@media(min-width:721px){
+  body:not(:has(.floating-store)) .floating-wa{right:18px;bottom:18px}
+}
+
+@media(min-width:721px){
+  body:has(.ct-legacy-floating-store) .ct-legacy-floating-store{right:132px;bottom:18px}
+  body:has(.ct-legacy-floating-store) .floating-wa{right:18px;bottom:18px}
+}
+@media(max-width:720px){
+  body:has(.ct-legacy-floating-store) .ct-legacy-floating-store{
+    left:12px;
+    right:calc(50% + 4px);
+    bottom:12px;
+    padding:13px 8px;
+    font-size:12.5px;
+    text-align:center;
+  }
+  body:has(.ct-legacy-floating-store) .floating-wa{
+    left:calc(50% + 4px)!important;
+    right:12px!important;
+    bottom:12px!important;
+    padding:13px 8px!important;
+    font-size:12.5px!important;
+  }
+}
