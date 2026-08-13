@@ -245,3 +245,26 @@ button{font:inherit}
 .product-photo-grid figure:first-child img{min-height:432px}
 .photo-note{margin:12px 0 0;color:var(--muted);font-size:.86rem}
 @media(max-width:720px){.product-photo-grid{grid-template-columns:1fr;grid-template-rows:auto}.product-photo-grid figure:first-child{grid-row:auto}.product-photo-grid img,.product-photo-grid figure:first-child img{height:250px;min-height:0}}
+/* 2026-08-13 homepage credibility section */
+.credibility-section{padding-top:58px;padding-bottom:58px;background:#fff}
+.credibility-head{margin-bottom:24px}
+.credibility-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.credibility-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow-soft);color:inherit;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.credibility-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#bfd8dd}
+.credibility-image-wrap{height:210px;overflow:hidden;background:#eaf3f4}
+.credibility-image-wrap img{display:block;width:100%;height:100%;object-fit:cover}
+.credibility-copy{display:flex;flex:1;flex-direction:column;padding:22px}
+.credibility-source{display:inline-flex;align-self:flex-start;margin-bottom:10px;padding:6px 10px;border-radius:999px;background:#e9f5f6;color:var(--teal-dark);font-size:.72rem;font-weight:1000;letter-spacing:.06em;text-transform:uppercase}
+.credibility-copy h3{margin:0 0 9px;color:var(--navy);font-size:1.25rem;line-height:1.18;letter-spacing:-.025em}
+.credibility-copy p{margin:0;color:var(--muted);font-size:.92rem}
+.credibility-link{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:18px;color:var(--teal-dark);font-weight:950;font-size:.88rem}
+.credibility-google-card{background:linear-gradient(145deg,#fff 0%,#f7fbfc 58%,#fff8df 100%)}
+.google-rating-block{padding:28px 22px 24px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 88% 12%,rgba(244,180,0,.18),transparent 34%)}
+.google-rating-row{display:flex;align-items:flex-end;gap:13px;margin:2px 0 8px}
+.google-rating-row strong{color:var(--navy);font-size:3.8rem;line-height:.9;letter-spacing:-.07em}
+.google-rating-row .stars{font-size:1.05rem;white-space:nowrap}
+.google-rating-block p{margin:0;color:var(--muted);font-size:.88rem}
+.credibility-footer{display:flex;justify-content:center;margin-top:22px}
+@media(max-width:1040px){.credibility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.credibility-google-card{grid-column:1 / -1;display:grid;grid-template-columns:.72fr 1.28fr}.google-rating-block{border-right:1px solid var(--line);border-bottom:0}}
+@media(max-width:720px){.credibility-section{padding-top:46px;padding-bottom:46px}.credibility-grid{grid-template-columns:1fr}.credibility-google-card{grid-column:auto;display:flex}.google-rating-block{border-right:0;border-bottom:1px solid var(--line)}.credibility-image-wrap{height:220px}.credibility-footer .btn{width:100%;text-align:center}}
+
