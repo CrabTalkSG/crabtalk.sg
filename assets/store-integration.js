@@ -1,8 +1,7 @@
 (function(){
   'use strict';
 
-  var SHOP_PATH = '/shop';
-  var CAMPAIGN = 'online_store_launch';
+  var SHOP_URL = 'https://shop.crabtalk.sg/';
   var WHATSAPP_NUMBER = '6598398671';
 
   function language(){
@@ -40,13 +39,11 @@
     };
   }
 
-  function trackedShopHref(source){
-    var params = new URLSearchParams();
-    params.set('utm_source','crabtalk.sg');
-    params.set('utm_medium','referral');
-    params.set('utm_campaign',CAMPAIGN);
-    params.set('utm_content',source || 'unspecified');
-    return SHOP_PATH + '?' + params.toString();
+  function trackedShopHref(){
+    // The shop now lives on Crab Talk's own subdomain. Keep the original
+    // acquisition source intact in GA4 instead of overwriting it with UTMs.
+    // Button placement is still measured by the online_store_click event.
+    return SHOP_URL;
   }
 
   function whatsappHref(){
@@ -183,7 +180,8 @@
         link_url: link.href,
         link_text: (link.textContent || '').trim().slice(0,100),
         page_path: window.location.pathname,
-        button_location: link.getAttribute('data-shop-source') || 'unspecified'
+        button_location: link.getAttribute('data-shop-source') || 'unspecified',
+        shop_domain: 'shop.crabtalk.sg'
       });
     });
   }

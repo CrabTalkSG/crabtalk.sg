@@ -1,36 +1,27 @@
-# Crab Talk Website — Corrected Full Source
+# Crab Talk Website — Production Source (20 Aug 2026)
 
-This package is the complete website source to deploy.
+This is the complete static source for the main `crabtalk.sg` website.
 
-## What was corrected
+## Key changes in this build
 
-- Correct clawed Boston Lobster image is used.
-- The previous incorrect rock-lobster image for Boston Lobster was removed.
-- Duplicate legacy WhatsApp click handlers were removed.
-- Crab Talk WhatsApp clicks now record one GA4 `whatsapp_click` event and one Google Ads conversion.
-- Mod Keaw and other partner WhatsApp clicks are tracked separately and do not count as Crab Talk Google Ads conversions.
-- Correct operating hours are retained:
-  - Monday: 12PM–5PM
-  - Tuesday–Thursday: 8AM–7PM
-  - Friday–Saturday: 8AM–8PM
-  - Sunday: 8AM–5PM
-- No 10kg limited-stock wording is present.
+- Shopify customer-facing domain updated to `https://shop.crabtalk.sg/`.
+- `/shop` and `/online-store` now redirect to the branded Shopify subdomain.
+- Store buttons link directly to the branded subdomain after JavaScript loads.
+- Removed self-attribution UTMs between the main site and Shopify so GA4 can preserve the visitor's original acquisition source.
+- Main English, Chinese and Japanese homepages now state both Commonwealth pickup and islandwide delivery.
+- Free delivery for orders $180+ is surfaced on the three homepages.
+- Homepage SEO title now prioritises `Live Seafood Singapore` while keeping the visible human H1 unchanged.
+- Missing Open Graph / Twitter metadata was added to 9 older/translated pages.
+- All Shopify preconnect hints point to `shop.crabtalk.sg`.
+- Operating hours and the existing product range were retained.
 
 ## Deployment
 
-1. Extract this ZIP.
-2. Upload everything inside the extracted folder directly to the root of the GitHub repository.
-3. Replace the existing website files; do not merge with an older package.
-4. Commit to the production branch used by Vercel.
-5. Wait for Vercel to finish deploying.
-6. Hard-refresh the website with Ctrl+Shift+R.
+1. Replace the existing website source with the contents of this folder.
+2. Commit/push to the production branch used by Vercel.
+3. Wait for Vercel to deploy.
+4. Test `https://www.crabtalk.sg/shop` and confirm it opens `https://shop.crabtalk.sg/`.
+5. Test desktop and mobile Order Online buttons.
+6. Hard refresh with Ctrl+Shift+R if an older cached JavaScript file appears.
 
-The ZIP is flattened correctly: `index.html`, `assets`, `images`, `blog`, `zh`, `ja`, and the product pages are at the top level.
-## Shopify online-store integration — 5 August 2026
-
-- `/shop` now redirects to the Crab Talk Shopify store.
-- Professional Order Online CTAs were added throughout the modern website and legacy SEO pages.
-- English, Chinese and Japanese homepages now include an online-ordering and stall-pickup section.
-- Shopify referral clicks are tracked with GA4 event `online_store_click` and UTM parameters.
-- See `SHOPIFY-INTEGRATION.md` for the recommended `shop.crabtalk.sg` setup.
-
+See `SHOPIFY-INTEGRATION.md` for analytics notes.

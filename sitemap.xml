@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://www.crabtalk.sg/alaska-king-crab-singapore</loc>
@@ -182,7 +182,7 @@
 </url>
 <url>
 <loc>https://www.crabtalk.sg/</loc>
-<lastmod>2026-08-10</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1.0</priority>
 </url>
@@ -194,7 +194,7 @@
 </url>
 <url>
 <loc>https://www.crabtalk.sg/ja</loc>
-<lastmod>2026-08-10</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -314,7 +314,7 @@
 </url>
 <url>
 <loc>https://www.crabtalk.sg/zh</loc>
-<lastmod>2026-08-10</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>

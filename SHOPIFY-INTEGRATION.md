@@ -1,42 +1,30 @@
 # Crab Talk Shopify Integration
 
-## What is included in this package
+## Current customer-facing store domain
 
-- A prominent **Order Online** action in the desktop header, mobile menu, hero area, footer and floating action area.
-- A professional online-store feature section on the English, Chinese and Japanese homepages.
-- Online-store calls to action on product and product-directory pages.
-- A central `/shop` redirect to the Shopify store.
-- UTM attribution and a GA4 `online_store_click` event for every store click.
-- A lightweight online-store entry point on older guide and SEO pages without redesigning those pages.
+`https://shop.crabtalk.sg/`
 
-## Current store destination
+The custom Shopify subdomain is connected, globally live, and protected by TLS/SSL. The original `myshopify.com` domains remain internal to Shopify and should not be deleted.
 
-`https://crab-talk.myshopify.com/`
+## Main-site integration
 
-All website buttons use `/shop`, and Vercel redirects `/shop` to Shopify. This means the Shopify destination can be changed centrally in `vercel.json`.
+- Customer-facing store buttons are rewritten directly to `https://shop.crabtalk.sg/` by `assets/store-integration.js`.
+- `/shop` and `/online-store` remain safe server-side fallbacks and redirect to the same branded store domain.
+- Store clicks emit the GA4 event `online_store_click` with `page_path`, `button_location`, `link_text`, `link_url`, and `shop_domain`.
+- UTMs are intentionally not appended between `crabtalk.sg` and `shop.crabtalk.sg` so an original source such as Google Organic or Google Ads is not overwritten by a self-referral campaign.
 
-## Recommended branded domain
+## Fulfilment wording
 
-Use `shop.crabtalk.sg` as the Shopify primary domain while keeping `www.crabtalk.sg` on Vercel.
+The main website now reflects the live Shopify offer:
 
-1. In your DNS provider, create a CNAME record: `shop` → `shops.myshopify.com`.
-2. In Shopify Admin, go to **Settings → Domains → Connect existing domain**.
-3. Enter `shop.crabtalk.sg`, verify it, and set it as the primary domain for the online store.
-4. In `vercel.json`, change both Shopify redirect destinations to `https://shop.crabtalk.sg/`.
-5. Test `/shop`, desktop/mobile navigation, pickup checkout, confirmation email and order notifications.
-6. Remove Shopify password protection only after the final test.
+- Commonwealth pickup
+- Islandwide delivery
+- Free delivery for orders $180+
 
-## Analytics
+## Analytics follow-up in Shopify
 
-Store links generate a GA4 event named `online_store_click` with:
+For end-to-end reporting, make sure the Shopify store uses the same GA4 property (`G-V94NDT5ZCR`). Once that is confirmed, test this path in GA4 DebugView / Realtime:
 
-- `page_path`
-- `button_location`
-- `link_text`
-- `link_url`
+`crabtalk.sg → shop.crabtalk.sg → add_to_cart → begin_checkout → purchase`
 
-The Shopify URLs also receive UTM parameters using campaign `online_store_launch`.
-
-## Deployment
-
-Upload the contents of this folder to the root of the Crab Talk GitHub repository, replace the existing files, commit, and wait for Vercel to deploy.
+Because the store is a subdomain of `crabtalk.sg`, separate cross-domain linker configuration is normally unnecessary when the same GA4 property is installed correctly on both sites.

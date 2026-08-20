@@ -49,12 +49,12 @@
   "redirects": [
     {
       "source": "/shop",
-      "destination": "https://crab-talk.myshopify.com/",
+      "destination": "https://shop.crabtalk.sg/",
       "permanent": false
     },
     {
       "source": "/online-store",
-      "destination": "https://crab-talk.myshopify.com/",
+      "destination": "https://shop.crabtalk.sg/",
       "permanent": false
     },
     {
