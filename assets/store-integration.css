@@ -190,3 +190,24 @@
     font-size:12.5px!important;
   }
 }
+
+/* Homepage CTA hierarchy refinement — 2026-08-24 */
+.home-page .hero-whatsapp-secondary{
+  align-self:center;
+  padding:10px 15px;
+  font-size:.86rem;
+  background:#effbf3;
+  color:#0a5a2d;
+  border-color:#bfe9ce;
+  box-shadow:none;
+}
+.home-page .hero-whatsapp-secondary:hover{
+  background:#e5f8eb;
+  color:#084c27;
+  box-shadow:0 8px 20px rgba(37,211,102,.10);
+}
+/* Desktop: header + hero CTAs are enough. Keep the paired floating CTAs for mobile only. */
+@media (min-width:721px){
+  .home-page .floating-store,
+  .home-page .floating-wa{display:none!important}
+}
