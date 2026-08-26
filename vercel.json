@@ -271,6 +271,11 @@
       "source": "/razor-clams-singapore.html",
       "destination": "/razor-clams-singapore",
       "permanent": true
+    },
+    {
+      "source": "/buy-live-crab-singapore",
+      "destination": "/live-crab-singapore",
+      "permanent": true
     }
   ]
 }
