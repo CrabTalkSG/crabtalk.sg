@@ -268,3 +268,23 @@ button{font:inherit}
 @media(max-width:1040px){.credibility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.credibility-google-card{grid-column:1 / -1;display:grid;grid-template-columns:.72fr 1.28fr}.google-rating-block{border-right:1px solid var(--line);border-bottom:0}}
 @media(max-width:720px){.credibility-section{padding-top:46px;padding-bottom:46px}.credibility-grid{grid-template-columns:1fr}.credibility-google-card{grid-column:auto;display:flex}.google-rating-block{border-right:0;border-bottom:1px solid var(--line)}.credibility-image-wrap{height:220px}.credibility-footer .btn{width:100%;text-align:center}}
 
+
+
+/* 2026-09-15 homepage cooked-crab launch */
+.home-cooked-launch{padding:26px 0 12px;background:#fff}
+.home-cooked-launch__inner{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.home-cooked-launch__panel{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr);align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#fff8f2 0%,#fff 64%);box-shadow:var(--shadow-soft)}
+.home-cooked-launch__media{min-width:0;background:#16100d}
+.home-cooked-launch__media a{display:block;height:100%}
+.home-cooked-launch__media img{display:block;width:100%;height:100%;min-height:430px;object-fit:cover}
+.home-cooked-launch__content{display:flex;flex-direction:column;justify-content:center;padding:34px 36px}
+.home-cooked-launch__eyebrow{display:inline-flex;align-self:flex-start;margin-bottom:11px;padding:7px 11px;border-radius:999px;background:#fff0e8;color:#a83d19;font-size:.74rem;font-weight:1000;letter-spacing:.07em;text-transform:uppercase}
+.home-cooked-launch__title{margin:0 0 13px;color:var(--navy);font-size:clamp(2rem,3vw,2.7rem);line-height:1.08;letter-spacing:-.04em}
+.home-cooked-launch__intro{margin:0 0 18px;color:var(--muted);font-size:1rem}
+.home-cooked-launch__highlights{display:grid;gap:10px;margin:0 0 22px;padding:0;list-style:none}
+.home-cooked-launch__highlights li{position:relative;margin:0;padding-left:19px;color:#2f231d;line-height:1.5}
+.home-cooked-launch__highlights li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:#c94721;transform:translateY(-50%)}
+.home-cooked-launch__actions{display:flex;flex-wrap:wrap;gap:10px}
+.home-cooked-launch__note{margin:13px 0 0;color:var(--muted);font-size:.82rem}
+@media(max-width:920px){.home-cooked-launch__panel{grid-template-columns:1fr}.home-cooked-launch__media img{height:auto;min-height:0;aspect-ratio:3/2}.home-cooked-launch__content{padding:25px 24px 27px}}
+@media(max-width:720px){.home-cooked-launch{padding:16px 0 4px}.home-cooked-launch__inner{width:min(100% - 22px,1180px)}.home-cooked-launch__panel{border-radius:22px}.home-cooked-launch__content{padding:22px 19px 23px}.home-cooked-launch__title{font-size:clamp(1.8rem,9vw,2.35rem)}.home-cooked-launch__actions{flex-direction:column}.home-cooked-launch__actions .btn{width:100%;text-align:center}}
