@@ -128,6 +128,11 @@
       "permanent": true
     },
     {
+      "source": "/soon-hock",
+      "destination": "/soon-hock-fish-singapore",
+      "permanent": true
+    },
+    {
       "source": "/blog/soon-hock-fish-english-chinese-marble-gooby",
       "destination": "/blog/soon-hock-fish-english-chinese-marble-goby",
       "permanent": true
