@@ -37,7 +37,7 @@ button{font:inherit}
 .desktop-nav a:hover,.desktop-nav a[aria-current="page"]{background:#e9f5f6;color:var(--teal-dark)}
 .header-actions{display:flex;align-items:center;gap:8px}
 .lang-links{display:flex;align-items:center;background:#f3f7f8;border:1px solid var(--line);border-radius:999px;padding:3px}
-.lang-links a{font-size:.72rem;font-weight:900;color:#546875;padding:7px 8px;border-radius:999px}
+.lang-links a{font-size:.72rem;font-weight:900;color:#546875;padding:7px 8px;border-radius:999px;white-space:nowrap}
 .lang-links a.active{background:var(--navy);color:#fff}
 .menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:14px;color:var(--navy);font-size:1.25rem;cursor:pointer}
 .mobile-panel{display:none;position:fixed;inset:77px 0 0;background:rgba(248,251,252,.98);z-index:90;padding:22px 16px;overflow:auto}
@@ -187,10 +187,24 @@ button{font:inherit}
 .directory-item a{display:inline-flex;margin-top:10px;color:var(--teal-dark);font-weight:900;font-size:.87rem}
 /* Language home */
 .simple-language-note{background:#fff6d9;border:1px solid #ead99e;border-radius:18px;padding:14px 16px;color:#66501a;margin-top:18px}
-@media(max-width:1040px){
+@media(min-width:1181px){
+  .site-header .header-inner{width:min(1440px,calc(100% - 40px));margin-left:auto;margin-right:auto;gap:12px;flex-wrap:nowrap}
+  .site-header .brand{flex:0 0 auto;min-width:0}
+  .site-header .brand-copy strong,.site-header .brand-copy span{white-space:nowrap}
+  .desktop-nav{flex:1 1 auto;min-width:0;justify-content:center;gap:0}
+  .desktop-nav a{padding-left:6px;padding-right:6px}
+  .header-actions,.lang-links{flex-shrink:0}
+  .header-actions .btn{white-space:nowrap}
+}
+@media(min-width:1181px) and (max-width:1360px){
+  .header-whatsapp{display:none}
+}
+@media(max-width:1180px){
   .desktop-nav{display:none}
   .menu-toggle{display:inline-flex;align-items:center;justify-content:center}
   .header-actions .btn-small{display:none}
+}
+@media(max-width:1040px){
   .hero-grid,.page-hero-grid,.feature-grid,.location-grid,.content-grid{grid-template-columns:1fr}
   .hero-media-main{height:390px}
   .sidebar{position:relative;top:auto}
