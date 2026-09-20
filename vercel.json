@@ -149,7 +149,7 @@
     },
     {
       "source": "/fresh-crab-singapore.html",
-      "destination": "/fresh-crab-singapore",
+      "destination": "/live-crab-singapore",
       "permanent": true
     },
     {
@@ -299,6 +299,11 @@
     },
     {
       "source": "/buy-live-crab-singapore",
+      "destination": "/live-crab-singapore",
+      "permanent": true
+    },
+    {
+      "source": "/fresh-crab-singapore",
       "destination": "/live-crab-singapore",
       "permanent": true
     }
