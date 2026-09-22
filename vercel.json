@@ -149,12 +149,12 @@
     },
     {
       "source": "/fresh-crab-singapore.html",
-      "destination": "/live-crab-singapore",
+      "destination": "/fresh-crab-singapore",
       "permanent": true
     },
     {
       "source": "/buy-live-crab-singapore.html",
-      "destination": "/live-crab-singapore",
+      "destination": "/buy-live-crab-singapore",
       "permanent": true
     },
     {
@@ -295,16 +295,6 @@
     {
       "source": "/razor-clams-singapore.html",
       "destination": "/razor-clams-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/buy-live-crab-singapore",
-      "destination": "/live-crab-singapore",
-      "permanent": true
-    },
-    {
-      "source": "/fresh-crab-singapore",
-      "destination": "/live-crab-singapore",
       "permanent": true
     }
   ]
