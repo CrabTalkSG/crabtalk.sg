@@ -297,5 +297,11 @@
       "destination": "/razor-clams-singapore",
       "permanent": true
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/gsc-daily",
+      "schedule": "30 22 * * *"
+    }
   ]
 }
