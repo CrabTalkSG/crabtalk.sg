@@ -58,46 +58,29 @@ function percentDelta(current, previous) {
   return round(((curr - prev) / prev) * 100, 1);
 }
 
-function cleanPrivateKey(value) {
-  return String(value || '').replace(/\\n/g, '\n').trim();
-}
-
 async function getAccessToken() {
-  const clientEmail = process.env.GSC_CLIENT_EMAIL;
-  const privateKey = cleanPrivateKey(process.env.GSC_PRIVATE_KEY);
+  const clientId = process.env.GSC_OAUTH_CLIENT_ID;
+  const clientSecret = process.env.GSC_OAUTH_CLIENT_SECRET;
+  const refreshToken = process.env.GSC_OAUTH_REFRESH_TOKEN;
 
-  if (!clientEmail || !privateKey) {
-    throw new Error('Missing GSC_CLIENT_EMAIL or GSC_PRIVATE_KEY');
+  if (!clientId || !clientSecret || !refreshToken) {
+    throw new Error('Missing GSC OAuth credentials');
   }
-
-  const now = Math.floor(Date.now() / 1000);
-  const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const claims = base64url(JSON.stringify({
-    iss: clientEmail,
-    scope: SCOPE,
-    aud: TOKEN_URL,
-    iat: now,
-    exp: now + 3600
-  }));
-  const unsigned = `${header}.${claims}`;
-  const signer = crypto.createSign('RSA-SHA256');
-  signer.update(unsigned);
-  signer.end();
-  const signature = signer.sign(privateKey).toString('base64url');
-  const assertion = `${unsigned}.${signature}`;
 
   const response = await fetch(TOKEN_URL, {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion
+      client_id: clientId,
+      client_secret: clientSecret,
+      refresh_token: refreshToken,
+      grant_type: 'refresh_token'
     })
   });
 
   const data = await response.json();
   if (!response.ok || !data.access_token) {
-    throw new Error(`Google OAuth failed: ${response.status} ${JSON.stringify(data)}`);
+    throw new Error(`Google OAuth refresh failed: ${response.status} ${JSON.stringify(data)}`);
   }
   return data.access_token;
 }
@@ -318,7 +301,7 @@ export default async function handler(request, response) {
     return response.status(401).json({ ok: false, error: 'Unauthorized' });
   }
 
-  if (!process.env.GSC_CLIENT_EMAIL || !process.env.GSC_PRIVATE_KEY) {
+  if (!process.env.GSC_OAUTH_CLIENT_ID || !process.env.GSC_OAUTH_CLIENT_SECRET || !process.env.GSC_OAUTH_REFRESH_TOKEN) {
     console.log(JSON.stringify({ marker: 'GSC_CONFIG_PENDING', generatedAt: new Date().toISOString() }));
     return response.status(200).json({ ok: true, configured: false });
   }
