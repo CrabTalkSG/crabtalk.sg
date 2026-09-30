@@ -2,6 +2,55 @@
   'use strict';
 
   var SHOP_URL = 'https://shop.crabtalk.sg/';
+  var ORIGIN_KEY = 'crabtalk_shop_origin';
+
+  function sourceFromHost(host){
+    host = (host || '').toLowerCase();
+    if(/(^|\.)google\./.test(host)) return {source:'google',medium:'organic'};
+    if(/(^|\.)bing\.com$/.test(host)) return {source:'bing',medium:'organic'};
+    if(/(^|\.)facebook\.com$|(^|\.)fb\.com$/.test(host)) return {source:'facebook',medium:'social'};
+    if(/(^|\.)instagram\.com$/.test(host)) return {source:'instagram',medium:'social'};
+    if(/(^|\.)tiktok\.com$/.test(host)) return {source:'tiktok',medium:'social'};
+    return null;
+  }
+
+  function getOrigin(){
+    var params = new URLSearchParams(window.location.search);
+    var taggedSource = params.get('utm_source');
+    var taggedMedium = params.get('utm_medium');
+    var origin = null;
+    if(taggedSource){
+      origin = {source:taggedSource,medium:taggedMedium || 'referral',campaign:params.get('utm_campaign') || ''};
+    } else if(params.has('gclid') || params.has('gbraid') || params.has('wbraid')){
+      origin = {source:'google',medium:'cpc',campaign:''};
+    } else if(document.referrer){
+      try {
+        var referrer = new URL(document.referrer);
+        if(referrer.hostname !== window.location.hostname && referrer.hostname !== 'shop.crabtalk.sg'){
+          origin = sourceFromHost(referrer.hostname);
+        }
+      } catch(e) { /* An invalid referrer is left unclassified. */ }
+    }
+    try {
+      if(origin) sessionStorage.setItem(ORIGIN_KEY, JSON.stringify(origin));
+      else origin = JSON.parse(sessionStorage.getItem(ORIGIN_KEY) || 'null');
+    } catch(e) { /* Tracking must never interfere with shopping. */ }
+    return origin || {source:'crabtalk_website',medium:'referral',campaign:''};
+  }
+
+  function tagShopLink(link, origin){
+    var url;
+    try { url = new URL(link.href); } catch(e) { return; }
+    if(url.hostname !== 'shop.crabtalk.sg') return;
+    if(!url.searchParams.has('utm_source')) url.searchParams.set('utm_source', origin.source);
+    if(!url.searchParams.has('utm_medium')) url.searchParams.set('utm_medium', origin.medium);
+    if(!url.searchParams.has('utm_campaign')) url.searchParams.set('utm_campaign', origin.campaign || 'website_to_shop');
+    if(!url.searchParams.has('utm_content')){
+      var location = link.getAttribute('data-shop-source') || 'store_link';
+      url.searchParams.set('utm_content', window.location.pathname.replace(/^\//,'') + ':' + location);
+    }
+    link.href = url.href;
+  }
 
   function language(){
     var lang = (document.documentElement.lang || 'en').toLowerCase();
@@ -65,10 +114,14 @@
     document.body.classList.add('has-store-integration');
     injectLegacyEntryPoints();
     configureShopLinks(document);
+    var origin = getOrigin();
 
     document.addEventListener('click', function(event){
-      var link = event.target.closest('[data-shop-link]');
+      var link = event.target.closest('a[href]');
       if(!link) return;
+      try { if(new URL(link.href).hostname !== 'shop.crabtalk.sg') return; }
+      catch(e) { return; }
+      tagShopLink(link, origin);
       sendEvent('online_store_click', {
         link_url: link.href,
         link_text: (link.textContent || '').trim().slice(0,100),
