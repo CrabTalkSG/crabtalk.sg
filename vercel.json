@@ -58,6 +58,11 @@
       "permanent": true
     },
     {
+      "source": "/review",
+      "destination": "https://search.google.com/local/writereview?placeid=ChIJTxJiMK4b2jERIc9PcJUHUKM",
+      "permanent": false
+    },
+    {
       "source": "/shop",
       "destination": "https://shop.crabtalk.sg/",
       "permanent": false
