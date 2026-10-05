@@ -301,6 +301,11 @@
       "source": "/razor-clams-singapore.html",
       "destination": "/razor-clams-singapore",
       "permanent": true
+    },
+    {
+      "source": "/bloghow-to-choose-live-mud-crab-singapore",
+      "destination": "/blog/how-to-choose-live-mud-crab-singapore",
+      "permanent": true
     }
   ],
   "crons": [
