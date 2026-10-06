@@ -77,7 +77,9 @@
 
   function configureShopLinks(root){
     (root || document).querySelectorAll('[data-shop-link]').forEach(function(link){
-      link.setAttribute('href', SHOP_URL);
+      var destination = link.getAttribute('href');
+      // Keep valid collection and product destinations; only fill empty entry points.
+      if(!destination || destination === '#') link.setAttribute('href', SHOP_URL);
       link.setAttribute('aria-label', link.getAttribute('aria-label') || labels().orderAria);
     });
   }
