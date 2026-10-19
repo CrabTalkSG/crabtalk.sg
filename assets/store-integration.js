@@ -2,6 +2,41 @@
   'use strict';
 
   var SHOP_URL = 'https://shop.crabtalk.sg/';
+  // Carry only genuine incoming campaign parameters through the current visit.
+  // Never manufacture a campaign for the internal website-to-store handoff.
+  var campaignKeys = ['utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content','gclid','gbraid','wbraid','fbclid','ttclid'];
+  var campaignStorageKey = 'crabtalk_campaign_visit_v1';
+  function visitCampaign(){
+    var incoming = new URLSearchParams(window.location.search);
+    var params = {};
+    campaignKeys.forEach(function(key){
+      var value = incoming.get(key);
+      if(value) params[key] = value;
+    });
+    var now = Date.now();
+    try {
+      if(Object.keys(params).length){
+        sessionStorage.setItem(campaignStorageKey, JSON.stringify({params:params, at:now}));
+      } else {
+        var previous = JSON.parse(sessionStorage.getItem(campaignStorageKey) || 'null');
+        if(previous && now - previous.at < 30 * 60 * 1000){
+          campaignKeys.forEach(function(key){ if(previous.params[key]) params[key] = previous.params[key]; });
+        } else sessionStorage.removeItem(campaignStorageKey);
+      }
+    } catch(e) { /* Links still work when browser storage is unavailable. */ }
+    return params;
+  }
+  var campaign = visitCampaign();
+  function preserveCampaign(link){
+    try {
+      var url = new URL(link.href, window.location.href);
+      if(url.protocol !== 'https:' || url.hostname !== 'shop.crabtalk.sg') return;
+      // A deliberately tagged destination owns its campaign; do not mix campaigns.
+      if(campaignKeys.some(function(key){ return url.searchParams.has(key); })) return;
+      Object.keys(campaign).forEach(function(key){ url.searchParams.set(key, campaign[key]); });
+      if(Object.keys(campaign).length) link.href = url.href;
+    } catch(e) { /* Ignore non-URL entry points. */ }
+  }
   function language(){
     var lang = (document.documentElement.lang || 'en').toLowerCase();
     if(lang.indexOf('ja') === 0) return 'ja';
@@ -66,6 +101,7 @@
     document.body.classList.add('has-store-integration');
     injectLegacyEntryPoints();
     configureShopLinks(document);
+    document.querySelectorAll('a[href]').forEach(preserveCampaign);
     document.addEventListener('click', function(event){
       var link = event.target.closest('a[href]');
       if(!link) return;
