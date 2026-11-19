@@ -47,6 +47,17 @@
     }
   ],
   "redirects": [
+    {"source": "/blogbest-seafood-for-home-cooking-singapore", "destination": "/blog/best-seafood-for-home-cooking-singapore", "permanent": true},
+    {"source": "/blogbest-way-to-eat-yellow-roe-crab-singapore", "destination": "/blog/best-way-to-eat-yellow-roe-crab-singapore", "permanent": true},
+    {"source": "/blogcommonwealth-crescent-food-guide", "destination": "/blog/commonwealth-crescent-food-guide", "permanent": true},
+    {"source": "/blogcommonwealth-crescent-seafood-guide", "destination": "/blog/commonwealth-crescent-seafood-guide", "permanent": true},
+    {"source": "/blogcrab-bee-hoon-guide-singapore", "destination": "/blog/crab-bee-hoon-guide-singapore", "permanent": true},
+    {"source": "/bloghow-to-choose-female-roe-crab", "destination": "/blog/how-to-choose-female-roe-crab", "permanent": true},
+    {"source": "/bloghow-to-store-live-seafood-before-cooking", "destination": "/blog/how-to-store-live-seafood-before-cooking", "permanent": true},
+    {"source": "/blogwhy-crab-prices-change-daily", "destination": "/blog/why-crab-prices-change-daily", "permanent": true},
+    {"source": "/blogwhy-yellow-roe-crab-is-expensive", "destination": "/blog/why-yellow-roe-crab-is-expensive", "permanent": true},
+    {"source": "/blogyellow-roe-crab-vs-meat-crab", "destination": "/blog/yellow-roe-crab-vs-meat-crab", "permanent": true},
+    {"source": "/blogyellow-roe-crab-vs-red-roe-crab", "destination": "/blog/yellow-roe-crab-vs-red-roe-crab", "permanent": true},
     {
       "source": "/jyellow-roe-crab-singapore",
       "destination": "/yellow-roe-crab-singapore",
